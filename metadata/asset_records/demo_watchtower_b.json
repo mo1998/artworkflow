@@ -3,8 +3,93 @@
   "run_key": "demo_watchtower_b",
   "status": "exported",
   "stages": {
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "assets/processed/demo_watchtower_b.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "199642 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 43.208 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.3267 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 384px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 71.34% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T15:41:19+03:00",
+      "attempts": 2
+    },
+    "export": {
+      "files": [
+        "assets/approved/buildings/demo_watchtower_b.png"
+      ],
+      "target": "assets/approved/buildings",
+      "mirror": "godot_project/assets/assets/buildings",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
+    },
     "generation": {
-      "file": "/home/mrazek/ArtWorkflow/assets/incoming/demo_watchtower_b.png",
+      "file": "assets/incoming/demo_watchtower_b.png",
       "bytes": 713281,
       "format": "png",
       "width": 1024,
@@ -15,16 +100,16 @@
       "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, water, river, lake, moat, sea, horizon line, ui elements, frame, border, vignette",
       "workflow": "workflows/comfyui/flux_txt2img.json",
       "workflow_name": "flux_txt2img",
-      "prompt_id": "b15e3cb6-3092-4a38-912a-d6e85fb309bd",
+      "prompt_id": "89070427-f209-4a81-a4e4-921fe6c4bc54",
       "seconds": 16.06,
       "attempt": 0,
-      "completed_at": "2026-10-18T14:23:15+03:00",
-      "attempts": 2
+      "completed_at": "2026-10-18T15:39:15+03:00",
+      "attempts": 1
     },
     "processing": {
-      "file": "/home/mrazek/ArtWorkflow/assets/processed/demo_watchtower_b.png",
+      "file": "assets/processed/demo_watchtower_b.png",
       "bytes": 199642,
-      "source": "/home/mrazek/ArtWorkflow/assets/incoming/demo_watchtower_b.png",
+      "source": "assets/incoming/demo_watchtower_b.png",
       "steps": [
         "remove_background",
         "trim",
@@ -107,98 +192,13 @@
         },
         "unique_colors": 16516
       },
-      "completed_at": "2026-10-18T14:24:46+03:00",
-      "attempts": 2
-    },
-    "validation": {
-      "status": "passed",
-      "checks": [
-        {
-          "check": "file_exists",
-          "ok": true,
-          "detail": "/home/mrazek/ArtWorkflow/assets/processed/demo_watchtower_b.png",
-          "severity": "error"
-        },
-        {
-          "check": "format_is_png",
-          "ok": true,
-          "detail": "detected png",
-          "severity": "error"
-        },
-        {
-          "check": "not_empty",
-          "ok": true,
-          "detail": "199642 bytes",
-          "severity": "error"
-        },
-        {
-          "check": "opens",
-          "ok": true,
-          "detail": "512x512 RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "dimensions",
-          "ok": true,
-          "detail": "512x512 expected 512x512",
-          "severity": "error"
-        },
-        {
-          "check": "not_blank",
-          "ok": true,
-          "detail": "rgb stddev 43.208 (min 4.0)",
-          "severity": "error"
-        },
-        {
-          "check": "has_alpha",
-          "ok": true,
-          "detail": "mode RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "subject_present",
-          "ok": true,
-          "detail": "alpha coverage 0.3267 in [0.02, 0.97]",
-          "severity": "error"
-        },
-        {
-          "check": "subject_size",
-          "ok": true,
-          "detail": "subject short side 384px (min 48)",
-          "severity": "error"
-        },
-        {
-          "check": "not_clipped",
-          "ok": true,
-          "detail": "subject clear of edges",
-          "severity": "error"
-        },
-        {
-          "check": "subject_fill",
-          "ok": true,
-          "detail": "subject fills 71.34% of the canvas (want 15%-92%)",
-          "severity": "review"
-        }
-      ],
-      "failed": [],
-      "review": [],
-      "completed_at": "2026-10-18T14:57:24+03:00",
-      "attempts": 8
-    },
-    "export": {
-      "files": [
-        "assets/approved/buildings/demo_watchtower_b.png"
-      ],
-      "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
-      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
-      "validation_status": "passed",
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 5
+      "completed_at": "2026-10-18T15:40:50+03:00",
+      "attempts": 1
     }
   },
   "errors": [],
   "retries": {},
-  "status_at": "2026-10-18T14:57:27+03:00",
-  "updated_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T15:41:21+03:00",
+  "updated_at": "2026-10-18T15:41:21+03:00",
   "exported_status": "passed"
 }

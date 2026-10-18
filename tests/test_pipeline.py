@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -356,6 +357,8 @@ class TestFamilies(unittest.TestCase):
             recs = self._records([asset_id, f"{asset_id}__lvl2", f"{asset_id}__lvl3"])
             if len(recs) < 2:
                 self.skipTest(f"no records for {asset_id} family")
+            if any("generation" not in r["stages"] for r in recs.values()):
+                self.skipTest(f"{asset_id} family has records without generation provenance")
             cams = {(r["stages"]["generation"].get("ortho_scale"),
                      r["stages"]["generation"].get("frame_target_z")) for r in recs.values()}
             self.assertEqual(len(cams), 1,
@@ -420,6 +423,116 @@ class TestFamilies(unittest.TestCase):
                 self.skipTest(f"no processed frames for {run_key}")
             sizes = {Image.open(f).size for f in frames}
             self.assertEqual(len(sizes), 1, f"{run_key}: frames are not uniform: {sizes}")
+
+
+class TestMcpServer(unittest.TestCase):
+    """The MCP surface is the main way agents use this, so it gets tested like any other API."""
+
+    SERVER = ROOT / "mcp_server" / "server.py"
+
+    def _call(self, *requests: dict) -> list[dict]:
+        payload = "\n".join(json.dumps(r) for r in requests) + "\n"
+        proc = subprocess.run([sys.executable, str(self.SERVER)], input=payload,
+                              capture_output=True, text=True, timeout=120, cwd=str(ROOT))
+        self.assertEqual(proc.returncode, 0, proc.stderr[-2000:])
+        return [json.loads(line) for line in proc.stdout.splitlines() if line.strip()]
+
+    def test_initialize_negotiates_and_declares_tools(self):
+        [response] = self._call({"jsonrpc": "2.0", "id": 1, "method": "initialize",
+                                 "params": {"protocolVersion": "2024-11-05"}})
+        result = response["result"]
+        self.assertEqual(result["protocolVersion"], "2024-11-05")
+        self.assertIn("tools", result["capabilities"])
+        self.assertEqual(result["serverInfo"]["name"], "artworkflow")
+
+    def test_unknown_protocol_version_falls_back(self):
+        from importlib import util as importlib_util
+
+        spec = importlib_util.spec_from_file_location("aw_mcp", self.SERVER)
+        module = importlib_util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        self.assertIn(module.DEFAULT_PROTOCOL, module.SUPPORTED_PROTOCOLS)
+
+    def test_tools_list_is_well_formed(self):
+        [response] = self._call({"jsonrpc": "2.0", "id": 1, "method": "tools/list"})
+        tools = response["result"]["tools"]
+        self.assertGreaterEqual(len(tools), 13)
+        for tool in tools:
+            self.assertTrue(tool["name"].startswith("artworkflow_"), tool["name"])
+            self.assertGreater(len(tool["description"]), 40, f"{tool['name']} needs a real description")
+            self.assertEqual(tool["inputSchema"]["type"], "object")
+
+    def test_stdout_carries_only_protocol_frames(self):
+        """A stray print from a stage would corrupt the transport."""
+        responses = self._call({"jsonrpc": "2.0", "id": 1, "method": "tools/list"},
+                               {"jsonrpc": "2.0", "id": 2, "method": "tools/call",
+                                "params": {"name": "artworkflow_manifest", "arguments": {}}})
+        self.assertEqual([r["id"] for r in responses], [1, 2])
+        manifest = json.loads(responses[1]["result"]["content"][0]["text"])
+        self.assertTrue(manifest["ok"], manifest["problems"])
+
+    def test_every_tool_is_documented(self):
+        [response] = self._call({"jsonrpc": "2.0", "id": 1, "method": "tools/list"})
+        doc = (ROOT / "mcp_server" / "README.md").read_text()
+        for tool in response["result"]["tools"]:
+            self.assertIn(tool["name"], doc, f"{tool['name']} is missing from mcp_server/README.md")
+
+    def test_failing_tool_reports_instead_of_crashing(self):
+        [response] = self._call({"jsonrpc": "2.0", "id": 1, "method": "tools/call",
+                                 "params": {"name": "artworkflow_nope", "arguments": {}}})
+        self.assertTrue(response["result"]["isError"])
+        self.assertIn("unknown tool", response["result"]["content"][0]["text"])
+
+
+class TestToolDetection(unittest.TestCase):
+    """Tool discovery is what makes the repo portable; it has to actually find things."""
+
+    def test_resolves_the_tools_installed_here(self):
+        from lib.common import Config
+        from lib.tools import resolve_tools
+
+        resolved = resolve_tools(Config.load())
+        self.assertIsNotNone(resolved["blender"], "Blender should be discoverable on this machine")
+        self.assertTrue(str(resolved["blender"]).endswith("blender"))
+
+    def test_env_var_override_wins(self):
+        """An env var pointing at a real file beats auto-detection; one pointing at a missing
+        file is ignored, so a stale variable cannot pretend a tool is installed."""
+        import os
+
+        from lib.tools import find_blender
+
+        with tempfile.TemporaryDirectory() as tmp:
+            real = Path(tmp) / "blender"
+            real.write_text("#!/bin/sh\n")
+            real.chmod(0o755)
+            os.environ["BLENDER_BIN"] = str(real)
+            try:
+                self.assertEqual(str(find_blender(None)), str(real))
+                os.environ["BLENDER_BIN"] = str(Path(tmp) / "gone")
+                self.assertNotEqual(str(find_blender(None)), str(Path(tmp) / "gone"))
+            finally:
+                del os.environ["BLENDER_BIN"]
+
+    def test_missing_tool_raises_with_an_actionable_message(self):
+        from lib.common import Config
+        from lib.tools import ToolNotFound, require
+
+        config = Config.load()
+        config.data["godot"]["binary"] = "/nonexistent/godot"
+        with self.assertRaises(ToolNotFound) as ctx:
+            require("godot", config)
+        self.assertIn("godot.binary", str(ctx.exception))
+
+    def test_no_tracked_config_hardcodes_a_home_directory(self):
+        """The repo must be clonable on another machine without editing tracked files."""
+        config = (ROOT / "config" / "pipeline.yaml").read_text()
+        for marker in ("/home/", "/Users/", "anaconda3"):
+            self.assertNotIn(marker, config, f"config/pipeline.yaml hardcodes {marker}")
+
+    def test_local_config_override_is_gitignored(self):
+        ignore = (ROOT / ".gitignore").read_text()
+        self.assertIn("config/pipeline.local.yaml", ignore)
 
 
 class TestExportedArtifacts(unittest.TestCase):

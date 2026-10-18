@@ -3,113 +3,6 @@
   "run_key": "vampire_gate_torch",
   "status": "exported",
   "stages": {
-    "generation": {
-      "file": "/home/mrazek/ArtWorkflow/assets/animations/vampire_gate_torch",
-      "frames": 16,
-      "clip": "torch_flicker",
-      "frame_rate": 12,
-      "frame_count": 16,
-      "ortho_scale": 5.0579,
-      "frame_target_z": 1.61,
-      "generator": "generate_building.py",
-      "seconds": 1.67,
-      "attempt": 0,
-      "params": {
-        "kind": "gate",
-        "width": 2.8,
-        "depth": 1.4,
-        "wall_height": 2.4,
-        "wall_material": "obsidian",
-        "post_material": "black_timber",
-        "window_material": "crimson_glow",
-        "door_material": "black_timber",
-        "roof": "flat",
-        "roof_material": "slate_dark",
-        "windows": 2,
-        "battlements": true,
-        "seed": 44,
-        "engine": "BLENDER_EEVEE_NEXT",
-        "res_x": 512,
-        "res_y": 512,
-        "samples": 48,
-        "key_energy": 2.2,
-        "fill_energy": 0.8,
-        "azimuth": 40.0,
-        "ortho_scale": 5.057884,
-        "frame_target_z": 1.61,
-        "frame_bounds": {
-          "lo": [
-            -1.6649999618530273,
-            -0.9649999737739563,
-            0.0
-          ],
-          "hi": [
-            1.6649999618530273,
-            0.9649999737739563,
-            3.2200000286102295
-          ]
-        }
-      },
-      "completed_at": "2026-10-18T14:53:10+03:00",
-      "attempts": 6
-    },
-    "processing": {
-      "dir": "/home/mrazek/ArtWorkflow/assets/processed/vampire_gate_torch",
-      "frames": 16,
-      "steps": [],
-      "frame_size": [
-        512,
-        512
-      ],
-      "measurements": {
-        "width": 512,
-        "height": 512,
-        "mode": "RGBA",
-        "has_alpha": true,
-        "alpha_coverage": 0.4476890563964844,
-        "opaque_coverage": 0.4428672790527344,
-        "bbox": [
-          87,
-          37,
-          424,
-          481
-        ],
-        "centroid": [
-          255.78610076772978,
-          256.89576427883674
-        ],
-        "rgb_mean": [
-          37.89,
-          36.89,
-          39.2
-        ],
-        "rgb_stddev": 44.746,
-        "transparent_rgb_fraction": 0.0,
-        "touches_border": {
-          "left": false,
-          "right": false,
-          "top": false,
-          "bottom": false
-        },
-        "unique_colors": 1404
-      },
-      "completed_at": "2026-10-18T14:53:23+03:00",
-      "attempts": 7
-    },
-    "spritesheet": {
-      "sheet": "/home/mrazek/ArtWorkflow/assets/spritesheets/vampire_gate_torch.png",
-      "metadata": "/home/mrazek/ArtWorkflow/assets/spritesheets/vampire_gate_torch.json",
-      "columns": 4,
-      "rows": 4,
-      "frame_size": [
-        512,
-        512
-      ],
-      "frames": 16,
-      "sheet_bytes": 1743691,
-      "completed_at": "2026-10-18T14:53:31+03:00",
-      "attempts": 8
-    },
     "validation": {
       "status": "passed",
       "checks": [
@@ -164,8 +57,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T14:57:26+03:00",
-      "attempts": 15
+      "completed_at": "2026-10-18T15:41:20+03:00",
+      "attempts": 2
     },
     "export": {
       "files": [
@@ -188,16 +81,123 @@
         "assets/approved/animations/vampire_gate_torch_frames/frame_0014.png",
         "assets/approved/animations/vampire_gate_torch_frames/frame_0015.png"
       ],
-      "target": "/home/mrazek/ArtWorkflow/assets/approved/animations",
-      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/animations",
+      "target": "assets/approved/animations",
+      "mirror": "godot_project/assets/assets/animations",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 12
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
+    },
+    "generation": {
+      "file": "assets/animations/vampire_gate_torch",
+      "frames": 16,
+      "clip": "torch_flicker",
+      "frame_rate": 12,
+      "frame_count": 16,
+      "ortho_scale": 5.0579,
+      "frame_target_z": 1.61,
+      "generator": "generate_building.py",
+      "seconds": 1.62,
+      "attempt": 0,
+      "params": {
+        "kind": "gate",
+        "width": 2.8,
+        "depth": 1.4,
+        "wall_height": 2.4,
+        "wall_material": "obsidian",
+        "post_material": "black_timber",
+        "window_material": "crimson_glow",
+        "door_material": "black_timber",
+        "roof": "flat",
+        "roof_material": "slate_dark",
+        "windows": 2,
+        "battlements": true,
+        "seed": 44,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "res_x": 512,
+        "res_y": 512,
+        "samples": 48,
+        "key_energy": 2.2,
+        "fill_energy": 0.8,
+        "azimuth": 40.0,
+        "ortho_scale": 5.057884,
+        "frame_target_z": 1.61,
+        "frame_bounds": {
+          "lo": [
+            -1.6649999618530273,
+            -0.9649999737739563,
+            0.0
+          ],
+          "hi": [
+            1.6649999618530273,
+            0.9649999737739563,
+            3.2200000286102295
+          ]
+        }
+      },
+      "completed_at": "2026-10-18T15:40:44+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "dir": "assets/processed/vampire_gate_torch",
+      "frames": 16,
+      "steps": [],
+      "frame_size": [
+        512,
+        512
+      ],
+      "measurements": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4476890563964844,
+        "opaque_coverage": 0.4428672790527344,
+        "bbox": [
+          87,
+          37,
+          424,
+          481
+        ],
+        "centroid": [
+          255.78610076772978,
+          256.89576427883674
+        ],
+        "rgb_mean": [
+          37.89,
+          36.89,
+          39.2
+        ],
+        "rgb_stddev": 44.746,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 1404
+      },
+      "completed_at": "2026-10-18T15:41:08+03:00",
+      "attempts": 1
+    },
+    "spritesheet": {
+      "sheet": "assets/spritesheets/vampire_gate_torch.png",
+      "metadata": "assets/spritesheets/vampire_gate_torch.json",
+      "columns": 4,
+      "rows": 4,
+      "frame_size": [
+        512,
+        512
+      ],
+      "frames": 16,
+      "sheet_bytes": 1743691,
+      "completed_at": "2026-10-18T15:41:17+03:00",
+      "attempts": 1
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:57:27+03:00",
-  "status_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T15:41:21+03:00",
+  "updated_at": "2026-10-18T15:41:21+03:00",
   "exported_status": "passed"
 }

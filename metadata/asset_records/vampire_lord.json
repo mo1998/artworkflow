@@ -3,8 +3,69 @@
   "run_key": "vampire_lord",
   "status": "exported",
   "stages": {
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "assets/processed/vampire_lord.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "256945 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 33.84 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "alpha not required for this style",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T15:41:20+03:00",
+      "attempts": 2
+    },
+    "export": {
+      "files": [
+        "assets/approved/portraits/vampire_lord.png"
+      ],
+      "target": "assets/approved/portraits",
+      "mirror": "godot_project/assets/assets/portraits",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
+    },
     "generation": {
-      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_lord.png",
+      "file": "assets/incoming/vampire_lord.png",
       "bytes": 922454,
       "format": "png",
       "width": 1024,
@@ -15,22 +76,16 @@
       "negative_prompt": "text, watermark, signature, logo, initials, monogram, letters, glyphs, artist signature, stamp, pencil mark, scribble, red scribble, multiple people, full body, extra limbs, deformed hands, blurry, low detail, photograph, cartoon, anime, ui, border, frame, vignette, gore, blood",
       "workflow": "workflows/comfyui/flux_txt2img.json",
       "workflow_name": "flux_txt2img",
-      "prompt_id": "2e54fbba-e1c9-40b4-bb89-5da64bccc309",
-      "seconds": 72.19,
+      "prompt_id": "ef254fd5-5371-43e1-bfd9-36bfbb9c2c97",
+      "seconds": 20.06,
       "attempt": 0,
-      "completed_at": "2026-10-18T14:31:27+03:00",
-      "attempts": 3
+      "completed_at": "2026-10-18T15:40:30+03:00",
+      "attempts": 1
     },
     "processing": {
-      "attempts": 4,
-      "failed_at": "2026-10-18T14:13:45+03:00",
-      "errors": [
-        "ValueError: images do not match"
-      ],
-      "traceback": "    result = alpha_composite(background, overlay) |   File \"/home/ubuntu/anaconda3/lib/python3.9/site-packages/PIL/Image.py\", line 3599, in alpha_composite |     return im1._new(core.alpha_composite(im1.im, im2.im)) | ValueError: images do not match",
-      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_lord.png",
+      "file": "assets/processed/vampire_lord.png",
       "bytes": 256945,
-      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_lord.png",
+      "source": "assets/incoming/vampire_lord.png",
       "steps": [
         "resize(fit 1024x1024->512x512)",
         "canvas(512,anchor=center,pad=0,mode=fit)"
@@ -106,79 +161,13 @@
         },
         "unique_colors": 8122
       },
-      "completed_at": "2026-10-18T14:31:28+03:00"
-    },
-    "validation": {
-      "status": "passed",
-      "checks": [
-        {
-          "check": "file_exists",
-          "ok": true,
-          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_lord.png",
-          "severity": "error"
-        },
-        {
-          "check": "format_is_png",
-          "ok": true,
-          "detail": "detected png",
-          "severity": "error"
-        },
-        {
-          "check": "not_empty",
-          "ok": true,
-          "detail": "256945 bytes",
-          "severity": "error"
-        },
-        {
-          "check": "opens",
-          "ok": true,
-          "detail": "512x512 RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "dimensions",
-          "ok": true,
-          "detail": "512x512 expected 512x512",
-          "severity": "error"
-        },
-        {
-          "check": "not_blank",
-          "ok": true,
-          "detail": "rgb stddev 33.84 (min 4.0)",
-          "severity": "error"
-        },
-        {
-          "check": "has_alpha",
-          "ok": true,
-          "detail": "alpha not required for this style",
-          "severity": "review"
-        }
-      ],
-      "failed": [],
-      "review": [],
-      "completed_at": "2026-10-18T14:57:25+03:00",
-      "attempts": 10
-    },
-    "export": {
-      "files": [
-        "assets/approved/portraits/vampire_lord.png"
-      ],
-      "target": "/home/mrazek/ArtWorkflow/assets/approved/portraits",
-      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/portraits",
-      "validation_status": "passed",
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 6
+      "completed_at": "2026-10-18T15:41:02+03:00",
+      "attempts": 1
     }
   },
-  "errors": [
-    {
-      "stage": "processing",
-      "error": "ValueError: images do not match",
-      "ts": "2026-10-18T14:13:45+03:00"
-    }
-  ],
+  "errors": [],
   "retries": {},
-  "status_at": "2026-10-18T14:57:27+03:00",
-  "updated_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T15:41:21+03:00",
+  "updated_at": "2026-10-18T15:41:21+03:00",
   "exported_status": "passed"
 }

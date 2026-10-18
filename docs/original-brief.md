@@ -1,3 +1,12 @@
+> **Archived brief.** This is the specification ArtWorkflow was built from. It is kept for
+> provenance, not as documentation — several of its recommendations were replaced after testing:
+> standalone `rembg`/`onnxruntime` gave way to the `ComfyUI_BiRefNet_ll` node, Pixelorama is not
+> used, prompt-generated animation was rejected in favour of procedural clips, and the framing,
+> validation and reproducibility behaviour described in the main README was learned by measuring
+> real output rather than assumed. Where the two disagree, the code and the README are correct.
+
+---
+
 # Autonomous Game-Art Pipeline
 
 A free, automation-first workflow for generating game-ready art assets and animations using **OpenCode** as the orchestrator. The goal is to minimize manual GUI work by using local APIs, command-line tools, and scripts wherever possible.

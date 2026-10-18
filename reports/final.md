@@ -1,6 +1,6 @@
-# Art pipeline report - final
+# Art pipeline report - release
 
-Generated 2026-10-18T14:59:39+03:00 from `/home/mrazek/ArtWorkflow/config/manifest.json`.
+Generated 2026-10-18T15:41:41+03:00 from `config/manifest.json`.
 
 ## Totals
 
@@ -27,7 +27,7 @@ Generated 2026-10-18T14:59:39+03:00 from `/home/mrazek/ArtWorkflow/config/manife
 | vampire_manor_house | comfyui | exported | 771901 | - | `assets/approved/buildings/vampire_manor_house.png` | - |
 | vampire_crypt | comfyui | exported | 449213 | - | `assets/approved/buildings/vampire_crypt.png` | - |
 | vampire_blood_well | comfyui | exported | 55021 | - | `assets/approved/props/vampire_blood_well.png` | - |
-| vampire_lord | comfyui | exported | 615042 | - | `assets/approved/portraits/vampire_lord.png` | errors: 1 |
+| vampire_lord | comfyui | exported | 615042 | - | `assets/approved/portraits/vampire_lord.png` | - |
 | vampire_keep | blender | exported | - | - | `assets/approved/buildings/vampire_keep.png` | - |
 | vampire_keep__lvl2 | blender | exported | - | - | `assets/approved/buildings/vampire_keep__lvl2.png` | - |
 | vampire_keep__lvl3 | blender | exported | - | - | `assets/approved/buildings/vampire_keep__lvl3.png` | - |
@@ -58,13 +58,38 @@ Generated 2026-10-18T14:59:39+03:00 from `/home/mrazek/ArtWorkflow/config/manife
 
 ## Logs
 
-- `logs/final/events.jsonl`
-- `logs/final/export-summary.json`
-- `logs/final/godot-check-summary.json`
-- `logs/final/godot-check.log.log`
-- `logs/final/godot-import.log.log`
-- `logs/final/report-summary.json`
-- `logs/final/validate-summary.json`
+- `logs/release/demo_hut-blender.log.log`
+- `logs/release/demo_hut-measure.log.log`
+- `logs/release/demo_hut__lvl2-blender.log.log`
+- `logs/release/demo_hut__lvl2-measure.log.log`
+- `logs/release/demo_hut__lvl3-blender.log.log`
+- `logs/release/demo_hut__lvl3-measure.log.log`
+- `logs/release/demo_hut_flag-blender.log.log`
+- `logs/release/demo_hut_flag-measure.log.log`
+- `logs/release/events.jsonl`
+- `logs/release/export-summary.json`
+- `logs/release/framing.log`
+- `logs/release/generate-blender-summary.json`
+- `logs/release/generate-comfyui-summary.json`
+- `logs/release/godot-check-summary.json`
+- `logs/release/godot-check.log.log`
+- `logs/release/godot-import.log.log`
+- `logs/release/process-summary.json`
+- `logs/release/report-summary.json`
+- `logs/release/spritesheet-summary.json`
+- `logs/release/validate-summary.json`
+- `logs/release/vampire_gate_torch-blender.log.log`
+- `logs/release/vampire_gate_torch-measure.log.log`
+- `logs/release/vampire_grave-blender.log.log`
+- `logs/release/vampire_grave-measure.log.log`
+- `logs/release/vampire_keep-blender.log.log`
+- `logs/release/vampire_keep-measure.log.log`
+- `logs/release/vampire_keep__lvl2-blender.log.log`
+- `logs/release/vampire_keep__lvl2-measure.log.log`
+- `logs/release/vampire_keep__lvl3-blender.log.log`
+- `logs/release/vampire_keep__lvl3-measure.log.log`
+- `logs/release/vampire_watcher-blender.log.log`
+- `logs/release/vampire_watcher-measure.log.log`
 
 ## Notes
 

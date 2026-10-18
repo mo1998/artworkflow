@@ -1,7 +1,7 @@
 {
-  "run_id": "final",
-  "generated_at": "2026-10-18T14:59:39+03:00",
-  "manifest": "/home/mrazek/ArtWorkflow/config/manifest.json",
+  "run_id": "release",
+  "generated_at": "2026-10-18T15:41:41+03:00",
+  "manifest": "config/manifest.json",
   "totals": {
     "assets": 16,
     "by_status": {
@@ -27,8 +27,8 @@
       "generator": null,
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/demo_watchtower_a.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_watchtower_a.png",
+      "incoming": "assets/incoming/demo_watchtower_a.png",
+      "processed": "assets/processed/demo_watchtower_a.png",
       "exported": [
         "assets/approved/buildings/demo_watchtower_a.png"
       ],
@@ -54,8 +54,8 @@
       "generator": null,
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/demo_watchtower_b.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_watchtower_b.png",
+      "incoming": "assets/incoming/demo_watchtower_b.png",
+      "processed": "assets/processed/demo_watchtower_b.png",
       "exported": [
         "assets/approved/buildings/demo_watchtower_b.png"
       ],
@@ -81,8 +81,8 @@
       "generator": "generate_building.py",
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut.png",
+      "incoming": "assets/incoming/demo_hut.png",
+      "processed": "assets/processed/demo_hut.png",
       "exported": [
         "assets/approved/buildings/demo_hut.png"
       ],
@@ -91,7 +91,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 0.94
+        "generation": 0.8
       }
     },
     {
@@ -108,8 +108,8 @@
       "generator": "generate_building.py",
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl2.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut__lvl2.png",
+      "incoming": "assets/incoming/demo_hut__lvl2.png",
+      "processed": "assets/processed/demo_hut__lvl2.png",
       "exported": [
         "assets/approved/buildings/demo_hut__lvl2.png"
       ],
@@ -135,8 +135,8 @@
       "generator": "generate_building.py",
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl3.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut__lvl3.png",
+      "incoming": "assets/incoming/demo_hut__lvl3.png",
+      "processed": "assets/processed/demo_hut__lvl3.png",
       "exported": [
         "assets/approved/buildings/demo_hut__lvl3.png"
       ],
@@ -162,8 +162,8 @@
       "generator": "generate_building.py",
       "clip": "banner_wave",
       "frames": 12,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/animations/demo_hut_flag",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut_flag",
+      "incoming": "assets/animations/demo_hut_flag",
+      "processed": "assets/processed/demo_hut_flag",
       "exported": [
         "assets/approved/animations/demo_hut_flag.png",
         "assets/approved/animations/demo_hut_flag.json",
@@ -185,7 +185,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 1.61
+        "generation": 1.51
       }
     },
     {
@@ -202,8 +202,8 @@
       "generator": null,
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_manor_house.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/vampire_manor_house.png",
+      "incoming": "assets/incoming/vampire_manor_house.png",
+      "processed": "assets/processed/vampire_manor_house.png",
       "exported": [
         "assets/approved/buildings/vampire_manor_house.png"
       ],
@@ -212,7 +212,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 18.15
+        "generation": 18.06
       }
     },
     {
@@ -229,8 +229,8 @@
       "generator": null,
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_crypt.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/vampire_crypt.png",
+      "incoming": "assets/incoming/vampire_crypt.png",
+      "processed": "assets/processed/vampire_crypt.png",
       "exported": [
         "assets/approved/buildings/vampire_crypt.png"
       ],
@@ -239,7 +239,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 18.07
+        "generation": 18.09
       }
     },
     {
@@ -256,8 +256,8 @@
       "generator": null,
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_blood_well.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/vampire_blood_well.png",
+      "incoming": "assets/incoming/vampire_blood_well.png",
+      "processed": "assets/processed/vampire_blood_well.png",
       "exported": [
         "assets/approved/props/vampire_blood_well.png"
       ],
@@ -266,7 +266,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 18.07
+        "generation": 18.08
       }
     },
     {
@@ -283,23 +283,17 @@
       "generator": null,
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_lord.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/vampire_lord.png",
+      "incoming": "assets/incoming/vampire_lord.png",
+      "processed": "assets/processed/vampire_lord.png",
       "exported": [
         "assets/approved/portraits/vampire_lord.png"
       ],
       "failed_checks": [],
       "review_checks": [],
       "retries": {},
-      "errors": [
-        {
-          "stage": "processing",
-          "error": "ValueError: images do not match",
-          "ts": "2026-10-18T14:13:45+03:00"
-        }
-      ],
+      "errors": [],
       "seconds": {
-        "generation": 72.19
+        "generation": 20.06
       }
     },
     {
@@ -316,8 +310,8 @@
       "generator": "generate_building.py",
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_keep.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/vampire_keep.png",
+      "incoming": "assets/incoming/vampire_keep.png",
+      "processed": "assets/processed/vampire_keep.png",
       "exported": [
         "assets/approved/buildings/vampire_keep.png"
       ],
@@ -326,7 +320,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 0.73
+        "generation": 0.74
       }
     },
     {
@@ -343,8 +337,8 @@
       "generator": "generate_building.py",
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_keep__lvl2.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/vampire_keep__lvl2.png",
+      "incoming": "assets/incoming/vampire_keep__lvl2.png",
+      "processed": "assets/processed/vampire_keep__lvl2.png",
       "exported": [
         "assets/approved/buildings/vampire_keep__lvl2.png"
       ],
@@ -353,7 +347,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 0.74
+        "generation": 0.75
       }
     },
     {
@@ -370,8 +364,8 @@
       "generator": "generate_building.py",
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_keep__lvl3.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/vampire_keep__lvl3.png",
+      "incoming": "assets/incoming/vampire_keep__lvl3.png",
+      "processed": "assets/processed/vampire_keep__lvl3.png",
       "exported": [
         "assets/approved/buildings/vampire_keep__lvl3.png"
       ],
@@ -380,7 +374,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 0.76
+        "generation": 0.77
       }
     },
     {
@@ -397,8 +391,8 @@
       "generator": "generate_prop.py",
       "clip": null,
       "frames": null,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_grave.png",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/vampire_grave.png",
+      "incoming": "assets/incoming/vampire_grave.png",
+      "processed": "assets/processed/vampire_grave.png",
       "exported": [
         "assets/approved/props/vampire_grave.png"
       ],
@@ -407,7 +401,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 0.67
+        "generation": 0.7
       }
     },
     {
@@ -424,8 +418,8 @@
       "generator": "generate_building.py",
       "clip": "torch_flicker",
       "frames": 16,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/animations/vampire_gate_torch",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/vampire_gate_torch",
+      "incoming": "assets/animations/vampire_gate_torch",
+      "processed": "assets/processed/vampire_gate_torch",
       "exported": [
         "assets/approved/animations/vampire_gate_torch.png",
         "assets/approved/animations/vampire_gate_torch.json",
@@ -451,7 +445,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 1.67
+        "generation": 1.62
       }
     },
     {
@@ -468,8 +462,8 @@
       "generator": "generate_prop.py",
       "clip": "turntable",
       "frames": 24,
-      "incoming": "/home/mrazek/ArtWorkflow/assets/animations/vampire_watcher",
-      "processed": "/home/mrazek/ArtWorkflow/assets/processed/vampire_watcher",
+      "incoming": "assets/animations/vampire_watcher",
+      "processed": "assets/processed/vampire_watcher",
       "exported": [
         "assets/approved/animations/vampire_watcher.png",
         "assets/approved/animations/vampire_watcher.json",
@@ -503,7 +497,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 2.08
+        "generation": 2.09
       }
     }
   ],
@@ -511,12 +505,37 @@
   "duplicates": [],
   "provenance_gaps": [],
   "logs": [
-    "logs/final/events.jsonl",
-    "logs/final/export-summary.json",
-    "logs/final/godot-check-summary.json",
-    "logs/final/godot-check.log.log",
-    "logs/final/godot-import.log.log",
-    "logs/final/report-summary.json",
-    "logs/final/validate-summary.json"
+    "logs/release/demo_hut-blender.log.log",
+    "logs/release/demo_hut-measure.log.log",
+    "logs/release/demo_hut__lvl2-blender.log.log",
+    "logs/release/demo_hut__lvl2-measure.log.log",
+    "logs/release/demo_hut__lvl3-blender.log.log",
+    "logs/release/demo_hut__lvl3-measure.log.log",
+    "logs/release/demo_hut_flag-blender.log.log",
+    "logs/release/demo_hut_flag-measure.log.log",
+    "logs/release/events.jsonl",
+    "logs/release/export-summary.json",
+    "logs/release/framing.log",
+    "logs/release/generate-blender-summary.json",
+    "logs/release/generate-comfyui-summary.json",
+    "logs/release/godot-check-summary.json",
+    "logs/release/godot-check.log.log",
+    "logs/release/godot-import.log.log",
+    "logs/release/process-summary.json",
+    "logs/release/report-summary.json",
+    "logs/release/spritesheet-summary.json",
+    "logs/release/validate-summary.json",
+    "logs/release/vampire_gate_torch-blender.log.log",
+    "logs/release/vampire_gate_torch-measure.log.log",
+    "logs/release/vampire_grave-blender.log.log",
+    "logs/release/vampire_grave-measure.log.log",
+    "logs/release/vampire_keep-blender.log.log",
+    "logs/release/vampire_keep-measure.log.log",
+    "logs/release/vampire_keep__lvl2-blender.log.log",
+    "logs/release/vampire_keep__lvl2-measure.log.log",
+    "logs/release/vampire_keep__lvl3-blender.log.log",
+    "logs/release/vampire_keep__lvl3-measure.log.log",
+    "logs/release/vampire_watcher-blender.log.log",
+    "logs/release/vampire_watcher-measure.log.log"
   ]
 }

@@ -3,8 +3,93 @@
   "run_key": "vampire_blood_well",
   "status": "exported",
   "stages": {
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "assets/processed/vampire_blood_well.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "187681 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 43.634 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.3264 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 310px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 56.64% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T15:41:20+03:00",
+      "attempts": 2
+    },
+    "export": {
+      "files": [
+        "assets/approved/props/vampire_blood_well.png"
+      ],
+      "target": "assets/approved/props",
+      "mirror": "godot_project/assets/assets/props",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
+    },
     "generation": {
-      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_blood_well.png",
+      "file": "assets/incoming/vampire_blood_well.png",
       "bytes": 860473,
       "format": "png",
       "width": 1024,
@@ -15,16 +100,16 @@
       "negative_prompt": "text, watermark, signature, multiple objects, crowded, cropped object, cut off edges, blurry, low detail, photograph, background scenery, landscape, people, hands, bats, fog, mist, blood splatter, ui, frame, border, vignette",
       "workflow": "workflows/comfyui/flux_txt2img.json",
       "workflow_name": "flux_txt2img",
-      "prompt_id": "71a538de-94a0-4c4f-bd0d-cf362a860526",
-      "seconds": 18.07,
+      "prompt_id": "e1419803-6233-447d-98bd-ee56f680a3bf",
+      "seconds": 18.08,
       "attempt": 0,
-      "completed_at": "2026-10-18T14:24:09+03:00",
-      "attempts": 2
+      "completed_at": "2026-10-18T15:40:10+03:00",
+      "attempts": 1
     },
     "processing": {
-      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_blood_well.png",
+      "file": "assets/processed/vampire_blood_well.png",
       "bytes": 187681,
-      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_blood_well.png",
+      "source": "assets/incoming/vampire_blood_well.png",
       "steps": [
         "remove_background",
         "trim",
@@ -107,98 +192,13 @@
         },
         "unique_colors": 13263
       },
-      "completed_at": "2026-10-18T14:24:58+03:00",
-      "attempts": 3
-    },
-    "validation": {
-      "status": "passed",
-      "checks": [
-        {
-          "check": "file_exists",
-          "ok": true,
-          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_blood_well.png",
-          "severity": "error"
-        },
-        {
-          "check": "format_is_png",
-          "ok": true,
-          "detail": "detected png",
-          "severity": "error"
-        },
-        {
-          "check": "not_empty",
-          "ok": true,
-          "detail": "187681 bytes",
-          "severity": "error"
-        },
-        {
-          "check": "opens",
-          "ok": true,
-          "detail": "512x512 RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "dimensions",
-          "ok": true,
-          "detail": "512x512 expected 512x512",
-          "severity": "error"
-        },
-        {
-          "check": "not_blank",
-          "ok": true,
-          "detail": "rgb stddev 43.634 (min 4.0)",
-          "severity": "error"
-        },
-        {
-          "check": "has_alpha",
-          "ok": true,
-          "detail": "mode RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "subject_present",
-          "ok": true,
-          "detail": "alpha coverage 0.3264 in [0.02, 0.97]",
-          "severity": "error"
-        },
-        {
-          "check": "subject_size",
-          "ok": true,
-          "detail": "subject short side 310px (min 48)",
-          "severity": "error"
-        },
-        {
-          "check": "not_clipped",
-          "ok": true,
-          "detail": "subject clear of edges",
-          "severity": "error"
-        },
-        {
-          "check": "subject_fill",
-          "ok": true,
-          "detail": "subject fills 56.64% of the canvas (want 15%-92%)",
-          "severity": "review"
-        }
-      ],
-      "failed": [],
-      "review": [],
-      "completed_at": "2026-10-18T14:57:25+03:00",
-      "attempts": 9
-    },
-    "export": {
-      "files": [
-        "assets/approved/props/vampire_blood_well.png"
-      ],
-      "target": "/home/mrazek/ArtWorkflow/assets/approved/props",
-      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/props",
-      "validation_status": "passed",
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 6
+      "completed_at": "2026-10-18T15:41:02+03:00",
+      "attempts": 1
     }
   },
   "errors": [],
   "retries": {},
-  "status_at": "2026-10-18T14:57:27+03:00",
-  "updated_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T15:41:21+03:00",
+  "updated_at": "2026-10-18T15:41:21+03:00",
   "exported_status": "passed"
 }

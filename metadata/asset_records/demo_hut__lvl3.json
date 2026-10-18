@@ -3,8 +3,99 @@
   "run_key": "demo_hut__lvl3",
   "status": "exported",
   "stages": {
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "assets/processed/demo_hut__lvl3.png",
+          "severity": "error"
+        },
+        {
+          "check": "source_not_clipped",
+          "ok": true,
+          "detail": "demo_hut__lvl3.png content box (156, 223, 868, 977) within 1024x1024",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "159651 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 88.983 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.6171 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 460px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 85.46% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T15:41:19+03:00",
+      "attempts": 2
+    },
+    "export": {
+      "files": [
+        "assets/approved/buildings/demo_hut__lvl3.png"
+      ],
+      "target": "assets/approved/buildings",
+      "mirror": "godot_project/assets/assets/buildings",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
+    },
     "generation": {
-      "file": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl3.png",
+      "file": "assets/incoming/demo_hut__lvl3.png",
       "bytes": 624305,
       "generator": "generate_building.py",
       "ortho_scale": 7.0407,
@@ -41,13 +132,13 @@
           ]
         }
       },
-      "completed_at": "2026-10-18T14:53:03+03:00",
-      "attempts": 4
+      "completed_at": "2026-10-18T15:40:37+03:00",
+      "attempts": 1
     },
     "processing": {
-      "file": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut__lvl3.png",
+      "file": "assets/processed/demo_hut__lvl3.png",
       "bytes": 159651,
-      "source": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl3.png",
+      "source": "assets/incoming/demo_hut__lvl3.png",
       "steps": [
         "trim",
         "resize(family x0.6472 ->461x488)",
@@ -129,104 +220,13 @@
         },
         "unique_colors": 2659
       },
-      "completed_at": "2026-10-18T14:53:13+03:00",
-      "attempts": 4
-    },
-    "validation": {
-      "status": "passed",
-      "checks": [
-        {
-          "check": "file_exists",
-          "ok": true,
-          "detail": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut__lvl3.png",
-          "severity": "error"
-        },
-        {
-          "check": "source_not_clipped",
-          "ok": true,
-          "detail": "demo_hut__lvl3.png content box (156, 223, 868, 977) within 1024x1024",
-          "severity": "error"
-        },
-        {
-          "check": "format_is_png",
-          "ok": true,
-          "detail": "detected png",
-          "severity": "error"
-        },
-        {
-          "check": "not_empty",
-          "ok": true,
-          "detail": "159651 bytes",
-          "severity": "error"
-        },
-        {
-          "check": "opens",
-          "ok": true,
-          "detail": "512x512 RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "dimensions",
-          "ok": true,
-          "detail": "512x512 expected 512x512",
-          "severity": "error"
-        },
-        {
-          "check": "not_blank",
-          "ok": true,
-          "detail": "rgb stddev 88.983 (min 4.0)",
-          "severity": "error"
-        },
-        {
-          "check": "has_alpha",
-          "ok": true,
-          "detail": "mode RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "subject_present",
-          "ok": true,
-          "detail": "alpha coverage 0.6171 in [0.02, 0.97]",
-          "severity": "error"
-        },
-        {
-          "check": "subject_size",
-          "ok": true,
-          "detail": "subject short side 460px (min 48)",
-          "severity": "error"
-        },
-        {
-          "check": "not_clipped",
-          "ok": true,
-          "detail": "subject clear of edges",
-          "severity": "error"
-        },
-        {
-          "check": "subject_fill",
-          "ok": true,
-          "detail": "subject fills 85.46% of the canvas (want 15%-92%)",
-          "severity": "review"
-        }
-      ],
-      "failed": [],
-      "review": [],
-      "completed_at": "2026-10-18T14:57:24+03:00",
-      "attempts": 11
-    },
-    "export": {
-      "files": [
-        "assets/approved/buildings/demo_hut__lvl3.png"
-      ],
-      "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
-      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
-      "validation_status": "passed",
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 8
+      "completed_at": "2026-10-18T15:40:52+03:00",
+      "attempts": 1
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:57:27+03:00",
-  "status_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T15:41:21+03:00",
+  "updated_at": "2026-10-18T15:41:21+03:00",
   "exported_status": "passed"
 }

@@ -3,8 +3,93 @@
   "run_key": "vampire_crypt",
   "status": "exported",
   "stages": {
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "assets/processed/vampire_crypt.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "299184 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 46.205 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.5061 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 473px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 87.87% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T15:41:20+03:00",
+      "attempts": 2
+    },
+    "export": {
+      "files": [
+        "assets/approved/buildings/vampire_crypt.png"
+      ],
+      "target": "assets/approved/buildings",
+      "mirror": "godot_project/assets/assets/buildings",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
+    },
     "generation": {
-      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_crypt.png",
+      "file": "assets/incoming/vampire_crypt.png",
       "bytes": 1097219,
       "format": "png",
       "width": 1024,
@@ -15,16 +100,16 @@
       "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, water, river, lake, moat, sea, horizon line, night sky, full moon, fog, bats, blood splatter, ui elements, frame, border, vignette",
       "workflow": "workflows/comfyui/flux_txt2img.json",
       "workflow_name": "flux_txt2img",
-      "prompt_id": "cc66c178-dfaa-4a3a-9dcf-3b694864a937",
-      "seconds": 18.07,
+      "prompt_id": "d19c34e9-a0c7-43c8-9e27-22523a73162a",
+      "seconds": 18.09,
       "attempt": 0,
-      "completed_at": "2026-10-18T14:23:51+03:00",
-      "attempts": 2
+      "completed_at": "2026-10-18T15:39:52+03:00",
+      "attempts": 1
     },
     "processing": {
-      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_crypt.png",
+      "file": "assets/processed/vampire_crypt.png",
       "bytes": 299184,
-      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_crypt.png",
+      "source": "assets/incoming/vampire_crypt.png",
       "steps": [
         "remove_background",
         "trim",
@@ -107,98 +192,13 @@
         },
         "unique_colors": 22571
       },
-      "completed_at": "2026-10-18T14:24:56+03:00",
-      "attempts": 3
-    },
-    "validation": {
-      "status": "passed",
-      "checks": [
-        {
-          "check": "file_exists",
-          "ok": true,
-          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_crypt.png",
-          "severity": "error"
-        },
-        {
-          "check": "format_is_png",
-          "ok": true,
-          "detail": "detected png",
-          "severity": "error"
-        },
-        {
-          "check": "not_empty",
-          "ok": true,
-          "detail": "299184 bytes",
-          "severity": "error"
-        },
-        {
-          "check": "opens",
-          "ok": true,
-          "detail": "512x512 RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "dimensions",
-          "ok": true,
-          "detail": "512x512 expected 512x512",
-          "severity": "error"
-        },
-        {
-          "check": "not_blank",
-          "ok": true,
-          "detail": "rgb stddev 46.205 (min 4.0)",
-          "severity": "error"
-        },
-        {
-          "check": "has_alpha",
-          "ok": true,
-          "detail": "mode RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "subject_present",
-          "ok": true,
-          "detail": "alpha coverage 0.5061 in [0.02, 0.97]",
-          "severity": "error"
-        },
-        {
-          "check": "subject_size",
-          "ok": true,
-          "detail": "subject short side 473px (min 48)",
-          "severity": "error"
-        },
-        {
-          "check": "not_clipped",
-          "ok": true,
-          "detail": "subject clear of edges",
-          "severity": "error"
-        },
-        {
-          "check": "subject_fill",
-          "ok": true,
-          "detail": "subject fills 87.87% of the canvas (want 15%-92%)",
-          "severity": "review"
-        }
-      ],
-      "failed": [],
-      "review": [],
-      "completed_at": "2026-10-18T14:57:25+03:00",
-      "attempts": 9
-    },
-    "export": {
-      "files": [
-        "assets/approved/buildings/vampire_crypt.png"
-      ],
-      "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
-      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
-      "validation_status": "passed",
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 6
+      "completed_at": "2026-10-18T15:40:59+03:00",
+      "attempts": 1
     }
   },
   "errors": [],
   "retries": {},
-  "status_at": "2026-10-18T14:57:27+03:00",
-  "updated_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T15:41:21+03:00",
+  "updated_at": "2026-10-18T15:41:21+03:00",
   "exported_status": "passed"
 }

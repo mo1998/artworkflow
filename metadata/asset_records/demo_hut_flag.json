@@ -3,106 +3,6 @@
   "run_key": "demo_hut_flag",
   "status": "exported",
   "stages": {
-    "generation": {
-      "file": "/home/mrazek/ArtWorkflow/assets/animations/demo_hut_flag",
-      "frames": 12,
-      "clip": "banner_wave",
-      "frame_rate": 12,
-      "frame_count": 12,
-      "ortho_scale": 5.862,
-      "frame_target_z": 1.95,
-      "generator": "generate_building.py",
-      "seconds": 1.61,
-      "attempt": 0,
-      "params": {
-        "kind": "hut",
-        "width": 2.6,
-        "depth": 2.4,
-        "wall_height": 1.8,
-        "wall_material": "plaster",
-        "roof": "gable",
-        "roof_material": "thatch",
-        "banner": true,
-        "seed": 21,
-        "engine": "BLENDER_EEVEE_NEXT",
-        "res_x": 512,
-        "res_y": 512,
-        "samples": 48,
-        "ortho_scale": 5.862025,
-        "frame_target_z": 1.95,
-        "frame_bounds": {
-          "lo": [
-            -1.4299999475479126,
-            -1.3300000429153442,
-            0.0
-          ],
-          "hi": [
-            1.4299999475479126,
-            1.3300000429153442,
-            3.9000000953674316
-          ]
-        }
-      },
-      "completed_at": "2026-10-18T14:53:05+03:00",
-      "attempts": 4
-    },
-    "processing": {
-      "dir": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut_flag",
-      "frames": 12,
-      "steps": [],
-      "frame_size": [
-        512,
-        512
-      ],
-      "measurements": {
-        "width": 512,
-        "height": 512,
-        "mode": "RGBA",
-        "has_alpha": true,
-        "alpha_coverage": 0.35541534423828125,
-        "opaque_coverage": 0.35228729248046875,
-        "bbox": [
-          85,
-          66,
-          426,
-          488
-        ],
-        "centroid": [
-          249.38163571965225,
-          302.2163786626597
-        ],
-        "rgb_mean": [
-          71.01,
-          64.56,
-          54.75
-        ],
-        "rgb_stddev": 87.872,
-        "transparent_rgb_fraction": 0.0,
-        "touches_border": {
-          "left": false,
-          "right": false,
-          "top": false,
-          "bottom": false
-        },
-        "unique_colors": 2036
-      },
-      "completed_at": "2026-10-18T14:53:16+03:00",
-      "attempts": 4
-    },
-    "spritesheet": {
-      "sheet": "/home/mrazek/ArtWorkflow/assets/spritesheets/demo_hut_flag.png",
-      "metadata": "/home/mrazek/ArtWorkflow/assets/spritesheets/demo_hut_flag.json",
-      "columns": 4,
-      "rows": 3,
-      "frame_size": [
-        512,
-        512
-      ],
-      "frames": 12,
-      "sheet_bytes": 357355,
-      "completed_at": "2026-10-18T14:53:28+03:00",
-      "attempts": 4
-    },
     "validation": {
       "status": "passed",
       "checks": [
@@ -157,8 +57,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T14:57:25+03:00",
-      "attempts": 11
+      "completed_at": "2026-10-18T15:41:19+03:00",
+      "attempts": 2
     },
     "export": {
       "files": [
@@ -177,16 +77,116 @@
         "assets/approved/animations/demo_hut_flag_frames/frame_0010.png",
         "assets/approved/animations/demo_hut_flag_frames/frame_0011.png"
       ],
-      "target": "/home/mrazek/ArtWorkflow/assets/approved/animations",
-      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/animations",
+      "target": "assets/approved/animations",
+      "mirror": "godot_project/assets/assets/animations",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 8
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
+    },
+    "generation": {
+      "file": "assets/animations/demo_hut_flag",
+      "frames": 12,
+      "clip": "banner_wave",
+      "frame_rate": 12,
+      "frame_count": 12,
+      "ortho_scale": 5.862,
+      "frame_target_z": 1.95,
+      "generator": "generate_building.py",
+      "seconds": 1.51,
+      "attempt": 0,
+      "params": {
+        "kind": "hut",
+        "width": 2.6,
+        "depth": 2.4,
+        "wall_height": 1.8,
+        "wall_material": "plaster",
+        "roof": "gable",
+        "roof_material": "thatch",
+        "banner": true,
+        "seed": 21,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "res_x": 512,
+        "res_y": 512,
+        "samples": 48,
+        "ortho_scale": 5.862025,
+        "frame_target_z": 1.95,
+        "frame_bounds": {
+          "lo": [
+            -1.4299999475479126,
+            -1.3300000429153442,
+            0.0
+          ],
+          "hi": [
+            1.4299999475479126,
+            1.3300000429153442,
+            3.9000000953674316
+          ]
+        }
+      },
+      "completed_at": "2026-10-18T15:40:39+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "dir": "assets/processed/demo_hut_flag",
+      "frames": 12,
+      "steps": [],
+      "frame_size": [
+        512,
+        512
+      ],
+      "measurements": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.35541534423828125,
+        "opaque_coverage": 0.35228729248046875,
+        "bbox": [
+          85,
+          66,
+          426,
+          488
+        ],
+        "centroid": [
+          249.38163571965225,
+          302.2163786626597
+        ],
+        "rgb_mean": [
+          71.01,
+          64.56,
+          54.75
+        ],
+        "rgb_stddev": 87.872,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 2036
+      },
+      "completed_at": "2026-10-18T15:40:55+03:00",
+      "attempts": 1
+    },
+    "spritesheet": {
+      "sheet": "assets/spritesheets/demo_hut_flag.png",
+      "metadata": "assets/spritesheets/demo_hut_flag.json",
+      "columns": 4,
+      "rows": 3,
+      "frame_size": [
+        512,
+        512
+      ],
+      "frames": 12,
+      "sheet_bytes": 357355,
+      "completed_at": "2026-10-18T15:41:13+03:00",
+      "attempts": 1
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:57:27+03:00",
-  "status_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T15:41:21+03:00",
+  "updated_at": "2026-10-18T15:41:21+03:00",
   "exported_status": "passed"
 }

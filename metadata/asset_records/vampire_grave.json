@@ -3,15 +3,106 @@
   "run_key": "vampire_grave",
   "status": "exported",
   "stages": {
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "assets/processed/vampire_grave.png",
+          "severity": "error"
+        },
+        {
+          "check": "source_not_clipped",
+          "ok": true,
+          "detail": "vampire_grave.png content box (119, 82, 393, 488) within 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "81543 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 39.968 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.3034 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 328px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 60.68% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T15:41:20+03:00",
+      "attempts": 2
+    },
+    "export": {
+      "files": [
+        "assets/approved/props/vampire_grave.png"
+      ],
+      "target": "assets/approved/props",
+      "mirror": "godot_project/assets/assets/props",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
+    },
     "generation": {
-      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_grave.png",
+      "file": "assets/incoming/vampire_grave.png",
       "bytes": 133701,
       "generator": "generate_prop.py",
       "ortho_scale": 2.0317,
       "frame_target_z": 0.75,
       "vertices": 56,
       "polygons": 42,
-      "seconds": 0.67,
+      "seconds": 0.7,
       "attempt": 0,
       "params": {
         "kind": "gravestone",
@@ -42,13 +133,13 @@
           ]
         }
       },
-      "completed_at": "2026-10-18T14:53:08+03:00",
-      "attempts": 6
+      "completed_at": "2026-10-18T15:40:42+03:00",
+      "attempts": 1
     },
     "processing": {
-      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_grave.png",
+      "file": "assets/processed/vampire_grave.png",
       "bytes": 81543,
-      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_grave.png",
+      "source": "assets/incoming/vampire_grave.png",
       "steps": [
         "trim",
         "resize(fit 274x406->329x488)",
@@ -130,104 +221,13 @@
         },
         "unique_colors": 1641
       },
-      "completed_at": "2026-10-18T14:53:17+03:00",
-      "attempts": 7
-    },
-    "validation": {
-      "status": "passed",
-      "checks": [
-        {
-          "check": "file_exists",
-          "ok": true,
-          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_grave.png",
-          "severity": "error"
-        },
-        {
-          "check": "source_not_clipped",
-          "ok": true,
-          "detail": "vampire_grave.png content box (119, 82, 393, 488) within 512x512",
-          "severity": "error"
-        },
-        {
-          "check": "format_is_png",
-          "ok": true,
-          "detail": "detected png",
-          "severity": "error"
-        },
-        {
-          "check": "not_empty",
-          "ok": true,
-          "detail": "81543 bytes",
-          "severity": "error"
-        },
-        {
-          "check": "opens",
-          "ok": true,
-          "detail": "512x512 RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "dimensions",
-          "ok": true,
-          "detail": "512x512 expected 512x512",
-          "severity": "error"
-        },
-        {
-          "check": "not_blank",
-          "ok": true,
-          "detail": "rgb stddev 39.968 (min 4.0)",
-          "severity": "error"
-        },
-        {
-          "check": "has_alpha",
-          "ok": true,
-          "detail": "mode RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "subject_present",
-          "ok": true,
-          "detail": "alpha coverage 0.3034 in [0.02, 0.97]",
-          "severity": "error"
-        },
-        {
-          "check": "subject_size",
-          "ok": true,
-          "detail": "subject short side 328px (min 48)",
-          "severity": "error"
-        },
-        {
-          "check": "not_clipped",
-          "ok": true,
-          "detail": "subject clear of edges",
-          "severity": "error"
-        },
-        {
-          "check": "subject_fill",
-          "ok": true,
-          "detail": "subject fills 60.68% of the canvas (want 15%-92%)",
-          "severity": "review"
-        }
-      ],
-      "failed": [],
-      "review": [],
-      "completed_at": "2026-10-18T14:57:25+03:00",
-      "attempts": 15
-    },
-    "export": {
-      "files": [
-        "assets/approved/props/vampire_grave.png"
-      ],
-      "target": "/home/mrazek/ArtWorkflow/assets/approved/props",
-      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/props",
-      "validation_status": "passed",
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 12
+      "completed_at": "2026-10-18T15:41:03+03:00",
+      "attempts": 1
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:57:27+03:00",
-  "status_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T15:41:21+03:00",
+  "updated_at": "2026-10-18T15:41:21+03:00",
   "exported_status": "passed"
 }

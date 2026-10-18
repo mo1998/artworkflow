@@ -3,106 +3,6 @@
   "run_key": "vampire_watcher",
   "status": "exported",
   "stages": {
-    "generation": {
-      "file": "/home/mrazek/ArtWorkflow/assets/animations/vampire_watcher",
-      "frames": 24,
-      "clip": "turntable",
-      "frame_rate": 12,
-      "frame_count": 24,
-      "ortho_scale": 3.2211,
-      "frame_target_z": 1.1867,
-      "generator": "generate_prop.py",
-      "seconds": 2.08,
-      "attempt": 0,
-      "params": {
-        "kind": "statue",
-        "scale": 1.0,
-        "body_material": "slate_dark",
-        "trim_material": "iron",
-        "glow_material": "crimson_glow",
-        "seed": 9,
-        "engine": "BLENDER_EEVEE_NEXT",
-        "res_x": 512,
-        "res_y": 512,
-        "samples": 48,
-        "key_energy": 2.2,
-        "fill_energy": 0.8,
-        "azimuth": 40.0,
-        "ortho_scale": 3.22114,
-        "frame_target_z": 1.186671,
-        "frame_bounds": {
-          "lo": [
-            -0.49000000953674316,
-            -0.49000000953674316,
-            0.0
-          ],
-          "hi": [
-            0.49000000953674316,
-            0.7283751964569092,
-            2.373342514038086
-          ]
-        }
-      },
-      "completed_at": "2026-10-18T14:53:12+03:00",
-      "attempts": 6
-    },
-    "processing": {
-      "dir": "/home/mrazek/ArtWorkflow/assets/processed/vampire_watcher",
-      "frames": 24,
-      "steps": [],
-      "frame_size": [
-        512,
-        512
-      ],
-      "measurements": {
-        "width": 512,
-        "height": 512,
-        "mode": "RGBA",
-        "has_alpha": true,
-        "alpha_coverage": 0.16315841674804688,
-        "opaque_coverage": 0.1598968505859375,
-        "bbox": [
-          177,
-          48,
-          334,
-          452
-        ],
-        "centroid": [
-          255.50043253606415,
-          284.2386430057749
-        ],
-        "rgb_mean": [
-          12.68,
-          13.46,
-          15.27
-        ],
-        "rgb_stddev": 31.239,
-        "transparent_rgb_fraction": 0.0,
-        "touches_border": {
-          "left": false,
-          "right": false,
-          "top": false,
-          "bottom": false
-        },
-        "unique_colors": 699
-      },
-      "completed_at": "2026-10-18T14:53:27+03:00",
-      "attempts": 7
-    },
-    "spritesheet": {
-      "sheet": "/home/mrazek/ArtWorkflow/assets/spritesheets/vampire_watcher.png",
-      "metadata": "/home/mrazek/ArtWorkflow/assets/spritesheets/vampire_watcher.json",
-      "columns": 6,
-      "rows": 4,
-      "frame_size": [
-        512,
-        512
-      ],
-      "frames": 24,
-      "sheet_bytes": 1252071,
-      "completed_at": "2026-10-18T14:53:33+03:00",
-      "attempts": 8
-    },
     "validation": {
       "status": "passed",
       "checks": [
@@ -157,8 +57,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 15
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
     },
     "export": {
       "files": [
@@ -189,16 +89,116 @@
         "assets/approved/animations/vampire_watcher_frames/frame_0022.png",
         "assets/approved/animations/vampire_watcher_frames/frame_0023.png"
       ],
-      "target": "/home/mrazek/ArtWorkflow/assets/approved/animations",
-      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/animations",
+      "target": "assets/approved/animations",
+      "mirror": "godot_project/assets/assets/animations",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 11
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
+    },
+    "generation": {
+      "file": "assets/animations/vampire_watcher",
+      "frames": 24,
+      "clip": "turntable",
+      "frame_rate": 12,
+      "frame_count": 24,
+      "ortho_scale": 3.2211,
+      "frame_target_z": 1.1867,
+      "generator": "generate_prop.py",
+      "seconds": 2.09,
+      "attempt": 0,
+      "params": {
+        "kind": "statue",
+        "scale": 1.0,
+        "body_material": "slate_dark",
+        "trim_material": "iron",
+        "glow_material": "crimson_glow",
+        "seed": 9,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "res_x": 512,
+        "res_y": 512,
+        "samples": 48,
+        "key_energy": 2.2,
+        "fill_energy": 0.8,
+        "azimuth": 40.0,
+        "ortho_scale": 3.22114,
+        "frame_target_z": 1.186671,
+        "frame_bounds": {
+          "lo": [
+            -0.49000000953674316,
+            -0.49000000953674316,
+            0.0
+          ],
+          "hi": [
+            0.49000000953674316,
+            0.7283751964569092,
+            2.373342514038086
+          ]
+        }
+      },
+      "completed_at": "2026-10-18T15:40:46+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "dir": "assets/processed/vampire_watcher",
+      "frames": 24,
+      "steps": [],
+      "frame_size": [
+        512,
+        512
+      ],
+      "measurements": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.16315841674804688,
+        "opaque_coverage": 0.1598968505859375,
+        "bbox": [
+          177,
+          48,
+          334,
+          452
+        ],
+        "centroid": [
+          255.50043253606415,
+          284.2386430057749
+        ],
+        "rgb_mean": [
+          12.68,
+          13.46,
+          15.27
+        ],
+        "rgb_stddev": 31.239,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 699
+      },
+      "completed_at": "2026-10-18T15:41:12+03:00",
+      "attempts": 1
+    },
+    "spritesheet": {
+      "sheet": "assets/spritesheets/vampire_watcher.png",
+      "metadata": "assets/spritesheets/vampire_watcher.json",
+      "columns": 6,
+      "rows": 4,
+      "frame_size": [
+        512,
+        512
+      ],
+      "frames": 24,
+      "sheet_bytes": 1252071,
+      "completed_at": "2026-10-18T15:41:19+03:00",
+      "attempts": 1
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:57:27+03:00",
-  "status_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T15:41:21+03:00",
+  "updated_at": "2026-10-18T15:41:21+03:00",
   "exported_status": "passed"
 }

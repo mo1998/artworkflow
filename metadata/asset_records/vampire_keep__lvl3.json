@@ -3,15 +3,106 @@
   "run_key": "vampire_keep__lvl3",
   "status": "exported",
   "stages": {
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "assets/processed/vampire_keep__lvl3.png",
+          "severity": "error"
+        },
+        {
+          "check": "source_not_clipped",
+          "ok": true,
+          "detail": "vampire_keep__lvl3.png content box (232, 122, 792, 970) within 1024x1024",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "106458 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 45.637 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.3698 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 321px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 59.63% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T15:41:20+03:00",
+      "attempts": 2
+    },
+    "export": {
+      "files": [
+        "assets/approved/buildings/vampire_keep__lvl3.png"
+      ],
+      "target": "assets/approved/buildings",
+      "mirror": "godot_project/assets/assets/buildings",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T15:41:21+03:00",
+      "attempts": 2
+    },
     "generation": {
-      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_keep__lvl3.png",
+      "file": "assets/incoming/vampire_keep__lvl3.png",
       "bytes": 586215,
       "generator": "generate_building.py",
       "ortho_scale": 11.2645,
       "frame_target_z": 4.04,
       "vertices": 480,
       "polygons": 359,
-      "seconds": 0.76,
+      "seconds": 0.77,
       "attempt": 0,
       "params": {
         "kind": "keep",
@@ -53,13 +144,13 @@
           ]
         }
       },
-      "completed_at": "2026-10-18T14:53:07+03:00",
-      "attempts": 6
+      "completed_at": "2026-10-18T15:40:41+03:00",
+      "attempts": 1
     },
     "processing": {
-      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_keep__lvl3.png",
+      "file": "assets/processed/vampire_keep__lvl3.png",
       "bytes": 106458,
-      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_keep__lvl3.png",
+      "source": "assets/incoming/vampire_keep__lvl3.png",
       "steps": [
         "trim",
         "resize(family x0.5755 ->322x488)",
@@ -141,104 +232,13 @@
         },
         "unique_colors": 1963
       },
-      "completed_at": "2026-10-18T14:53:17+03:00",
-      "attempts": 7
-    },
-    "validation": {
-      "status": "passed",
-      "checks": [
-        {
-          "check": "file_exists",
-          "ok": true,
-          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_keep__lvl3.png",
-          "severity": "error"
-        },
-        {
-          "check": "source_not_clipped",
-          "ok": true,
-          "detail": "vampire_keep__lvl3.png content box (232, 122, 792, 970) within 1024x1024",
-          "severity": "error"
-        },
-        {
-          "check": "format_is_png",
-          "ok": true,
-          "detail": "detected png",
-          "severity": "error"
-        },
-        {
-          "check": "not_empty",
-          "ok": true,
-          "detail": "106458 bytes",
-          "severity": "error"
-        },
-        {
-          "check": "opens",
-          "ok": true,
-          "detail": "512x512 RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "dimensions",
-          "ok": true,
-          "detail": "512x512 expected 512x512",
-          "severity": "error"
-        },
-        {
-          "check": "not_blank",
-          "ok": true,
-          "detail": "rgb stddev 45.637 (min 4.0)",
-          "severity": "error"
-        },
-        {
-          "check": "has_alpha",
-          "ok": true,
-          "detail": "mode RGBA",
-          "severity": "error"
-        },
-        {
-          "check": "subject_present",
-          "ok": true,
-          "detail": "alpha coverage 0.3698 in [0.02, 0.97]",
-          "severity": "error"
-        },
-        {
-          "check": "subject_size",
-          "ok": true,
-          "detail": "subject short side 321px (min 48)",
-          "severity": "error"
-        },
-        {
-          "check": "not_clipped",
-          "ok": true,
-          "detail": "subject clear of edges",
-          "severity": "error"
-        },
-        {
-          "check": "subject_fill",
-          "ok": true,
-          "detail": "subject fills 59.63% of the canvas (want 15%-92%)",
-          "severity": "review"
-        }
-      ],
-      "failed": [],
-      "review": [],
-      "completed_at": "2026-10-18T14:57:25+03:00",
-      "attempts": 15
-    },
-    "export": {
-      "files": [
-        "assets/approved/buildings/vampire_keep__lvl3.png"
-      ],
-      "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
-      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
-      "validation_status": "passed",
-      "completed_at": "2026-10-18T14:57:27+03:00",
-      "attempts": 12
+      "completed_at": "2026-10-18T15:41:03+03:00",
+      "attempts": 1
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:57:27+03:00",
-  "status_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T15:41:21+03:00",
+  "updated_at": "2026-10-18T15:41:21+03:00",
   "exported_status": "passed"
 }
