@@ -1,0 +1,117 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 3.9 is the floor the pipeline claims to support; 3.12 is where it is heading. A matrix
+        # is not ceremony here: a test helper that relied on sys.stdlib_module_names (3.10+) once
+        # passed on 3.11 while failing on 3.9.
+        python-version: ["3.9", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install the pipeline's dependencies
+        # Deliberately the hand-written list, not a lockfile: this step proves the documented
+        # install is sufficient. Pillow, numpy and PyYAML are the entire runtime requirement.
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pillow numpy pyyaml
+
+      - name: Static sweep and tests
+        run: python scripts/check.py --verbose
+
+      - name: The suite must not need a GPU, ComfyUI, Blender or Godot
+        # Everything above already ran on a runner with none of them. This asserts the shape of
+        # that: env_check has to *fail cleanly* (exit 1, no traceback), because a contributor's
+        # first command on a fresh machine is exactly this.
+        run: |
+          set +e
+          python scripts/env_check.py --skip-smoke --no-start-comfyui > /tmp/env.txt 2>&1
+          code=$?
+          set -e
+          if [ "$code" -ne 1 ]; then
+            echo "expected env_check to exit 1 on a machine with no toolchain, got $code"
+            cat /tmp/env.txt
+            exit 1
+          fi
+          if grep -qi "traceback" /tmp/env.txt; then
+            echo "env_check crashed instead of reporting missing tools:"
+            cat /tmp/env.txt
+            exit 1
+          fi
+          echo "env_check reported the missing toolchain cleanly:"
+          grep -A20 "problem" /tmp/env.txt | head -25
+
+      - name: MCP server handshake
+        # The server is the main way agents use this. A protocol regression should fail here, not
+        # in someone's editor.
+        run: python scripts/check.py --mcp
+
+  no-machine-state:
+    name: repository hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install pillow numpy pyyaml
+
+      - name: No absolute paths, no credentials, no generated output tracked
+        # Committed records and config must stay portable, and a public repo must not carry a
+        # username or a token. tests/test_repo_consistency.py implements these; running the
+        # hygiene class alone keeps the failure message short.
+        run: |
+          python -m unittest discover -s tests -p "test_repo_consistency.py" -v
+
+  manifest:
+    name: manifest and workflows
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install pillow numpy pyyaml
+
+      - name: Validate the shipped manifest and workflow bindings
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path[:0] = ["scripts", "scripts/lib"]
+          from lib.common import Config
+          from lib.manifest import load_manifest, validate_manifest
+
+          config = Config.load()
+          manifest = load_manifest(None, config)
+          problems = validate_manifest(manifest, config)
+          for problem in problems:
+              print(f"  {problem}")
+          print(f"{len(manifest.jobs())} jobs from {len(manifest.assets)} assets")
+          raise SystemExit(1 if problems else 0)
+          PY

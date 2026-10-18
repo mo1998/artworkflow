@@ -13,7 +13,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import shutil
 import sys
 import time
 from pathlib import Path
@@ -24,6 +23,14 @@ from lib.blender import blender_binary, headless_render_check  # noqa: E402
 from lib.comfy import ComfyClient, check_workflow_requirements, load_workflow  # noqa: E402
 from lib.common import ROOT, Config, PipelineError, atomic_write_json, run_cmd  # noqa: E402
 from lib.manifest import load_manifest, validate_manifest  # noqa: E402
+
+# What the pipeline itself imports. Everything else is optional and only reported: a missing cv2
+# must not fail a batch that never touches it. tests/test_repo_consistency.py asserts that every
+# third-party import in the codebase is declared in one of these two tuples.
+REQUIRED_MODULES = ("PIL", "numpy", "yaml")
+# Extension point for a genuinely optional integration. Keep it empty otherwise: a module listed
+# here is checked for and reported, so listing something nothing imports is just noise.
+OPTIONAL_MODULES: tuple[str, ...] = ()
 
 
 def ok(value: bool) -> str:
@@ -51,14 +58,16 @@ def main() -> int:
 
     # ---- python ------------------------------------------------------------
     versions = {"python": sys.version.split()[0], "executable": sys.executable}
-    for module in ("PIL", "numpy", "yaml", "cv2", "requests"):
+    for module in REQUIRED_MODULES + OPTIONAL_MODULES:
         try:
             mod = __import__(module)
             versions[module] = getattr(mod, "__version__", "?")
         except Exception:  # noqa: BLE001
             versions[module] = None
-    missing = [k for k, v in versions.items() if v is None]
-    record("python_deps", not missing, {"versions": versions, "missing": missing})
+    missing_required = [m for m in REQUIRED_MODULES if versions.get(m) is None]
+    missing_optional = [m for m in OPTIONAL_MODULES if versions.get(m) is None]
+    record("python_deps", not missing_required,
+           {"versions": versions, "missing": missing_required, "optional_missing": missing_optional})
 
     # ---- paths -------------------------------------------------------------
     dirs = {}
@@ -67,6 +76,21 @@ def main() -> int:
         path = config.path_for(key)
         dirs[key] = str(path)
     record("project_paths", True, dirs)
+
+    # ---- tool discovery ----------------------------------------------------
+    # One place that lists every tool the pipeline needs and why it could not be found, using the
+    # same resolvers the stages use. Everything below probes deeper; this is the summary a
+    # contributor reads first.
+    from lib.tools import resolve_tools
+
+    tools = resolve_tools(config)
+    record("tool_paths", not tools["problems"], {
+        "comfyui_home": str(tools["comfyui_home"]) if tools["comfyui_home"] else None,
+        "comfyui_python": tools["comfyui_python"],
+        "blender": str(tools["blender"]) if tools["blender"] else None,
+        "godot": tools["godot"],
+        "problems": tools["problems"],
+    })
 
     # ---- comfyui -----------------------------------------------------------
     client = ComfyClient(config, log=None)
@@ -121,17 +145,27 @@ def main() -> int:
         record("blender_render", False, str(exc))
 
     # ---- godot -------------------------------------------------------------
-    godot_binary = shutil.which(str(config.get("godot.binary", "godot"))) or str(config.get("godot.binary"))
+    # Resolve through lib.tools like every stage does, so env_check cannot report a different
+    # binary than the one a stage will actually run.
+    from lib.tools import find_godot
+
+    godot_binary = find_godot(config.get("godot.binary") or None)
     project_dir = Path(str(config.get("godot.project_dir", "godot_project")))
     project_path = project_dir if project_dir.is_absolute() else ROOT / project_dir
 
-    detail = {"binary": godot_binary, "project": str(project_path)}
-    try:
-        proc = run_cmd([godot_binary, "--version"], timeout=60)
-        detail["version"] = (proc.stdout or "").strip()
-        record("godot", project_path.exists(), {**detail, "project_exists": project_path.exists()})
-    except PipelineError as exc:
-        record("godot", False, str(exc))
+    detail = {"binary": godot_binary, "project": str(project_path),
+              "project_exists": project_path.exists()}
+    if not godot_binary:
+        record("godot", False, {**detail, "error": "godot not found"})
+    elif not project_path.exists():
+        record("godot", False, {**detail, "error": "check project not found"})
+    else:
+        try:
+            proc = run_cmd([godot_binary, "--version"], timeout=60)
+            detail["version"] = (proc.stdout or "").strip()
+            record("godot", True, detail)
+        except PipelineError as exc:
+            record("godot", False, {**detail, "error": str(exc)})
 
     # ---- manifest ----------------------------------------------------------
     try:

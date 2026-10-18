@@ -73,8 +73,8 @@ def rel_to_root(path: str | os.PathLike[str] | None) -> str | None:
     """Project-relative path for records and reports.
 
     Records are committed as provenance, so they have to be portable: an absolute
-    /home/someone/... path in a record is noise on another machine and leaks a username into a
-    public repository.
+    An absolute home path in a record is noise on another machine and leaks a username into
+    a public repository.
     """
     if path is None:
         return None

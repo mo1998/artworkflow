@@ -34,8 +34,8 @@ no stage is allowed to pretend otherwise.
 ```bash
 git clone https://github.com/mo1998/artworkflow.git
 cd artworkflow
-python3 -m venv --system-site-packages .venv
-.venv/bin/python -m pip install pillow numpy pyyaml requests opencv-python-headless
+python3 -m venv .venv                      # Python 3.9+
+.venv/bin/python -m pip install pillow numpy pyyaml   # that is the whole dependency list
 
 .venv/bin/python scripts/env_check.py     # resolve every tool, prove the toolchain works
 .venv/bin/python scripts/run_pipeline.py  # generate → process → validate → export → report
@@ -104,6 +104,16 @@ them.
 | export | `export_assets.py` | `assets/approved/` + the Godot mirror |
 | godot | `godot_check.py` | engine-side verification |
 | report | `build_report.py` | `reports/<run id>.md` and `.json` |
+
+## Contributing
+
+```bash
+.venv/bin/python scripts/check.py     # static sweep + the whole test suite
+```
+
+Tests must pass without a GPU, ComfyUI, Blender or Godot, and CI runs on Python 3.9, 3.11 and 3.12.
+[`CONTRIBUTING.md`](CONTRIBUTING.md) has the invariants table — what else to update when you rename a
+clip, add a stage, add a config key or add a dependency — so CI does not have to tell you.
 
 ## Learn more
 
