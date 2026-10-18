@@ -85,50 +85,55 @@ class ProcessStage(Stage):
 
         steps = job.processing_settings()
         applied: list[str] = []
-        image, source_path = self._prepare_source(job, src, client, steps, applied)
-        before = measure(image)
-        before_pixel_hash = pixel_hash(image)
+        scratch: Path | None = None
+        try:
+            image, source_path, scratch = self._prepare_source(job, src, client, steps, applied)
+            before = measure(image)
+            before_pixel_hash = pixel_hash(image)
 
-        if steps.get("trim"):
-            image, box = trim(image)
-            applied.append("trim")
-        else:
-            box = None
+            if steps.get("trim"):
+                image, box = trim(image)
+                applied.append("trim")
+            else:
+                box = None
 
-        target = steps.get("resize")
-        anchor = str(steps.get("anchor", "center"))
-        padding = int(steps.get("padding", 0) or 0)
-        scale_mode = str(steps.get("scale_mode", "fit")).lower()
-        if target:
-            canvas = int(target)
-            # Resize to the canvas minus the padding, then inset. Resizing straight to the
-            # canvas size and padding afterwards would push the subject against the edge,
-            # which the not_clipped check (correctly) rejects.
-            padding = padding if canvas - 2 * padding >= 8 else 0
-            effective = canvas - 2 * padding
-            resize_from = image.size
-            if scale_mode == "family":
-                factor = self.family_factor(job, effective)
-                if factor > 0:
-                    image = image.resize((max(1, round(image.width * factor)),
-                                          max(1, round(image.height * factor))), Image.LANCZOS)
-                    applied.append(f"resize(family x{factor:.4f} ->{image.width}x{image.height})")
+            target = steps.get("resize")
+            anchor = str(steps.get("anchor", "center"))
+            padding = int(steps.get("padding", 0) or 0)
+            scale_mode = str(steps.get("scale_mode", "fit")).lower()
+            if target:
+                canvas = int(target)
+                # Resize to the canvas minus the padding, then inset. Resizing straight to the
+                # canvas size and padding afterwards would push the subject against the edge,
+                # which the not_clipped check (correctly) rejects.
+                padding = padding if canvas - 2 * padding >= 8 else 0
+                effective = canvas - 2 * padding
+                resize_from = image.size
+                if scale_mode == "family":
+                    factor = self.family_factor(job, effective)
+                    if factor > 0:
+                        image = image.resize((max(1, round(image.width * factor)),
+                                              max(1, round(image.height * factor))), Image.LANCZOS)
+                        applied.append(f"resize(family x{factor:.4f} ->{image.width}x{image.height})")
+                    else:
+                        image = fit_resize(image, effective, axis="max")
+                        applied.append(f"resize(fit-fallback ->{image.width}x{image.height})")
                 else:
                     image = fit_resize(image, effective, axis="max")
-                    applied.append(f"resize(fit-fallback ->{image.width}x{image.height})")
-            else:
-                image = fit_resize(image, effective, axis="max")
-                applied.append(f"resize(fit {resize_from[0]}x{resize_from[1]}->{image.width}x{image.height})")
-            image = place_on_canvas(image, canvas, anchor=anchor, padding=padding)
-            applied.append(f"canvas({canvas},anchor={anchor},pad={padding},mode={scale_mode})")
-        elif steps.get("trim"):
-            # No fixed canvas requested: keep the trimmed size, no padding tricks.
-            applied.append("no-canvas")
+                    applied.append(f"resize(fit {resize_from[0]}x{resize_from[1]}->{image.width}x{image.height})")
+                image = place_on_canvas(image, canvas, anchor=anchor, padding=padding)
+                applied.append(f"canvas({canvas},anchor={anchor},pad={padding},mode={scale_mode})")
+            elif steps.get("trim"):
+                # No fixed canvas requested: keep the trimmed size, no padding tricks.
+                applied.append("no-canvas")
 
-        image = to_rgba(image)
-        self.ensure_dirs(dest.parent)
-        image.save(dest, "PNG", optimize=True)
-        after = measure(open_image(dest))
+            image = to_rgba(image)
+            self.ensure_dirs(dest.parent)
+            image.save(dest, "PNG", optimize=True)
+            after = measure(open_image(dest))
+        finally:
+            if scratch is not None:
+                scratch.unlink(missing_ok=True)
 
         rec.complete_stage("processing", file=str(dest), bytes=dest.stat().st_size, source=str(source_path),
                            steps=applied, trim_box=box, anchor=anchor, padding=padding,
@@ -238,15 +243,16 @@ class ProcessStage(Stage):
 
     def _prepare_source(self, job, src: Path, client: ComfyClient | None, steps: dict,
                         applied: list[str]) -> tuple:
+        """Return (in-memory image, source path, scratch path to delete or None)."""
         if steps.get("remove_background") and client and not self.args.no_background_removal:
             from remove_background import cutout_to_temp
 
             tmp = cutout_to_temp(client, self.config, src, log=self.log, asset=job.run_key)
             applied.append("remove_background")
-            return open_image(tmp), src
+            return open_image(tmp), src, tmp
         if steps.get("remove_background") and self.args.no_background_removal:
             applied.append("remove_background(skipped)")
-        return open_image(src), src
+        return open_image(src), src, None
 
 
 if __name__ == "__main__":

@@ -22,7 +22,7 @@ sys.path[:0] = [str(Path(__file__).resolve().parent), str(Path(__file__).resolve
 
 from lib.blender import blender_binary, headless_render_check  # noqa: E402
 from lib.comfy import ComfyClient, check_workflow_requirements, load_workflow  # noqa: E402
-from lib.common import ROOT, Config, PipelineError, atomic_write_json  # noqa: E402
+from lib.common import ROOT, Config, PipelineError, atomic_write_json, run_cmd  # noqa: E402
 from lib.manifest import load_manifest, validate_manifest  # noqa: E402
 
 
@@ -103,7 +103,6 @@ def main() -> int:
     try:
         binary = blender_binary(config)
         version = ""
-        from lib.common import run_cmd
 
         proc = run_cmd([str(binary), "--version"], timeout=60)
         version = (proc.stdout or "").splitlines()[0] if proc.stdout else ""
@@ -125,7 +124,6 @@ def main() -> int:
     godot_binary = shutil.which(str(config.get("godot.binary", "godot"))) or str(config.get("godot.binary"))
     project_dir = Path(str(config.get("godot.project_dir", "godot_project")))
     project_path = project_dir if project_dir.is_absolute() else ROOT / project_dir
-    from lib.common import run_cmd
 
     detail = {"binary": godot_binary, "project": str(project_path)}
     try:
@@ -152,9 +150,8 @@ def main() -> int:
     print(f"\n{'check'.ljust(width)}result  detail")
     print("-" * (width + 40))
     for name, entry in checks.items():
-        entry = entry  # type: ignore[assignment]
-        detail_str = json.dumps(entry["detail"], default=str)  # type: ignore[index]
-        print(f"{name.ljust(width)}{ok(entry['ok']):6s}  {detail_str[:150]}")  # type: ignore[index]
+        detail_str = json.dumps(entry["detail"], default=str)
+        print(f"{name.ljust(width)}{ok(entry['ok']):6s}  {detail_str[:150]}")
     print()
     if problems:
         print(f"{len(problems)} problem(s):")

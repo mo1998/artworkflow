@@ -201,9 +201,3 @@ class Stage:
         self.log.error(f"{stage} failed: {error[:400]}", stage=self.name, asset=job.run_key)
         if traceback:
             self.log.error(f"{stage} traceback: {traceback[-400:]}", stage=self.name, asset=job.run_key)
-
-    def exportable(self, job: Job) -> bool:
-        return self.record(job).data.get("status") in EXPORTABLE
-
-    def json_dump(self, payload: Any) -> str:
-        return json.dumps(payload, indent=2, default=str)

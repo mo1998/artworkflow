@@ -1,6 +1,6 @@
-# Art pipeline report - final
+# Art pipeline report - final2
 
-Generated 2026-10-18T13:31:24+03:00 from `/home/mrazek/ArtWorkflow/config/manifest.json`.
+Generated 2026-10-18T13:35:36+03:00 from `/home/mrazek/ArtWorkflow/config/manifest.json`.
 
 ## Totals
 
@@ -38,20 +38,20 @@ Generated 2026-10-18T13:31:24+03:00 from `/home/mrazek/ArtWorkflow/config/manife
 
 ## Logs
 
-- `logs/final/demo_hut-blender.log.log`
-- `logs/final/demo_hut__lvl2-blender.log.log`
-- `logs/final/demo_hut__lvl3-blender.log.log`
-- `logs/final/demo_hut_flag-blender.log.log`
-- `logs/final/events.jsonl`
-- `logs/final/export-summary.json`
-- `logs/final/generate-blender-summary.json`
-- `logs/final/generate-comfyui-summary.json`
-- `logs/final/godot-check-summary.json`
-- `logs/final/godot-check.log.log`
-- `logs/final/godot-import.log.log`
-- `logs/final/process-summary.json`
-- `logs/final/spritesheet-summary.json`
-- `logs/final/validate-summary.json`
+- `logs/final2/demo_hut-blender.log.log`
+- `logs/final2/demo_hut__lvl2-blender.log.log`
+- `logs/final2/demo_hut__lvl3-blender.log.log`
+- `logs/final2/demo_hut_flag-blender.log.log`
+- `logs/final2/events.jsonl`
+- `logs/final2/export-summary.json`
+- `logs/final2/generate-blender-summary.json`
+- `logs/final2/generate-comfyui-summary.json`
+- `logs/final2/godot-check-summary.json`
+- `logs/final2/godot-check.log.log`
+- `logs/final2/godot-import.log.log`
+- `logs/final2/process-summary.json`
+- `logs/final2/spritesheet-summary.json`
+- `logs/final2/validate-summary.json`
 
 ## Notes
 

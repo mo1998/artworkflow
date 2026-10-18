@@ -36,12 +36,12 @@ Built and verified on this machine against the tools listed under
 | `demo_hut`, `demo_hut__lvl2`, `demo_hut__lvl3` | Blender procedural, one locked camera | passed, exported, size progression preserved |
 | `demo_hut_flag` | Blender procedural + `banner_wave` clip, 12 frames | passed, exported, 1 sheet + 12 frame rects verified in Godot |
 
-Verification evidence from the last full run (`reports/run5.md`, `logs/run5/`):
+Verification evidence from the last full run (`reports/final2.md`, `logs/final2/`):
 
 ```
 assets: 6  exported: 6  failed: 0  review_required: 0  retried: 0
 godot ok: 18 texture(s), 1 sheet(s), 12 frame rect(s)
-python3 -m unittest discover -s tests   ->  30 tests, OK
+python3 -m unittest discover -s tests   ->  31 tests, OK
 ```
 
 ## Quick start
@@ -334,7 +334,7 @@ check says exactly which file the engine cannot consume.
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-30 tests over the pure parts, no GPU required. Several of them encode bugs this pipeline actually
+31 tests over the pure parts, no GPU required. Several of them encode bugs this pipeline actually
 had:
 
 - `test_padding_is_respected_on_every_edge` — the anchor used to place the subject flush against
@@ -347,7 +347,9 @@ had:
   waving banner "no motion";
 - `test_sheet_and_sidecar_metadata_do_not_collide` — the export sidecar used to overwrite a
   spritesheet's frame metadata;
-- `test_paths_outside_the_project_are_refused` — manifest-controlled paths must not escape.
+- `test_paths_outside_the_project_are_refused` — manifest-controlled paths must not escape;
+- `test_pixel_hash_ignores_file_metadata` — Blender stamps a render timestamp into every PNG, so
+  "did the render change?" must be answered on pixels, not file bytes.
 
 ## Adding a new asset
 

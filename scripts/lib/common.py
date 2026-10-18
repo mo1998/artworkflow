@@ -87,14 +87,6 @@ def read_json(path: Path) -> Any:
         return json.load(fh)
 
 
-def human_bytes(n: int) -> str:
-    for unit in ("B", "KB", "MB", "GB"):
-        if n < 1024 or unit == "GB":
-            return f"{n:.0f}{unit}" if unit == "B" else f"{n / 1:.1f}{unit}" if unit != "B" else f"{n}B"
-        n /= 1024.0
-    return f"{n}B"
-
-
 class Config:
     """Dot-path access over pipeline.yaml with a few typed conveniences."""
 

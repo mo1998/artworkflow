@@ -12,7 +12,7 @@
       "ortho_scale": 5.445,
       "frame_target_z": 1.386,
       "generator": "generate_building.py",
-      "seconds": 1.57,
+      "seconds": 1.55,
       "attempt": 0,
       "params": {
         "kind": "hut",
@@ -29,7 +29,7 @@
         "res_y": 512,
         "samples": 48
       },
-      "completed_at": "2026-10-18T13:31:10+03:00",
+      "completed_at": "2026-10-18T13:35:22+03:00",
       "attempts": 1
     },
     "processing": {
@@ -72,7 +72,7 @@
         },
         "unique_colors": 2246
       },
-      "completed_at": "2026-10-18T13:31:19+03:00",
+      "completed_at": "2026-10-18T13:35:32+03:00",
       "attempts": 1
     },
     "spritesheet": {
@@ -86,7 +86,7 @@
       ],
       "frames": 12,
       "sheet_bytes": 403700,
-      "completed_at": "2026-10-18T13:31:20+03:00",
+      "completed_at": "2026-10-18T13:35:32+03:00",
       "attempts": 1
     },
     "validation": {
@@ -143,7 +143,7 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T13:31:21+03:00",
+      "completed_at": "2026-10-18T13:35:33+03:00",
       "attempts": 1
     },
     "export": {
@@ -166,13 +166,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/animations",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/animations",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T13:31:21+03:00",
+      "completed_at": "2026-10-18T13:35:33+03:00",
       "attempts": 1
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T13:31:21+03:00",
-  "status_at": "2026-10-18T13:31:21+03:00",
+  "updated_at": "2026-10-18T13:35:33+03:00",
+  "status_at": "2026-10-18T13:35:33+03:00",
   "exported_status": "passed"
 }

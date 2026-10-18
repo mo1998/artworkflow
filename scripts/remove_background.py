@@ -18,8 +18,8 @@ Standalone use, single file:
 from __future__ import annotations
 
 import argparse
+import os
 import sys
-import tempfile
 import time
 from pathlib import Path
 
@@ -70,8 +70,14 @@ def cutout(client: ComfyClient, config: Config, src: Path, dest: Path, *,
 
 def cutout_to_temp(client: ComfyClient, config: Config, src: Path, *,
                    log: RunLog | None = None, asset: str | None = None) -> Path:
-    """Cut out into a scratch file; used when the caller keeps working on the image."""
-    tmp = Path(tempfile.mkdtemp(prefix="artworkflow-cutout-")) / f"{src.stem}.png"
+    """Cut out into a scratch file under logs/scratch.
+
+    The caller is responsible for deleting it: `process_images.py` opens the result into memory
+    and unlinks it in a finally block, so a batch does not accumulate scratch PNGs.
+    """
+    scratch = Path(config.path_for("logs")) / "scratch"
+    scratch.mkdir(parents=True, exist_ok=True)
+    tmp = scratch / f"{src.stem}-{os.getpid()}.png"
     return cutout(client, config, src, tmp, log=log, asset=asset, force=True)
 
 

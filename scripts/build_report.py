@@ -17,9 +17,9 @@ from pathlib import Path
 
 sys.path[:0] = [str(Path(__file__).resolve().parent), str(Path(__file__).resolve().parent / "lib")]
 
-from lib.common import (ROOT, PipelineError, STATUS_EXPORTED, STATUS_FAILED, STATUS_PASSED,  # noqa: E402
-                        STATUS_PENDING, STATUS_PROCESSED, STATUS_REVIEW, atomic_write_json,
-                        now_iso, read_json)
+from lib.common import (ROOT, PipelineError, STATUS_EXPORTED, STATUS_FAILED,  # noqa: E402
+                        STATUS_PASSED, STATUS_PENDING, STATUS_REVIEW, atomic_write_json,
+                        now_iso)
 from lib.stage import Stage, add_common_args  # noqa: E402
 
 PROVENANCE_REQUIRED = ("model", "license_url")
