@@ -19,11 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-This licence covers the pipeline code in this repository. It does NOT cover
-third-party models, checkpoints, LoRAs or custom nodes the pipeline can drive:
-those carry their own licences. In particular FLUX.1-dev is released under a
-non-commercial licence. Verify every model and asset licence before shipping
-anything this pipeline produces.
