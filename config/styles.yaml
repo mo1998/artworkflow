@@ -1,0 +1,138 @@
+# Style blocks. The pipeline itself is style-agnostic: an asset names a style and
+# the prompt is composed as "<subject>. <composition>. <style>."
+#
+# Keeping the look in data (not code) is what makes one pipeline reusable across
+# art directions. Add a style here, reference it from the manifest, done.
+
+default_style: dark-fantasy-isometric-v1
+
+styles:
+  dark-fantasy-isometric-v1:
+    description: Dark-fantasy buildings as isolated isometric dioramas on a flat backdrop.
+    style: >-
+      hand painted stylized 3D game art, dark fantasy medieval, weathered stone and dark stained
+      timber, muted earth palette with warm torchlight accents, soft painterly texture,
+      crisp readable silhouette, high detail, no people
+    # FLUX.1's prior is strongly isometric and it will not yield a literal straight-down map
+    # view no matter how the composition text is phrased. Rather than fight it, this block
+    # describes the achievable, useful result - an isolated isometric diorama - and bans the
+    # things that actually break a game sprite: water, neighbouring structures, text and a
+    # hard background border.
+    composition: >-
+      isometric three quarter view of a single isolated building, orthographic projection,
+      no perspective distortion, the building sits on a small flat patch of ground,
+      the whole building inside the frame with clear margin on every side,
+      plain flat uniform light grey background, no other structures, no fence line,
+      no water, no moat, no river, no lake, no floating island on a cliff base,
+      no snow, no mist, no text, no watermark, no border, no frame
+    negative: >-
+      text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges,
+      blurry, low detail, photograph, photorealistic, water, river, lake, moat, sea,
+      horizon line, ui elements, frame, border, vignette
+    generation:
+      steps: 24
+      guidance: 3.2
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: true
+      trim: true
+      padding: 12
+
+  norse-frontier-topdown-v1:
+    description: Warbands-style Norse frontier settlement tiles, top-down orthographic.
+    style: >-
+      hand painted stylized 3D game art, Norse viking frontier settlement, dark stained pine timber,
+      turf sod roofs with grass growing on them, carved dragon-head beams and rune markings,
+      deep crimson and weathered bronze banners, cool blue-green grass, warm orange firelight accents,
+      soft painterly texture, crisp readable silhouette, high detail, no people
+    composition: >-
+      directly overhead aerial view, flat 2D orthographic map style, camera looking straight down
+      at the building, the building sits flush on continuous flat ground, no elevation, no pedestal,
+      no floating island, no raised block, no cliff, no drop, no moat, no water, no river,
+      ground is an even flat field with no border around the building,
+      buildings left and right are cropped out of frame, only this building visible,
+      straight vertical camera angle, no 3D tilt, no perspective,
+      plain flat uniform grey background, no shadows cast onto the background,
+      no snow, no mist, no text, no watermark, no border, no frame
+    negative: >-
+      text, watermark, signature, multiple buildings, cropped roof, blurry details,
+      photograph, horizon, perspective tilt, ui, frame, border
+    generation:
+      steps: 24
+      guidance: 3.2
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: true
+      trim: true
+      padding: 12
+
+  stylized-flat-prop-v1:
+    description: Isolated props and inventory items on a plain backdrop.
+    style: >-
+      hand painted stylized game art, clean readable shapes, bold simple forms,
+      warm saturated palette, subtle painterly shading, single soft key light,
+      high detail on the silhouette, no people, no background scenery
+    composition: >-
+      centered single object isolated on a plain flat uniform light grey background,
+      three quarter view, object fully inside the frame with margin on every side,
+      no shadow cast onto the background, no ground plane, no text, no watermark,
+      no border, no frame, no extra props
+    negative: >-
+      text, watermark, signature, multiple objects, crowded, cropped object, cut off edges,
+      blurry, low detail, photograph, background scenery, landscape, ui, frame, border
+    generation:
+      steps: 24
+      guidance: 3.2
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: true
+      trim: true
+      padding: 16
+
+  painterly-portrait-v1:
+    description: Character portraits, bust framing, for dialogue and roster screens.
+    style: >-
+      hand painted stylized fantasy character portrait, expressive brushwork, rich rim lighting,
+      detailed costume materials, dramatic but readable lighting, muted painterly background,
+      high detail on the face
+    composition: >-
+      head and shoulders bust portrait, subject centered, facing the viewer,
+      shoulders cropped by the bottom edge, plain uncluttered background,
+      no text, no watermark, no border, no frame, no extra characters
+    negative: >-
+      text, watermark, signature, multiple people, full body, extra limbs, deformed hands,
+      blurry, low detail, photograph, ui, border, frame
+    generation:
+      steps: 28
+      guidance: 3.0
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: false # portraits keep their painted background
+      trim: false
+      padding: 0
+
+  tileable-texture-v1:
+    description: Seamless ground and material textures.
+    style: >-
+      hand painted stylized game texture, muted natural palette, soft painterly detail,
+      even lighting with no directional shadow, flat view
+    composition: >-
+      strict top-down flat texture view, fills the entire frame edge to edge,
+      seamless tileable repeating pattern, uniform density across the whole image,
+      no object, no focal point, no vignette, no text, no watermark, no border
+    negative: >-
+      text, watermark, signature, object, focal point, vignette, border, frame,
+      drop shadow, perspective, photograph
+    generation:
+      steps: 24
+      guidance: 3.0
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: false
+      trim: false
+      padding: 0

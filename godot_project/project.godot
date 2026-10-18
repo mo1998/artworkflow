@@ -1,0 +1,17 @@
+; Godot 4.7 project whose only job is to prove exported assets are engine-ready.
+;
+; It is deliberately not a game. The pipeline mirrors validated assets into assets/ and
+; tests/asset_check.gd loads every one of them headlessly, so an asset that the engine cannot
+; consume fails the run instead of failing later in the real game project.
+
+config_version=5
+
+[application]
+
+config/name="ArtWorkflow Export Checks"
+config/description="Headless import + validation harness for pipeline-exported assets."
+config/features=PackedStringArray("4.7", "Forward Plus")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

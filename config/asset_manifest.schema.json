@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.invalid/artworkflow/asset_manifest.schema.json",
+  "title": "ArtWorkflow asset manifest",
+  "description": "Machine-readable spec for every asset the pipeline produces. This schema covers editors; scripts/lib/manifest.py is the authoritative validator and additionally checks that styles, workflow files, blender generators and output paths actually exist.",
+  "type": "object",
+  "required": ["schema_version", "assets"],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "run": { "type": "object", "description": "Free-form notes about this batch." },
+    "assets": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/asset" } }
+  },
+  "definitions": {
+    "asset": {
+      "type": "object",
+      "required": ["asset_id", "asset_type", "description", "source", "export", "provenance"],
+      "properties": {
+        "asset_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "asset_type": {
+          "type": "string",
+          "enum": ["building", "prop", "character", "portrait", "texture", "background", "effect", "ui"]
+        },
+        "description": { "type": "string" },
+        "source": { "type": "string", "enum": ["comfyui", "blender"] },
+        "style": { "type": "string", "description": "Key in config/styles.yaml. Defaults for comfyui assets, optional for blender." },
+        "prompt": { "type": "string", "description": "The subject clause only. Composition and style come from the style block." },
+        "prompt_append": { "type": "string", "description": "Appended to the subject clause; used to differentiate variants." },
+        "negative_prompt": { "type": "string" },
+        "seed": { "type": "integer", "description": "Pinned seed. Two assets that differ only here must not render the same image." },
+        "generation": {
+          "type": "object",
+          "properties": {
+            "workflow": { "type": "string", "description": "comfyui only: path to an API-format workflow with a binding map." },
+            "width": { "type": "integer" },
+            "height": { "type": "integer" },
+            "steps": { "type": "integer" },
+            "guidance": { "type": "number" },
+            "sampler": { "type": "string" },
+            "scheduler": { "type": "string" },
+            "engine": { "type": "string", "description": "blender only, e.g. BLENDER_EEVEE_NEXT" },
+            "samples": { "type": "integer" }
+          }
+        },
+        "blender": {
+          "type": "object",
+          "description": "source=blender only.",
+          "required": ["generator"],
+          "properties": {
+            "generator": { "type": "string", "description": "Script under blender/, e.g. generate_building.py" },
+            "params": {
+              "type": "object",
+              "description": "Passed straight to the generator as --key value. See blender/generate_building.py DEFAULTS.",
+              "properties": {
+                "kind": { "type": "string", "enum": ["hut", "house", "tower", "keep", "gate"] },
+                "width": { "type": "number" },
+                "depth": { "type": "number" },
+                "wall_height": { "type": "number" },
+                "wall_material": { "type": "string" },
+                "roof": { "type": "string", "enum": ["gable", "hip", "flat", "cone"] },
+                "roof_material": { "type": "string" },
+                "plinth": { "type": "boolean" },
+                "door": { "type": "boolean" },
+                "windows": { "type": "integer" },
+                "chimney": { "type": "boolean" },
+                "banner": { "type": "boolean" },
+                "battlements": { "type": "boolean" },
+                "seed": { "type": "integer" },
+                "view": { "type": "string", "enum": ["iso", "iso_true", "topdown", "front", "three_quarter"] },
+                "ortho_scale": { "type": "number", "description": "0 = auto-frame. Locked across a variant family by the pipeline." },
+                "frame_target_z": { "type": "number", "description": "<0 = auto. Locked across a variant family by the pipeline." }
+              }
+            }
+          }
+        },
+        "processing": {
+          "type": "object",
+          "properties": {
+            "remove_background": { "type": "boolean", "description": "Run the BiRefNet cutout. Not needed for Blender's transparent film." },
+            "trim": { "type": "boolean", "description": "Crop to the subject before resizing." },
+            "resize": { "type": ["integer", "null"], "description": "Square canvas size; null keeps the trimmed size." },
+            "anchor": { "type": "string", "enum": ["center", "bottom-center", "bottom-left", "bottom-right", "top-center", "top-left", "top-right"], "description": "Where the subject sits on the canvas. bottom-center gives a shared ground line." },
+            "padding": { "type": "integer", "description": "Transparent margin inside the canvas." },
+            "scale_mode": { "type": "string", "enum": ["fit", "family"], "description": "fit normalises each asset to fill its canvas; family scales every variant by one shared factor so upgrade tiers keep their size progression." }
+          }
+        },
+        "animation": {
+          "type": "object",
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "clip": { "type": "string", "description": "Clip name from blender/lib/anim_clips.py CLIPS." },
+            "clip_params": { "type": "object" },
+            "frame_count": { "type": "integer", "minimum": 2 },
+            "frame_rate": { "type": "integer" },
+            "loop": { "type": "boolean" }
+          }
+        },
+        "variants": {
+          "type": "array",
+          "description": "Sibling outputs that share the base asset's camera framing. Each gets run_key <asset_id>__<suffix>.",
+          "items": {
+            "type": "object",
+            "required": ["suffix"],
+            "properties": {
+              "suffix": { "type": "string" },
+              "prompt": { "type": "string" },
+              "prompt_append": { "type": "string" },
+              "seed": { "type": "integer" },
+              "generation": { "type": "object" },
+              "processing": { "type": "object" },
+              "blender_params": { "type": "object", "description": "Merged over the base asset's blender.params." }
+            }
+          }
+        },
+        "export": {
+          "type": "object",
+          "required": ["target_directory"],
+          "properties": {
+            "format": { "type": "string", "enum": ["png"] },
+            "target_directory": { "type": "string", "description": "Relative to the project root; anything outside it is refused." },
+            "godot": { "type": "string", "description": "res:// path inside godot_project to mirror into for the engine-side check." },
+            "spritesheet": {
+              "type": "object",
+              "properties": {
+                "columns": { "type": "integer" },
+                "padding": { "type": "integer" },
+                "name": { "type": "string" }
+              }
+            }
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "required": ["model"],
+          "properties": {
+            "model": { "type": "string" },
+            "model_file": { "type": "string" },
+            "license_url": { "type": "string", "description": "The report flags assets whose licence is not recorded." },
+            "license_note": { "type": "string" }
+          }
+        },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string", "description": "Present for review; the pipeline owns the real status in metadata/asset_records/." }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+# Local toolchain and caches
+.venv/
+__pycache__/
+*.pyc
+.godot/
+godot_project/.godot/
+
+# Generated pixels are reproducible from config/manifest.json plus the pinned seeds, so the
+# outputs are not versioned. What *is* versioned is the provenance: the manifest, the
+# per-asset records, the run reports and the manifest snapshots.
+assets/incoming/
+assets/processed/
+assets/animations/
+assets/spritesheets/
+assets/approved/
+godot_project/assets/*
+!godot_project/assets/.gitkeep
+logs/
+
+# Blender scratch files
+*.blend1

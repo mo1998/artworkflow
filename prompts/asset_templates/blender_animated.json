@@ -1,0 +1,56 @@
+{
+  "//": "Template: a procedural scene rendered as a looping frame sequence and packed into a spritesheet. Frames come from a clip, never from per-frame prompts. Clip names live in blender/lib/anim_clips.py (banner_wave, torch_flicker, turntable, wheel_spin, bob). `trim` is refused for sequences - it would break frame registration.",
+  "asset_id": "SET_ME_unique_lower_snake_case",
+  "asset_type": "building",
+  "description": "Procedural building with a looping banner animation.",
+  "source": "blender",
+  "style": "blender-procedural-v1",
+  "blender": {
+    "generator": "generate_building.py",
+    "params": {
+      "kind": "hut",
+      "width": 2.6,
+      "depth": 2.4,
+      "wall_height": 1.8,
+      "wall_material": "plaster",
+      "roof": "gable",
+      "roof_material": "thatch",
+      "banner": true,
+      "seed": 21
+    }
+  },
+  "generation": {
+    "width": 512,
+    "height": 512,
+    "engine": "BLENDER_EEVEE_NEXT",
+    "samples": 48
+  },
+  "processing": {
+    "remove_background": false,
+    "trim": false,
+    "resize": null,
+    "anchor": "bottom-center"
+  },
+  "animation": {
+    "enabled": true,
+    "clip": "banner_wave",
+    "clip_params": { "cycles": 1.0 },
+    "frame_count": 12,
+    "frame_rate": 12,
+    "loop": true
+  },
+  "export": {
+    "format": "png",
+    "target_directory": "assets/approved/animations",
+    "spritesheet": { "columns": 4, "padding": 2, "name": "SET_ME" },
+    "godot": "res://assets/animations"
+  },
+  "provenance": {
+    "model": "procedural (Blender 4.5.9)",
+    "model_file": "blender/render_animation.py",
+    "license_url": "https://www.blender.org/about/license/",
+    "license_note": "Generated geometry - no third-party model licence applies."
+  },
+  "tags": ["animation", "procedural", "spritesheet"],
+  "status": "pending"
+}

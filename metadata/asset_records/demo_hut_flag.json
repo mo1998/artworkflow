@@ -1,0 +1,178 @@
+{
+  "asset_id": "demo_hut_flag",
+  "run_key": "demo_hut_flag",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "/home/mrazek/ArtWorkflow/assets/animations/demo_hut_flag",
+      "frames": 12,
+      "clip": "banner_wave",
+      "frame_rate": 12,
+      "frame_count": 12,
+      "ortho_scale": 5.445,
+      "frame_target_z": 1.386,
+      "generator": "generate_building.py",
+      "seconds": 1.57,
+      "attempt": 0,
+      "params": {
+        "kind": "hut",
+        "width": 2.6,
+        "depth": 2.4,
+        "wall_height": 1.8,
+        "wall_material": "plaster",
+        "roof": "gable",
+        "roof_material": "thatch",
+        "banner": true,
+        "seed": 21,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "res_x": 512,
+        "res_y": 512,
+        "samples": 48
+      },
+      "completed_at": "2026-10-18T13:31:10+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "dir": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut_flag",
+      "frames": 12,
+      "steps": [],
+      "frame_size": [
+        512,
+        512
+      ],
+      "measurements": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4121513366699219,
+        "opaque_coverage": 0.4074668884277344,
+        "bbox": [
+          72,
+          5,
+          439,
+          459
+        ],
+        "centroid": [
+          248.95255592680692,
+          259.7999037420286
+        ],
+        "rgb_mean": [
+          82.37,
+          75.12,
+          63.91
+        ],
+        "rgb_stddev": 90.915,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 2246
+      },
+      "completed_at": "2026-10-18T13:31:19+03:00",
+      "attempts": 1
+    },
+    "spritesheet": {
+      "sheet": "/home/mrazek/ArtWorkflow/assets/spritesheets/demo_hut_flag.png",
+      "metadata": "/home/mrazek/ArtWorkflow/assets/spritesheets/demo_hut_flag.json",
+      "columns": 4,
+      "rows": 3,
+      "frame_size": [
+        512,
+        512
+      ],
+      "frames": 12,
+      "sheet_bytes": 403700,
+      "completed_at": "2026-10-18T13:31:20+03:00",
+      "attempts": 1
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "frames_present",
+          "ok": true,
+          "detail": "found 12 frames, expected 12",
+          "severity": "error"
+        },
+        {
+          "check": "frame_opens",
+          "ok": true,
+          "detail": "12 frames readable",
+          "severity": "error"
+        },
+        {
+          "check": "frames_uniform",
+          "ok": true,
+          "detail": "sizes [(512, 512)]",
+          "severity": "error"
+        },
+        {
+          "check": "frames_not_blank",
+          "ok": true,
+          "detail": "flat frames: []",
+          "severity": "error"
+        },
+        {
+          "check": "frames_have_subject",
+          "ok": true,
+          "detail": "frames without subject: []",
+          "severity": "error"
+        },
+        {
+          "check": "registration_stable",
+          "ok": true,
+          "detail": "centroid drift 2.9px (max 24.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_motion",
+          "ok": true,
+          "detail": "peak delta 175 (min 8), max changed fraction 0.001854 (min 0.0005); a still loop means the clip did nothing",
+          "severity": "error"
+        },
+        {
+          "check": "loop_continuous",
+          "ok": true,
+          "detail": "loop step 0.00011 vs average step 0.00073 (max 0.00219)",
+          "severity": "error"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T13:31:21+03:00",
+      "attempts": 1
+    },
+    "export": {
+      "files": [
+        "assets/approved/animations/demo_hut_flag.png",
+        "assets/approved/animations/demo_hut_flag.json",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0000.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0001.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0002.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0003.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0004.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0005.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0006.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0007.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0008.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0009.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0010.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0011.png"
+      ],
+      "target": "/home/mrazek/ArtWorkflow/assets/approved/animations",
+      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/animations",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T13:31:21+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "updated_at": "2026-10-18T13:31:21+03:00",
+  "status_at": "2026-10-18T13:31:21+03:00",
+  "exported_status": "passed"
+}

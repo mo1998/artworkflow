@@ -1,0 +1,214 @@
+{
+  "asset_id": "demo_hut",
+  "run_key": "demo_hut__lvl3",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl3.png",
+      "bytes": 930314,
+      "generator": "generate_building.py",
+      "ortho_scale": 4.7685,
+      "frame_target_z": 1.2138,
+      "vertices": 101,
+      "polygons": 77,
+      "seconds": 0.79,
+      "attempt": 0,
+      "params": {
+        "kind": "hut",
+        "width": 3.4,
+        "depth": 3.0,
+        "wall_height": 2.6,
+        "wall_material": "plaster",
+        "roof": "hip",
+        "roof_material": "tile",
+        "seed": 13,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "res_x": 1024,
+        "res_y": 1024,
+        "samples": 64,
+        "ortho_scale": 4.7685,
+        "frame_target_z": 1.2138
+      },
+      "completed_at": "2026-10-18T13:31:08+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut__lvl3.png",
+      "bytes": 145458,
+      "source": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl3.png",
+      "steps": [
+        "trim",
+        "resize(family x0.4766 ->488x476)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=family)"
+      ],
+      "trim_box": [
+        0,
+        0,
+        1024,
+        999
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "family",
+      "canvas": 512,
+      "source_pixel_hash": "ee3d316e10a823863b3f98b07a5fa670bee56eec94cf6f909933adcbdb72217d",
+      "pixel_hash": "2af23b6914499b04a810d7a3aeb25353fd0fba604f376f80be9334ba15998f07",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.7799320220947266,
+        "opaque_coverage": 0.7786378860473633,
+        "bbox": [
+          0,
+          0,
+          1023,
+          998
+        ],
+        "centroid": [
+          513.2239410235529,
+          470.15393522764236
+        ],
+        "rgb_mean": [
+          151.55,
+          130.93,
+          123.27
+        ],
+        "rgb_stddev": 80.239,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": false
+        },
+        "unique_colors": 2039
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.7094268798828125,
+        "opaque_coverage": 0.7059898376464844,
+        "bbox": [
+          12,
+          24,
+          499,
+          499
+        ],
+        "centroid": [
+          256.3518056481621,
+          247.679715225948
+        ],
+        "rgb_mean": [
+          137.92,
+          119.37,
+          112.61
+        ],
+        "rgb_stddev": 85.829,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 2867
+      },
+      "completed_at": "2026-10-18T13:31:16+03:00",
+      "attempts": 1
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut__lvl3.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "145458 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 85.829 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.7094 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 475px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 88.24% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T13:31:20+03:00",
+      "attempts": 1
+    },
+    "export": {
+      "files": [
+        "assets/approved/buildings/demo_hut__lvl3.png"
+      ],
+      "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
+      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T13:31:21+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "updated_at": "2026-10-18T13:31:21+03:00",
+  "status_at": "2026-10-18T13:31:21+03:00",
+  "exported_status": "passed"
+}

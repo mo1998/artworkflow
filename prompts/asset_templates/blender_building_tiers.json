@@ -1,0 +1,64 @@
+{
+  "//": "Template: procedural Blender building with upgrade tiers that share one locked camera. The pipeline captures the first render's ortho_scale/frame_target_z and forces them onto every variant, and `scale_mode: family` scales all tiers by one shared factor so a level-3 building is visibly larger than a level-1.",
+  "asset_id": "SET_ME_unique_lower_snake_case",
+  "asset_type": "building",
+  "description": "Procedural building with three upgrade tiers.",
+  "source": "blender",
+  "style": "blender-procedural-v1",
+  "blender": {
+    "generator": "generate_building.py",
+    "params": {
+      "kind": "hut",
+      "width": 2.4,
+      "depth": 2.2,
+      "wall_height": 1.5,
+      "wall_material": "plaster",
+      "roof": "gable",
+      "roof_material": "thatch",
+      "plinth": true,
+      "door": true,
+      "windows": 2,
+      "chimney": false,
+      "banner": false,
+      "seed": 11
+    }
+  },
+  "generation": {
+    "width": 1024,
+    "height": 1024,
+    "engine": "BLENDER_EEVEE_NEXT",
+    "samples": 64
+  },
+  "processing": {
+    "remove_background": false,
+    "trim": true,
+    "padding": 12,
+    "resize": 512,
+    "anchor": "bottom-center",
+    "scale_mode": "family"
+  },
+  "animation": { "enabled": false },
+  "variants": [
+    {
+      "suffix": "lvl2",
+      "blender_params": { "width": 3.0, "depth": 2.6, "wall_height": 2.0, "seed": 12 }
+    },
+    {
+      "suffix": "lvl3",
+      "blender_params": { "width": 3.4, "depth": 3.0, "wall_height": 2.6, "roof": "hip", "roof_material": "tile", "seed": 13 }
+    }
+  ],
+  "export": {
+    "format": "png",
+    "target_directory": "assets/approved/buildings",
+    "godot": "res://assets/buildings"
+  },
+  "provenance": {
+    "model": "procedural (Blender 4.5.9)",
+    "model_file": "blender/generate_building.py",
+    "license_url": "https://www.blender.org/about/license/",
+    "license_note": "Generated geometry - no third-party model licence applies."
+  },
+  "tags": ["building", "procedural", "tiers"],
+  "status": "pending"
+}

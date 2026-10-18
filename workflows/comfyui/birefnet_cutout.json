@@ -1,0 +1,49 @@
+{
+  "_artworkflow": {
+    "name": "birefnet_cutout",
+    "description": "Background removal via the ComfyUI_BiRefNet_ll custom node (General-HR weights, fast foreground estimation). Used instead of standalone rembg, which is not installed on this machine.",
+    "version": 1,
+    "requires": {
+      "checkpoint": null,
+      "custom_nodes": ["ComfyUI_BiRefNet_ll"]
+    },
+    "extra_models": {
+      "birefnet": "models/BiRefNet/General-HR.safetensors"
+    },
+    "bindings": {
+      "image_name": { "node": "2", "input": "image" },
+      "model_name": { "node": "1", "input": "model_name" },
+      "width": { "node": "3", "input": "width" },
+      "height": { "node": "3", "input": "height" },
+      "filename_prefix": { "node": "4", "input": "filename_prefix" }
+    },
+    "output_node": "4"
+  },
+  "1": {
+    "class_type": "AutoDownloadBiRefNetModel",
+    "inputs": { "model_name": "General-HR", "device": "AUTO", "dtype": "float16" }
+  },
+  "2": {
+    "class_type": "LoadImage",
+    "inputs": { "image": "put_image_here.png", "upload": "image" }
+  },
+  "3": {
+    "class_type": "RembgByBiRefNetAdvanced",
+    "inputs": {
+      "model": ["1", 0],
+      "images": ["2", 0],
+      "width": 1024,
+      "height": 1024,
+      "upscale_method": "bilinear",
+      "blur_size": 90,
+      "blur_size_two": 6,
+      "fill_color": false,
+      "color": 0,
+      "mask_threshold": 0.0
+    }
+  },
+  "4": {
+    "class_type": "SaveImage",
+    "inputs": { "images": ["3", 0], "filename_prefix": "artworkflow/cutout" }
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "run_id": "final",
+  "generated_at": "2026-10-18T13:31:24+03:00",
+  "manifest": "/home/mrazek/ArtWorkflow/config/manifest.json",
+  "totals": {
+    "assets": 6,
+    "by_status": {
+      "exported": 6
+    },
+    "retried": 0,
+    "failed": 0,
+    "review_required": 0,
+    "exported": 6
+  },
+  "assets": [
+    {
+      "asset_id": "demo_watchtower_a",
+      "run_key": "demo_watchtower_a",
+      "type": "building",
+      "source": "comfyui",
+      "style": "dark-fantasy-isometric-v1",
+      "status": "exported",
+      "exported_status": "passed",
+      "seed": 481516,
+      "model": "FLUX.1-dev fp8",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "generator": null,
+      "clip": null,
+      "frames": null,
+      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/demo_watchtower_a.png",
+      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_watchtower_a.png",
+      "exported": [
+        "assets/approved/buildings/demo_watchtower_a.png"
+      ],
+      "failed_checks": [],
+      "review_checks": [],
+      "retries": {},
+      "errors": [],
+      "seconds": {
+        "generation": 68.14
+      }
+    },
+    {
+      "asset_id": "demo_watchtower_b",
+      "run_key": "demo_watchtower_b",
+      "type": "building",
+      "source": "comfyui",
+      "style": "dark-fantasy-isometric-v1",
+      "status": "exported",
+      "exported_status": "passed",
+      "seed": 90210,
+      "model": "FLUX.1-dev fp8",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "generator": null,
+      "clip": null,
+      "frames": null,
+      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/demo_watchtower_b.png",
+      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_watchtower_b.png",
+      "exported": [
+        "assets/approved/buildings/demo_watchtower_b.png"
+      ],
+      "failed_checks": [],
+      "review_checks": [],
+      "retries": {},
+      "errors": [],
+      "seconds": {
+        "generation": 16.06
+      }
+    },
+    {
+      "asset_id": "demo_hut",
+      "run_key": "demo_hut",
+      "type": "building",
+      "source": "blender",
+      "style": "blender-procedural-v1",
+      "status": "exported",
+      "exported_status": "passed",
+      "seed": null,
+      "model": "procedural (Blender 4.5.9)",
+      "workflow": null,
+      "generator": "generate_building.py",
+      "clip": null,
+      "frames": null,
+      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut.png",
+      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut.png",
+      "exported": [
+        "assets/approved/buildings/demo_hut.png"
+      ],
+      "failed_checks": [],
+      "review_checks": [],
+      "retries": {},
+      "errors": [],
+      "seconds": {
+        "generation": 2.33
+      }
+    },
+    {
+      "asset_id": "demo_hut",
+      "run_key": "demo_hut__lvl2",
+      "type": "building",
+      "source": "blender",
+      "style": "blender-procedural-v1",
+      "status": "exported",
+      "exported_status": "passed",
+      "seed": null,
+      "model": "procedural (Blender 4.5.9)",
+      "workflow": null,
+      "generator": "generate_building.py",
+      "clip": null,
+      "frames": null,
+      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl2.png",
+      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut__lvl2.png",
+      "exported": [
+        "assets/approved/buildings/demo_hut__lvl2.png"
+      ],
+      "failed_checks": [],
+      "review_checks": [],
+      "retries": {},
+      "errors": [],
+      "seconds": {
+        "generation": 0.77
+      }
+    },
+    {
+      "asset_id": "demo_hut",
+      "run_key": "demo_hut__lvl3",
+      "type": "building",
+      "source": "blender",
+      "style": "blender-procedural-v1",
+      "status": "exported",
+      "exported_status": "passed",
+      "seed": null,
+      "model": "procedural (Blender 4.5.9)",
+      "workflow": null,
+      "generator": "generate_building.py",
+      "clip": null,
+      "frames": null,
+      "incoming": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl3.png",
+      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut__lvl3.png",
+      "exported": [
+        "assets/approved/buildings/demo_hut__lvl3.png"
+      ],
+      "failed_checks": [],
+      "review_checks": [],
+      "retries": {},
+      "errors": [],
+      "seconds": {
+        "generation": 0.79
+      }
+    },
+    {
+      "asset_id": "demo_hut_flag",
+      "run_key": "demo_hut_flag",
+      "type": "building",
+      "source": "blender",
+      "style": "blender-procedural-v1",
+      "status": "exported",
+      "exported_status": "passed",
+      "seed": null,
+      "model": "procedural (Blender 4.5.9)",
+      "workflow": null,
+      "generator": "generate_building.py",
+      "clip": "banner_wave",
+      "frames": 12,
+      "incoming": "/home/mrazek/ArtWorkflow/assets/animations/demo_hut_flag",
+      "processed": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut_flag",
+      "exported": [
+        "assets/approved/animations/demo_hut_flag.png",
+        "assets/approved/animations/demo_hut_flag.json",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0000.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0001.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0002.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0003.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0004.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0005.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0006.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0007.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0008.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0009.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0010.png",
+        "assets/approved/animations/demo_hut_flag_frames/frame_0011.png"
+      ],
+      "failed_checks": [],
+      "review_checks": [],
+      "retries": {},
+      "errors": [],
+      "seconds": {
+        "generation": 1.57
+      }
+    }
+  ],
+  "retried": [],
+  "duplicates": [],
+  "provenance_gaps": [],
+  "logs": [
+    "logs/final/demo_hut-blender.log.log",
+    "logs/final/demo_hut__lvl2-blender.log.log",
+    "logs/final/demo_hut__lvl3-blender.log.log",
+    "logs/final/demo_hut_flag-blender.log.log",
+    "logs/final/events.jsonl",
+    "logs/final/export-summary.json",
+    "logs/final/generate-blender-summary.json",
+    "logs/final/generate-comfyui-summary.json",
+    "logs/final/godot-check-summary.json",
+    "logs/final/godot-check.log.log",
+    "logs/final/godot-import.log.log",
+    "logs/final/process-summary.json",
+    "logs/final/spritesheet-summary.json",
+    "logs/final/validate-summary.json"
+  ]
+}

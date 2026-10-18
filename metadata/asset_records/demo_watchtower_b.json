@@ -1,0 +1,204 @@
+{
+  "asset_id": "demo_watchtower_b",
+  "run_key": "demo_watchtower_b",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "/home/mrazek/ArtWorkflow/assets/incoming/demo_watchtower_b.png",
+      "bytes": 713281,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 90210,
+      "prompt": "a dark-fantasy medieval wooden watchtower on a heavy stone base, narrow timber stairs winding up the outside, shingled spire roof, a burning brazier at the top, glowing arrow-slit windows. isometric three quarter view of a single isolated building, orthographic projection, no perspective distortion, the building sits on a small flat patch of ground, the whole building inside the frame with clear margin on every side, plain flat uniform light grey background, no other structures, no fence line, no water, no moat, no river, no lake, no floating island on a cliff base, no snow, no mist, no text, no watermark, no border, no frame. hand painted stylized 3D game art, dark fantasy medieval, weathered stone and dark stained timber, muted earth palette with warm torchlight accents, soft painterly texture, crisp readable silhouette, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, water, river, lake, moat, sea, horizon line, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "724e9591-35de-43fa-b24e-b91cae4b60bf",
+      "seconds": 16.06,
+      "attempt": 0,
+      "completed_at": "2026-10-18T13:31:04+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "/home/mrazek/ArtWorkflow/assets/processed/demo_watchtower_b.png",
+      "bytes": 199642,
+      "source": "/home/mrazek/ArtWorkflow/assets/incoming/demo_watchtower_b.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 774x982->385x488)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        128,
+        12,
+        902,
+        994
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "834fa494ed882cce2c6f899cc464a837a64b89987adf59c42bf8862c6ed53bb0",
+      "pixel_hash": "0519bda25cb3876d7f034c7b7ed1b2f90a31859deeeaac9931197b9f9daf7a2e",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.3292264938354492,
+        "opaque_coverage": 0.3231935501098633,
+        "bbox": [
+          128,
+          12,
+          901,
+          992
+        ],
+        "centroid": [
+          515.0056456915755,
+          613.6405962591862
+        ],
+        "rgb_mean": [
+          27.51,
+          24.79,
+          23.98
+        ],
+        "rgb_stddev": 43.346,
+        "transparent_rgb_fraction": 0.002,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 16606
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.326690673828125,
+        "opaque_coverage": 0.3195648193359375,
+        "bbox": [
+          64,
+          12,
+          448,
+          499
+        ],
+        "centroid": [
+          256.24655534796824,
+          310.6419313404951
+        ],
+        "rgb_mean": [
+          26.49,
+          23.9,
+          23.12
+        ],
+        "rgb_stddev": 43.208,
+        "transparent_rgb_fraction": 0.0013,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 16516
+      },
+      "completed_at": "2026-10-18T13:31:14+03:00",
+      "attempts": 1
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "/home/mrazek/ArtWorkflow/assets/processed/demo_watchtower_b.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "199642 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 43.208 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.3267 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 384px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 71.34% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T13:31:20+03:00",
+      "attempts": 1
+    },
+    "export": {
+      "files": [
+        "assets/approved/buildings/demo_watchtower_b.png"
+      ],
+      "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
+      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T13:31:21+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-18T13:31:21+03:00",
+  "updated_at": "2026-10-18T13:31:21+03:00",
+  "exported_status": "passed"
+}

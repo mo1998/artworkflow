@@ -1,0 +1,38 @@
+{
+  "//": "Template: an isolated painted building through ComfyUI. Copy into config/manifest.json's assets[] and edit. Only `prompt` should change between two assets in the same set - composition and style come from config/styles.yaml.",
+  "asset_id": "SET_ME_unique_lower_snake_case",
+  "asset_type": "building",
+  "description": "One line a human can search for later.",
+  "source": "comfyui",
+  "style": "dark-fantasy-isometric-v1",
+  "prompt": "the subject clause only: a dark-fantasy medieval granary on a stone base, barrel-loading ramp, shingled roof, a lantern beside the door",
+  "seed": 12345,
+  "generation": {
+    "workflow": "workflows/comfyui/flux_txt2img.json",
+    "width": 1024,
+    "height": 1024,
+    "steps": 24
+  },
+  "processing": {
+    "remove_background": true,
+    "trim": true,
+    "padding": 12,
+    "resize": 512,
+    "anchor": "bottom-center",
+    "scale_mode": "fit"
+  },
+  "animation": { "enabled": false },
+  "export": {
+    "format": "png",
+    "target_directory": "assets/approved/buildings",
+    "godot": "res://assets/buildings"
+  },
+  "provenance": {
+    "model": "FLUX.1-dev fp8",
+    "model_file": "flux1-dev-fp8.safetensors",
+    "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+    "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+  },
+  "tags": ["building"],
+  "status": "pending"
+}
