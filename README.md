@@ -35,7 +35,7 @@ no stage is allowed to pretend otherwise.
 git clone https://github.com/mo1998/artworkflow.git
 cd artworkflow
 python3 -m venv .venv                      # Python 3.9+
-.venv/bin/python -m pip install pillow numpy pyyaml   # that is the whole dependency list
+.venv/bin/python -m pip install -r requirements.txt   # that is the whole list
 
 .venv/bin/python scripts/env_check.py     # resolve every tool, prove the toolchain works
 .venv/bin/python scripts/run_pipeline.py  # generate → process → validate → export → report

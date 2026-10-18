@@ -150,6 +150,41 @@ class TestDependencies(unittest.TestCase):
         self.assertTrue(declared <= used,
                         f"required but never imported: {sorted(declared - used)}")
 
+    # distribution name -> import name. The only place this mapping is needed.
+    DIST_TO_MODULE = {"pillow": "PIL", "numpy": "numpy", "pyyaml": "yaml"}
+
+    def _requirements(self) -> set[str]:
+        path = ROOT / "requirements.txt"
+        if not path.exists():
+            return set()
+        names = set()
+        for line in path.read_text().splitlines():
+            line = line.split("#", 1)[0].strip()
+            if not line:
+                continue
+            for specifier in ("==", ">=", "<=", "~=", "!=", ">", "<", "["):
+                line = line.split(specifier, 1)[0]
+            names.add(line.strip().lower())
+        return names
+
+    def test_requirements_txt_matches_the_declared_modules(self):
+        """Three places name the dependencies; if they disagree the docs are wrong somewhere."""
+        import env_check
+
+        declared = self._requirements()
+        if not declared:
+            self.skipTest("no requirements.txt")
+        mapped = {self.DIST_TO_MODULE.get(name) for name in declared}
+        self.assertNotIn(None, mapped, f"unknown distribution in requirements.txt: {declared}")
+        self.assertEqual(mapped, set(env_check.REQUIRED_MODULES),
+                         "requirements.txt and REQUIRED_MODULES disagree")
+
+    def test_readme_install_uses_the_requirements_file(self):
+        readme = (ROOT / "README.md").read_text()
+        installs = [line for line in readme.splitlines() if "pip install" in line]
+        self.assertTrue(any("requirements.txt" in line for line in installs),
+                        "README should install from requirements.txt so the list lives in one place")
+
     def test_mcp_server_stays_stdlib_only(self):
         """The server is documented as dependency-free, so it must import nothing at all outside
         the standard library - not even the pipeline's own requirements."""

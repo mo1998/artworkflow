@@ -9,7 +9,7 @@ that you should not have to know any of the history in this repo to change it sa
 git clone https://github.com/mo1998/artworkflow.git
 cd artworkflow
 python3 -m venv .venv                      # Python 3.9+
-.venv/bin/python -m pip install pillow numpy pyyaml
+.venv/bin/python -m pip install -r requirements.txt
 ```
 
 That is the entire dependency list. You do **not** need a GPU, ComfyUI, Blender or Godot to work on
@@ -69,7 +69,7 @@ These are checked automatically; this table is so you know before CI tells you.
 | add a `*_material` name to `PALETTE` in `blender/lib/scene.py` | nothing else — but manifest validation will now accept that name and reject typos |
 | add a style to `config/styles.yaml` | reference it from `config/manifest.json`; document it if it is a new direction |
 | add a stage script in `scripts/` | `STAGE_PLAN` and `STAGE_ORDER` in `run_pipeline.py`, and an `artworkflow_<stage>` tool in `mcp_server/server.py` |
-| add a third-party import | `REQUIRED_MODULES` in `scripts/env_check.py`, the install line in `README.md`, and the CI install step |
+| add a third-party import | `REQUIRED_MODULES` in `scripts/env_check.py`, `requirements.txt`, and the install line in `README.md` — a test asserts all three agree |
 | read a new config key | add it to `config/pipeline.yaml`; a typo'd key silently returns the default |
 | add or rename a doc | relative links in `README.md`, and the reference table in `skills/artworkflow/SKILL.md` |
 | change a check in `validate_assets.py` | `skills/artworkflow/references/validation.md` |

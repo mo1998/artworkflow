@@ -30,11 +30,11 @@ jobs:
           cache: pip
 
       - name: Install the pipeline's dependencies
-        # Deliberately the hand-written list, not a lockfile: this step proves the documented
+        # From requirements.txt rather than an inline list: this step then proves the documented
         # install is sufficient. Pillow, numpy and PyYAML are the entire runtime requirement.
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pillow numpy pyyaml
+          python -m pip install -r requirements.txt
 
       - name: Static sweep and tests
         run: python scripts/check.py --verbose
@@ -77,7 +77,7 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - run: python -m pip install pillow numpy pyyaml
+      - run: python -m pip install -r requirements.txt
 
       - name: No absolute paths, no credentials, no generated output tracked
         # Committed records and config must stay portable, and a public repo must not carry a
@@ -97,7 +97,7 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - run: python -m pip install pillow numpy pyyaml
+      - run: python -m pip install -r requirements.txt
 
       - name: Validate the shipped manifest and workflow bindings
         run: |

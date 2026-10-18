@@ -1,0 +1,10 @@
+# The pipeline's entire runtime dependency list.
+#
+# Generation additionally needs ComfyUI (with torch) and/or Blender, but neither is a Python
+# dependency of this repo: the pipeline drives them over HTTP and as a subprocess.
+#
+# tests/test_repo_consistency.py asserts this file, REQUIRED_MODULES in scripts/env_check.py and
+# the install line in README.md all say the same thing.
+pillow>=10.0
+numpy>=1.24
+PyYAML>=6.0
