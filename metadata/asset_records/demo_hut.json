@@ -5,13 +5,13 @@
   "stages": {
     "generation": {
       "file": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut.png",
-      "bytes": 659268,
+      "bytes": 456928,
       "generator": "generate_building.py",
-      "ortho_scale": 4.7685,
-      "frame_target_z": 1.2138,
+      "ortho_scale": 7.0407,
+      "frame_target_z": 2.2829,
       "vertices": 102,
       "polygons": 77,
-      "seconds": 2.43,
+      "seconds": 0.94,
       "attempt": 0,
       "params": {
         "kind": "hut",
@@ -25,55 +25,69 @@
         "engine": "BLENDER_EEVEE_NEXT",
         "res_x": 1024,
         "res_y": 1024,
-        "samples": 64
+        "samples": 64,
+        "ortho_scale": 7.040744,
+        "frame_target_z": 2.282893,
+        "frame_bounds": {
+          "lo": [
+            -1.8300000429153442,
+            -1.6299999952316284,
+            0.0
+          ],
+          "hi": [
+            1.8300000429153442,
+            1.6299999952316284,
+            4.565786361694336
+          ]
+        }
       },
-      "completed_at": "2026-10-18T14:24:32+03:00",
-      "attempts": 2
+      "completed_at": "2026-10-18T14:53:02+03:00",
+      "attempts": 4
     },
     "processing": {
       "file": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut.png",
-      "bytes": 93698,
+      "bytes": 96962,
       "source": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut.png",
       "steps": [
         "trim",
-        "resize(family x0.4766 ->370x396)",
+        "resize(family x0.6472 ->340x364)",
         "canvas(512,anchor=bottom-center,pad=12,mode=family)"
       ],
       "trim_box": [
-        124,
-        101,
-        900,
+        249,
+        368,
+        775,
         931
       ],
       "anchor": "bottom-center",
       "padding": 12,
       "scale_mode": "family",
       "canvas": 512,
-      "source_pixel_hash": "11573294773860154c91d0ed04a79cd04446ec242f35aee3e4d1e6698b2cfdc0",
-      "pixel_hash": "ef0a2ea2edf7a047d3dfe2296313731351e8ca08c35f2e5910ef39a67a5b0558",
+      "source_pixel_hash": "f41e8b70075c0c36557c57bc5f08caa1fa0262a1baf24f3e4fbc3ec8b0a6d6a4",
+      "pixel_hash": "9291295f3ef703ce1f8b33f060452429b3f54ae2cdee099979b7a9593971e200",
       "before": {
         "width": 1024,
         "height": 1024,
         "mode": "RGBA",
         "has_alpha": true,
-        "alpha_coverage": 0.42069435119628906,
-        "opaque_coverage": 0.4189901351928711,
+        "alpha_coverage": 0.19341182708740234,
+        "opaque_coverage": 0.19208812713623047,
         "bbox": [
-          124,
-          101,
-          899,
+          249,
+          368,
+          774,
           930
         ],
         "centroid": [
-          496.0476707546528,
-          539.0394872259878
+          501.0078646200575,
+          664.7667684054298
         ],
         "rgb_mean": [
-          83.35,
-          76.46,
-          63.89
+          38.43,
+          35.25,
+          29.49
         ],
-        "rgb_stddev": 90.858,
+        "rgb_stddev": 71.682,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -81,31 +95,31 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 1877
+        "unique_colors": 1288
       },
       "after": {
         "width": 512,
         "height": 512,
         "mode": "RGBA",
         "has_alpha": true,
-        "alpha_coverage": 0.38378143310546875,
-        "opaque_coverage": 0.3818702697753906,
+        "alpha_coverage": 0.3244132995605469,
+        "opaque_coverage": 0.3212394714355469,
         "bbox": [
-          71,
-          104,
-          440,
+          86,
+          136,
+          425,
           499
         ],
         "centroid": [
-          248.1111563922629,
-          312.7497167166968
+          248.7405077431417,
+          327.7046082569994
         ],
         "rgb_mean": [
-          76.49,
-          70.13,
-          58.62
+          64.81,
+          59.22,
+          49.49
         ],
-        "rgb_stddev": 89.313,
+        "rgb_stddev": 85.76,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -113,10 +127,10 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 2648
+        "unique_colors": 2323
       },
-      "completed_at": "2026-10-18T14:24:46+03:00",
-      "attempts": 2
+      "completed_at": "2026-10-18T14:53:12+03:00",
+      "attempts": 4
     },
     "validation": {
       "status": "passed",
@@ -128,6 +142,12 @@
           "severity": "error"
         },
         {
+          "check": "source_not_clipped",
+          "ok": true,
+          "detail": "demo_hut.png content box (249, 368, 775, 931) within 1024x1024",
+          "severity": "error"
+        },
+        {
           "check": "format_is_png",
           "ok": true,
           "detail": "detected png",
@@ -136,7 +156,7 @@
         {
           "check": "not_empty",
           "ok": true,
-          "detail": "93698 bytes",
+          "detail": "96962 bytes",
           "severity": "error"
         },
         {
@@ -154,7 +174,7 @@
         {
           "check": "not_blank",
           "ok": true,
-          "detail": "rgb stddev 89.313 (min 4.0)",
+          "detail": "rgb stddev 85.76 (min 4.0)",
           "severity": "error"
         },
         {
@@ -166,13 +186,13 @@
         {
           "check": "subject_present",
           "ok": true,
-          "detail": "alpha coverage 0.3838 in [0.02, 0.97]",
+          "detail": "alpha coverage 0.3244 in [0.02, 0.97]",
           "severity": "error"
         },
         {
           "check": "subject_size",
           "ok": true,
-          "detail": "subject short side 369px (min 48)",
+          "detail": "subject short side 339px (min 48)",
           "severity": "error"
         },
         {
@@ -184,14 +204,14 @@
         {
           "check": "subject_fill",
           "ok": true,
-          "detail": "subject fills 55.60% of the canvas (want 15%-92%)",
+          "detail": "subject fills 46.94% of the canvas (want 15%-92%)",
           "severity": "review"
         }
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T14:32:11+03:00",
-      "attempts": 5
+      "completed_at": "2026-10-18T14:57:24+03:00",
+      "attempts": 11
     },
     "export": {
       "files": [
@@ -200,13 +220,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T14:32:14+03:00",
-      "attempts": 4
+      "completed_at": "2026-10-18T14:57:27+03:00",
+      "attempts": 8
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:32:14+03:00",
-  "status_at": "2026-10-18T14:32:14+03:00",
+  "updated_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T14:57:27+03:00",
   "exported_status": "passed"
 }

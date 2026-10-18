@@ -142,8 +142,7 @@ def bob(scene: bpy.types.Scene, index: int, total: int, params: dict[str, Any]) 
     return {"offset": round(offset, 4), "objects": count}
 
 
-CLIPS: dict[str, dict[str, Any]] = {
-    "banner_wave": {
+CLIPS: dict[str, dict[str, Any]] = {    "banner_wave": {
         "fn": banner_wave,
         "frames_default": 12,
         "requires": "an object built with banner=true",
@@ -178,6 +177,13 @@ CLIPS: dict[str, dict[str, Any]] = {
 
 def clip_names() -> list[str]:
     return sorted(CLIPS)
+
+
+# Clips that move the camera rather than the subject. A validator that demands a stable subject
+# centroid is measuring the wrong thing for these: a turntable *should* move the subject across
+# the frame, which is the whole point of a turntable. Declared as a literal so the Python
+# pipeline can read it without importing bpy.
+CAMERA_MOVING_CLIPS: tuple[str, ...] = ("turntable",)
 
 
 def apply_clip(scene: bpy.types.Scene, name: str, index: int, total: int,

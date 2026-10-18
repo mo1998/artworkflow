@@ -60,6 +60,7 @@ validation:
     min: 0.02 # subject must exist
     max: 0.97 # subject must not be the whole frame
   border_touch_tolerance_px: 1 # isolated subjects may not be flush with the edge
+  source_border_margin_px: 2 # the *render* must leave this much room; trim would hide clipping
   min_subject_short_side_px: 48
   duplicate_hamming_distance: 6 # dHash bits; <= this counts as a near-duplicate
   frame:

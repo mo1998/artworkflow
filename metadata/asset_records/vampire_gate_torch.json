@@ -9,10 +9,10 @@
       "clip": "torch_flicker",
       "frame_rate": 12,
       "frame_count": 16,
-      "ortho_scale": 4.983,
-      "frame_target_z": 1.2684,
+      "ortho_scale": 5.0579,
+      "frame_target_z": 1.61,
       "generator": "generate_building.py",
-      "seconds": 1.72,
+      "seconds": 1.67,
       "attempt": 0,
       "params": {
         "kind": "gate",
@@ -34,10 +34,24 @@
         "samples": 48,
         "key_energy": 2.2,
         "fill_energy": 0.8,
-        "azimuth": 40.0
+        "azimuth": 40.0,
+        "ortho_scale": 5.057884,
+        "frame_target_z": 1.61,
+        "frame_bounds": {
+          "lo": [
+            -1.6649999618530273,
+            -0.9649999737739563,
+            0.0
+          ],
+          "hi": [
+            1.6649999618530273,
+            0.9649999737739563,
+            3.2200000286102295
+          ]
+        }
       },
-      "completed_at": "2026-10-18T14:24:39+03:00",
-      "attempts": 4
+      "completed_at": "2026-10-18T14:53:10+03:00",
+      "attempts": 6
     },
     "processing": {
       "dir": "/home/mrazek/ArtWorkflow/assets/processed/vampire_gate_torch",
@@ -52,24 +66,24 @@
         "height": 512,
         "mode": "RGBA",
         "has_alpha": true,
-        "alpha_coverage": 0.4617958068847656,
-        "opaque_coverage": 0.45754241943359375,
+        "alpha_coverage": 0.4476890563964844,
+        "opaque_coverage": 0.4428672790527344,
         "bbox": [
-          84,
-          4,
-          427,
-          454
+          87,
+          37,
+          424,
+          481
         ],
         "centroid": [
-          255.8196056403182,
-          226.67068405792313
+          255.78610076772978,
+          256.89576427883674
         ],
         "rgb_mean": [
-          38.95,
-          37.91,
-          40.3
+          37.89,
+          36.89,
+          39.2
         ],
-        "rgb_stddev": 44.946,
+        "rgb_stddev": 44.746,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -77,10 +91,10 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 1466
+        "unique_colors": 1404
       },
-      "completed_at": "2026-10-18T14:25:05+03:00",
-      "attempts": 5
+      "completed_at": "2026-10-18T14:53:23+03:00",
+      "attempts": 7
     },
     "spritesheet": {
       "sheet": "/home/mrazek/ArtWorkflow/assets/spritesheets/vampire_gate_torch.png",
@@ -92,9 +106,9 @@
         512
       ],
       "frames": 16,
-      "sheet_bytes": 1790077,
-      "completed_at": "2026-10-18T14:25:13+03:00",
-      "attempts": 6
+      "sheet_bytes": 1743691,
+      "completed_at": "2026-10-18T14:53:31+03:00",
+      "attempts": 8
     },
     "validation": {
       "status": "passed",
@@ -138,20 +152,20 @@
         {
           "check": "has_motion",
           "ok": true,
-          "detail": "peak delta 40 (min 8), max changed fraction 0.448082 (min 0.0005); a still loop means the clip did nothing",
+          "detail": "peak delta 40 (min 8), max changed fraction 0.436176 (min 0.0005); a still loop means the clip did nothing",
           "severity": "error"
         },
         {
           "check": "loop_continuous",
           "ok": true,
-          "detail": "loop step 0.00270 vs average step 0.00743 (max 0.02228)",
+          "detail": "loop step 0.00263 vs average step 0.00722 (max 0.02165)",
           "severity": "error"
         }
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T14:32:13+03:00",
-      "attempts": 9
+      "completed_at": "2026-10-18T14:57:26+03:00",
+      "attempts": 15
     },
     "export": {
       "files": [
@@ -177,13 +191,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/animations",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/animations",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T14:32:14+03:00",
-      "attempts": 8
+      "completed_at": "2026-10-18T14:57:27+03:00",
+      "attempts": 12
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:32:14+03:00",
-  "status_at": "2026-10-18T14:32:14+03:00",
+  "updated_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T14:57:27+03:00",
   "exported_status": "passed"
 }

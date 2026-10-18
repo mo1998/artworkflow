@@ -336,6 +336,92 @@ class TestBlenderPalette(unittest.TestCase):
         self.assertTrue(any("unknown material" in p for p in problems), problems)
 
 
+class TestFamilies(unittest.TestCase):
+    """Invariants of upgrade-tier families, asserted against the last run's own records."""
+
+    RECORDS = ROOT / "metadata" / "asset_records"
+
+    def _records(self, keys):
+        out = {}
+        for key in keys:
+            path = self.RECORDS / f"{key}.json"
+            if path.exists():
+                out[key] = json.loads(path.read_text())
+        return out
+
+    def test_family_siblings_share_one_camera(self):
+        """Every tier of a family must render from the same camera, or the tiers cannot be
+        swapped on one tile and their size progression is meaningless."""
+        for asset_id in ("demo_hut", "vampire_keep"):
+            recs = self._records([asset_id, f"{asset_id}__lvl2", f"{asset_id}__lvl3"])
+            if len(recs) < 2:
+                self.skipTest(f"no records for {asset_id} family")
+            cams = {(r["stages"]["generation"].get("ortho_scale"),
+                     r["stages"]["generation"].get("frame_target_z")) for r in recs.values()}
+            self.assertEqual(len(cams), 1,
+                             f"{asset_id}: siblings rendered from different cameras: {cams}")
+
+    def test_higher_tiers_are_visibly_larger(self):
+        """`scale_mode: family` exists so a level-3 building is bigger than a level-1."""
+        for asset_id in ("demo_hut", "vampire_keep"):
+            heights = []
+            for key in (asset_id, f"{asset_id}__lvl2", f"{asset_id}__lvl3"):
+                path = ROOT / "assets" / "approved" / "buildings" / f"{key}.png"
+                if not path.exists():
+                    self.skipTest(f"no approved output for {key}")
+                with Image.open(path) as img:
+                    heights.append(imageops.measure(img).bbox[3] - imageops.measure(img).bbox[1])
+            self.assertEqual(heights, sorted(heights),
+                             f"{asset_id}: tiers are not ordered by size: {heights}")
+
+    def test_family_tiers_share_a_ground_line(self):
+        for asset_id in ("demo_hut", "vampire_keep"):
+            bottoms = set()
+            for key in (asset_id, f"{asset_id}__lvl2", f"{asset_id}__lvl3"):
+                path = ROOT / "assets" / "approved" / "buildings" / f"{key}.png"
+                if not path.exists():
+                    self.skipTest(f"no approved output for {key}")
+                with Image.open(path) as img:
+                    bottoms.add(imageops.measure(img).bbox[3])
+            self.assertEqual(len(bottoms), 1, f"{asset_id}: tiers disagree on the ground line: {bottoms}")
+
+    def test_procedural_renders_are_inside_their_frame(self):
+        """The camera must fit the subject. This is the bug that cropped the level-3 keep's
+        banner: the family framing lock was taken from the smallest tier.
+
+        Procedural renders only. A painted render is the diffusion model's composition and
+        filling the frame is a valid choice there.
+        """
+        incoming = ROOT / "assets" / "incoming"
+        procedural = {"demo_hut", "vampire_keep", "vampire_grave", "vampire_gate_torch"}
+        renders = [p for p in sorted(incoming.glob("*.png")) if p.stem.split("__")[0] in procedural]
+        if not renders:
+            self.skipTest("no procedural renders to check")
+        for path in renders:
+            with Image.open(path) as img:
+                box = imageops.content_bbox(img)
+                width, height = img.size
+            self.assertIsNotNone(box, f"{path.name} has no subject pixels")
+            self.assertGreater(box[0], 1, f"{path.name}: subject touches the left edge")
+            self.assertGreater(box[1], 1, f"{path.name}: subject touches the top edge")
+            self.assertLess(box[2], width - 1, f"{path.name}: subject touches the right edge")
+            self.assertLess(box[3], height - 1, f"{path.name}: subject touches the bottom edge")
+
+    def test_turntable_is_declared_as_camera_moving(self):
+        """A validator that wants a stable centroid must not be applied to a turntable."""
+        from lib.blender import camera_moving_clips
+
+        self.assertIn("turntable", camera_moving_clips())
+
+    def test_animation_frames_are_uniform_and_share_one_camera(self):
+        for run_key in ("demo_hut_flag", "vampire_gate_torch", "vampire_watcher"):
+            frames = sorted((ROOT / "assets" / "processed" / run_key).glob("frame_*.png"))
+            if not frames:
+                self.skipTest(f"no processed frames for {run_key}")
+            sizes = {Image.open(f).size for f in frames}
+            self.assertEqual(len(sizes), 1, f"{run_key}: frames are not uniform: {sizes}")
+
+
 class TestExportedArtifacts(unittest.TestCase):
     """The run that produced assets/approved/ must have left self-consistent metadata."""
 

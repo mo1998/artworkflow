@@ -462,6 +462,76 @@ def bevel_hard_edges(width: float = 0.016, segments: int = 2, angle_limit: float
     return touched
 
 
+def scene_bounds() -> tuple[tuple[float, float, float], tuple[float, float, float]] | None:
+    """World-space bounding box over every mesh in the scene, modifiers evaluated.
+
+    Measuring beats guessing: the old framer estimated the subject's size from its parameters
+    with a fudge factor, which cropped the top off the tallest upgrade tier of a family.
+    """
+    from mathutils import Vector
+
+    low = [float("inf")] * 3
+    high = [float("-inf")] * 3
+    found = False
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    for obj in bpy.data.objects:
+        if obj.type != "MESH":
+            continue
+        evaluated = obj.evaluated_get(depsgraph)
+        matrix = evaluated.matrix_world
+        for corner in evaluated.bound_box:
+            world = matrix @ Vector(corner)
+            for axis in range(3):
+                low[axis] = min(low[axis], world[axis])
+                high[axis] = max(high[axis], world[axis])
+            found = True
+    if not found:
+        return None
+    return (tuple(low), tuple(high))  # type: ignore[return-value]
+
+
+def fit_framing(bounds: tuple[tuple[float, float, float], tuple[float, float, float]], *,
+                view: str = "iso", azimuth: float | None = None, elevation: float | None = None,
+                res_x: int = 1024, res_y: int = 1024, margin: float = 1.10) -> tuple[float, float]:
+    """Orthographic scale and camera-target height that fit `bounds` exactly.
+
+    Projects the bounding box into camera space, so the result is correct for any view rather
+    than tuned for one. The target keeps x/y at the world origin, which is what holds a family's
+    ground line steady while the buildings above it grow.
+
+    Returns (ortho_scale, target_z).
+    """
+    from mathutils import Euler, Vector
+
+    (lx, ly, lz), (hx, hy, hz) = bounds
+    target_z = (lz + hz) / 2.0
+    default_az, default_el = CAMERA_VIEWS.get(view, CAMERA_VIEWS["iso"])
+    az = float(default_az if azimuth is None else azimuth)
+    el = float(default_el if elevation is None else elevation)
+    rot = Euler((math.radians(90.0 - el), 0.0, math.radians(az)), "XYZ").to_matrix()
+    right = rot @ Vector((1.0, 0.0, 0.0))
+    up = rot @ Vector((0.0, 1.0, 0.0))
+
+    max_x = 0.0
+    max_y = 0.0
+    for x in (lx, hx):
+        for y in (ly, hy):
+            for z in (lz, hz):
+                offset = Vector((x, y, z - target_z))
+                max_x = max(max_x, abs(offset.dot(right)))
+                max_y = max(max_y, abs(offset.dot(up)))
+    aspect = float(res_x) / float(res_y)  # visible height is ortho_scale / aspect
+    ortho = max(2.0 * max_x * margin, 2.0 * max_y * margin * aspect)
+    return (max(ortho, 0.01), target_z)
+
+
+def union_bounds(boxes: list[tuple[tuple[float, float, float], tuple[float, float, float]]]) -> tuple:
+    """Smallest box containing all of `boxes` - how a whole upgrade-tier family gets framed."""
+    low = [min(b[0][i] for b in boxes) for i in range(3)]
+    high = [max(b[1][i] for b in boxes) for i in range(3)]
+    return (tuple(low), tuple(high))
+
+
 # ---- output ----------------------------------------------------------------
 
 def render_still(scene: bpy.types.Scene, path: str) -> str:

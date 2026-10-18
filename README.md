@@ -54,7 +54,7 @@ Verification evidence from the last full run (`reports/final.md`, `logs/final/`)
 ```
 assets: 16  exported: 16  failed: 0  review_required: 0  retried: 0
 godot ok: 68 texture(s), 3 sheet(s), 52 frame rect(s)
-python3 -m unittest discover -s tests   ->  36 tests, OK
+python3 -m unittest discover -s tests   ->  42 tests, OK
 ```
 
 Diffusion reproducibility was measured, not assumed: after `--force`, all four painted vampire
@@ -307,10 +307,77 @@ Diffusion output is a different story: the same seed reproduces the same image o
 checkpoint, workflow and ComfyUI version are unchanged, which is why every record stores the
 workflow path and a hash of it.
 
+## Upgrade tiers (`variants`) — what a "level" is
+
+In a village-builder one building exists at several **tiers**: a level-1 hut, a level-2 house, a
+level-3 hall. The player upgrades in place, so the game swaps the sprite on the same tile. That is
+what `variants` produces.
+
+```jsonc
+{
+  "asset_id": "vampire_keep",                    // the base is level 1
+  "blender": { "params": { "width": 3.0, "wall_height": 2.2, "banner": true, "seed": 66 } },
+  "variants": [
+    { "suffix": "lvl2", "blender_params": { "width": 3.8, "wall_height": 3.0, "seed": 67 } },
+    { "suffix": "lvl3", "blender_params": { "width": 4.4, "wall_height": 3.8, "seed": 68 } }
+  ]
+}
+```
+
+`variants[].blender_params` merge over the base params, so a tier states only what changes. Each
+tier becomes its own job and its own output: `vampire_keep`, `vampire_keep__lvl2`,
+`vampire_keep__lvl3`.
+
+### What a tier must do to be usable
+
+Three properties, all enforced by the pipeline rather than left to care:
+
+1. **One camera for the whole family.** Sizes are only comparable if the framing is identical, so
+   every sibling renders through the same measured camera. Tiers that drift in framing cannot be
+   swapped on a tile.
+2. **A shared scale factor.** All tiers are scaled by one factor
+   (`effective / largest sibling subject`, `scale_mode: family`), so a level-3 building is
+   *visibly larger* on screen. Normalising each tier to fill its own canvas — `scale_mode: fit` —
+   would make every tier the same size and defeat the point.
+3. **A shared ground line.** All tiers are anchored `bottom-center`, so the footprint stays on the
+   tile. Measured on the shipped keeps: tiers come out 234x317, 285x407 and 322x488 px, all ending
+   on canvas row 499.
+
+### How the family camera is chosen
+
+The camera was originally taken from the first render and reused. That cropped the tallest tier:
+the level-3 keep's banner and chimney top fell outside the frame the level-1 keep had chosen — and
+the pipeline reported the asset as fine. Framing is now measured, not inherited:
+
+1. the pipeline builds **every** sibling's scene with `--measure-only` and reads back its
+   world-space bounding box (no rendering, ~0.2 s each);
+2. it takes the union of those boxes per asset family;
+3. Blender fits one orthographic camera to that union (`blender/lib/fit_framing.py`, so the
+   projection maths lives in `scene.fit_framing` and nowhere else);
+4. every sibling renders through that camera, with `--frame-bounds` carrying the union.
+
+For the shipped keeps this moved the camera from `ortho 9.19` to `ortho 11.26` — roughly the amount
+it was cropping. Single-asset jobs fit their own bounds the same way, which also replaced the old
+hand-tuned fudge factor with real geometry. A turntable widens the fit to the footprint radius,
+because the camera sweeps and every azimuth has to fit.
+
+### What a tier does *not* do
+
+The pipeline does not invent an upgrade. It renders the geometry you describe, so tier differences
+come from the manifest. The first attempt only scaled `width`/`wall_height`, which produced "the
+same box, bigger" — mechanically correct, artistically thin. A convincing upgrade needs
+*features*: a second storey, a tower, more windows, a different roof, an annexe.
+`generate_building.py` supports `kind`, `windows`, `chimney`, `banner`, `battlements`, `roof` and
+per-material changes; adding a feature is a manifest edit.
+
+For painted assets, tiers are separate assets with their own prompts and there is no framing lock
+across them, because the diffusion model's composition is not under the pipeline's control. So
+painted tiers will not align to a tile the way procedural ones do. That is a real trade-off, not an
+oversight.
+
 
 
 Two kinds of check, and the distinction is the point of the status system.
-
 **Hard checks** — a failure means the asset is not engine-ready:
 
 | check | what it catches |
@@ -320,10 +387,11 @@ Two kinds of check, and the distinction is the point of the status system.
 | `not_blank` | a flat wash (rgb stddev below the floor, on a 0-255 scale) |
 | `has_alpha`, `subject_present` | transparency missing, or 0 missing/2 %…97 % subject coverage |
 | `subject_size` | a subject whose short side is too small |
-| `not_clipped` | subject flush with the canvas edge, i.e. the render was cut off |
+| `not_clipped` | subject flush with the canvas edge on the processed file |
+| `source_not_clipped` | the *render* was cropped by the camera. Checked on the source, because trimming to content and then padding guarantees an inset subject, so `not_clipped` cannot fail once `trim` is on — which is how a cropped level-3 keep passed every check. Procedural renders only: painting to the frame edge is a valid composition choice for a painted asset, and a portrait is *meant* to crop its shoulders |
 | `frames_present`, `frame_opens`, `frames_uniform` | frame count or size mismatch |
 | `frames_not_blank`, `frames_have_subject` | an empty frame inside a sequence |
-| `registration_stable` | centroid drift across frames |
+| `registration_stable` | centroid drift across frames; skipped for clips that move the camera, since a turntable is *supposed* to move the subject across the frame |
 | `has_motion` | a "loop" where nothing moves — measured by peak delta and the fraction of pixels that changed, because a mean over the canvas cannot see a waving banner on a large building |
 | `loop_continuous` | a seam: the last-to-first step is much larger than the average step |
 | near-duplicates | two assets within a dHash hamming distance, so a seed change that did nothing gets caught |
@@ -397,7 +465,7 @@ check says exactly which file the engine cannot consume.
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-36 tests over the pure parts, no GPU required. Several of them encode bugs this pipeline actually
+42 tests over the pure parts, no GPU required. Several of them encode bugs this pipeline actually
 had:
 
 - `test_padding_is_respected_on_every_edge` — the anchor used to place the subject flush against
@@ -418,7 +486,13 @@ had:
 - `test_emissive_materials_use_a_dark_base_colour` and `test_palette_has_no_duplicate_keys` — the
   two mistakes behind the first vampire keep's pink windows and mis-coloured roof;
 - `test_unknown_material_in_the_manifest_is_reported` — an art-direction typo must fail
-  validation, not render grey.
+  validation, not render grey;
+- `test_family_siblings_share_one_camera` and `test_procedural_renders_are_inside_their_frame` —
+  a family framing lock taken from the smallest tier cropped the tallest one's banner;
+- `test_higher_tiers_are_visibly_larger` and `test_family_tiers_share_a_ground_line` — tiers must
+  grow and stay on the tile, on real output, not by inspection;
+- `test_turntable_is_declared_as_camera_moving` — the registration check must not be applied to a
+  clip whose whole point is that the camera moves.
 
 ## Adding a new asset
 

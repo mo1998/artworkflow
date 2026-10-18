@@ -59,15 +59,107 @@ class BlenderGenerateStage(Stage):
 
         retries = int(self.config.get("retry.generation", 0))
         sink: dict[str, object] = results["assets"]  # type: ignore[assignment]
-        locked: dict[str, dict[str, float]] = {}
+        # Frame each asset family before rendering any of it: build every sibling's scene, take
+        # the union of their world bounds, and hand that one camera to all of them. Framing the
+        # first render and reusing it cropped the tallest upgrade tier - its roof and banner fell
+        # outside the frame the smaller base tier had chosen.
+        framing = self.plan_framing(jobs)
         for job in jobs:
-            self.try_job(job, "generation", lambda job=job: self.render_one(job, locked, retries), sink)
+            self.try_job(job, "generation", lambda job=job: self.render_one(job, framing, retries), sink)
         self.save_records()
         self.summarize(results)
         return results
 
     # ---- one asset ---------------------------------------------------------
-    def render_one(self, job, locked: dict[str, dict[str, float]], retries: int) -> dict:
+    def plan_framing(self, jobs: list) -> dict[str, dict[str, Any]]:
+        """One locked camera per asset family, fitted to the union of its siblings' bounds.
+
+        Measuring costs one scene build per job and no rendering at all, and it is exact: the
+        camera is fitted to the geometry that actually exists rather than to a size estimate.
+        """
+        by_asset: dict[str, list] = {}
+        for job in jobs:
+            by_asset.setdefault(job.asset_id, []).append(job)
+        framing: dict[str, dict[str, Any]] = {}
+
+        for asset_id, family in by_asset.items():
+            boxes = []
+            for job in family:
+                box = self.measure_one(job)
+                if box:
+                    boxes.append(box)
+            if not boxes:
+                continue
+            lo = [min(b[0][i] for b in boxes) for i in range(3)]
+            hi = [max(b[1][i] for b in boxes) for i in range(3)]
+            fitted = self.fit_bounds([[*lo], [*hi]], family[0])
+            if fitted:
+                ortho, target_z = fitted
+                framing[asset_id] = {"ortho_scale": ortho, "frame_target_z": target_z,
+                                     "frame_bounds": {"lo": lo, "hi": hi}}
+                self.log.info(f"{asset_id}: framing {len(family)} sibling(s), union height "
+                              f"{hi[2] - lo[2]:.2f} -> ortho {ortho:.3f}, target z {target_z:.3f}",
+                              stage=self.name, asset=asset_id)
+        return framing
+
+    def measure_one(self, job) -> list[list[float]] | None:
+        if self.dry_run:
+            return None
+        anim = job.animation_settings()
+        generator = job.spec["blender"]["generator"]
+        script = ROOT / "blender" / ("render_animation.py" if anim else generator)
+        params = self._base_params(job)
+        args = {**params, "measure_only": True}
+        if anim:
+            args["scene"] = str(generator).removesuffix(".py")
+        try:
+            summary = run_blender_script(self.config, script, args, log=self.log, stage=self.name,
+                                        log_path=self.log.stage_file(f"{job.run_key}-measure.log"),
+                                        timeout=300)
+        except Exception as exc:  # noqa: BLE001 - measurement is best-effort
+            self.log.warn(f"could not measure {job.run_key}: {exc}; falling back to per-asset framing",
+                          stage=self.name, asset=job.run_key)
+            return None
+        bounds = summary.get("bounds")
+        if not bounds:
+            return None
+        return [list(bounds["lo"]), list(bounds["hi"])]
+
+    def fit_bounds(self, bounds: list[list[float]], job) -> tuple[float, float] | None:
+        """Ask Blender for the fitted camera, so the projection maths lives in one place."""
+        holder = ROOT / "blender" / "lib" / "fit_framing.py"
+        args = {"bounds": {"lo": bounds[0], "hi": bounds[1]},
+                "view": str(self._base_params(job).get("view", "iso")),
+                "azimuth": self._base_params(job).get("azimuth"),
+                "res_x": self._base_params(job).get("res_x"),
+                "res_y": self._base_params(job).get("res_y")}
+        try:
+            summary = run_blender_script(self.config, holder, args, log=self.log, stage=self.name,
+                                        log_path=self.log.stage_file("framing.log"), timeout=180)
+        except Exception as exc:  # noqa: BLE001
+            self.log.warn(f"framing fit failed: {exc}", stage=self.name, asset=job.run_key)
+            return None
+        if "ortho_scale" not in summary:
+            return None
+        return float(summary["ortho_scale"]), float(summary["frame_target_z"])
+
+    def _base_params(self, job) -> dict[str, Any]:
+        """The render parameters for a job, shared by the measure pass and the render pass."""
+        gen = job.generation_settings()
+        res = int(self.args.size) if self.args.size else int(gen.get("width", 1024))
+        res_y = int(self.args.size) if self.args.size else int(gen.get("height", res))
+        samples = int(self.args.samples) if self.args.samples else int(
+            gen.get("samples") or self.config.get("blender.default_samples", 64))
+        params = dict(job.spec["blender"].get("params") or {})
+        params.setdefault("seed", int(gen.get("seed") or 0))
+        params.update({"engine": str(gen.get("engine") or self.config.get("blender.engine", "BLENDER_EEVEE_NEXT")),
+                       "res_x": res, "res_y": res_y, "samples": samples})
+        for key in RENDER_PASSTHROUGH:
+            if gen.get(key) is not None and key not in params:
+                params[key] = gen[key]
+        return params
+
+    def render_one(self, job, framing: dict[str, dict[str, Any]], retries: int) -> dict:
         rec = self.record(job)
         anim = job.animation_settings()
         generator = job.spec["blender"]["generator"]
@@ -79,25 +171,12 @@ class BlenderGenerateStage(Stage):
             self.log.info("already generated", stage=self.name, asset=job.run_key)
             return {"skipped": "already generated"}
 
-        gen = job.generation_settings()
-        res = int(self.args.size) if self.args.size else int(gen.get("width", 1024))
-        res_y = int(self.args.size) if self.args.size else int(gen.get("height", res))
-        samples = int(self.args.samples) if self.args.samples else int(gen.get("samples") or
-                                                                        self.config.get("blender.default_samples", 64))
-        params = dict(job.spec["blender"].get("params") or {})
-        # Blender detailing randomness is keyed off the same seed the manifest uses, so a
-        # variant can pin it per tier instead of inheriting the base building's jitter.
-        params.setdefault("seed", int(gen.get("seed") or 0))
-        params.update({"engine": str(gen.get("engine") or self.config.get("blender.engine", "BLENDER_EEVEE_NEXT")),
-                       "res_x": res, "res_y": res_y, "samples": samples})
-        # Lighting is part of the look, so a style block can set it once for every asset in the
-        # direction. Asset params still win: explicit beats inherited.
-        for key in RENDER_PASSTHROUGH:
-            if gen.get(key) is not None and key not in params:
-                params[key] = gen[key]
-
-        if self.args.lock_framing and job.asset_id in locked:
-            params.update(locked[job.asset_id])
+        params = self._base_params(job)
+        # The family camera, measured up front. Explicit, so every sibling renders identically
+        # framed and the relative size progression is preserved exactly. Without --no-lock-framing
+        # each asset falls back to fitting its own bounds.
+        if self.args.lock_framing:
+            params.update(framing.get(job.asset_id) or {})
 
         scene_module = str(generator).removesuffix(".py")
         if anim:
@@ -155,13 +234,6 @@ class BlenderGenerateStage(Stage):
                     self.log.info(f"rendered {dest.name} ({dest.stat().st_size // 1024} KB, "
                                   f"{round(time.time() - started, 1)}s)", stage=self.name, asset=job.run_key)
                 rec.set_status(STATUS_GENERATED)
-                # Lock this family's framing from the first successful render.
-                if summary.get("ortho_scale") and job.asset_id not in locked:
-                    locked[job.asset_id] = {"ortho_scale": float(summary["ortho_scale"]),
-                                            "frame_target_z": float(summary.get("frame_target_z", 0.0))}
-                    if job.is_variant:
-                        self.log.warn("variant rendered before its base; framing lock is weaker than intended",
-                                      stage=self.name, asset=job.run_key)
                 return {"file": str(rec.stage("generation").get("file")), "attempt": attempt,
                         "ortho_scale": summary.get("ortho_scale")}
             except Exception as exc:  # noqa: BLE001

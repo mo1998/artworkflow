@@ -1,6 +1,6 @@
 # Art pipeline report - final
 
-Generated 2026-10-18T14:32:17+03:00 from `/home/mrazek/ArtWorkflow/config/manifest.json`.
+Generated 2026-10-18T14:59:39+03:00 from `/home/mrazek/ArtWorkflow/config/manifest.json`.
 
 ## Totals
 
@@ -63,6 +63,7 @@ Generated 2026-10-18T14:32:17+03:00 from `/home/mrazek/ArtWorkflow/config/manife
 - `logs/final/godot-check-summary.json`
 - `logs/final/godot-check.log.log`
 - `logs/final/godot-import.log.log`
+- `logs/final/report-summary.json`
 - `logs/final/validate-summary.json`
 
 ## Notes

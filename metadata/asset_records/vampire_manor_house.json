@@ -182,8 +182,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T14:32:12+03:00",
-      "attempts": 6
+      "completed_at": "2026-10-18T14:57:25+03:00",
+      "attempts": 9
     },
     "export": {
       "files": [
@@ -192,13 +192,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T14:32:14+03:00",
-      "attempts": 5
+      "completed_at": "2026-10-18T14:57:27+03:00",
+      "attempts": 6
     }
   },
   "errors": [],
   "retries": {},
-  "status_at": "2026-10-18T14:32:14+03:00",
-  "updated_at": "2026-10-18T14:32:14+03:00",
+  "status_at": "2026-10-18T14:57:27+03:00",
+  "updated_at": "2026-10-18T14:57:27+03:00",
   "exported_status": "passed"
 }

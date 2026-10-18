@@ -47,6 +47,7 @@ def main() -> None:
     for i, token in enumerate(argv):
         if token == "--scene" and i + 1 < len(argv):
             scene_name = argv[i + 1]
+    measure_only = "--measure-only" in argv and "true" in argv
     try:
         scene_module = importlib.import_module(scene_name)
     except ImportError as exc:
@@ -54,7 +55,7 @@ def main() -> None:
 
     params = S.cli_args({**scene_module.DEFAULTS, **ANIM_DEFAULTS})
     out_dir = str(params.get("out_dir") or "").strip()
-    if not out_dir:
+    if not out_dir and not measure_only:
         S.fail("--out-dir is required")
     clip = str(params["clip"])
     if clip not in anim_clips.CLIPS:
@@ -74,13 +75,36 @@ def main() -> None:
                    azimuth=float(params["azimuth"]))
 
     subject_top = float(info["subject_top"])
-    horizontal = float(info["horizontal"])
+    bounds = S.scene_bounds()
     ortho = float(params["ortho_scale"])
-    if ortho <= 0.0:
-        ortho = max(horizontal * 2.0 * 0.82, subject_top * 1.25) * 1.32
     target_z = float(params["frame_target_z"])
-    if target_z < 0.0:
-        target_z = subject_top * 0.42
+    if ortho <= 0.0 or target_z < 0.0:
+        # A turntable sweeps the camera, so the frame has to fit the subject from every azimuth.
+        # Widening the box to the footprint radius is the conservative stand-in for the union of
+        # all rotations, and it is what stops a wing or a banner leaving the frame mid-turn.
+        fit_box = bounds
+        if clip == "turntable":
+            radius = max(abs(bounds[0][0]), abs(bounds[1][0]), abs(bounds[0][1]), abs(bounds[1][1]))
+            radius = max(radius, 0.5)
+            fit_box = ((-radius, -radius, bounds[0][2]), (radius, radius, bounds[1][2]))
+        fitted_ortho, fitted_z = S.fit_framing(
+            fit_box, view=str(params["view"]), azimuth=float(params["azimuth"]) or None,
+            res_x=int(params["res_x"]), res_y=int(params["res_y"]), margin=1.10)
+        if ortho <= 0.0:
+            ortho = fitted_ortho
+        if target_z < 0.0:
+            target_z = fitted_z
+
+    if measure_only:
+        S.emit_summary({
+            "ok": True, "measure_only": True, "clip": clip,
+            "bounds": {"lo": list(bounds[0]), "hi": list(bounds[1])},
+            "subject_top": round(subject_top, 4),
+            "ortho_scale": round(ortho, 4), "frame_target_z": round(target_z, 4),
+            "res": [int(params["res_x"]), int(params["res_y"])],
+            **S.object_stats(),
+        })
+        return
 
     S.setup_camera(scene, view=str(params["view"]), ortho_scale=ortho, target=(0.0, 0.0, target_z))
     S.setup_render(scene, width=int(params["res_x"]), height=int(params["res_y"]),
@@ -112,6 +136,7 @@ def main() -> None:
         "frame_count": frame_count,
         "frame_rate": int(params["frame_rate"]),
         "out_dir": str(out_path),
+        "bounds": {"lo": list(bounds[0]), "hi": list(bounds[1])},
         "ortho_scale": round(ortho, 4),
         "frame_target_z": round(target_z, 4),
         "res": [int(params["res_x"]), int(params["res_y"])],

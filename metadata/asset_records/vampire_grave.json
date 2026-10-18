@@ -5,13 +5,13 @@
   "stages": {
     "generation": {
       "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_grave.png",
-      "bytes": 125150,
+      "bytes": 133701,
       "generator": "generate_prop.py",
-      "ortho_scale": 2.1895,
-      "frame_target_z": 0.6342,
+      "ortho_scale": 2.0317,
+      "frame_target_z": 0.75,
       "vertices": 56,
       "polygons": 42,
-      "seconds": 0.69,
+      "seconds": 0.67,
       "attempt": 0,
       "params": {
         "kind": "gravestone",
@@ -26,55 +26,69 @@
         "samples": 48,
         "key_energy": 2.2,
         "fill_energy": 0.8,
-        "azimuth": 40.0
+        "azimuth": 40.0,
+        "ortho_scale": 2.031681,
+        "frame_target_z": 0.75,
+        "frame_bounds": {
+          "lo": [
+            -0.4636150598526001,
+            -0.3100000023841858,
+            0.0
+          ],
+          "hi": [
+            0.48300737142562866,
+            0.3100000023841858,
+            1.5
+          ]
+        }
       },
-      "completed_at": "2026-10-18T14:24:38+03:00",
-      "attempts": 4
+      "completed_at": "2026-10-18T14:53:08+03:00",
+      "attempts": 6
     },
     "processing": {
       "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_grave.png",
-      "bytes": 79453,
+      "bytes": 81543,
       "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_grave.png",
       "steps": [
         "trim",
-        "resize(fit 254x377->329x488)",
+        "resize(fit 274x406->329x488)",
         "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
       ],
       "trim_box": [
-        129,
-        71,
-        383,
-        448
+        119,
+        82,
+        393,
+        488
       ],
       "anchor": "bottom-center",
       "padding": 12,
       "scale_mode": "fit",
       "canvas": 512,
-      "source_pixel_hash": "78d2ead52639b0145ce0ddbe0ae6a42a31f5387cc447ff2f95b5093633d21cdc",
-      "pixel_hash": "73e6a76a55f023699864a0ab4527d65da96b67f6af78e4aa226bd56b24e6acf7",
+      "source_pixel_hash": "7ec2bed78a507e3a658856fbe5c5549b30147db6af0466a69930e8666f2e4c80",
+      "pixel_hash": "f09f0abca812e74b4dab2b04ffb7df14ea19f99c48cf6e4816f271f139880e3e",
       "before": {
         "width": 512,
         "height": 512,
         "mode": "RGBA",
         "has_alpha": true,
-        "alpha_coverage": 0.18109893798828125,
-        "opaque_coverage": 0.1779632568359375,
+        "alpha_coverage": 0.2100067138671875,
+        "opaque_coverage": 0.20666122436523438,
         "bbox": [
-          129,
-          72,
-          382,
-          446
+          119,
+          82,
+          392,
+          486
         ],
         "centroid": [
-          255.7497156338206,
-          285.7027636179804
+          255.77488556274068,
+          313.1759609096854
         ],
         "rgb_mean": [
-          14.48,
-          15.39,
-          17.5
+          16.78,
+          17.82,
+          20.27
         ],
-        "rgb_stddev": 33.322,
+        "rgb_stddev": 35.251,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -82,15 +96,15 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 551
+        "unique_colors": 574
       },
       "after": {
         "width": 512,
         "height": 512,
         "mode": "RGBA",
         "has_alpha": true,
-        "alpha_coverage": 0.3038177490234375,
-        "opaque_coverage": 0.2982826232910156,
+        "alpha_coverage": 0.303375244140625,
+        "opaque_coverage": 0.2985382080078125,
         "bbox": [
           92,
           13,
@@ -98,15 +112,15 @@
           498
         ],
         "centroid": [
-          256.2929410878409,
-          289.921852242479
+          256.3504929081581,
+          290.14342118499144
         ],
         "rgb_mean": [
-          24.12,
-          25.64,
-          29.17
+          24.09,
+          25.6,
+          29.14
         ],
-        "rgb_stddev": 39.969,
+        "rgb_stddev": 39.968,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -114,10 +128,10 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 1702
+        "unique_colors": 1641
       },
-      "completed_at": "2026-10-18T14:25:00+03:00",
-      "attempts": 5
+      "completed_at": "2026-10-18T14:53:17+03:00",
+      "attempts": 7
     },
     "validation": {
       "status": "passed",
@@ -129,6 +143,12 @@
           "severity": "error"
         },
         {
+          "check": "source_not_clipped",
+          "ok": true,
+          "detail": "vampire_grave.png content box (119, 82, 393, 488) within 512x512",
+          "severity": "error"
+        },
+        {
           "check": "format_is_png",
           "ok": true,
           "detail": "detected png",
@@ -137,7 +157,7 @@
         {
           "check": "not_empty",
           "ok": true,
-          "detail": "79453 bytes",
+          "detail": "81543 bytes",
           "severity": "error"
         },
         {
@@ -155,7 +175,7 @@
         {
           "check": "not_blank",
           "ok": true,
-          "detail": "rgb stddev 39.969 (min 4.0)",
+          "detail": "rgb stddev 39.968 (min 4.0)",
           "severity": "error"
         },
         {
@@ -167,7 +187,7 @@
         {
           "check": "subject_present",
           "ok": true,
-          "detail": "alpha coverage 0.3038 in [0.02, 0.97]",
+          "detail": "alpha coverage 0.3034 in [0.02, 0.97]",
           "severity": "error"
         },
         {
@@ -191,8 +211,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T14:32:12+03:00",
-      "attempts": 9
+      "completed_at": "2026-10-18T14:57:25+03:00",
+      "attempts": 15
     },
     "export": {
       "files": [
@@ -201,13 +221,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/props",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/props",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T14:32:14+03:00",
-      "attempts": 8
+      "completed_at": "2026-10-18T14:57:27+03:00",
+      "attempts": 12
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:32:14+03:00",
-  "status_at": "2026-10-18T14:32:14+03:00",
+  "updated_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T14:57:27+03:00",
   "exported_status": "passed"
 }

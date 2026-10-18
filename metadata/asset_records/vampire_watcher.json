@@ -9,10 +9,10 @@
       "clip": "turntable",
       "frame_rate": 12,
       "frame_count": 24,
-      "ortho_scale": 4.026,
-      "frame_target_z": 1.0248,
+      "ortho_scale": 3.2211,
+      "frame_target_z": 1.1867,
       "generator": "generate_prop.py",
-      "seconds": 2.04,
+      "seconds": 2.08,
       "attempt": 0,
       "params": {
         "kind": "statue",
@@ -27,10 +27,24 @@
         "samples": 48,
         "key_energy": 2.2,
         "fill_energy": 0.8,
-        "azimuth": 40.0
+        "azimuth": 40.0,
+        "ortho_scale": 3.22114,
+        "frame_target_z": 1.186671,
+        "frame_bounds": {
+          "lo": [
+            -0.49000000953674316,
+            -0.49000000953674316,
+            0.0
+          ],
+          "hi": [
+            0.49000000953674316,
+            0.7283751964569092,
+            2.373342514038086
+          ]
+        }
       },
-      "completed_at": "2026-10-18T14:24:41+03:00",
-      "attempts": 4
+      "completed_at": "2026-10-18T14:53:12+03:00",
+      "attempts": 6
     },
     "processing": {
       "dir": "/home/mrazek/ArtWorkflow/assets/processed/vampire_watcher",
@@ -45,24 +59,24 @@
         "height": 512,
         "mode": "RGBA",
         "has_alpha": true,
-        "alpha_coverage": 0.10463714599609375,
-        "opaque_coverage": 0.10243988037109375,
+        "alpha_coverage": 0.16315841674804688,
+        "opaque_coverage": 0.1598968505859375,
         "bbox": [
-          193,
-          72,
-          318,
-          395
+          177,
+          48,
+          334,
+          452
         ],
         "centroid": [
-          255.49635435654392,
-          260.4281079110463
+          255.50043253606415,
+          284.2386430057749
         ],
         "rgb_mean": [
-          8.25,
-          8.75,
-          9.93
+          12.68,
+          13.46,
+          15.27
         ],
-        "rgb_stddev": 26.007,
+        "rgb_stddev": 31.239,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -70,10 +84,10 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 619
+        "unique_colors": 699
       },
-      "completed_at": "2026-10-18T14:25:08+03:00",
-      "attempts": 5
+      "completed_at": "2026-10-18T14:53:27+03:00",
+      "attempts": 7
     },
     "spritesheet": {
       "sheet": "/home/mrazek/ArtWorkflow/assets/spritesheets/vampire_watcher.png",
@@ -85,9 +99,9 @@
         512
       ],
       "frames": 24,
-      "sheet_bytes": 883294,
-      "completed_at": "2026-10-18T14:25:14+03:00",
-      "attempts": 6
+      "sheet_bytes": 1252071,
+      "completed_at": "2026-10-18T14:53:33+03:00",
+      "attempts": 8
     },
     "validation": {
       "status": "passed",
@@ -125,26 +139,26 @@
         {
           "check": "registration_stable",
           "ok": true,
-          "detail": "centroid drift 22.1px (max 24.0)",
+          "detail": "not applicable: clip 'turntable' moves the camera (centroid drift 27.6px)",
           "severity": "error"
         },
         {
           "check": "has_motion",
           "ok": true,
-          "detail": "peak delta 244 (min 8), max changed fraction 0.072556 (min 0.0005); a still loop means the clip did nothing",
+          "detail": "peak delta 245 (min 8), max changed fraction 0.112183 (min 0.0005); a still loop means the clip did nothing",
           "severity": "error"
         },
         {
           "check": "loop_continuous",
           "ok": true,
-          "detail": "loop step 0.00920 vs average step 0.00742 (max 0.02226)",
+          "detail": "loop step 0.01448 vs average step 0.01164 (max 0.03492)",
           "severity": "error"
         }
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T14:32:14+03:00",
-      "attempts": 9
+      "completed_at": "2026-10-18T14:57:27+03:00",
+      "attempts": 15
     },
     "export": {
       "files": [
@@ -178,13 +192,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/animations",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/animations",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T14:32:14+03:00",
-      "attempts": 8
+      "completed_at": "2026-10-18T14:57:27+03:00",
+      "attempts": 11
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:32:14+03:00",
-  "status_at": "2026-10-18T14:32:14+03:00",
+  "updated_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T14:57:27+03:00",
   "exported_status": "passed"
 }

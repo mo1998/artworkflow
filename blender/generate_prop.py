@@ -40,6 +40,8 @@ DEFAULTS: dict[str, object] = {
     "view": "iso",
     "ortho_scale": 0.0,
     "frame_target_z": -1.0,
+    "frame_bounds": "",      # JSON {"lo":[..],"hi":[..]} union over a variant family
+    "measure_only": False,   # build the scene, report its bounds, render nothing
     "out": "",
     "key_energy": 4.0,
     "fill_energy": 1.4,
@@ -272,10 +274,24 @@ def build(params: dict[str, object]) -> dict[str, object]:
             "bevelled": bevelled, "kind": kind}
 
 
+def bounds_from_param(value: object) -> tuple | None:
+    """Decode a `--frame-bounds` JSON blob into ((lx,ly,lz),(hx,hy,hz))."""
+    import json
+
+    if isinstance(value, str):
+        if not value.strip().startswith("{"):
+            return None
+        value = json.loads(value)
+    if isinstance(value, dict) and "lo" in value and "hi" in value:
+        return (tuple(float(v) for v in value["lo"]), tuple(float(v) for v in value["hi"]))
+    return None
+
+
 def main() -> None:
     params = S.cli_args({**DEFAULTS})
+    measure_only = bool(params.get("measure_only"))
     out = str(params.get("out") or "").strip()
-    if not out:
+    if not out and not measure_only:
         S.fail("--out is required")
 
     scene = S.reset_scene(engine=str(params["engine"]))
@@ -285,14 +301,30 @@ def main() -> None:
 
     subject_top = float(info["subject_top"])
     horizontal = float(info["horizontal"])
+    bounds = S.scene_bounds()
+
     ortho = float(params["ortho_scale"])
-    if ortho <= 0.0:
-        # Props frame tighter than buildings: they have no ground plate, and a turntable that
-        # leaves 40% of every frame empty wastes texture memory across a whole sheet.
-        ortho = max(horizontal * 2.0 * 0.82, subject_top * 1.25) * 1.16
     target_z = float(params["frame_target_z"])
-    if target_z < 0.0:
-        target_z = subject_top * 0.42
+    if ortho <= 0.0 or target_z < 0.0:
+        fitted_ortho, fitted_z = S.fit_framing(
+            bounds_from_param(params.get("frame_bounds")) or bounds,
+            view=str(params["view"]), azimuth=float(params["azimuth"]),
+            res_x=int(params["res_x"]), res_y=int(params["res_y"]), margin=1.08)
+        if ortho <= 0.0:
+            ortho = fitted_ortho
+        if target_z < 0.0:
+            target_z = fitted_z
+
+    if measure_only:
+        S.emit_summary({
+            "ok": True, "measure_only": True, "kind": params["kind"],
+            "bounds": {"lo": list(bounds[0]), "hi": list(bounds[1])},
+            "subject_top": round(subject_top, 4),
+            "ortho_scale": round(ortho, 4), "frame_target_z": round(target_z, 4),
+            "res": [int(params["res_x"]), int(params["res_y"])],
+            **S.object_stats(),
+        })
+        return
 
     S.setup_camera(scene, view=str(params["view"]), ortho_scale=ortho, target=(0.0, 0.0, target_z))
     S.setup_render(scene, width=int(params["res_x"]), height=int(params["res_y"]),
@@ -308,6 +340,7 @@ def main() -> None:
         "ortho_scale": round(ortho, 4),
         "frame_target_z": round(target_z, 4),
         "subject_top": round(subject_top, 4),
+        "bounds": {"lo": list(bounds[0]), "hi": list(bounds[1])},
         "res": [int(params["res_x"]), int(params["res_y"])],
         **S.object_stats(),
     })

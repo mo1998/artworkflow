@@ -5,10 +5,10 @@
   "stages": {
     "generation": {
       "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_keep__lvl2.png",
-      "bytes": 617071,
+      "bytes": 511727,
       "generator": "generate_building.py",
-      "ortho_scale": 9.1905,
-      "frame_target_z": 2.3394,
+      "ortho_scale": 11.2645,
+      "frame_target_z": 4.04,
       "vertices": 448,
       "polygons": 335,
       "seconds": 0.74,
@@ -38,56 +38,68 @@
         "key_energy": 2.2,
         "fill_energy": 0.8,
         "azimuth": 40.0,
-        "ortho_scale": 9.1905,
-        "frame_target_z": 2.3394
+        "ortho_scale": 11.264487,
+        "frame_target_z": 4.04,
+        "frame_bounds": {
+          "lo": [
+            -2.4649999141693115,
+            -2.1649999618530273,
+            0.0
+          ],
+          "hi": [
+            2.4649999141693115,
+            2.1649999618530273,
+            8.079999923706055
+          ]
+        }
       },
-      "completed_at": "2026-10-18T14:24:36+03:00",
-      "attempts": 4
+      "completed_at": "2026-10-18T14:53:06+03:00",
+      "attempts": 6
     },
     "processing": {
       "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_keep__lvl2.png",
-      "bytes": 100058,
+      "bytes": 85811,
       "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_keep__lvl2.png",
       "steps": [
         "trim",
-        "resize(family x0.5369 ->326x464)",
+        "resize(family x0.5755 ->285x407)",
         "canvas(512,anchor=bottom-center,pad=12,mode=family)"
       ],
       "trim_box": [
-        208,
-        24,
-        816,
-        889
+        264,
+        247,
+        760,
+        954
       ],
       "anchor": "bottom-center",
       "padding": 12,
       "scale_mode": "family",
       "canvas": 512,
-      "source_pixel_hash": "aab01da5eb056eea6e963d06f50326849ffcd1d8ff4a5f4167dae3cb4e31fd22",
-      "pixel_hash": "b340d981914a2b9c3d6cb5a7e86a36e97b86bb8ae6ba690a6d9f56444173fbe5",
+      "source_pixel_hash": "ce8dee9d02d3bde9b2b2c86e88eb45fc57571b516073b8bd108b8bf8f34e76d3",
+      "pixel_hash": "4112e6708ff861178e23c3082f63f1a4aeb4c43e870577fd7b27c7e1d2634dc8",
       "before": {
         "width": 1024,
         "height": 1024,
         "mode": "RGBA",
         "has_alpha": true,
-        "alpha_coverage": 0.31235408782958984,
-        "opaque_coverage": 0.3100299835205078,
+        "alpha_coverage": 0.20837974548339844,
+        "opaque_coverage": 0.20657730102539062,
         "bbox": [
-          208,
-          24,
-          815,
-          888
+          264,
+          248,
+          759,
+          953
         ],
         "centroid": [
-          515.2368568087517,
-          533.0289105936305
+          514.5414000787179,
+          662.8981199256757
         ],
         "rgb_mean": [
-          27.74,
-          27.52,
-          29.81
+          18.52,
+          18.36,
+          19.88
         ],
-        "rgb_stddev": 43.71,
+        "rgb_stddev": 38.152,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -95,31 +107,31 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 1318
+        "unique_colors": 1163
       },
       "after": {
         "width": 512,
         "height": 512,
         "mode": "RGBA",
         "has_alpha": true,
-        "alpha_coverage": 0.3604927062988281,
-        "opaque_coverage": 0.3569488525390625,
+        "alpha_coverage": 0.2769889831542969,
+        "opaque_coverage": 0.2735557556152344,
         "bbox": [
+          114,
           93,
-          36,
-          418,
+          398,
           499
         ],
         "centroid": [
-          257.45197405318464,
-          308.61328451550776
+          257.74520389472667,
+          331.8602002451419
         ],
         "rgb_mean": [
-          32.21,
-          31.89,
-          34.5
+          24.75,
+          24.48,
+          26.49
         ],
-        "rgb_stddev": 45.673,
+        "rgb_stddev": 42.522,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -127,10 +139,10 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 2024
+        "unique_colors": 1914
       },
-      "completed_at": "2026-10-18T14:24:59+03:00",
-      "attempts": 5
+      "completed_at": "2026-10-18T14:53:17+03:00",
+      "attempts": 7
     },
     "validation": {
       "status": "passed",
@@ -142,6 +154,12 @@
           "severity": "error"
         },
         {
+          "check": "source_not_clipped",
+          "ok": true,
+          "detail": "vampire_keep__lvl2.png content box (264, 247, 760, 954) within 1024x1024",
+          "severity": "error"
+        },
+        {
           "check": "format_is_png",
           "ok": true,
           "detail": "detected png",
@@ -150,7 +168,7 @@
         {
           "check": "not_empty",
           "ok": true,
-          "detail": "100058 bytes",
+          "detail": "85811 bytes",
           "severity": "error"
         },
         {
@@ -168,7 +186,7 @@
         {
           "check": "not_blank",
           "ok": true,
-          "detail": "rgb stddev 45.673 (min 4.0)",
+          "detail": "rgb stddev 42.522 (min 4.0)",
           "severity": "error"
         },
         {
@@ -180,13 +198,13 @@
         {
           "check": "subject_present",
           "ok": true,
-          "detail": "alpha coverage 0.3605 in [0.02, 0.97]",
+          "detail": "alpha coverage 0.2770 in [0.02, 0.97]",
           "severity": "error"
         },
         {
           "check": "subject_size",
           "ok": true,
-          "detail": "subject short side 325px (min 48)",
+          "detail": "subject short side 284px (min 48)",
           "severity": "error"
         },
         {
@@ -198,14 +216,14 @@
         {
           "check": "subject_fill",
           "ok": true,
-          "detail": "subject fills 57.40% of the canvas (want 15%-92%)",
+          "detail": "subject fills 43.98% of the canvas (want 15%-92%)",
           "severity": "review"
         }
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T14:32:12+03:00",
-      "attempts": 9
+      "completed_at": "2026-10-18T14:57:25+03:00",
+      "attempts": 15
     },
     "export": {
       "files": [
@@ -214,13 +232,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T14:32:14+03:00",
-      "attempts": 8
+      "completed_at": "2026-10-18T14:57:27+03:00",
+      "attempts": 12
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T14:32:14+03:00",
-  "status_at": "2026-10-18T14:32:14+03:00",
+  "updated_at": "2026-10-18T14:57:27+03:00",
+  "status_at": "2026-10-18T14:57:27+03:00",
   "exported_status": "passed"
 }

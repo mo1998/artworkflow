@@ -41,7 +41,6 @@ def palette_names() -> set[str]:
 
 
 def emissive_palette_entries() -> dict[str, dict[str, Any]]:
-    """PALETTE entries that define an emission, for the clipping regression test."""
     import ast
 
     tree = ast.parse(SCENE_LIB.read_text())
@@ -51,6 +50,27 @@ def emissive_palette_entries() -> dict[str, dict[str, Any]]:
         if getattr(target, "id", None) == "PALETTE":
             palette = ast.literal_eval(node.value)
     return {name: spec for name, spec in palette.items() if spec.get("emission")}
+
+
+def camera_moving_clips() -> set[str]:
+    """Clip names that move the camera, read from blender/lib/anim_clips.py.
+
+    Same reasoning as `palette_names`: the clip registry lives in a Blender-only module, so the
+    pipeline reads the literal it needs rather than importing bpy.
+    """
+    import ast
+
+    path = ROOT / "blender" / "lib" / "anim_clips.py"
+    if not path.exists():
+        return set()
+    for node in ast.parse(path.read_text()).body:
+        if isinstance(node, ast.AnnAssign) and getattr(node.target, "id", None) == "CAMERA_MOVING_CLIPS":
+            return set(ast.literal_eval(node.value))
+        if isinstance(node, ast.Assign) and any(
+            getattr(t, "id", None) == "CAMERA_MOVING_CLIPS" for t in node.targets
+        ):
+            return set(ast.literal_eval(node.value))
+    return set()
 
 
 class BlenderError(PipelineError):

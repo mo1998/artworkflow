@@ -27,7 +27,8 @@ from pathlib import Path
 sys.path[:0] = [str(Path(__file__).resolve().parent), str(Path(__file__).resolve().parent / "lib")]
 
 from lib.common import (PipelineError, STATUS_FAILED, STATUS_PASSED, STATUS_REVIEW)  # noqa: E402
-from lib.imageops import (detect_format, dhash, frames_differ, hamming,  # noqa: E402
+from lib.imageops import (content_bbox, detect_format, dhash,  # noqa: E402
+                          frames_differ, hamming,
                           measure, motion_metrics, open_image)
 from lib.stage import Stage, add_common_args  # noqa: E402
 
@@ -111,6 +112,43 @@ class ValidateStage(Stage):
         self.summarize(results)
         return results
 
+    # ---- source-level checks ------------------------------------------------
+    def check_source_clipping(self, job) -> list[Check]:
+        """Did the generator frame its subject, or cut it off?
+
+        This is the check that would have caught the level-3 keep losing its banner to the
+        family framing lock. Procedural only: the pipeline owns the Blender camera, so content
+        touching the render border there means the camera was wrong. Painted renders are the
+        diffusion model's composition, and a portrait is *supposed* to crop its subject at the
+        bottom edge, so the same rule would fail good art.
+        """
+        if job.source != "blender":
+            return []
+        src = self.find_incoming(job)
+        if src is None:
+            return []
+        try:
+            img = open_image(src)
+        except Exception as exc:  # noqa: BLE001
+            return [Check("source_opens", False, f"{src}: {exc}")]
+        box = content_bbox(img)
+        if box is None:
+            return [Check("source_not_clipped", False, f"{src.name} has no subject pixels")]
+        margin = int(self.config.get("validation.source_border_margin_px", 2))
+        width, height = img.size
+        edges = []
+        if box[0] <= margin:
+            edges.append("left")
+        if box[1] <= margin:
+            edges.append("top")
+        if box[2] >= width - margin:
+            edges.append("right")
+        if box[3] >= height - margin:
+            edges.append("bottom")
+        return [Check("source_not_clipped", not edges,
+                      f"{src.name} content box {box} within {width}x{height}"
+                      + (f"; subject touches {', '.join(edges)} - the camera cropped it" if edges else ""))]
+
     # ---- per asset ---------------------------------------------------------
     def check_asset(self, job) -> list[Check]:
         anim = job.animation_settings()
@@ -125,6 +163,11 @@ class ValidateStage(Stage):
         checks.append(Check("file_exists", path.exists(), str(path)))
         if not path.exists():
             return checks
+
+        # Check the *render* for clipping, before trim and padding can hide it. Trimming crops to
+        # the content, so the padded canvas always has an inset subject: `not_clipped` on the
+        # processed file cannot fail, and a roof cut off by the camera passes silently.
+        checks.extend(self.check_source_clipping(job))
 
         data = path.read_bytes()
         fmt = detect_format(data)
@@ -223,8 +266,17 @@ class ValidateStage(Stage):
             ys = [c[1] for c in centroids]  # type: ignore[index]
             jitter = max(max(xs) - min(xs), max(ys) - min(ys))
             limit = float(self.config.get("validation.frame.centroid_jitter_max_px", 24))
-            checks.append(Check("registration_stable", jitter <= limit,
-                                f"centroid drift {jitter:.1f}px (max {limit})"))
+            from lib.blender import camera_moving_clips
+
+            if str(anim.get("clip")) in camera_moving_clips():
+                # A turntable is *supposed* to move the subject across the frame; demanding a
+                # stable centroid would fail every correct turntable.
+                checks.append(Check("registration_stable", True,
+                                    f"not applicable: clip {anim.get('clip')!r} moves the camera "
+                                    f"(centroid drift {jitter:.1f}px)"))
+            else:
+                checks.append(Check("registration_stable", jitter <= limit,
+                                    f"centroid drift {jitter:.1f}px (max {limit})"))
 
         steps = [motion_metrics(images[i], images[i + 1]) for i in range(len(images) - 1)]
         if steps:

@@ -1,6 +1,6 @@
 {
   "run_id": "final",
-  "generated_at": "2026-10-18T14:32:17+03:00",
+  "generated_at": "2026-10-18T14:59:39+03:00",
   "manifest": "/home/mrazek/ArtWorkflow/config/manifest.json",
   "totals": {
     "assets": 16,
@@ -91,7 +91,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 2.43
+        "generation": 0.94
       }
     },
     {
@@ -118,7 +118,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 0.78
+        "generation": 0.75
       }
     },
     {
@@ -185,7 +185,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 1.46
+        "generation": 1.61
       }
     },
     {
@@ -380,7 +380,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 0.79
+        "generation": 0.76
       }
     },
     {
@@ -407,7 +407,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 0.69
+        "generation": 0.67
       }
     },
     {
@@ -451,7 +451,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 1.72
+        "generation": 1.67
       }
     },
     {
@@ -503,7 +503,7 @@
       "retries": {},
       "errors": [],
       "seconds": {
-        "generation": 2.04
+        "generation": 2.08
       }
     }
   ],
@@ -516,6 +516,7 @@
     "logs/final/godot-check-summary.json",
     "logs/final/godot-check.log.log",
     "logs/final/godot-import.log.log",
+    "logs/final/report-summary.json",
     "logs/final/validate-summary.json"
   ]
 }
