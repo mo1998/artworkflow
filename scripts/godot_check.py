@@ -42,8 +42,12 @@ class GodotCheckStage(Stage):
         return resolve_path(self.config.get("godot.project_dir", "godot_project"))
 
     def run(self) -> dict:
-        binary = shutil.which(str(self.config.get("godot.binary", "godot"))) \
-            or str(self.config.get("godot.binary", "godot"))
+        from lib.tools import find_godot
+
+        binary = find_godot(self.config.get("godot.binary") or None)
+        if not binary:
+            raise PipelineError("Godot not found. Set godot.binary in config/pipeline.local.yaml "
+                                "or the GODOT_BIN environment variable, or put godot on PATH.")
         results: dict[str, object] = {"stage": self.name, "project": str(self.project_dir)}
         if not self.project_dir.exists():
             raise PipelineError(f"Godot project not found: {self.project_dir}")

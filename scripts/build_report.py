@@ -19,7 +19,7 @@ sys.path[:0] = [str(Path(__file__).resolve().parent), str(Path(__file__).resolve
 
 from lib.common import (ROOT, PipelineError, STATUS_EXPORTED, STATUS_FAILED,  # noqa: E402
                         STATUS_PASSED, STATUS_PENDING, STATUS_REVIEW, atomic_write_json,
-                        now_iso)
+                        now_iso, rel_to_root)
 from lib.stage import Stage, add_common_args  # noqa: E402
 
 PROVENANCE_REQUIRED = ("model", "license_url")
@@ -84,7 +84,7 @@ class ReportStage(Stage):
         payload = {
             "run_id": self.log.run_id,
             "generated_at": now_iso(),
-            "manifest": str(self.manifest.path) if self.manifest else None,
+            "manifest": rel_to_root(self.manifest.path) if self.manifest else None,
             "totals": {
                 "assets": len(rows),
                 "by_status": counts,

@@ -23,7 +23,7 @@ sys.path[:0] = [str(Path(__file__).resolve().parent), str(Path(__file__).resolve
 
 from PIL import Image
 
-from lib.common import PipelineError, STATUS_PROCESSED  # noqa: E402
+from lib.common import PipelineError, STATUS_PROCESSED, rel_to_root  # noqa: E402
 from lib.comfy import ComfyClient  # noqa: E402
 from lib.imageops import (ImageError, content_bbox, measure, open_image, pixel_hash,  # noqa: E402
                           place_on_canvas, trim, fit_resize, to_rgba)
@@ -135,7 +135,8 @@ class ProcessStage(Stage):
             if scratch is not None:
                 scratch.unlink(missing_ok=True)
 
-        rec.complete_stage("processing", file=str(dest), bytes=dest.stat().st_size, source=str(source_path),
+        rec.complete_stage("processing", file=rel_to_root(dest), bytes=dest.stat().st_size,
+                           source=rel_to_root(source_path),
                            steps=applied, trim_box=box, anchor=anchor, padding=padding,
                            scale_mode=scale_mode,
                            canvas=(int(target) if target else None),
@@ -155,7 +156,7 @@ class ProcessStage(Stage):
         src_dir = self.animation_dir(job)
         frames = sorted(src_dir.glob("frame_*.png"))
         if not frames:
-            raise PipelineError(f"{job.run_key}: no frames in {src_dir} (run the generate stage first)")
+            raise PipelineError(f"{job.run_key}: no frames in {rel_to_root(src_dir)} (run the generate stage first)")
         dest_dir = self.config.path_for("processed") / job.run_key
         if dest_dir.exists() and not self.force and rec.data.get("status") in DONE_STATUSES:
             self.log.info("already processed", stage=self.name, asset=job.run_key)
@@ -196,7 +197,7 @@ class ProcessStage(Stage):
         if len(sizes) != 1:
             raise PipelineError(f"{job.run_key}: frames are not uniform after processing: {sorted(sizes)}")
 
-        rec.complete_stage("processing", dir=str(dest_dir), frames=len(written), steps=applied,
+        rec.complete_stage("processing", dir=rel_to_root(dest_dir), frames=len(written), steps=applied,
                            frame_size=list(sizes.pop()),
                            measurements=measure(open_image(Path(written[0]))).as_dict())
         rec.set_status(STATUS_PROCESSED)

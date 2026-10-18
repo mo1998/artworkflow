@@ -14,7 +14,7 @@ from typing import Any, Iterable, Sequence
 
 from .common import (EXPORTABLE, ROOT, AssetRecord, Config, PipelineError, RunLog,
                      STATUS_FAILED, atomic_write_json, ensure_inside_project, new_run_id,
-                     resolve_path)
+                     rel_to_root, resolve_path)
 from .manifest import Job, Manifest, check_paths, load_manifest, validate_manifest
 
 
@@ -56,7 +56,7 @@ class Stage:
             self.records = {job.run_key: AssetRecord.load(job.run_key) for job in self.jobs}
         self.log.log("stage_start", stage=self.name, msg=f"run {self.log.run_id}",
                      assets=[j.run_key for j in self.jobs] or None,
-                     manifest=str(self.manifest.path) if self.manifest else None)
+                     manifest=rel_to_root(self.manifest.path) if self.manifest else None)
 
     # ---- overridable --------------------------------------------------------
     def build_parser(self) -> argparse.ArgumentParser:
@@ -95,7 +95,7 @@ class Stage:
         if not self.dry_run:
             atomic_write_json(dest, {
                 "run_id": self.log.run_id,
-                "manifest_path": str(self.manifest.path),
+                "manifest_path": rel_to_root(self.manifest.path),
                 "schema_version": self.manifest.schema_version,
                 "jobs": [j.run_key for j in self.jobs],
                 "source": self.manifest.data,
@@ -184,13 +184,19 @@ class Stage:
         import traceback
 
         try:
-            return fn()
+            value = fn()
         except Exception as exc:  # noqa: BLE001 - deliberately broad: never lose a whole stage
             frames = traceback.format_exc(limit=8).strip().splitlines()
             self.record_error(job, stage, f"{type(exc).__name__}: {exc}",
                               traceback=" | ".join(frames[-4:]))
             sink[job.run_key] = {"error": f"{type(exc).__name__}: {exc}"}
             return None
+        # Records are the durable state, but the per-stage summary is what a caller (or an MCP
+        # client) reads back. Returning the value without storing it left every summary's asset
+        # map empty - the work happened and the report of it did not.
+        if value is not None:
+            sink[job.run_key] = value
+        return value
 
     def record_error(self, job: Job, stage: str, error: str, *, traceback: str | None = None) -> None:
         rec = self.record(job)

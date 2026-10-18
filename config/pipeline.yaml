@@ -19,28 +19,32 @@ paths:
 
 comfyui:
   url: http://127.0.0.1:8188
-  home: ~/comfy/ComfyUI
-  python: /home/ubuntu/anaconda3/envs/comfy/bin/python
+  # Blank means "find it": COMFYUI_HOME, then ~/comfy/ComfyUI, ~/ComfyUI, /opt/ComfyUI.
+  # Override in config/pipeline.local.yaml (untracked) or with the environment variable.
+  home: ""
+  # Blank means "find a python that can import torch": the checkout's venv, a conda env named
+  # comfy*, or the interpreter running the pipeline.
+  python: ""
   autostart: true # start the server if the API is not reachable
   extra_args: ["--disable-auto-launch"]
   startup_timeout_seconds: 420
   poll_interval_seconds: 2
   job_timeout_seconds: 900
   background_removal:
-    # Standalone `rembg`/onnxruntime are not installed on this machine; the
-    # ComfyUI_BiRefNet_ll custom node is the supported cutout path.
+    # Standalone `rembg`/onnxruntime are optional; the ComfyUI_BiRefNet_ll custom node is the
+    # supported cutout path and needs no extra python package.
     node_pack: ComfyUI_BiRefNet_ll
     model_name: General-HR
     process_width: 1024
     process_height: 1024
 
 blender:
-  binary: ~/blender/blender-4.5.9-linux-x64/blender
-  engine: BLENDER_EEVEE_NEXT # EEVEE renders headless on this GPU; Cycles also works
+  binary: "" # blank = BLENDER_BIN, then PATH, then ~/blender*/blender-*/blender
+  engine: BLENDER_EEVEE_NEXT # EEVEE renders headless without a display; Cycles also works
   default_samples: 64
 
 godot:
-  binary: godot
+  binary: "" # blank = GODOT_BIN, then PATH, then ~/.local/bin/godot
   project_dir: godot_project
   import_timeout_seconds: 300
   check_timeout_seconds: 180

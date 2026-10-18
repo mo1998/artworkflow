@@ -22,7 +22,7 @@ from pathlib import Path
 sys.path[:0] = [str(Path(__file__).resolve().parent), str(Path(__file__).resolve().parent / "lib")]
 
 from lib.common import (EXPORTABLE, PipelineError, STATUS_EXPORTED, STATUS_PASSED,  # noqa: E402
-                        STATUS_REVIEW, now_iso)
+                        STATUS_REVIEW, now_iso, rel_to_root)
 from lib.stage import Stage, add_common_args  # noqa: E402
 
 
@@ -63,7 +63,7 @@ class ExportStage(Stage):
             sources = [sheet_dir / f"{name}.png", sheet_dir / f"{name}.json"]
             missing = [s for s in sources if not s.exists()]
             if missing:
-                raise PipelineError(f"{job.run_key}: missing spritesheet output {[str(m) for m in missing]}")
+                raise PipelineError(f"{job.run_key}: missing spritesheet output {[rel_to_root(m) for m in missing]}")
             written += self.copy_export(sources, target_dir, mirror)
             frames = sorted((self.config.path_for("processed") / job.run_key).glob("frame_*.png"))
             if frames:
@@ -73,7 +73,7 @@ class ExportStage(Stage):
         else:
             src = self.processed_path(job)
             if not src.exists():
-                raise PipelineError(f"{job.run_key}: processed file missing {src}")
+                raise PipelineError(f"{job.run_key}: processed file missing {rel_to_root(src)}")
             written += self.copy_export([src], target_dir, mirror)
 
         payload = {
@@ -89,8 +89,9 @@ class ExportStage(Stage):
         if not self.dry_run:
             self.write_sidecar(self.record(job), target_dir, mirror, payload)
             rec = self.record(job)
-            rec.complete_stage("export", files=written, target=str(target_dir),
-                               mirror=str(mirror) if mirror else None, validation_status=status)
+            rec.complete_stage("export", files=written, target=rel_to_root(target_dir),
+                               mirror=rel_to_root(mirror) if mirror else None,
+                               validation_status=status)
             rec.set_status(STATUS_EXPORTED, exported_status=status)
             self.log.info(f"exported {len(written)} file(s) -> {target_dir}"
                           + (f" (+ godot mirror)" if mirror else ""),

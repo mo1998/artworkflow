@@ -89,10 +89,12 @@ class ComfyClient:
     """Minimal ComfyUI API client with an optional server autostart."""
 
     def __init__(self, config: Config, *, log: Any = None):
+        from .tools import find_comfyui_home, find_comfyui_python
+
         self.config = config
         self.url = str(config.get("comfyui.url", "http://127.0.0.1:8188")).rstrip("/")
-        home = config.get("comfyui.home")
-        self.home = resolve_path(home) if home else None
+        self.home = find_comfyui_home(config.get("comfyui.home") or None)
+        self.python = find_comfyui_python(config.get("comfyui.python") or None, self.home)
         self.timeout = float(config.get("comfyui.job_timeout_seconds", 900))
         self.poll = float(config.get("comfyui.poll_interval_seconds", 2))
         self.log = log
@@ -143,8 +145,12 @@ class ComfyClient:
 
     def start_server(self) -> bool:
         if not self.home or not (self.home / "main.py").exists():
-            raise ComfyError(f"comfyui.home does not look like a ComfyUI checkout: {self.home}")
-        python = self.config.get("comfyui.python") or "python3"
+            raise ComfyError("ComfyUI not found. Set comfyui.home in config/pipeline.local.yaml "
+                             "or the COMFYUI_HOME environment variable.")
+        python = self.python
+        if not python:
+            raise ComfyError("no python that can import torch was found. Set comfyui.python in "
+                             "config/pipeline.local.yaml or the COMFYUI_PYTHON environment variable.")
         log_dir = resolve_path(self.config.get("paths.logs", "logs"))
         log_dir.mkdir(parents=True, exist_ok=True)
         server_log = log_dir / "comfyui-server.log"

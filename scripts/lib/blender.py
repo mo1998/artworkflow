@@ -78,12 +78,12 @@ class BlenderError(PipelineError):
 
 
 def blender_binary(config: Config) -> Path:
-    raw = config.get("blender.binary")
-    if not raw:
-        raise BlenderError("blender.binary is not configured")
-    path = resolve_path(raw)
-    if not path.exists():
-        raise BlenderError(f"Blender not found at {path}; set blender.binary in config/pipeline.yaml")
+    from .tools import find_blender
+
+    path = find_blender(config.get("blender.binary") or None)
+    if not path:
+        raise BlenderError("Blender not found. Set blender.binary in config/pipeline.local.yaml "
+                           "(or the BLENDER_BIN environment variable), or put blender on PATH.")
     return path
 
 

@@ -21,7 +21,8 @@ from pathlib import Path
 
 sys.path[:0] = [str(Path(__file__).resolve().parent), str(Path(__file__).resolve().parent / "lib")]
 
-from lib.common import PipelineError, STATUS_EXPORTED, atomic_write_json, now_iso  # noqa: E402
+from lib.common import (PipelineError, STATUS_EXPORTED, atomic_write_json,  # noqa: E402
+                        now_iso, rel_to_root)
 from lib.imageops import motion_metrics, open_image, pack_spritesheet, to_rgba  # noqa: E402
 from lib.stage import Stage, add_common_args  # noqa: E402
 
@@ -51,7 +52,7 @@ class SpritesheetStage(Stage):
         frames_dir = self.config.path_for("processed") / job.run_key
         frames = sorted(frames_dir.glob("frame_*.png"))
         if not frames:
-            raise PipelineError(f"{job.run_key}: no processed frames in {frames_dir}")
+            raise PipelineError(f"{job.run_key}: no processed frames in {rel_to_root(frames_dir)}")
         if len(frames) != int(anim["frame_count"]):
             raise PipelineError(f"{job.run_key}: {len(frames)} processed frames but the manifest "
                                 f"says {anim['frame_count']}")
@@ -86,6 +87,7 @@ class SpritesheetStage(Stage):
             "run_key": job.run_key,
             "generated_at": now_iso(),
             "sheet": sheet_path.name,
+            "sheet_path": rel_to_root(sheet_path),
             "sheet_size": [sheet.width, sheet.height],
             "frame_size": [frame_width, frame_height],
             "frame_count": len(images),
@@ -96,7 +98,7 @@ class SpritesheetStage(Stage):
             "loop": bool(anim.get("loop", True)),
             "clip": anim.get("clip"),
             "frames": rects,
-            "frame_files": [str(f) for f in frames],
+            "frame_files": [rel_to_root(f) for f in frames],
             "motion_between_frames": motion,
             "godot": {
                 "note": "Load in Godot with a SpriteFrames built from `frames` rects, or split the "
@@ -108,7 +110,8 @@ class SpritesheetStage(Stage):
         atomic_write_json(sheet_dir / f"{name}.json", metadata)
 
         rec = self.record(job)
-        rec.complete_stage("spritesheet", sheet=str(sheet_path), metadata=str(sheet_dir / f"{name}.json"),
+        rec.complete_stage("spritesheet", sheet=rel_to_root(sheet_path),
+                           metadata=rel_to_root(sheet_dir / f"{name}.json"),
                            columns=columns, rows=rows, frame_size=[frame_width, frame_height],
                            frames=len(images), sheet_bytes=sheet_path.stat().st_size)
         self.log.info(f"packed {len(images)} frames -> {sheet_path.name} ({sheet.width}x{sheet.height}, "

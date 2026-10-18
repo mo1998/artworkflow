@@ -69,6 +69,22 @@ def ensure_inside_project(path: str | os.PathLike[str], *, what: str = "path") -
     return resolved
 
 
+def rel_to_root(path: str | os.PathLike[str] | None) -> str | None:
+    """Project-relative path for records and reports.
+
+    Records are committed as provenance, so they have to be portable: an absolute
+    /home/someone/... path in a record is noise on another machine and leaks a username into a
+    public repository.
+    """
+    if path is None:
+        return None
+    try:
+        resolved = resolve_path(path).resolve()
+        return str(resolved.relative_to(ROOT))
+    except (ValueError, OSError):
+        return str(path)
+
+
 def atomic_write_bytes(path: Path, data: bytes) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as fh:
@@ -85,6 +101,17 @@ def atomic_write_json(path: Path, payload: Any) -> Path:
 def read_json(path: Path) -> Any:
     with open(path, "r", encoding="utf-8") as fh:
         return json.load(fh)
+
+
+def _deep_merge(base: dict, override: dict) -> dict:
+    """Recursive merge: dicts merge key-wise, everything else is replaced by the override."""
+    out = dict(base)
+    for key, value in override.items():
+        if isinstance(value, dict) and isinstance(out.get(key), dict):
+            out[key] = _deep_merge(out[key], value)
+        else:
+            out[key] = value
+    return out
 
 
 class Config:
@@ -105,6 +132,15 @@ class Config:
             data = yaml.safe_load(fh)
         if not isinstance(data, dict):
             raise ConfigError(f"config must be a mapping: {cfg_path}")
+        # Machine-specific overrides live beside the tracked config, untracked. This is what
+        # keeps absolute tool paths out of the repository.
+        for local in (cfg_path.with_name(f"{cfg_path.stem}.local{cfg_path.suffix}"),
+                      ROOT / "config" / "pipeline.local.yaml"):
+            if local.exists() and local != cfg_path:
+                with open(local, "r", encoding="utf-8") as fh:
+                    override = yaml.safe_load(fh) or {}
+                if isinstance(override, dict):
+                    data = _deep_merge(data, override)
         return cls(data, cfg_path)
 
     def get(self, dotted: str, default: Any = None) -> Any:

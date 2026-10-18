@@ -26,7 +26,8 @@ from pathlib import Path
 
 sys.path[:0] = [str(Path(__file__).resolve().parent), str(Path(__file__).resolve().parent / "lib")]
 
-from lib.common import (PipelineError, STATUS_FAILED, STATUS_PASSED, STATUS_REVIEW)  # noqa: E402
+from lib.common import (PipelineError, STATUS_FAILED, STATUS_PASSED,  # noqa: E402
+                        STATUS_REVIEW, rel_to_root)
 from lib.imageops import (content_bbox, detect_format, dhash,  # noqa: E402
                           frames_differ, hamming,
                           measure, motion_metrics, open_image)
@@ -130,7 +131,7 @@ class ValidateStage(Stage):
         try:
             img = open_image(src)
         except Exception as exc:  # noqa: BLE001
-            return [Check("source_opens", False, f"{src}: {exc}")]
+            return [Check("source_opens", False, f"{rel_to_root(src)}: {exc}")]
         box = content_bbox(img)
         if box is None:
             return [Check("source_not_clipped", False, f"{src.name} has no subject pixels")]
@@ -160,7 +161,7 @@ class ValidateStage(Stage):
         checks: list[Check] = []
         steps = job.processing_settings()
         path = self.processed_path(job)
-        checks.append(Check("file_exists", path.exists(), str(path)))
+        checks.append(Check("file_exists", path.exists(), rel_to_root(path)))
         if not path.exists():
             return checks
 

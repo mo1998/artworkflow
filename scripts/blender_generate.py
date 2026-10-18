@@ -23,7 +23,7 @@ from pathlib import Path
 sys.path[:0] = [str(Path(__file__).resolve().parent), str(Path(__file__).resolve().parent / "lib")]
 
 from lib.blender import BlenderError, run_blender_script  # noqa: E402
-from lib.common import PipelineError, ROOT, STATUS_GENERATED  # noqa: E402
+from lib.common import PipelineError, ROOT, STATUS_GENERATED, rel_to_root  # noqa: E402
 from lib.stage import Stage, add_common_args  # noqa: E402
 
 DONE_STATUSES = {"generated", "processed", "passed", "review_required", "exported"}
@@ -135,7 +135,7 @@ class BlenderGenerateStage(Stage):
                 "res_y": self._base_params(job).get("res_y")}
         try:
             summary = run_blender_script(self.config, holder, args, log=self.log, stage=self.name,
-                                        log_path=self.log.stage_file("framing.log"), timeout=180)
+                                        log_path=self.log.stage_file("framing"), timeout=180)
         except Exception as exc:  # noqa: BLE001
             self.log.warn(f"framing fit failed: {exc}", stage=self.name, asset=job.run_key)
             return None
@@ -208,7 +208,7 @@ class BlenderGenerateStage(Stage):
                     frames = sorted(out_dir.glob("frame_*.png"))
                     if len(frames) != int(anim["frame_count"]):
                         raise BlenderError(f"expected {anim['frame_count']} frames, got {len(frames)}")
-                    rec.complete_stage("generation", file=str(out_dir), frames=len(frames),
+                    rec.complete_stage("generation", file=rel_to_root(out_dir), frames=len(frames),
                                        clip=anim["clip"], frame_rate=int(anim["frame_rate"]),
                                        frame_count=int(anim["frame_count"]),
                                        ortho_scale=summary.get("ortho_scale"),
@@ -226,7 +226,7 @@ class BlenderGenerateStage(Stage):
                                                  timeout=1800)
                     if not dest.exists() or dest.stat().st_size == 0:
                         raise BlenderError(f"Blender reported success but {dest} is missing or empty")
-                    rec.complete_stage("generation", file=str(dest), bytes=dest.stat().st_size,
+                    rec.complete_stage("generation", file=rel_to_root(dest), bytes=dest.stat().st_size,
                                        generator=generator, ortho_scale=summary.get("ortho_scale"),
                                        frame_target_z=summary.get("frame_target_z"),
                                        vertices=summary.get("vertices"), polygons=summary.get("polygons"),

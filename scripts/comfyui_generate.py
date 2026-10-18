@@ -17,7 +17,8 @@ from pathlib import Path
 
 sys.path[:0] = [str(Path(__file__).resolve().parent), str(Path(__file__).resolve().parent / "lib")]
 
-from lib.common import PipelineError, ROOT, STATUS_GENERATED, atomic_write_bytes  # noqa: E402
+from lib.common import (PipelineError, ROOT, STATUS_GENERATED, atomic_write_bytes,  # noqa: E402
+                        rel_to_root)
 from lib.comfy import ComfyClient, check_workflow_requirements, load_workflow  # noqa: E402
 from lib.imageops import detect_format, open_image  # noqa: E402
 from lib.stage import Stage, add_common_args  # noqa: E402
@@ -131,7 +132,7 @@ class ComfyGenerateStage(Stage):
                     workflow_rel = str(workflow.path.relative_to(ROOT))
                 except ValueError:
                     workflow_rel = str(workflow.path)
-                rec.complete_stage("generation", file=str(final), bytes=len(data), format=fmt,
+                rec.complete_stage("generation", file=rel_to_root(final), bytes=len(data), format=fmt,
                                    width=width, height=height, mode=mode, seed=seed,
                                    prompt=values["prompt"], negative_prompt=values["negative_prompt"],
                                    workflow=workflow_rel, workflow_name=workflow.name,
