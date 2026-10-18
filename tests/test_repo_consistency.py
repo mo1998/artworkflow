@@ -28,7 +28,6 @@ STAGE_SCRIPTS_EXCLUDED = {
     "env_check.py",       # a diagnostic, not a pipeline stage
     "run_pipeline.py",    # the runner itself
     "make_gallery.py",    # documentation tooling
-    "make_branding.py",   # documentation tooling
     "remove_background.py",  # a library used by process_images, with a single-file CLI
     "check.py",           # the contributor convenience wrapper
 }
