@@ -27,22 +27,38 @@ config/manifest.json  ──►  generate  ──►  process  ──►  valida
 ## Status of this repository
 
 Built and verified on this machine against the tools listed under
-[Environment](#environment). The shipped demo manifest exercises both generation paths and a
-12-frame animated asset:
+[Environment](#environment). Two art directions ship, covering both generation paths:
+
+**`config/manifest.json` — demo set (engine plumbing)**
 
 | asset | path | result |
 | --- | --- | --- |
 | `demo_watchtower_a`, `demo_watchtower_b` | ComfyUI + FLUX + BiRefNet | passed, exported, distinct images from two seeds |
 | `demo_hut`, `demo_hut__lvl2`, `demo_hut__lvl3` | Blender procedural, one locked camera | passed, exported, size progression preserved |
-| `demo_hut_flag` | Blender procedural + `banner_wave` clip, 12 frames | passed, exported, 1 sheet + 12 frame rects verified in Godot |
+| `demo_hut_flag` | Blender procedural + `banner_wave` clip, 12 frames | passed, exported, 1 sheet + frames verified in Godot |
 
-Verification evidence from the last full run (`reports/final2.md`, `logs/final2/`):
+**Vampire set (a real art direction, 10 assets / 13 jobs)**
+
+| asset | path | result |
+| --- | --- | --- |
+| `vampire_manor_house`, `vampire_crypt` | painted, `gothic-vampire-isometric-v1` | passed, exported |
+| `vampire_blood_well` | painted prop, `gothic-vampire-prop-v1` | passed, exported |
+| `vampire_lord` | painted portrait, `gothic-vampire-portrait-v1` | passed, exported (no cutout, no trim) |
+| `vampire_keep`, `__lvl2`, `__lvl3` | procedural, `blender-gothic-vampire-v1`, family scale | passed, exported, tiers grow |
+| `vampire_grave` | procedural prop, new `generate_prop.py` | passed, exported |
+| `vampire_gate_torch` | procedural, `torch_flicker` on a crimson material, 16 frames | passed, exported |
+| `vampire_watcher` | procedural, `turntable` clip, 24 frames | passed, exported |
+
+Verification evidence from the last full run (`reports/final.md`, `logs/final/`):
 
 ```
-assets: 6  exported: 6  failed: 0  review_required: 0  retried: 0
-godot ok: 18 texture(s), 1 sheet(s), 12 frame rect(s)
-python3 -m unittest discover -s tests   ->  31 tests, OK
+assets: 16  exported: 16  failed: 0  review_required: 0  retried: 0
+godot ok: 68 texture(s), 3 sheet(s), 52 frame rect(s)
+python3 -m unittest discover -s tests   ->  36 tests, OK
 ```
+
+Diffusion reproducibility was measured, not assumed: after `--force`, all four painted vampire
+assets came back **byte-identical** (same seed, same checkpoint, same workflow, same ComfyUI).
 
 ## Quick start
 
@@ -112,8 +128,9 @@ ArtWorkflow/
 │   └── lib/                     common, manifest, comfy, imageops, blender, stage
 ├── blender/
 │   ├── generate_building.py     parameterised building generator
+│   ├── generate_prop.py         coffins, gravestones, altars, lamps, statues
 │   ├── render_animation.py      clip sequencer (frame loop lives here)
-│   ├── lib/scene.py             camera, lights, materials, geometry, bevel
+│   ├── lib/scene.py             camera, lights, PALETTE, geometry, bevel
 │   ├── lib/anim_clips.py        reusable clips: banner_wave, torch_flicker, turntable, …
 │   └── reusable_rigs/           character rigs — not implemented in v1, see its README
 ├── godot_project/               engine-side check: import + load every exported asset
@@ -184,7 +201,53 @@ Rules the validator enforces:
 
 Look lives in `config/styles.yaml`, not in code: adding a style is a data change.
 `Job.compose_prompt()` assembles `<subject>. <composition>. <style>.`; the negatives merge.
-See `prompts/style_guide.md` for the rules and the four shipped styles.
+See `prompts/style_guide.md` for the rules and the seven shipped styles.
+
+Six styles ship, in three kinds:
+
+| kind | styles |
+| --- | --- |
+| painted buildings | `dark-fantasy-isometric-v1`, `norse-frontier-topdown-v1`, `gothic-vampire-isometric-v1` |
+| painted props and portraits | `stylized-flat-prop-v1`, `gothic-vampire-prop-v1`, `painterly-portrait-v1`, `gothic-vampire-portrait-v1` |
+| procedural (no prompt) | `blender-procedural-v1`, `blender-gothic-vampire-v1` |
+| textures | `tileable-texture-v1` |
+
+A `blender-*` style carries no prompt at all — its `generation` block is where the look is set,
+and it is inherited by every asset that names it:
+
+```yaml
+  blender-gothic-vampire-v1:
+    generation:
+      key_energy: 2.2      # a dark palette under a hot key light renders as a pale toy
+      fill_energy: 0.8
+      azimuth: 40.0
+    processing: { remove_background: false, trim: true, padding: 12 }
+```
+
+Lighting, framing and processing defaults live in the style so a whole direction changes in one
+place; an asset's own `blender.params` still wins where it is explicit.
+
+## Materials: the palette contract
+
+Procedural geometry is coloured by name. `PALETTE` in `blender/lib/scene.py` is the single
+declaration; generators, variants and manifest params only ever reference it by string
+(`wall_material: "obsidian"`). That contract is enforced from both sides:
+
+- **Manifest validation** rejects an unknown `*_material` before anything renders, listing the
+  known names. `obsidan` fails at validation, not after four minutes of GPU time.
+- **Blender fails loudly** on an unknown material rather than falling back to grey, because a
+  silent fallback turns a typo into a batch of plausible-looking, wrongly-coloured assets.
+- **A unit test** asserts the palette has no duplicate keys. A duplicate in a `PALETTE` literal
+  silently overrides, and this happened for real: a new dark `cold_moon` lost to an older bright
+  one.
+
+Two rules for emissive entries, learned by getting them wrong:
+
+- the base colour stays near black and the **emission carries the hue**;
+- `emission_strength` stays at ~1.0.
+
+A bright base colour plus strong emission clips in the `Standard` view transform: the first
+vampire keep rendered hot pink windows and a salmon roof. A test now asserts both properties.
 
 ## Workflows and parameter binding
 
@@ -334,7 +397,7 @@ check says exactly which file the engine cannot consume.
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-31 tests over the pure parts, no GPU required. Several of them encode bugs this pipeline actually
+36 tests over the pure parts, no GPU required. Several of them encode bugs this pipeline actually
 had:
 
 - `test_padding_is_respected_on_every_edge` — the anchor used to place the subject flush against
@@ -343,13 +406,19 @@ had:
   was 4.0, so `not_blank` failed everything;
 - `test_seed_comes_from_the_asset_when_generation_omits_it` — the seed used to be read only from
   `generation.seed`, so two assets with different top-level seeds silently rendered the same image;
+- `test_accepts_an_rgb_subject_that_exactly_fills_the_canvas` — `place_on_canvas` assumed an RGBA
+  subject, which only broke for the portrait, the one asset whose subject exactly fills its canvas;
 - `test_motion_metrics_see_a_small_moving_detail` — mean difference over the canvas called a
   waving banner "no motion";
 - `test_sheet_and_sidecar_metadata_do_not_collide` — the export sidecar used to overwrite a
   spritesheet's frame metadata;
 - `test_paths_outside_the_project_are_refused` — manifest-controlled paths must not escape;
 - `test_pixel_hash_ignores_file_metadata` — Blender stamps a render timestamp into every PNG, so
-  "did the render change?" must be answered on pixels, not file bytes.
+  "did the render change?" must be answered on pixels, not file bytes;
+- `test_emissive_materials_use_a_dark_base_colour` and `test_palette_has_no_duplicate_keys` — the
+  two mistakes behind the first vampire keep's pink windows and mis-coloured roof;
+- `test_unknown_material_in_the_manifest_is_reported` — an art-direction typo must fail
+  validation, not render grey.
 
 ## Adding a new asset
 
@@ -359,24 +428,50 @@ had:
 4. Read `reports/<run id>.md`. If the asset is `review_required`, look at the PNG before shipping;
    if it is `failed`, the record names the failed check.
 
+### Adding a whole art direction
+
+Worked example — that is exactly how the vampire set was built:
+
+1. `config/styles.yaml`: a `-isometric-` building block, a `-prop-` block, a `-portrait-` block, and
+   a `blender-` block carrying lighting and processing defaults.
+2. `blender/lib/scene.py`: add however many `PALETTE` entries the direction needs. A dark direction
+   needs lower `key_energy` in its style block, or every material renders pale.
+3. `config/manifest.json`: assets naming those styles. Painted subjects get a `prompt`; procedural
+   ones get `blender.params` referencing palette names.
+4. Run it, then **look at the board**: put painted and procedural output side by side. Palette
+   matching is what decides whether they belong to one world, and no check in the pipeline
+   measures that.
+
 ## Known limitations, honestly
 
 1. **FLUX will not give you a straight-down map view.** Its prior is isometric; the composition
    block now describes an isometric diorama instead of fighting it. Measured, not assumed.
-2. **Same seed is not the same image forever.** It holds for a fixed checkpoint, workflow and
-   ComfyUI version, which is why every record stores the workflow path and a hash of it.
-3. **Background removal is imperfect** for hair, smoke, glow, glass and translucent effects, and
-   for subjects that overlap the frame edge. Those assets fail or are flagged for review; the
-   pipeline does not claim otherwise.
-4. **Animation comes from rigs and clips, not prompts.** The 2D character path
+2. **Negative prompts are advisory.** The vampire manor's negative list bans bats and fence lines,
+   and the render has both. The first `vampire_lord` render also grew a watermark-shaped mark in a
+   corner despite `watermark` being in the negative list — no validator can see that, so the fix
+   was a stronger negative list plus a new seed, which is the only tool available. Anything that
+   genuinely must not appear needs a detector, not a prompt.
+3. **Painted assets look richer than procedural ones.** The painted manor has shingles, ironwork
+   and a fenced base; the procedural keep is flat-shaded blocks. Matching palette, framing and
+   lighting make them sit together, and hand-authored materials or textures would close the rest
+   of the gap. The pipeline does not pretend the two paths produce identical fidelity.
+4. **Same seed is not the same image forever.** It held byte-for-byte across a forced rerun here,
+   but only while the checkpoint, workflow and ComfyUI version are unchanged, which is why every
+   record stores the workflow path and a hash of it.
+5. **Background removal is imperfect** for hair, smoke, glow, glass and translucent effects, and
+   for subjects that overlap the frame edge. Those assets fail or are flagged for review.
+6. **Animation comes from rigs and clips, not prompts.** The 2D character path
    (`blender/reusable_rigs/`) is not implemented in v1.
-5. **Technical checks are not art direction.** Near-duplicate detection catches a seed change
+7. **A turntable always has angles where a thin feature is edge-on.** The watcher's wings present
+   their edge from some azimuths; no amount of wing geometry removes that, it is what rotation is
+   for.
+8. **Technical checks are not art direction.** Near-duplicate detection catches a seed change
    that did nothing; it cannot tell you a face looks wrong. Use `review_required` for that.
-6. **Licences are your problem.** FLUX.1-dev is non-commercial; the manifest carries a
+9. **Licences are your problem.** FLUX.1-dev is non-commercial; the manifest carries a
    `license_note` saying so, and the report flags assets with no recorded licence. Verify before
    shipping anything.
-7. **One GPU job at a time.** ComfyUI and Blender are serialised deliberately; two RTX 4090s are
-   available but parallel generation is not implemented yet.
+10. **One GPU job at a time.** ComfyUI and Blender are serialised deliberately; two RTX 4090s are
+    available but parallel generation is not implemented yet.
 
 ## Agent instructions
 

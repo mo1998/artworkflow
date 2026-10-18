@@ -5,13 +5,13 @@
   "stages": {
     "generation": {
       "file": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl2.png",
-      "bytes": 825944,
+      "bytes": 825919,
       "generator": "generate_building.py",
       "ortho_scale": 4.7685,
       "frame_target_z": 1.2138,
       "vertices": 102,
       "polygons": 77,
-      "seconds": 0.79,
+      "seconds": 0.78,
       "attempt": 0,
       "params": {
         "kind": "hut",
@@ -29,12 +29,12 @@
         "ortho_scale": 4.7685,
         "frame_target_z": 1.2138
       },
-      "completed_at": "2026-10-18T13:35:20+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:24:33+03:00",
+      "attempts": 2
     },
     "processing": {
       "file": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut__lvl2.png",
-      "bytes": 125542,
+      "bytes": 124776,
       "source": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl2.png",
       "steps": [
         "trim",
@@ -51,8 +51,8 @@
       "padding": 12,
       "scale_mode": "family",
       "canvas": 512,
-      "source_pixel_hash": "3db4c67a4973edccb409aef41f632f6c574b392046ed49edc1b9464588ec736c",
-      "pixel_hash": "59c094e7911d931e39af434adafed33f049f5b287e524a749ec5a264faf14b67",
+      "source_pixel_hash": "436fab8077a66dd505ad0387a98d4055b64c1a4f367b0fc76eddd863a289b710",
+      "pixel_hash": "e83d742466c07984611e4d13fc91c030c07d99fc0cd729777c4ec61812d3beef",
       "before": {
         "width": 1024,
         "height": 1024,
@@ -71,11 +71,11 @@
           487.72207366527425
         ],
         "rgb_mean": [
-          126.28,
-          116.86,
-          99.28
+          126.24,
+          116.45,
+          98.71
         ],
-        "rgb_stddev": 92.725,
+        "rgb_stddev": 92.499,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -83,7 +83,7 @@
           "top": true,
           "bottom": false
         },
-        "unique_colors": 2054
+        "unique_colors": 2013
       },
       "after": {
         "width": 512,
@@ -103,11 +103,11 @@
           270.26285698965813
         ],
         "rgb_mean": [
-          115.52,
-          107.0,
-          90.95
+          115.46,
+          106.68,
+          90.44
         ],
-        "rgb_stddev": 94.419,
+        "rgb_stddev": 94.049,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -115,10 +115,10 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 2940
+        "unique_colors": 2899
       },
-      "completed_at": "2026-10-18T13:35:28+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:24:47+03:00",
+      "attempts": 2
     },
     "validation": {
       "status": "passed",
@@ -138,7 +138,7 @@
         {
           "check": "not_empty",
           "ok": true,
-          "detail": "125542 bytes",
+          "detail": "124776 bytes",
           "severity": "error"
         },
         {
@@ -156,7 +156,7 @@
         {
           "check": "not_blank",
           "ok": true,
-          "detail": "rgb stddev 94.419 (min 4.0)",
+          "detail": "rgb stddev 94.049 (min 4.0)",
           "severity": "error"
         },
         {
@@ -192,8 +192,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T13:35:33+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:32:11+03:00",
+      "attempts": 5
     },
     "export": {
       "files": [
@@ -202,13 +202,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T13:35:33+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 4
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T13:35:33+03:00",
-  "status_at": "2026-10-18T13:35:33+03:00",
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "status_at": "2026-10-18T14:32:14+03:00",
   "exported_status": "passed"
 }

@@ -1,0 +1,204 @@
+{
+  "asset_id": "vampire_crypt",
+  "run_key": "vampire_crypt",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_crypt.png",
+      "bytes": 1097219,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 449213,
+      "prompt": "a gothic vampire family crypt, a low vaulted stone mausoleum with a heavy iron barred door, standing stone slabs and a skull carved over the lintel, crimson light leaking from a narrow window, dead ivy on the walls. isometric three quarter view of a single isolated building, orthographic projection, no perspective distortion, the building sits on a small flat patch of ground, the whole building inside the frame with clear margin on every side, plain flat uniform light grey background, no other structures, no fence line, no water, no moat, no river, no lake, no floating island on a cliff base, no mist, no fog, no night sky, no moon, no bats, no text, no watermark, no border, no frame. hand painted stylized 3D game art, gothic vampire horror, dark weathered stone masonry, blackened timber beams, wrought iron details, pointed gothic arch windows glowing crimson, blood red banners, tarnished bronze fittings, bone and skull ornament, cold moonlit palette of ash grey and bruised violet with hot crimson candlelight accents, soft painterly texture, crisp readable silhouette, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, water, river, lake, moat, sea, horizon line, night sky, full moon, fog, bats, blood splatter, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "cc66c178-dfaa-4a3a-9dcf-3b694864a937",
+      "seconds": 18.07,
+      "attempt": 0,
+      "completed_at": "2026-10-18T14:23:51+03:00",
+      "attempts": 2
+    },
+    "processing": {
+      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_crypt.png",
+      "bytes": 299184,
+      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_crypt.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 934x947->481x488)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        40,
+        38,
+        974,
+        985
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "ff6a274a25fa228715bee19d75634df2e8847ff3f8dcfbaed8c1afce686995aa",
+      "pixel_hash": "261cb47deda121d13de66641b5030824aed410d88b1080d20b0d6e2f1cb7efee",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.47498035430908203,
+        "opaque_coverage": 0.46742820739746094,
+        "bbox": [
+          53,
+          39,
+          973,
+          983
+        ],
+        "centroid": [
+          521.923981985853,
+          565.4317612784182
+        ],
+        "rgb_mean": [
+          32.6,
+          31.62,
+          39.11
+        ],
+        "rgb_stddev": 44.973,
+        "transparent_rgb_fraction": 0.0036,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 21076
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.5060577392578125,
+        "opaque_coverage": 0.496124267578125,
+        "bbox": [
+          23,
+          12,
+          496,
+          499
+        ],
+        "centroid": [
+          264.0011759384894,
+          283.34017036031963
+        ],
+        "rgb_mean": [
+          33.79,
+          32.59,
+          40.32
+        ],
+        "rgb_stddev": 46.205,
+        "transparent_rgb_fraction": 0.003,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 22571
+      },
+      "completed_at": "2026-10-18T14:24:56+03:00",
+      "attempts": 3
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_crypt.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "299184 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 46.205 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.5061 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 473px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 87.87% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T14:32:12+03:00",
+      "attempts": 6
+    },
+    "export": {
+      "files": [
+        "assets/approved/buildings/vampire_crypt.png"
+      ],
+      "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
+      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 5
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-18T14:32:14+03:00",
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "exported_status": "passed"
+}

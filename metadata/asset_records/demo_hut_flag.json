@@ -12,7 +12,7 @@
       "ortho_scale": 5.445,
       "frame_target_z": 1.386,
       "generator": "generate_building.py",
-      "seconds": 1.55,
+      "seconds": 1.46,
       "attempt": 0,
       "params": {
         "kind": "hut",
@@ -29,8 +29,8 @@
         "res_y": 512,
         "samples": 48
       },
-      "completed_at": "2026-10-18T13:35:22+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:24:35+03:00",
+      "attempts": 2
     },
     "processing": {
       "dir": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut_flag",
@@ -58,11 +58,11 @@
           259.7999037420286
         ],
         "rgb_mean": [
-          82.37,
-          75.12,
-          63.91
+          82.3,
+          74.82,
+          63.45
         ],
-        "rgb_stddev": 90.915,
+        "rgb_stddev": 90.549,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -70,10 +70,10 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 2246
+        "unique_colors": 2243
       },
-      "completed_at": "2026-10-18T13:35:32+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:24:51+03:00",
+      "attempts": 2
     },
     "spritesheet": {
       "sheet": "/home/mrazek/ArtWorkflow/assets/spritesheets/demo_hut_flag.png",
@@ -85,9 +85,9 @@
         512
       ],
       "frames": 12,
-      "sheet_bytes": 403700,
-      "completed_at": "2026-10-18T13:35:32+03:00",
-      "attempts": 1
+      "sheet_bytes": 403918,
+      "completed_at": "2026-10-18T14:25:09+03:00",
+      "attempts": 2
     },
     "validation": {
       "status": "passed",
@@ -143,8 +143,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T13:35:33+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:32:12+03:00",
+      "attempts": 5
     },
     "export": {
       "files": [
@@ -166,13 +166,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/animations",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/animations",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T13:35:33+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 4
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T13:35:33+03:00",
-  "status_at": "2026-10-18T13:35:33+03:00",
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "status_at": "2026-10-18T14:32:14+03:00",
   "exported_status": "passed"
 }

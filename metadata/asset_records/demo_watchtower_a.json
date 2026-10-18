@@ -15,11 +15,11 @@
       "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, water, river, lake, moat, sea, horizon line, ui elements, frame, border, vignette",
       "workflow": "workflows/comfyui/flux_txt2img.json",
       "workflow_name": "flux_txt2img",
-      "prompt_id": "795ad27e-43a7-4927-879b-593cd82baf07",
-      "seconds": 68.15,
+      "prompt_id": "3fca6d1c-37ec-4af8-9121-f678533c1358",
+      "seconds": 68.17,
       "attempt": 0,
-      "completed_at": "2026-10-18T13:35:00+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:22:59+03:00",
+      "attempts": 2
     },
     "processing": {
       "file": "/home/mrazek/ArtWorkflow/assets/processed/demo_watchtower_a.png",
@@ -107,8 +107,8 @@
         },
         "unique_colors": 11386
       },
-      "completed_at": "2026-10-18T13:35:25+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:24:44+03:00",
+      "attempts": 2
     },
     "validation": {
       "status": "passed",
@@ -182,8 +182,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T13:35:33+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:32:11+03:00",
+      "attempts": 5
     },
     "export": {
       "files": [
@@ -192,13 +192,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T13:35:33+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 4
     }
   },
   "errors": [],
   "retries": {},
-  "status_at": "2026-10-18T13:35:33+03:00",
-  "updated_at": "2026-10-18T13:35:33+03:00",
+  "status_at": "2026-10-18T14:32:14+03:00",
+  "updated_at": "2026-10-18T14:32:14+03:00",
   "exported_status": "passed"
 }

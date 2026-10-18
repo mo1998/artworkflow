@@ -68,6 +68,109 @@ styles:
       trim: true
       padding: 12
 
+  gothic-vampire-isometric-v1:
+    description: Gothic vampire buildings as isolated isometric dioramas on a flat backdrop.
+    style: >-
+      hand painted stylized 3D game art, gothic vampire horror, dark weathered stone masonry,
+      blackened timber beams, wrought iron details, pointed gothic arch windows glowing crimson,
+      blood red banners, tarnished bronze fittings, bone and skull ornament, cold moonlit palette of
+      ash grey and bruised violet with hot crimson candlelight accents, soft painterly texture,
+      crisp readable silhouette, high detail, no people
+    composition: >-
+      isometric three quarter view of a single isolated building, orthographic projection,
+      no perspective distortion, the building sits on a small flat patch of ground,
+      the whole building inside the frame with clear margin on every side,
+      plain flat uniform light grey background, no other structures, no fence line,
+      no water, no moat, no river, no lake, no floating island on a cliff base,
+      no mist, no fog, no night sky, no moon, no bats, no text, no watermark, no border, no frame
+    negative: >-
+      text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges,
+      blurry, low detail, photograph, photorealistic, people, faces, hands,
+      water, river, lake, moat, sea, horizon line, night sky, full moon, fog, bats, blood splatter,
+      ui elements, frame, border, vignette
+    generation:
+      steps: 28
+      guidance: 3.2
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: true
+      trim: true
+      padding: 12
+
+  gothic-vampire-prop-v1:
+    description: Gothic vampire props and inventory items on a plain backdrop.
+    style: >-
+      hand painted stylized game art, gothic vampire horror, wrought iron and blackened oak,
+      aged bone and tarnished silver, hot crimson candlelight glow, muted ash grey palette with
+      deep blood red accents, clean readable shapes, bold simple forms, subtle painterly shading,
+      high detail on the silhouette, no people
+    composition: >-
+      centered single object isolated on a plain flat uniform light grey background,
+      three quarter view, object fully inside the frame with margin on every side,
+      no shadow cast onto the background, no ground plane, no vignette,
+      no text, no watermark, no border, no frame, no extra props, no bats, no fog
+    negative: >-
+      text, watermark, signature, multiple objects, crowded, cropped object, cut off edges,
+      blurry, low detail, photograph, background scenery, landscape, people, hands,
+      bats, fog, mist, blood splatter, ui, frame, border, vignette
+    generation:
+      steps: 28
+      guidance: 3.2
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: true
+      trim: true
+      padding: 16
+
+  gothic-vampire-portrait-v1:
+    description: Vampire character portraits, bust framing, for dialogue and roster screens.
+    style: >-
+      hand painted stylized fantasy character portrait, gothic vampire aristocrat, pale grey skin,
+      crimson iris, high collared black velvet coat with tarnished silver clasps, hollow cheeks,
+      long dark hair, dramatic single-source rim lighting, cold violet and ash palette with a hot
+      crimson accent, moody but readable, high detail on the face
+    composition: >-
+      head and shoulders bust portrait, subject centered, facing the viewer,
+      shoulders cropped by the bottom edge, plain uncluttered dark background,
+      no text, no watermark, no border, no frame, no extra characters, no bats, no fangs bared
+    negative: >-
+      text, watermark, signature, logo, initials, monogram, letters, glyphs,
+      artist signature, stamp, pencil mark, scribble, red scribble,
+      multiple people, full body, extra limbs, deformed hands,
+      blurry, low detail, photograph, cartoon, anime, ui, border, frame, vignette, gore, blood
+    generation:
+      steps: 30
+      guidance: 3.0
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: false
+      trim: false
+      padding: 0
+
+  blender-gothic-vampire-v1:
+    description: Procedural Blender geometry with the vampire palette - no diffusion involved.
+    style: >-
+      dark gothic stone and blackened timber, crimson emissive windows,
+      muted by design so painted and procedural assets sit together in one scene
+    composition: >-
+      fixed isometric orthographic camera locked per asset family; geometry only,
+      transparent film, no ground plane and no background
+    negative: ""
+    generation:
+      steps: 24
+      # Lighting is part of the art direction: a dark palette under a hot key light reads as a
+      # pale toy, which is what the first vampire keep looked like. Shared by every asset here.
+      key_energy: 2.2
+      fill_energy: 0.8
+      azimuth: 40.0
+    processing:
+      remove_background: false
+      trim: true
+      padding: 12
+
   stylized-flat-prop-v1:
     description: Isolated props and inventory items on a plain backdrop.
     style: >-

@@ -1,0 +1,204 @@
+{
+  "asset_id": "vampire_blood_well",
+  "run_key": "vampire_blood_well",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_blood_well.png",
+      "bytes": 860473,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 55021,
+      "prompt": "an ornate vampire blood well, a stone circular well with an iron crank windlass and a rusted chain, a carved skull basin overflowing with dark red liquid, candles melted onto the rim. centered single object isolated on a plain flat uniform light grey background, three quarter view, object fully inside the frame with margin on every side, no shadow cast onto the background, no ground plane, no vignette, no text, no watermark, no border, no frame, no extra props, no bats, no fog. hand painted stylized game art, gothic vampire horror, wrought iron and blackened oak, aged bone and tarnished silver, hot crimson candlelight glow, muted ash grey palette with deep blood red accents, clean readable shapes, bold simple forms, subtle painterly shading, high detail on the silhouette, no people.",
+      "negative_prompt": "text, watermark, signature, multiple objects, crowded, cropped object, cut off edges, blurry, low detail, photograph, background scenery, landscape, people, hands, bats, fog, mist, blood splatter, ui, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "71a538de-94a0-4c4f-bd0d-cf362a860526",
+      "seconds": 18.07,
+      "attempt": 0,
+      "completed_at": "2026-10-18T14:24:09+03:00",
+      "attempts": 2
+    },
+    "processing": {
+      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_blood_well.png",
+      "bytes": 187681,
+      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_blood_well.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 590x908->312x480)",
+        "canvas(512,anchor=bottom-center,pad=16,mode=fit)"
+      ],
+      "trim_box": [
+        225,
+        34,
+        815,
+        942
+      ],
+      "anchor": "bottom-center",
+      "padding": 16,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "892ff99e85802425f4fda8429ff01f435956f2b0362ba0b731826668823dfaaa",
+      "pixel_hash": "615451299c64ad9890020cdc9e9de0ec961ebfb7fc550c853379ac33fe896b72",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.2906351089477539,
+        "opaque_coverage": 0.28480052947998047,
+        "bbox": [
+          225,
+          35,
+          812,
+          940
+        ],
+        "centroid": [
+          501.10015323885244,
+          606.3414699773259
+        ],
+        "rgb_mean": [
+          25.37,
+          20.24,
+          20.47
+        ],
+        "rgb_stddev": 42.238,
+        "transparent_rgb_fraction": 0.0094,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 12416
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.3263664245605469,
+        "opaque_coverage": 0.3184623718261719,
+        "bbox": [
+          100,
+          16,
+          410,
+          495
+        ],
+        "centroid": [
+          245.6910642276898,
+          317.777079071942
+        ],
+        "rgb_mean": [
+          26.89,
+          21.41,
+          21.62
+        ],
+        "rgb_stddev": 43.634,
+        "transparent_rgb_fraction": 0.0055,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 13263
+      },
+      "completed_at": "2026-10-18T14:24:58+03:00",
+      "attempts": 3
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_blood_well.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "187681 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 43.634 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.3264 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 310px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 56.64% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T14:32:12+03:00",
+      "attempts": 6
+    },
+    "export": {
+      "files": [
+        "assets/approved/props/vampire_blood_well.png"
+      ],
+      "target": "/home/mrazek/ArtWorkflow/assets/approved/props",
+      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/props",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 5
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-18T14:32:14+03:00",
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "exported_status": "passed"
+}

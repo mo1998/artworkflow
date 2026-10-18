@@ -5,13 +5,13 @@
   "stages": {
     "generation": {
       "file": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl3.png",
-      "bytes": 930314,
+      "bytes": 948919,
       "generator": "generate_building.py",
       "ortho_scale": 4.7685,
       "frame_target_z": 1.2138,
       "vertices": 101,
       "polygons": 77,
-      "seconds": 0.8,
+      "seconds": 0.78,
       "attempt": 0,
       "params": {
         "kind": "hut",
@@ -20,7 +20,7 @@
         "wall_height": 2.6,
         "wall_material": "plaster",
         "roof": "hip",
-        "roof_material": "tile",
+        "roof_material": "slate",
         "seed": 13,
         "engine": "BLENDER_EEVEE_NEXT",
         "res_x": 1024,
@@ -29,12 +29,12 @@
         "ortho_scale": 4.7685,
         "frame_target_z": 1.2138
       },
-      "completed_at": "2026-10-18T13:35:21+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:24:33+03:00",
+      "attempts": 2
     },
     "processing": {
       "file": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut__lvl3.png",
-      "bytes": 145458,
+      "bytes": 142795,
       "source": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut__lvl3.png",
       "steps": [
         "trim",
@@ -51,8 +51,8 @@
       "padding": 12,
       "scale_mode": "family",
       "canvas": 512,
-      "source_pixel_hash": "ee3d316e10a823863b3f98b07a5fa670bee56eec94cf6f909933adcbdb72217d",
-      "pixel_hash": "2af23b6914499b04a810d7a3aeb25353fd0fba604f376f80be9334ba15998f07",
+      "source_pixel_hash": "3747c5cbff96e744ca6158ca4b26a6b39c0d1594e1f7132fe06d67dfe6aca6cd",
+      "pixel_hash": "b7b8f9a80c40c55a608163ab5758961a8d753fd2d4f00339ded1034d90735eab",
       "before": {
         "width": 1024,
         "height": 1024,
@@ -71,11 +71,11 @@
           470.15393522764236
         ],
         "rgb_mean": [
-          151.55,
-          130.93,
-          123.27
+          137.17,
+          135.02,
+          133.56
         ],
-        "rgb_stddev": 80.239,
+        "rgb_stddev": 79.413,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": true,
@@ -83,7 +83,7 @@
           "top": true,
           "bottom": false
         },
-        "unique_colors": 2039
+        "unique_colors": 1934
       },
       "after": {
         "width": 512,
@@ -103,11 +103,11 @@
           247.679715225948
         ],
         "rgb_mean": [
-          137.92,
-          119.37,
-          112.61
+          124.84,
+          123.25,
+          121.96
         ],
-        "rgb_stddev": 85.829,
+        "rgb_stddev": 85.099,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -115,10 +115,10 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 2867
+        "unique_colors": 2774
       },
-      "completed_at": "2026-10-18T13:35:28+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:24:47+03:00",
+      "attempts": 2
     },
     "validation": {
       "status": "passed",
@@ -138,7 +138,7 @@
         {
           "check": "not_empty",
           "ok": true,
-          "detail": "145458 bytes",
+          "detail": "142795 bytes",
           "severity": "error"
         },
         {
@@ -156,7 +156,7 @@
         {
           "check": "not_blank",
           "ok": true,
-          "detail": "rgb stddev 85.829 (min 4.0)",
+          "detail": "rgb stddev 85.099 (min 4.0)",
           "severity": "error"
         },
         {
@@ -192,8 +192,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T13:35:33+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:32:11+03:00",
+      "attempts": 5
     },
     "export": {
       "files": [
@@ -202,13 +202,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T13:35:33+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 4
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T13:35:33+03:00",
-  "status_at": "2026-10-18T13:35:33+03:00",
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "status_at": "2026-10-18T14:32:14+03:00",
   "exported_status": "passed"
 }

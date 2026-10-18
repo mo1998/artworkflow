@@ -1,0 +1,224 @@
+{
+  "asset_id": "vampire_keep",
+  "run_key": "vampire_keep",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_keep.png",
+      "bytes": 507185,
+      "generator": "generate_building.py",
+      "ortho_scale": 9.1905,
+      "frame_target_z": 2.3394,
+      "vertices": 416,
+      "polygons": 311,
+      "seconds": 0.73,
+      "attempt": 0,
+      "params": {
+        "kind": "keep",
+        "width": 3.0,
+        "depth": 2.8,
+        "wall_height": 2.2,
+        "wall_material": "obsidian",
+        "post_material": "black_timber",
+        "window_material": "crimson_glow",
+        "door_material": "black_timber",
+        "roof": "hip",
+        "roof_material": "slate",
+        "plinth_material": "slate_dark",
+        "windows": 4,
+        "chimney": true,
+        "banner": true,
+        "banner_material": "blood_banner",
+        "battlements": true,
+        "seed": 66,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "res_x": 1024,
+        "res_y": 1024,
+        "samples": 64,
+        "key_energy": 2.2,
+        "fill_energy": 0.8,
+        "azimuth": 40.0
+      },
+      "completed_at": "2026-10-18T14:24:36+03:00",
+      "attempts": 4
+    },
+    "processing": {
+      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_keep.png",
+      "bytes": 74188,
+      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_keep.png",
+      "steps": [
+        "trim",
+        "resize(family x0.5369 ->267x362)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=family)"
+      ],
+      "trim_box": [
+        263,
+        187,
+        761,
+        862
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "family",
+      "canvas": 512,
+      "source_pixel_hash": "782ec55947f5a7038d8cabc456ea5bc15970628c52d8f55949ce34a9bb7b0f49",
+      "pixel_hash": "db24e47fc87a8475218ae6cc8fe5f2a4495ddbfdf50247085ede60bc99c2b869",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.20577526092529297,
+        "opaque_coverage": 0.2038583755493164,
+        "bbox": [
+          263,
+          187,
+          760,
+          861
+        ],
+        "centroid": [
+          515.1361443382104,
+          573.3561646375092
+        ],
+        "rgb_mean": [
+          18.36,
+          17.97,
+          19.43
+        ],
+        "rgb_stddev": 38.03,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 1241
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.23747634887695312,
+        "opaque_coverage": 0.23447036743164062,
+        "bbox": [
+          122,
+          138,
+          388,
+          499
+        ],
+        "centroid": [
+          256.849003260887,
+          345.01678633961416
+        ],
+        "rgb_mean": [
+          21.31,
+          20.84,
+          22.53
+        ],
+        "rgb_stddev": 40.249,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 1869
+      },
+      "completed_at": "2026-10-18T14:24:59+03:00",
+      "attempts": 5
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_keep.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "74188 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 40.249 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.2375 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 266px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 36.63% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T14:32:12+03:00",
+      "attempts": 9
+    },
+    "export": {
+      "files": [
+        "assets/approved/buildings/vampire_keep.png"
+      ],
+      "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
+      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 8
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "status_at": "2026-10-18T14:32:14+03:00",
+  "exported_status": "passed"
+}

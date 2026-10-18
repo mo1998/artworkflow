@@ -1,0 +1,189 @@
+{
+  "asset_id": "vampire_gate_torch",
+  "run_key": "vampire_gate_torch",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "/home/mrazek/ArtWorkflow/assets/animations/vampire_gate_torch",
+      "frames": 16,
+      "clip": "torch_flicker",
+      "frame_rate": 12,
+      "frame_count": 16,
+      "ortho_scale": 4.983,
+      "frame_target_z": 1.2684,
+      "generator": "generate_building.py",
+      "seconds": 1.72,
+      "attempt": 0,
+      "params": {
+        "kind": "gate",
+        "width": 2.8,
+        "depth": 1.4,
+        "wall_height": 2.4,
+        "wall_material": "obsidian",
+        "post_material": "black_timber",
+        "window_material": "crimson_glow",
+        "door_material": "black_timber",
+        "roof": "flat",
+        "roof_material": "slate_dark",
+        "windows": 2,
+        "battlements": true,
+        "seed": 44,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "res_x": 512,
+        "res_y": 512,
+        "samples": 48,
+        "key_energy": 2.2,
+        "fill_energy": 0.8,
+        "azimuth": 40.0
+      },
+      "completed_at": "2026-10-18T14:24:39+03:00",
+      "attempts": 4
+    },
+    "processing": {
+      "dir": "/home/mrazek/ArtWorkflow/assets/processed/vampire_gate_torch",
+      "frames": 16,
+      "steps": [],
+      "frame_size": [
+        512,
+        512
+      ],
+      "measurements": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4617958068847656,
+        "opaque_coverage": 0.45754241943359375,
+        "bbox": [
+          84,
+          4,
+          427,
+          454
+        ],
+        "centroid": [
+          255.8196056403182,
+          226.67068405792313
+        ],
+        "rgb_mean": [
+          38.95,
+          37.91,
+          40.3
+        ],
+        "rgb_stddev": 44.946,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 1466
+      },
+      "completed_at": "2026-10-18T14:25:05+03:00",
+      "attempts": 5
+    },
+    "spritesheet": {
+      "sheet": "/home/mrazek/ArtWorkflow/assets/spritesheets/vampire_gate_torch.png",
+      "metadata": "/home/mrazek/ArtWorkflow/assets/spritesheets/vampire_gate_torch.json",
+      "columns": 4,
+      "rows": 4,
+      "frame_size": [
+        512,
+        512
+      ],
+      "frames": 16,
+      "sheet_bytes": 1790077,
+      "completed_at": "2026-10-18T14:25:13+03:00",
+      "attempts": 6
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "frames_present",
+          "ok": true,
+          "detail": "found 16 frames, expected 16",
+          "severity": "error"
+        },
+        {
+          "check": "frame_opens",
+          "ok": true,
+          "detail": "16 frames readable",
+          "severity": "error"
+        },
+        {
+          "check": "frames_uniform",
+          "ok": true,
+          "detail": "sizes [(512, 512)]",
+          "severity": "error"
+        },
+        {
+          "check": "frames_not_blank",
+          "ok": true,
+          "detail": "flat frames: []",
+          "severity": "error"
+        },
+        {
+          "check": "frames_have_subject",
+          "ok": true,
+          "detail": "frames without subject: []",
+          "severity": "error"
+        },
+        {
+          "check": "registration_stable",
+          "ok": true,
+          "detail": "centroid drift 0.0px (max 24.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_motion",
+          "ok": true,
+          "detail": "peak delta 40 (min 8), max changed fraction 0.448082 (min 0.0005); a still loop means the clip did nothing",
+          "severity": "error"
+        },
+        {
+          "check": "loop_continuous",
+          "ok": true,
+          "detail": "loop step 0.00270 vs average step 0.00743 (max 0.02228)",
+          "severity": "error"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T14:32:13+03:00",
+      "attempts": 9
+    },
+    "export": {
+      "files": [
+        "assets/approved/animations/vampire_gate_torch.png",
+        "assets/approved/animations/vampire_gate_torch.json",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0000.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0001.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0002.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0003.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0004.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0005.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0006.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0007.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0008.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0009.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0010.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0011.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0012.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0013.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0014.png",
+        "assets/approved/animations/vampire_gate_torch_frames/frame_0015.png"
+      ],
+      "target": "/home/mrazek/ArtWorkflow/assets/approved/animations",
+      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/animations",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 8
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "status_at": "2026-10-18T14:32:14+03:00",
+  "exported_status": "passed"
+}

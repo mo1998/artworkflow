@@ -5,13 +5,13 @@
   "stages": {
     "generation": {
       "file": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut.png",
-      "bytes": 658559,
+      "bytes": 659268,
       "generator": "generate_building.py",
       "ortho_scale": 4.7685,
       "frame_target_z": 1.2138,
       "vertices": 102,
       "polygons": 77,
-      "seconds": 2.41,
+      "seconds": 2.43,
       "attempt": 0,
       "params": {
         "kind": "hut",
@@ -27,12 +27,12 @@
         "res_y": 1024,
         "samples": 64
       },
-      "completed_at": "2026-10-18T13:35:19+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:24:32+03:00",
+      "attempts": 2
     },
     "processing": {
       "file": "/home/mrazek/ArtWorkflow/assets/processed/demo_hut.png",
-      "bytes": 93880,
+      "bytes": 93698,
       "source": "/home/mrazek/ArtWorkflow/assets/incoming/demo_hut.png",
       "steps": [
         "trim",
@@ -49,8 +49,8 @@
       "padding": 12,
       "scale_mode": "family",
       "canvas": 512,
-      "source_pixel_hash": "ea0ee9c1f2dec7356f87a5ba5cb2fa06f879f3819969175740951ca25e90c0b6",
-      "pixel_hash": "f87d325d6a3e038163be3749b7b42341fa90e62b7c51307234ce7e6927815917",
+      "source_pixel_hash": "11573294773860154c91d0ed04a79cd04446ec242f35aee3e4d1e6698b2cfdc0",
+      "pixel_hash": "ef0a2ea2edf7a047d3dfe2296313731351e8ca08c35f2e5910ef39a67a5b0558",
       "before": {
         "width": 1024,
         "height": 1024,
@@ -69,11 +69,11 @@
           539.0394872259878
         ],
         "rgb_mean": [
-          83.41,
-          76.86,
-          64.5
+          83.35,
+          76.46,
+          63.89
         ],
-        "rgb_stddev": 91.342,
+        "rgb_stddev": 90.858,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -81,7 +81,7 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 1913
+        "unique_colors": 1877
       },
       "after": {
         "width": 512,
@@ -101,11 +101,11 @@
           312.7497167166968
         ],
         "rgb_mean": [
-          76.55,
-          70.49,
-          59.21
+          76.49,
+          70.13,
+          58.62
         ],
-        "rgb_stddev": 89.867,
+        "rgb_stddev": 89.313,
         "transparent_rgb_fraction": 0.0,
         "touches_border": {
           "left": false,
@@ -113,10 +113,10 @@
           "top": false,
           "bottom": false
         },
-        "unique_colors": 2705
+        "unique_colors": 2648
       },
-      "completed_at": "2026-10-18T13:35:27+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:24:46+03:00",
+      "attempts": 2
     },
     "validation": {
       "status": "passed",
@@ -136,7 +136,7 @@
         {
           "check": "not_empty",
           "ok": true,
-          "detail": "93880 bytes",
+          "detail": "93698 bytes",
           "severity": "error"
         },
         {
@@ -154,7 +154,7 @@
         {
           "check": "not_blank",
           "ok": true,
-          "detail": "rgb stddev 89.867 (min 4.0)",
+          "detail": "rgb stddev 89.313 (min 4.0)",
           "severity": "error"
         },
         {
@@ -190,8 +190,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T13:35:33+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:32:11+03:00",
+      "attempts": 5
     },
     "export": {
       "files": [
@@ -200,13 +200,13 @@
       "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
       "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T13:35:33+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 4
     }
   },
   "errors": [],
   "retries": {},
-  "updated_at": "2026-10-18T13:35:33+03:00",
-  "status_at": "2026-10-18T13:35:33+03:00",
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "status_at": "2026-10-18T14:32:14+03:00",
   "exported_status": "passed"
 }

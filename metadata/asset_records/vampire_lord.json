@@ -1,0 +1,184 @@
+{
+  "asset_id": "vampire_lord",
+  "run_key": "vampire_lord",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_lord.png",
+      "bytes": 922454,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 615042,
+      "prompt": "a gaunt vampire lord in a high collared black velvet coat, crimson iris, long dark hair, tarnished silver clasp at the throat, cold and aristocratic expression. head and shoulders bust portrait, subject centered, facing the viewer, shoulders cropped by the bottom edge, plain uncluttered dark background, no text, no watermark, no border, no frame, no extra characters, no bats, no fangs bared. hand painted stylized fantasy character portrait, gothic vampire aristocrat, pale grey skin, crimson iris, high collared black velvet coat with tarnished silver clasps, hollow cheeks, long dark hair, dramatic single-source rim lighting, cold violet and ash palette with a hot crimson accent, moody but readable, high detail on the face.",
+      "negative_prompt": "text, watermark, signature, logo, initials, monogram, letters, glyphs, artist signature, stamp, pencil mark, scribble, red scribble, multiple people, full body, extra limbs, deformed hands, blurry, low detail, photograph, cartoon, anime, ui, border, frame, vignette, gore, blood",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "2e54fbba-e1c9-40b4-bb89-5da64bccc309",
+      "seconds": 72.19,
+      "attempt": 0,
+      "completed_at": "2026-10-18T14:31:27+03:00",
+      "attempts": 3
+    },
+    "processing": {
+      "attempts": 4,
+      "failed_at": "2026-10-18T14:13:45+03:00",
+      "errors": [
+        "ValueError: images do not match"
+      ],
+      "traceback": "    result = alpha_composite(background, overlay) |   File \"/home/ubuntu/anaconda3/lib/python3.9/site-packages/PIL/Image.py\", line 3599, in alpha_composite |     return im1._new(core.alpha_composite(im1.im, im2.im)) | ValueError: images do not match",
+      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_lord.png",
+      "bytes": 256945,
+      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_lord.png",
+      "steps": [
+        "resize(fit 1024x1024->512x512)",
+        "canvas(512,anchor=center,pad=0,mode=fit)"
+      ],
+      "trim_box": null,
+      "anchor": "center",
+      "padding": 0,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "7659978599cc22e5625f085dd048c91dea9880241bec493e886bdb3e378496f7",
+      "pixel_hash": "d6316d7eac123dbf97529e754f413734eef0b190cc6d5c17ad29d5a8979c3ffe",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGB",
+        "has_alpha": false,
+        "alpha_coverage": 1.0,
+        "opaque_coverage": 1.0,
+        "bbox": [
+          0,
+          0,
+          1023,
+          1023
+        ],
+        "centroid": [
+          511.5,
+          511.5
+        ],
+        "rgb_mean": [
+          38.01,
+          34.54,
+          38.57
+        ],
+        "rgb_stddev": 33.946,
+        "transparent_rgb_fraction": 0.0113,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": true
+        },
+        "unique_colors": 7865
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 1.0,
+        "opaque_coverage": 1.0,
+        "bbox": [
+          0,
+          0,
+          511,
+          511
+        ],
+        "centroid": [
+          255.5,
+          255.5
+        ],
+        "rgb_mean": [
+          37.73,
+          34.29,
+          38.3
+        ],
+        "rgb_stddev": 33.84,
+        "transparent_rgb_fraction": 0.0117,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": true
+        },
+        "unique_colors": 8122
+      },
+      "completed_at": "2026-10-18T14:31:28+03:00"
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_lord.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "256945 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 33.84 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "alpha not required for this style",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T14:32:12+03:00",
+      "attempts": 7
+    },
+    "export": {
+      "files": [
+        "assets/approved/portraits/vampire_lord.png"
+      ],
+      "target": "/home/mrazek/ArtWorkflow/assets/approved/portraits",
+      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/portraits",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 5
+    }
+  },
+  "errors": [
+    {
+      "stage": "processing",
+      "error": "ValueError: images do not match",
+      "ts": "2026-10-18T14:13:45+03:00"
+    }
+  ],
+  "retries": {},
+  "status_at": "2026-10-18T14:32:14+03:00",
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "exported_status": "passed"
+}

@@ -1,0 +1,213 @@
+{
+  "asset_id": "vampire_grave",
+  "run_key": "vampire_grave",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_grave.png",
+      "bytes": 125150,
+      "generator": "generate_prop.py",
+      "ortho_scale": 2.1895,
+      "frame_target_z": 0.6342,
+      "vertices": 56,
+      "polygons": 42,
+      "seconds": 0.69,
+      "attempt": 0,
+      "params": {
+        "kind": "gravestone",
+        "scale": 1.0,
+        "body_material": "slate_dark",
+        "trim_material": "iron",
+        "detail_material": "bone",
+        "seed": 5,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "res_x": 512,
+        "res_y": 512,
+        "samples": 48,
+        "key_energy": 2.2,
+        "fill_energy": 0.8,
+        "azimuth": 40.0
+      },
+      "completed_at": "2026-10-18T14:24:38+03:00",
+      "attempts": 4
+    },
+    "processing": {
+      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_grave.png",
+      "bytes": 79453,
+      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_grave.png",
+      "steps": [
+        "trim",
+        "resize(fit 254x377->329x488)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        129,
+        71,
+        383,
+        448
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "78d2ead52639b0145ce0ddbe0ae6a42a31f5387cc447ff2f95b5093633d21cdc",
+      "pixel_hash": "73e6a76a55f023699864a0ab4527d65da96b67f6af78e4aa226bd56b24e6acf7",
+      "before": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.18109893798828125,
+        "opaque_coverage": 0.1779632568359375,
+        "bbox": [
+          129,
+          72,
+          382,
+          446
+        ],
+        "centroid": [
+          255.7497156338206,
+          285.7027636179804
+        ],
+        "rgb_mean": [
+          14.48,
+          15.39,
+          17.5
+        ],
+        "rgb_stddev": 33.322,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 551
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.3038177490234375,
+        "opaque_coverage": 0.2982826232910156,
+        "bbox": [
+          92,
+          13,
+          420,
+          498
+        ],
+        "centroid": [
+          256.2929410878409,
+          289.921852242479
+        ],
+        "rgb_mean": [
+          24.12,
+          25.64,
+          29.17
+        ],
+        "rgb_stddev": 39.969,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 1702
+      },
+      "completed_at": "2026-10-18T14:25:00+03:00",
+      "attempts": 5
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_grave.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "79453 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 39.969 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.3038 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 328px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 60.68% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T14:32:12+03:00",
+      "attempts": 9
+    },
+    "export": {
+      "files": [
+        "assets/approved/props/vampire_grave.png"
+      ],
+      "target": "/home/mrazek/ArtWorkflow/assets/approved/props",
+      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/props",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 8
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "status_at": "2026-10-18T14:32:14+03:00",
+  "exported_status": "passed"
+}

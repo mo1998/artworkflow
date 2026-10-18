@@ -73,6 +73,18 @@ class TestAnchoring(unittest.TestCase):
         resized = imageops.fit_resize(block(400, 200), 100)
         self.assertEqual(resized.size, (100, 50))
 
+    def test_accepts_an_rgb_subject_that_exactly_fills_the_canvas(self):
+        """Regression: a no-cutout style (a portrait) hands over an RGB image sized to the canvas.
+
+        PIL takes its strict same-size composite path in that case and raises "images do not
+        match" on the mode difference, so every other asset - which gets scaled down first -
+        passed while the portrait failed.
+        """
+        rgb = Image.new("RGB", (128, 128), (90, 40, 40))
+        placed = imageops.place_on_canvas(rgb, 128, anchor="center", padding=0)
+        self.assertEqual(placed.size, (128, 128))
+        self.assertEqual(placed.mode, "RGBA")
+
 
 class TestMeasurements(unittest.TestCase):
     def test_rgb_stddev_uses_the_0_255_scale(self):
@@ -261,6 +273,67 @@ class TestWorkflowBindings(unittest.TestCase):
         graph = workflow.apply({"image_name": "in.png", "width": 512})
         self.assertEqual(graph["2"]["inputs"]["image"], "in.png")
         self.assertEqual(graph["3"]["inputs"]["width"], 512)
+
+
+class TestBlenderPalette(unittest.TestCase):
+    """blender/lib/scene.py is the material contract; these guard the two mistakes it made."""
+
+    def test_palette_is_readable_without_blender(self):
+        from lib.blender import emissive_palette_entries, palette_names
+
+        names = palette_names()
+        self.assertIn("obsidian", names)
+        self.assertIn("crimson_glow", names)
+        self.assertTrue(emissive_palette_entries())
+
+    def test_emissive_materials_use_a_dark_base_colour(self):
+        """Regression: a bright base colour plus emission clips in the Standard view transform.
+
+        The first vampire keep lit its windows hot pink and its roof read salmon because the
+        emissive material carried both a bright base colour and a strong emission. Emission now
+        carries the hue from a near-black base.
+        """
+        from lib.blender import emissive_palette_entries
+
+        for name, spec in emissive_palette_entries().items():
+            base = spec["color"]
+            luminance = 0.2126 * base[0] + 0.7152 * base[1] + 0.0722 * base[2]
+            self.assertLess(luminance, 0.20,
+                            f"{name}: emissive base colour {base} is too bright; "
+                            f"the emission will clip to white")
+            strength = float(spec.get("emission_strength", 1.0))
+            self.assertLessEqual(strength, 1.5,
+                                 f"{name}: emission strength {strength} will clip the emission")
+
+    def test_palette_has_no_duplicate_keys(self):
+        """A duplicate key in the PALETTE literal silently overrides - the last one wins.
+
+        This happened for real: an edit added a dark `cold_moon` while an older bright one
+        remained, and the bright one won.
+        """
+        import ast
+        import collections
+
+        from lib.blender import SCENE_LIB
+
+        tree = ast.parse(SCENE_LIB.read_text())
+        for node in tree.body:
+            target = getattr(node, "target", None) or (
+                node.targets[0] if getattr(node, "targets", None) else None)
+            if getattr(target, "id", None) == "PALETTE":
+                keys = [k.value for k in node.value.keys]
+                dupes = [k for k, c in collections.Counter(keys).items() if c > 1]
+                self.assertEqual(dupes, [], f"duplicate PALETTE keys: {dupes}")
+
+    def test_unknown_material_in_the_manifest_is_reported(self):
+        config = Config.load()
+        manifest = load_manifest(None, config)
+        for asset in manifest.assets:
+            if asset.get("source") == "blender":
+                asset["blender"]["params"]["wall_material"] = "obsidan"  # deliberate typo
+                break
+        problems = validate_manifest(manifest, config)
+        self.assertTrue(any("unknown material" in p for p in problems), problems)
 
 
 class TestExportedArtifacts(unittest.TestCase):

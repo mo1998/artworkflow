@@ -15,7 +15,6 @@ from typing import Any, Iterable, Mapping
 
 from .common import (DEFAULT_MANIFEST_PATH, ROOT, Config, ConfigError, PipelineError,
                      ensure_inside_project, read_json, resolve_path)
-
 SOURCE_TYPES = ("comfyui", "blender")
 
 REQUIRED_ASSET_FIELDS = ("asset_id", "asset_type", "description", "source", "export")
@@ -294,6 +293,18 @@ def validate_manifest(manifest: Manifest, config: Config) -> list[str]:
                 gen_path = ROOT / "blender" / generator
                 if not gen_path.exists():
                     problems.append(f"{where}: blender generator not found: blender/{generator}")
+            # Material names are a cross-language contract: they are declared in scene.py and
+            # referenced by string from the manifest. A typo would otherwise render a whole
+            # asset in the fallback colour, so it is caught here instead.
+            from .blender import palette_names
+
+            known = palette_names()
+            if known:
+                params = (asset.get("blender") or {}).get("params") or {}
+                for key, value in params.items():
+                    if key.endswith("_material") and isinstance(value, str) and value not in known:
+                        problems.append(f"{where}: unknown material {value!r} for blender param "
+                                        f"{key!r}; known: {sorted(known)}")
         prov = asset.get("provenance") or {}
         for field_name in PROVENANCE_FIELDS:
             if not prov.get(field_name):

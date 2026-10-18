@@ -14,6 +14,43 @@ from typing import Any, Mapping, Sequence
 from .common import Config, PipelineError, ROOT, resolve_path, run_cmd
 
 SUMMARY_MARKER = "ARTWORKFLOW_JSON"
+SCENE_LIB = ROOT / "blender" / "lib" / "scene.py"
+
+
+def palette_names() -> set[str]:
+    """Material names declared in blender/lib/scene.py.
+
+    Read with `ast` instead of importing: scene.py imports bpy, so only Blender can import it.
+    Having the names here lets manifest validation reject a typo like `obsidan` at validation
+    time, instead of the render silently falling back to grey and the art direction quietly
+    going wrong.
+    """
+    import ast
+
+    if not SCENE_LIB.exists():
+        return set()
+    tree = ast.parse(SCENE_LIB.read_text())
+    for node in tree.body:
+        if isinstance(node, ast.AnnAssign) and getattr(node.target, "id", None) == "PALETTE":
+            return set(ast.literal_eval(node.value).keys())
+        if isinstance(node, ast.Assign) and any(
+            getattr(t, "id", None) == "PALETTE" for t in node.targets
+        ):
+            return set(ast.literal_eval(node.value).keys())
+    return set()
+
+
+def emissive_palette_entries() -> dict[str, dict[str, Any]]:
+    """PALETTE entries that define an emission, for the clipping regression test."""
+    import ast
+
+    tree = ast.parse(SCENE_LIB.read_text())
+    palette: dict[str, dict[str, Any]] = {}
+    for node in tree.body:
+        target = getattr(node, "target", None) or (node.targets[0] if getattr(node, "targets", None) else None)
+        if getattr(target, "id", None) == "PALETTE":
+            palette = ast.literal_eval(node.value)
+    return {name: spec for name, spec in palette.items() if spec.get("emission")}
 
 
 class BlenderError(PipelineError):

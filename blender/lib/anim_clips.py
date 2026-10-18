@@ -55,10 +55,15 @@ def banner_wave(scene: bpy.types.Scene, index: int, total: int, params: dict[str
 
 
 def torch_flicker(scene: bpy.types.Scene, index: int, total: int, params: dict[str, Any]) -> dict[str, Any]:
-    """Seeded, looping flicker on every light plus the emissive window material."""
+    """Seeded, looping flicker on every light plus the emissive material named by `material`.
+
+    `material` defaults to `window_lit` but takes any emissive palette key, so a style that lights
+    its windows crimson (`crimson_glow`) flickers those instead.
+    """
     amount = float(params.get("amount", 0.22))
     cycles = float(params.get("cycles", 3.0))
     seed = float(params.get("seed", 7.0))
+    material_name = str(params.get("material", "window_lit"))
     t = 2.0 * math.pi * cycles * (index / max(1, total))
     factor = 1.0 + amount * (0.6 * math.sin(t + seed) + 0.4 * math.sin(2.3 * t + seed * 1.7))
     touched = 0
@@ -68,14 +73,16 @@ def torch_flicker(scene: bpy.types.Scene, index: int, total: int, params: dict[s
                 obj["base_energy"] = obj.data.energy
             obj.data.energy = float(obj["base_energy"]) * factor
             touched += 1
-    mat = bpy.data.materials.get("window_lit")
-    if mat and mat.use_nodes:
+    mat = bpy.data.materials.get(material_name)
+    if mat is None:
+        raise RuntimeError(f"torch_flicker: no material named {material_name!r} in the scene")
+    if mat.use_nodes:
         bsdf = mat.node_tree.nodes.get("Principled BSDF")
         if bsdf and "Emission Strength" in bsdf.inputs:
-            base = mat.get("base_emission", 6.0)
+            base = mat.get("base_emission", bsdf.inputs["Emission Strength"].default_value)
             mat["base_emission"] = base
             bsdf.inputs["Emission Strength"].default_value = float(base) * factor
-    return {"factor": round(factor, 4), "lights": touched}
+    return {"factor": round(factor, 4), "lights": touched, "material": material_name}
 
 
 def turntable(scene: bpy.types.Scene, index: int, total: int, params: dict[str, Any]) -> dict[str, Any]:

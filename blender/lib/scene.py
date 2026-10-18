@@ -39,7 +39,23 @@ PALETTE: dict[str, dict[str, object]] = {
     "banner": {"color": (0.52, 0.08, 0.11), "roughness": 0.85},
     "bronze": {"color": (0.55, 0.42, 0.20), "roughness": 0.35, "metallic": 0.7},
     "iron": {"color": (0.35, 0.36, 0.38), "roughness": 0.45, "metallic": 0.8},
-    "window_lit": {"color": (0.95, 0.60, 0.26), "roughness": 0.5, "emission": (1.0, 0.58, 0.22), "emission_strength": 2.4},
+    # Gothic vampire direction. Named materials are the contract between a style block and the
+    # procedural generators, so a new art direction adds palette entries rather than new scripts.
+    "window_lit": {"color": (0.060, 0.040, 0.020), "roughness": 0.50,
+                   "emission": (0.95, 0.60, 0.26), "emission_strength": 1.0},
+    "obsidian": {"color": (0.115, 0.115, 0.135), "roughness": 0.65},
+    "black_timber": {"color": (0.085, 0.068, 0.062), "roughness": 0.8},
+    "bone": {"color": (0.80, 0.77, 0.68), "roughness": 0.85},
+    "dry_blood": {"color": (0.24, 0.045, 0.045), "roughness": 0.9},
+    "blood_banner": {"color": (0.42, 0.025, 0.045), "roughness": 0.85},
+    "crimson_glow": {"color": (0.05, 0.015, 0.02), "roughness": 0.45,
+                     "emission": (0.80, 0.055, 0.085), "emission_strength": 1.0},
+    # Slate blue-grey: matches the painted roofs, which is what makes procedural and painted
+    # assets read as one village instead of two.
+    "slate": {"color": (0.165, 0.185, 0.235), "roughness": 0.72},
+    "slate_dark": {"color": (0.105, 0.120, 0.160), "roughness": 0.75},
+    "cold_moon": {"color": (0.05, 0.06, 0.10), "roughness": 0.4,
+                  "emission": (0.55, 0.62, 0.95), "emission_strength": 1.0},
 }
 
 
@@ -193,10 +209,10 @@ def setup_lights(*, key_energy: float = 4.0, fill_energy: float = 1.4, rim_energ
         bpy.context.collection.objects.link(obj)
         lights[name.lower()] = obj
 
-    time = scene.world or bpy.data.worlds.new("World")
-    scene.world = time
-    time.use_nodes = True
-    bg = time.node_tree.nodes.get("Background")
+    world = scene.world or bpy.data.worlds.new("World")
+    scene.world = world
+    world.use_nodes = True
+    bg = world.node_tree.nodes.get("Background")
     if bg:
         bg.inputs[0].default_value = (0.55, 0.56, 0.58, 1.0)
         bg.inputs[1].default_value = 0.55
@@ -209,7 +225,11 @@ def get_material(name: str) -> bpy.types.Material:
     existing = bpy.data.materials.get(name)
     if existing:
         return existing
-    spec = PALETTE.get(name, {"color": (0.6, 0.6, 0.6), "roughness": 0.8})
+    if name not in PALETTE:
+        # Loud failure beats a silent grey fallback: a typo in a manifest's wall_material would
+        # otherwise produce a whole batch of plausible-looking, wrongly-coloured assets.
+        fail(f"unknown material {name!r}; known materials: {sorted(PALETTE)}")
+    spec = PALETTE[name]
     mat = bpy.data.materials.new(name)
     mat.use_nodes = True
     bsdf = mat.node_tree.nodes.get("Principled BSDF")
@@ -253,6 +273,42 @@ def mesh_object(name: str, verts: list[tuple[float, float, float]],
     obj = bpy.data.objects.new(name, mesh)
     obj.location = location
     obj.rotation_euler = Euler(rotation, "XYZ")
+    bpy.context.collection.objects.link(obj)
+    return assign(obj, material)
+
+
+def add_prism(name: str, outline: list[tuple[float, float]], height: float, *,
+              location: tuple[float, float, float] = (0.0, 0.0, 0.0),
+              rotation: tuple[float, float, float] = (0.0, 0.0, 0.0),
+              material: str | None = None, smooth: bool = False) -> bpy.types.Object:
+    """Extrude a closed 2D outline in Z. Used for anything with a silhouette, e.g. a coffin."""
+    if len(outline) < 3:
+        raise ValueError("outline needs at least 3 points")
+    half = height / 2.0
+    verts = [(x, y, -half) for x, y in outline] + [(x, y, half) for x, y in outline]
+    n = len(outline)
+    faces: list[tuple[int, ...]] = [tuple(range(n)), tuple(range(n, 2 * n))[::-1]]
+    for i in range(n):
+        j = (i + 1) % n
+        faces.append((i, j, n + j, n + i))
+    return mesh_object(name, verts, faces, location=location, rotation=rotation,
+                       material=material, smooth=smooth)
+
+
+def add_sphere(name: str, *, radius: float, location: tuple[float, float, float] = (0.0, 0.0, 0.0),
+               segments: int = 20, rings: int = 10, material: str | None = None,
+               smooth: bool = True) -> bpy.types.Object:
+    mesh = bpy.data.meshes.new(name)
+    bm = bmesh.new()
+    bmesh.ops.create_uvsphere(bm, u_segments=int(segments), v_segments=int(rings),
+                              radius=float(radius))
+    bm.to_mesh(mesh)
+    bm.free()
+    if smooth:
+        for poly in mesh.polygons:
+            poly.use_smooth = True
+    obj = bpy.data.objects.new(name, mesh)
+    obj.location = location
     bpy.context.collection.objects.link(obj)
     return assign(obj, material)
 
@@ -335,7 +391,8 @@ def add_flat_roof(name: str, *, width: float, depth: float, thickness: float = 0
 
 def add_banner(name: str, *, width: float, height: float, origin: tuple[float, float, float],
                axis: str = "x", segments_x: int = 12, segments_y: int = 6,
-               phases: int = 4, amplitude: float = 0.16) -> bpy.types.Object:
+               phases: int = 4, amplitude: float = 0.16,
+               material: str = "banner") -> bpy.types.Object:
     """A subdivided plane with `phases` shape keys, each a travelling wave offset.
 
     The animation stage cross-fades between these keys, which gives a real deforming
@@ -356,7 +413,7 @@ def add_banner(name: str, *, width: float, height: float, origin: tuple[float, f
             d = c + 1
             faces.append((a, b, d, c))
 
-    obj = mesh_object(name, verts, faces, location=origin, material="banner")
+    obj = mesh_object(name, verts, faces, location=origin, material=material)
     base = obj.shape_key_add(name="Basis", from_mix=False)
     _ = base
     count = len(obj.data.vertices)

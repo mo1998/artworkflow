@@ -215,7 +215,10 @@ def place_on_canvas(img: Image.Image, size: int | tuple[int, int], *, anchor: st
     canvas = Image.new("RGBA", size, (0, 0, 0, 0))
     max_w = max(1, size[0] - 2 * padding)
     max_h = max(1, size[1] - 2 * padding)
-    subject = img
+    # The subject is not guaranteed to be RGBA - a portrait rendered without a cutout arrives as
+    # RGB. Converting here matters most when the subject exactly fills the canvas: PIL then takes
+    # its strict same-size composite path, which rejects a mode mismatch instead of widening it.
+    subject = to_rgba(img)
     if subject.width > max_w or subject.height > max_h:
         scale = min(max_w / subject.width, max_h / subject.height)
         subject = subject.resize((max(1, round(subject.width * scale)),

@@ -28,6 +28,10 @@ from lib.stage import Stage, add_common_args  # noqa: E402
 
 DONE_STATUSES = {"generated", "processed", "passed", "review_required", "exported"}
 
+# Style-block generation keys that are lighting/framing rather than resolution. A whole art
+# direction shares these, so they belong in the style, not repeated on every asset.
+RENDER_PASSTHROUGH = ("view", "key_energy", "fill_energy", "azimuth", "ortho_scale", "frame_target_z")
+
 
 class BlenderGenerateStage(Stage):
     name = "generate-blender"
@@ -86,6 +90,11 @@ class BlenderGenerateStage(Stage):
         params.setdefault("seed", int(gen.get("seed") or 0))
         params.update({"engine": str(gen.get("engine") or self.config.get("blender.engine", "BLENDER_EEVEE_NEXT")),
                        "res_x": res, "res_y": res_y, "samples": samples})
+        # Lighting is part of the look, so a style block can set it once for every asset in the
+        # direction. Asset params still win: explicit beats inherited.
+        for key in RENDER_PASSTHROUGH:
+            if gen.get(key) is not None and key not in params:
+                params[key] = gen[key]
 
         if self.args.lock_framing and job.asset_id in locked:
             params.update(locked[job.asset_id])

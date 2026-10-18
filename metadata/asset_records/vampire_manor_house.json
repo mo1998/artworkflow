@@ -1,0 +1,204 @@
+{
+  "asset_id": "vampire_manor_house",
+  "run_key": "vampire_manor_house",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_manor_house.png",
+      "bytes": 1156655,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 771901,
+      "prompt": "a gothic vampire manor house of blackened stone and timber, steep slate roofs with iron finials, tall pointed arch windows glowing crimson, a wrought iron balcony, a heavy arched doorway with a tarnished bronze knocker. isometric three quarter view of a single isolated building, orthographic projection, no perspective distortion, the building sits on a small flat patch of ground, the whole building inside the frame with clear margin on every side, plain flat uniform light grey background, no other structures, no fence line, no water, no moat, no river, no lake, no floating island on a cliff base, no mist, no fog, no night sky, no moon, no bats, no text, no watermark, no border, no frame. hand painted stylized 3D game art, gothic vampire horror, dark weathered stone masonry, blackened timber beams, wrought iron details, pointed gothic arch windows glowing crimson, blood red banners, tarnished bronze fittings, bone and skull ornament, cold moonlit palette of ash grey and bruised violet with hot crimson candlelight accents, soft painterly texture, crisp readable silhouette, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, water, river, lake, moat, sea, horizon line, night sky, full moon, fog, bats, blood splatter, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "5b72dcfd-a54f-471c-ae62-8724cdd4f654",
+      "seconds": 18.15,
+      "attempt": 0,
+      "completed_at": "2026-10-18T14:23:33+03:00",
+      "attempts": 2
+    },
+    "processing": {
+      "file": "/home/mrazek/ArtWorkflow/assets/processed/vampire_manor_house.png",
+      "bytes": 298493,
+      "source": "/home/mrazek/ArtWorkflow/assets/incoming/vampire_manor_house.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 970x995->476x488)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        54,
+        0,
+        1024,
+        995
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "8102d4c1562653ac3caef55e4f4a95fd30863652dc1188d5d1f43abdd05c559d",
+      "pixel_hash": "20c5239588df16b9031ff95a3a1e4d28d331d0366bb890e59a29d24a81c8a1cc",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.5032463073730469,
+        "opaque_coverage": 0.49596405029296875,
+        "bbox": [
+          56,
+          8,
+          963,
+          993
+        ],
+        "centroid": [
+          525.0891429091213,
+          547.226016312546
+        ],
+        "rgb_mean": [
+          34.66,
+          32.47,
+          39.68
+        ],
+        "rgb_stddev": 48.405,
+        "transparent_rgb_fraction": 0.0213,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 22401
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.48565673828125,
+        "opaque_coverage": 0.4774360656738281,
+        "bbox": [
+          19,
+          16,
+          463,
+          499
+        ],
+        "centroid": [
+          248.95694828452935,
+          279.8533602488375
+        ],
+        "rgb_mean": [
+          32.83,
+          30.71,
+          37.46
+        ],
+        "rgb_stddev": 48.429,
+        "transparent_rgb_fraction": 0.0229,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 21896
+      },
+      "completed_at": "2026-10-18T14:24:53+03:00",
+      "attempts": 3
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "file_exists",
+          "ok": true,
+          "detail": "/home/mrazek/ArtWorkflow/assets/processed/vampire_manor_house.png",
+          "severity": "error"
+        },
+        {
+          "check": "format_is_png",
+          "ok": true,
+          "detail": "detected png",
+          "severity": "error"
+        },
+        {
+          "check": "not_empty",
+          "ok": true,
+          "detail": "298493 bytes",
+          "severity": "error"
+        },
+        {
+          "check": "opens",
+          "ok": true,
+          "detail": "512x512 RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "dimensions",
+          "ok": true,
+          "detail": "512x512 expected 512x512",
+          "severity": "error"
+        },
+        {
+          "check": "not_blank",
+          "ok": true,
+          "detail": "rgb stddev 48.429 (min 4.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_alpha",
+          "ok": true,
+          "detail": "mode RGBA",
+          "severity": "error"
+        },
+        {
+          "check": "subject_present",
+          "ok": true,
+          "detail": "alpha coverage 0.4857 in [0.02, 0.97]",
+          "severity": "error"
+        },
+        {
+          "check": "subject_size",
+          "ok": true,
+          "detail": "subject short side 444px (min 48)",
+          "severity": "error"
+        },
+        {
+          "check": "not_clipped",
+          "ok": true,
+          "detail": "subject clear of edges",
+          "severity": "error"
+        },
+        {
+          "check": "subject_fill",
+          "ok": true,
+          "detail": "subject fills 81.81% of the canvas (want 15%-92%)",
+          "severity": "review"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-18T14:32:12+03:00",
+      "attempts": 6
+    },
+    "export": {
+      "files": [
+        "assets/approved/buildings/vampire_manor_house.png"
+      ],
+      "target": "/home/mrazek/ArtWorkflow/assets/approved/buildings",
+      "mirror": "/home/mrazek/ArtWorkflow/godot_project/assets/assets/buildings",
+      "validation_status": "passed",
+      "completed_at": "2026-10-18T14:32:14+03:00",
+      "attempts": 5
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-18T14:32:14+03:00",
+  "updated_at": "2026-10-18T14:32:14+03:00",
+  "exported_status": "passed"
+}

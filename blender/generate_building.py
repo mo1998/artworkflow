@@ -32,6 +32,10 @@ DEFAULTS: dict[str, object] = {
     "wall_material": "plaster",
     "roof": "gable",
     "roof_material": "thatch",
+    "window_material": "window_lit",
+    "door_material": "dark_timber",
+    "post_material": "timber",
+    "banner_material": "banner",
     "plinth": True,
     "plinth_material": "stone",
     "door": True,
@@ -77,6 +81,10 @@ def build(params: dict[str, object]) -> dict[str, object]:
     wall_material = str(params["wall_material"])
     roof_kind = str(params["roof"])
     roof_material = str(params["roof_material"])
+    window_material = str(params.get("window_material", "window_lit"))
+    door_material = str(params.get("door_material", "dark_timber"))
+    post_material = str(params.get("post_material", "timber"))
+    banner_material = str(params.get("banner_material", "banner"))
     plinth_h = 0.18 if bool(params["plinth"]) else 0.0
     top_of_walls = plinth_h + wall_h
     roof_h = roof_height(params)
@@ -108,42 +116,60 @@ def build(params: dict[str, object]) -> dict[str, object]:
             objects[name] = S.add_box(
                 f"Post{name[-1]}", (0.16, 0.16, wall_h + 0.06),
                 location=(dx * (width / 2.0), dy * (depth / 2.0), plinth_h + (wall_h + 0.06) / 2.0),
-                material="timber",
+                material=post_material,
             )
+        # A parapet with merlons sits *above* the wall and the roof is set back inside it.
+        # Merlons placed at the wall top under an overhanging roof read as a row of blocks
+        # stuck to the roof slope, which is what the first vampire keep looked like.
+        parapet_h = 0.30 if bool(params["battlements"]) else 0.0
+        if parapet_h:
+            S.add_box("Parapet", (width + 0.24, depth + 0.24, parapet_h),
+                      location=(0.0, 0.0, top_of_walls + parapet_h / 2.0), material=wall_material)
+            merlon_z = top_of_walls + parapet_h + 0.17
+            count_x = max(3, int(width / 0.60))
+            count_y = max(2, int(depth / 0.60))
+            for i in range(count_x):
+                x = -width / 2.0 + (i + 0.5) * (width / count_x)
+                for side in (1.0, -1.0):
+                    S.add_box(f"Merlon{i}{'F' if side > 0 else 'B'}", (0.29, 0.29, 0.34),
+                              location=(x, side * (depth / 2.0 + 0.12), merlon_z),
+                              material=wall_material)
+            for i in range(count_y):
+                y = -depth / 2.0 + (i + 0.5) * (depth / count_y)
+                for side in (1.0, -1.0):
+                    S.add_box(f"MerlonY{i}{'R' if side > 0 else 'L'}", (0.29, 0.29, 0.34),
+                              location=(side * (width / 2.0 + 0.12), y, merlon_z),
+                              material=wall_material)
+            top_of_walls += parapet_h
+
         roof_offset = top_of_walls
+        inset = 0.94 if parapet_h else 1.0
+        overhang = 0.05 if parapet_h else 0.12
         if roof_kind == "gable":
             objects["roof"] = S.add_gable_roof(
-                "Roof", width=width, depth=depth, height=roof_h,
+                "Roof", width=width * inset, depth=depth * inset, height=roof_h, overhang=overhang,
                 material=roof_material, location=(0.0, 0.0, roof_offset),
             )
         elif roof_kind == "hip":
             objects["roof"] = S.add_hip_roof(
-                "Roof", width=width, depth=depth, height=roof_h,
+                "Roof", width=width * inset, depth=depth * inset, height=roof_h, overhang=overhang,
                 material=roof_material, location=(0.0, 0.0, roof_offset),
             )
         else:
             objects["roof"] = S.add_flat_roof(
-                "Roof", width=width, depth=depth, material=roof_material,
-                location=(0.0, 0.0, roof_offset),
+                "Roof", width=width * inset, depth=depth * inset, overhang=overhang,
+                material=roof_material, location=(0.0, 0.0, roof_offset),
             )
-        if bool(params["battlements"]):
-            count = max(3, int(width / 0.55))
-            for i in range(count):
-                x = -width / 2.0 + (i + 0.5) * (width / count)
-                S.add_box(f"Merlon{i}", (0.3, 0.3, 0.34),
-                          location=(x, depth / 2.0 - 0.16, top_of_walls + roof_h * 0.05), material=wall_material)
-                S.add_box(f"MerlonBack{i}", (0.3, 0.3, 0.34),
-                          location=(x, -depth / 2.0 + 0.16, top_of_walls + roof_h * 0.05), material=wall_material)
 
     if bool(params["door"]):
         door_w = min(0.62, width * 0.3)
         door_h = min(1.05, wall_h * 0.75)
         objects["door"] = S.add_box(
             "Door", (door_w, 0.1, door_h),
-            location=(0.0, -depth / 2.0 - 0.02, plinth_h + door_h / 2.0), material="dark_timber",
+            location=(0.0, -depth / 2.0 - 0.02, plinth_h + door_h / 2.0), material=door_material,
         )
         S.add_box("DoorLintel", (door_w + 0.2, 0.12, 0.1),
-                  location=(0.0, -depth / 2.0 - 0.02, plinth_h + door_h + 0.05), material="timber")
+                  location=(0.0, -depth / 2.0 - 0.02, plinth_h + door_h + 0.05), material=post_material)
 
     window_count = int(params["windows"])
     # Window faces in visibility order for the default iso camera: the -Y and +X walls
@@ -160,17 +186,17 @@ def build(params: dict[str, object]) -> dict[str, object]:
             lit_size = (w, 0.1, h)
             x = width * 0.30 * rng.choice((-1.0, 1.0))
             S.add_box(f"WindowFrame{i}", frame_size, location=(x, ny * (depth / 2.0 + 0.01), z),
-                      material="timber")
+                      material=post_material)
             S.add_box(f"Window{i}", lit_size, location=(x, ny * (depth / 2.0 + 0.02), z),
-                      material="window_lit")
+                      material=window_material)
         else:
             frame_size = (0.08, w + 0.12, h + 0.12)
             lit_size = (0.1, w, h)
             y = depth * 0.30 * rng.choice((-1.0, 1.0))
             S.add_box(f"WindowFrame{i}", frame_size, location=(nx * (width / 2.0 + 0.01), y, z),
-                      material="timber")
+                      material=post_material)
             S.add_box(f"Window{i}", lit_size, location=(nx * (width / 2.0 + 0.02), y, z),
-                      material="window_lit")
+                      material=window_material)
 
     chimney_h = 0.0
     if bool(params["chimney"]):
@@ -185,13 +211,13 @@ def build(params: dict[str, object]) -> dict[str, object]:
         pole_x = -width * 0.3
         S.add_cylinder("BannerPole", radius=0.05, height=pole_h,
                        location=(pole_x, depth * 0.22, top_of_walls + roof_h * 0.5 + pole_h / 2.0),
-                       material="timber")
+                       material=post_material)
         banner_h = 0.8
         banner_w = 0.62
         S.add_banner("Banner", width=banner_w, height=banner_h,
                      origin=(pole_x + banner_w / 2.0, depth * 0.22,
                              top_of_walls + roof_h * 0.5 + pole_h - 0.05),
-                     axis="x", amplitude=0.22)
+                     axis="x", amplitude=0.22, material=banner_material)
         objects["banner"] = bpy.data.objects.get("Banner")
 
     subject_top = top_of_walls + roof_h + chimney_h
