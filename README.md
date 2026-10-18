@@ -1,5 +1,7 @@
 # ArtWorkflow
 
+[![ci](https://github.com/mo1998/artworkflow/actions/workflows/ci.yml/badge.svg)](https://github.com/mo1998/artworkflow/actions/workflows/ci.yml)
+
 A manifest-driven game-art pipeline that turns a JSON spec into validated, engine-checked assets
 using only local tools — built so an **agent can run it**, not just a human.
 
