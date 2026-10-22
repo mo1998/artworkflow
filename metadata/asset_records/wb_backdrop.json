@@ -5,25 +5,25 @@
   "stages": {
     "generation": {
       "file": "assets/incoming/wb_backdrop.png",
-      "bytes": 2425636,
+      "bytes": 1980737,
       "format": "png",
       "width": 2048,
       "height": 888,
       "mode": "RGB",
       "seed": 20251022,
-      "prompt": "a painted norse frontier valley seen from a raised three quarter angle, a wide clearing of worn earth and mossy grass in the middle, a ring of dark pine forest and boulders around it, distant misty hills, no buildings, no people, an empty landscape. strict top-down flat texture view, fills the entire frame edge to edge, seamless tileable repeating pattern, uniform density across the whole image, no object, no focal point, no vignette, no text, no watermark, no border. hand painted stylized game texture, muted natural palette, norse frontier ground, soft painterly detail, even lighting with no directional shadow, flat view.",
+      "prompt": "a painted norse frontier valley seen from a raised three quarter angle, a wide clearing of worn earth and mossy grass in the middle, a ring of dark pine forest and boulders around it, distant blue mountains on the horizon, a clear pale sky, no clouds, no mist, no haze, no fog, no buildings, no people, an empty landscape. strict top-down flat texture view, fills the entire frame edge to edge, seamless tileable repeating pattern, uniform density across the whole image, no object, no focal point, no vignette, no text, no watermark, no border. hand painted stylized game texture, muted natural palette, norse frontier ground, soft painterly detail, even lighting with no directional shadow, flat view.",
       "negative_prompt": "text, watermark, signature, object, focal point, vignette, border, frame, drop shadow, perspective, photograph",
       "workflow": "workflows/comfyui/flux_txt2img.json",
       "workflow_name": "flux_txt2img",
-      "prompt_id": "e3283f0c-bb97-45f8-8724-4981760684fa",
-      "seconds": 32.08,
+      "prompt_id": "967f86ab-ab24-4849-92e9-b71fe5951a44",
+      "seconds": 32.14,
       "attempt": 0,
-      "completed_at": "2026-10-22T15:13:35+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-22T17:10:59+03:00",
+      "attempts": 2
     },
     "processing": {
       "file": "assets/processed/wb_backdrop.png",
-      "bytes": 2536543,
+      "bytes": 2064994,
       "source": "assets/incoming/wb_backdrop.png",
       "steps": [],
       "trim_box": null,
@@ -31,8 +31,8 @@
       "padding": 0,
       "scale_mode": "fit",
       "canvas": null,
-      "source_pixel_hash": "e47f53b811fc38d37d354a0790536fe7bc936df559cf80c146f7283bff7843a4",
-      "pixel_hash": "e47f53b811fc38d37d354a0790536fe7bc936df559cf80c146f7283bff7843a4",
+      "source_pixel_hash": "f02a6ddc0f32dca9a434af615e03496e1fa4a62dcc5065641391772f6f520a81",
+      "pixel_hash": "f02a6ddc0f32dca9a434af615e03496e1fa4a62dcc5065641391772f6f520a81",
       "before": {
         "width": 2048,
         "height": 888,
@@ -51,19 +51,19 @@
           443.5
         ],
         "rgb_mean": [
-          108.41,
-          114.55,
-          98.97
+          148.26,
+          152.27,
+          134.91
         ],
-        "rgb_stddev": 65.888,
-        "transparent_rgb_fraction": 0.001,
+        "rgb_stddev": 74.303,
+        "transparent_rgb_fraction": 0.0003,
         "touches_border": {
           "left": true,
           "right": true,
           "top": true,
           "bottom": true
         },
-        "unique_colors": 31479
+        "unique_colors": 23268
       },
       "after": {
         "width": 2048,
@@ -83,26 +83,26 @@
           443.5
         ],
         "rgb_mean": [
-          108.41,
-          114.55,
-          98.97
+          148.26,
+          152.27,
+          134.91
         ],
-        "rgb_stddev": 65.888,
-        "transparent_rgb_fraction": 0.001,
+        "rgb_stddev": 74.303,
+        "transparent_rgb_fraction": 0.0003,
         "touches_border": {
           "left": true,
           "right": true,
           "top": true,
           "bottom": true
         },
-        "unique_colors": 31479
+        "unique_colors": 23268
       },
-      "completed_at": "2026-10-22T15:15:54+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-22T17:11:03+03:00",
+      "attempts": 2
     }
   },
   "errors": [],
   "retries": {},
-  "status_at": "2026-10-22T15:15:54+03:00",
-  "updated_at": "2026-10-22T15:15:54+03:00"
+  "status_at": "2026-10-22T17:11:03+03:00",
+  "updated_at": "2026-10-22T17:11:03+03:00"
 }

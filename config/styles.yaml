@@ -315,6 +315,38 @@ styles:
       trim: true
       padding: 16
 
+  # The village wall is a vertical face, and in the game's iso projection a
+  # vertical face is a SHEARED image of a flat elevation: the courses run
+  # along the wall's axis, so a painted wall has to be painted straight-on
+  # (no perspective) and then sheared into the lattice. A painted wall with
+  # perspective in it cannot be mapped onto that face - the geometry would lie.
+  norse-frontier-wall-v1:
+    description: The village curtain wall as a flat side elevation, for shearing into an iso face.
+    style: >-
+      hand painted stylized game texture, norse frontier fortification,
+      dark stained pine timber and weathered grey granite, chisel marks and moss
+      in the joints, cool blue-green shadow, flat even lighting with no
+      directional shadow, painterly brush texture, crisp readable detail
+    composition: >-
+      a flat straight-on close-up of a norse curtain wall SURFACE, the wall seen
+      exactly from the side with no perspective at all, the wall surface filling
+      the entire frame edge to edge with no top edge and no bottom edge,
+      no crenellations, no merlons, no walkway, no ground, no floor, no sky,
+      no perspective, no vanishing point, no people, no text, no watermark,
+      no border, no frame
+    negative: >-
+      perspective, three quarter view, vanishing point, ground, floor, sky,
+      landscape, people, text, watermark, frame, border, vignette, blur
+    generation:
+      steps: 28
+      guidance: 3.2
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: false
+      trim: false
+      padding: 0
+
   norse-frontier-terrain-v1:
     description: Seamless Warbands ground textures - grass, dirt, sand, cobble, rock, planks.
     style: >-

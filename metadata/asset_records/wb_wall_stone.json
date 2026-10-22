@@ -1,0 +1,108 @@
+{
+  "asset_id": "wb_wall_stone",
+  "run_key": "wb_wall_stone",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_wall_stone.png",
+      "bytes": 843452,
+      "format": "png",
+      "width": 1024,
+      "height": 384,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a flat close-up of a norse stone curtain wall surface filling the whole frame, courses of rough hewn granite blocks with deep mortar joints, weathered grey stone with green moss in the joints. a flat straight-on close-up of a norse curtain wall SURFACE, the wall seen exactly from the side with no perspective at all, the wall surface filling the entire frame edge to edge with no top edge and no bottom edge, no crenellations, no merlons, no walkway, no ground, no floor, no sky, no perspective, no vanishing point, no people, no text, no watermark, no border, no frame. hand painted stylized game texture, norse frontier fortification, dark stained pine timber and weathered grey granite, chisel marks and moss in the joints, cool blue-green shadow, flat even lighting with no directional shadow, painterly brush texture, crisp readable detail.",
+      "negative_prompt": "perspective, three quarter view, vanishing point, ground, floor, sky, landscape, people, text, watermark, frame, border, vignette, blur",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "7204baed-5ffb-41e8-b6f0-41f28ef5b978",
+      "seconds": 8.45,
+      "attempt": 0,
+      "completed_at": "2026-10-22T17:45:48+03:00",
+      "attempts": 4
+    },
+    "processing": {
+      "file": "assets/processed/wb_wall_stone.png",
+      "bytes": 900723,
+      "source": "assets/incoming/wb_wall_stone.png",
+      "steps": [],
+      "trim_box": null,
+      "anchor": "center",
+      "padding": 0,
+      "scale_mode": "fit",
+      "canvas": null,
+      "source_pixel_hash": "95a325e1c016c9a4bd7c7e63120f218fa89a537f9fb690cd6fc5b8198d1164f7",
+      "pixel_hash": "95a325e1c016c9a4bd7c7e63120f218fa89a537f9fb690cd6fc5b8198d1164f7",
+      "before": {
+        "width": 1024,
+        "height": 384,
+        "mode": "RGB",
+        "has_alpha": false,
+        "alpha_coverage": 1.0,
+        "opaque_coverage": 1.0,
+        "bbox": [
+          0,
+          0,
+          1023,
+          383
+        ],
+        "centroid": [
+          511.5,
+          191.5
+        ],
+        "rgb_mean": [
+          93.05,
+          106.4,
+          104.14
+        ],
+        "rgb_stddev": 52.499,
+        "transparent_rgb_fraction": 0.0003,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": true
+        },
+        "unique_colors": 34915
+      },
+      "after": {
+        "width": 1024,
+        "height": 384,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 1.0,
+        "opaque_coverage": 1.0,
+        "bbox": [
+          0,
+          0,
+          1023,
+          383
+        ],
+        "centroid": [
+          511.5,
+          191.5
+        ],
+        "rgb_mean": [
+          93.05,
+          106.4,
+          104.14
+        ],
+        "rgb_stddev": 52.499,
+        "transparent_rgb_fraction": 0.0003,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": true
+        },
+        "unique_colors": 34915
+      },
+      "completed_at": "2026-10-22T17:46:00+03:00",
+      "attempts": 4
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T17:46:00+03:00",
+  "updated_at": "2026-10-22T17:46:01+03:00"
+}

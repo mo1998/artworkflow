@@ -1022,12 +1022,180 @@
       "status": "pending"
     },
     {
+      "asset_id": "wb_wall_palisade",
+      "asset_type": "texture",
+      "description": "Warbands palisade wall elevation.",
+      "source": "comfyui",
+      "style": "norse-frontier-wall-v1",
+      "prompt": "a flat close-up of a norse timber palisade surface filling the whole frame, vertical rough pine logs side by side with lashed withering rails across them, weathered grey wood, moss in the splits",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 238,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/wall",
+        "godot": "res://assets/warbands/wall"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "wall",
+        "palisade"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_wall_timber",
+      "asset_type": "texture",
+      "description": "Warbands timber wall elevation.",
+      "source": "comfyui",
+      "style": "norse-frontier-wall-v1",
+      "prompt": "a flat close-up of a norse timber curtain wall surface filling the whole frame, heavy squared pine beams stacked in courses with iron bands and oak pegs, weathered grey-brown wood",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 311,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/wall",
+        "godot": "res://assets/warbands/wall"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "wall",
+        "timber"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_wall_stone",
+      "asset_type": "texture",
+      "description": "Warbands stone wall elevation.",
+      "source": "comfyui",
+      "style": "norse-frontier-wall-v1",
+      "prompt": "a flat close-up of a norse stone curtain wall surface filling the whole frame, courses of rough hewn granite blocks with deep mortar joints, weathered grey stone with green moss in the joints",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 384,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/wall",
+        "godot": "res://assets/warbands/wall"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "wall",
+        "stone"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_wall_keep",
+      "asset_type": "texture",
+      "description": "Warbands keep wall elevation.",
+      "source": "comfyui",
+      "style": "norse-frontier-wall-v1",
+      "prompt": "a flat close-up of a norse fortress wall surface filling the whole frame, massive cut granite blocks with bevelled edges, a band of dark iron reinforcement, weathered pale stone with lichen",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 475,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/wall",
+        "godot": "res://assets/warbands/wall"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "wall",
+        "keep"
+      ],
+      "status": "pending"
+    },
+    {
       "asset_id": "wb_backdrop",
       "asset_type": "background",
       "description": "Warbands village backdrop - the land around the yard.",
       "source": "comfyui",
       "style": "norse-frontier-terrain-v1",
-      "prompt": "a painted norse frontier valley seen from a raised three quarter angle, a wide clearing of worn earth and mossy grass in the middle, a ring of dark pine forest and boulders around it, distant misty hills, no buildings, no people, an empty landscape",
+      "prompt": "a painted norse frontier valley seen from a raised three quarter angle, a wide clearing of worn earth and mossy grass in the middle, a ring of dark pine forest and boulders around it, distant blue mountains on the horizon, a clear pale sky, no clouds, no mist, no haze, no fog, no buildings, no people, an empty landscape",
       "seed": 20251022,
       "generation": {
         "workflow": "workflows/comfyui/flux_txt2img.json",
