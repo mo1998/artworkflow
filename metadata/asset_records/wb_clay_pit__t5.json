@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_clay_pit",
+  "run_key": "wb_clay_pit__t5",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_clay_pit__t5.png",
+      "bytes": 1315399,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier clay works, a wooden bin heaped with wet grey clay, a clay cart with a plank barrel beside it, a small drying shed with a turf roof, a stack of grey clay bricks, a pickaxe leaning on a post, rebuilt as the greatest clay works of the north: an enormous clay bin, long rows of drying sheds, three gantries, huge brick and tile stacks, an oak-clay pot kiln with smoke. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "23613903-e892-4e4c-83f3-d000ca7ad948",
+      "seconds": 18.09,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:00:33+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_clay_pit__t5.png",
+      "bytes": 307864,
+      "source": "assets/incoming/wb_clay_pit__t5.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 977x905->488x452)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        40,
+        53,
+        1017,
+        958
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "15af96bb8a81b6561db24f6f751b146918febc75e00e64da56449067194a50b7",
+      "pixel_hash": "21a0deffe960880dd11b8ecebab811a240de0754c84c888a9cc85fce9fb4adde",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4862031936645508,
+        "opaque_coverage": 0.47710323333740234,
+        "bbox": [
+          49,
+          53,
+          1015,
+          956
+        ],
+        "centroid": [
+          535.0005237132249,
+          541.9845043652576
+        ],
+        "rgb_mean": [
+          49.59,
+          46.66,
+          36.06
+        ],
+        "rgb_stddev": 59.173,
+        "transparent_rgb_fraction": 0.0045,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 23828
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4857749938964844,
+        "opaque_coverage": 0.47606658935546875,
+        "bbox": [
+          16,
+          48,
+          499,
+          499
+        ],
+        "centroid": [
+          258.9403029612935,
+          291.83898604556197
+        ],
+        "rgb_mean": [
+          48.49,
+          45.55,
+          35.1
+        ],
+        "rgb_stddev": 59.3,
+        "transparent_rgb_fraction": 0.0054,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 23613
+      },
+      "completed_at": "2026-10-22T15:14:22+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:14:22+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

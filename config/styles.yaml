@@ -239,6 +239,105 @@ styles:
       trim: false
       padding: 0
 
+  # ---- Warbands village -----------------------------------------------------
+  # One art direction for every building in the Warbands village. The set is
+  # painted, so consistency is not free: it comes from ONE style block (same
+  # words for every subject), ONE camera sentence (same angle, same light), and
+  # ONE seed family (FLUX keeps the global composition when the seed is shared,
+  # so every building is lit from the same side at the same angle).
+  norse-frontier-iso-v1:
+    description: >-
+      Warbands village buildings as isolated isometric dioramas. Norse frontier
+      settlement: dark stained pine timber, turf sod roofs, carved dragon-head
+      beams, crimson and bronze banners, warm window firelight against cool
+      blue-green moss.
+    style: >-
+      hand painted stylized 3D game art, norse viking frontier settlement,
+      dark stained pine timber walls with visible log ends, turf sod roof with
+      grass growing on it, carved dragon-head beams and rune-marked posts,
+      deep crimson and weathered bronze banners, weathered plank doors with
+      iron bands, cool blue-green mossy ground, warm orange firelight glowing
+      from small windows, soft painterly brush texture, crisp readable
+      silhouette, strong material detail, high detail, no people
+    composition: >-
+      isometric three quarter view of a single isolated building, orthographic
+      projection, seen from a raised three quarter angle with two visible wall
+      faces, the building fills most of the frame and stands alone,
+      the building alone on a plain empty studio backdrop, nothing around it
+      and nothing on the floor, the floor is plain and empty,
+      no ground beneath it, no grass, no dirt, no soil, no floor, no platform,
+      no fence, no props lying around, only the building itself,
+      the whole building inside the frame with clear margin on every side,
+      flat even light from the upper left, plain flat uniform light grey
+      background, no other structures, no people, no text, no watermark,
+      no border, no frame
+    negative: >-
+      text, watermark, signature, logo, multiple buildings, cropped roof, cut off
+      edges, blurry, low detail, photograph, photorealistic, people, faces, hands,
+      landscape, horizon, sky, trees, foreground objects, scenery, ground, grass,
+      meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence
+      line, road, path, street, plaza, wall, ui elements, frame, border, vignette
+    generation:
+      steps: 28
+      guidance: 3.2
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: true
+      trim: true
+      padding: 12
+
+  norse-frontier-prop-v1:
+    description: Warbands yard props on a plain backdrop - carts, wells, trees, crates.
+    style: >-
+      hand painted stylized 3D game art, norse viking frontier prop,
+      dark stained pine timber and weathered rope, cool blue-green moss accents,
+      warm firelight rim, soft painterly brush texture, crisp readable
+      silhouette, strong material detail, high detail, no people
+    composition: >-
+      isometric three quarter view of a single isolated object, orthographic
+      projection, seen from a raised three quarter angle,
+      the object sits on a small flat patch of its own ground,
+      the whole object inside the frame with clear margin on every side,
+      plain flat uniform light grey background, no other objects,
+      no text, no watermark, no border, no frame
+    negative: >-
+      text, watermark, signature, logo, multiple objects, crowded, cropped object,
+      cut off edges, blurry, low detail, photograph, photorealistic, people, hands,
+      landscape, horizon, sky, ui elements, frame, border, vignette
+    generation:
+      steps: 26
+      guidance: 3.2
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: true
+      trim: true
+      padding: 16
+
+  norse-frontier-terrain-v1:
+    description: Seamless Warbands ground textures - grass, dirt, sand, cobble, rock, planks.
+    style: >-
+      hand painted stylized game texture, muted natural palette, norse frontier
+      ground, soft painterly detail, even lighting with no directional shadow,
+      flat view
+    composition: >-
+      strict top-down flat texture view, fills the entire frame edge to edge,
+      seamless tileable repeating pattern, uniform density across the whole image,
+      no object, no focal point, no vignette, no text, no watermark, no border
+    negative: >-
+      text, watermark, signature, object, focal point, vignette, border, frame,
+      drop shadow, perspective, photograph
+    generation:
+      steps: 24
+      guidance: 3.0
+      sampler: euler
+      scheduler: simple
+    processing:
+      remove_background: false
+      trim: false
+      padding: 0
+
   tileable-texture-v1:
     description: Seamless ground and material textures.
     style: >-

@@ -1,0 +1,108 @@
+{
+  "asset_id": "wb_terrain_dirt",
+  "run_key": "wb_terrain_dirt",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_terrain_dirt.png",
+      "bytes": 1571796,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a uniform field of packed brown earth seen from directly above, filling the whole frame, flat even colour, fine grain only, no stones, no objects, no ruts, no shadows, no vignette. strict top-down flat texture view, fills the entire frame edge to edge, seamless tileable repeating pattern, uniform density across the whole image, no object, no focal point, no vignette, no text, no watermark, no border. hand painted stylized game texture, muted natural palette, norse frontier ground, soft painterly detail, even lighting with no directional shadow, flat view.",
+      "negative_prompt": "text, watermark, signature, object, focal point, vignette, border, frame, drop shadow, perspective, photograph",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "57f13d43-a8ab-423f-a076-7fe28643b447",
+      "seconds": 16.07,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:40:36+03:00",
+      "attempts": 3
+    },
+    "processing": {
+      "file": "assets/processed/wb_terrain_dirt.png",
+      "bytes": 1662615,
+      "source": "assets/incoming/wb_terrain_dirt.png",
+      "steps": [],
+      "trim_box": null,
+      "anchor": "center",
+      "padding": 0,
+      "scale_mode": "fit",
+      "canvas": null,
+      "source_pixel_hash": "f690be939bd6fb03dabc379a5e567b713b6385fbbff993c23f339e81928dcc76",
+      "pixel_hash": "f690be939bd6fb03dabc379a5e567b713b6385fbbff993c23f339e81928dcc76",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGB",
+        "has_alpha": false,
+        "alpha_coverage": 1.0,
+        "opaque_coverage": 1.0,
+        "bbox": [
+          0,
+          0,
+          1023,
+          1023
+        ],
+        "centroid": [
+          511.5,
+          511.5
+        ],
+        "rgb_mean": [
+          165.86,
+          125.7,
+          78.46
+        ],
+        "rgb_stddev": 39.97,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": true
+        },
+        "unique_colors": 17430
+      },
+      "after": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 1.0,
+        "opaque_coverage": 1.0,
+        "bbox": [
+          0,
+          0,
+          1023,
+          1023
+        ],
+        "centroid": [
+          511.5,
+          511.5
+        ],
+        "rgb_mean": [
+          165.86,
+          125.7,
+          78.46
+        ],
+        "rgb_stddev": 39.97,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": true
+        },
+        "unique_colors": 17430
+      },
+      "completed_at": "2026-10-22T15:41:43+03:00",
+      "attempts": 3
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:41:43+03:00",
+  "updated_at": "2026-10-22T15:41:48+03:00"
+}

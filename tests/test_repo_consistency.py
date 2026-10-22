@@ -315,11 +315,21 @@ class TestManifestIntegrity(unittest.TestCase):
 
     def test_committed_records_match_the_manifest(self):
         """A record for an asset that no longer exists, or missing for one that does, means the
-        committed provenance no longer describes the repo."""
+        committed provenance no longer describes the repo.
+
+        The repo can hold more than one manifest: `config/manifest.json` is the showcase set and
+        a project (Warbands) keeps its own `config/manifest.<project>.json`. The records are the
+        union of all of them, so every manifest in config/ is checked here.
+        """
+        from lib.manifest import load_manifest
+
         records = {p.stem for p in (ROOT / "metadata" / "asset_records").glob("*.json")}
         if not records:
             self.skipTest("no committed records")
-        expected = {job.run_key for job in self.manifest.jobs()}
+        expected: set[str] = set()
+        for path in sorted((ROOT / "config").glob("manifest*.json")):
+            manifest = load_manifest(path, self.config)
+            expected |= {job.run_key for job in manifest.jobs()}
         self.assertEqual(records ^ expected, set(),
                          f"records and manifest disagree; only in records: "
                          f"{sorted(records - expected)}, only in manifest: {sorted(expected - records)}")

@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_timber_camp",
+  "run_key": "wb_timber_camp__t2",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_timber_camp__t2.png",
+      "bytes": 1274105,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier timber camp, an open timber shed on log stilts with a turf sod roof, huge stacks of cut pine logs piled beside it, a chopping block with an axe, a rope coil on a post, rebuilt as a large lumber yard: three open shed bays under one long turf roof, towering stacks of cut logs sorted by length, a frame saw on trestles, a cart loaded with planks. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "6b9c8689-8f4e-4ec6-9df8-8f084fd74484",
+      "seconds": 18.09,
+      "attempt": 0,
+      "completed_at": "2026-10-22T14:57:47+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_timber_camp__t2.png",
+      "bytes": 289388,
+      "source": "assets/incoming/wb_timber_camp__t2.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 981x887->488x441)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        40,
+        59,
+        1021,
+        946
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "ef1ac97944336c102194f183eee13269b7551417a50a9c3c831ff8cb55155392",
+      "pixel_hash": "15c663924a4f951a617911ce14c050eb098652cd35e3998c4c9812359f71a383",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4641542434692383,
+        "opaque_coverage": 0.45467662811279297,
+        "bbox": [
+          50,
+          60,
+          1019,
+          944
+        ],
+        "centroid": [
+          544.1568190737229,
+          539.1993729209514
+        ],
+        "rgb_mean": [
+          48.63,
+          46.14,
+          29.81
+        ],
+        "rgb_stddev": 58.396,
+        "transparent_rgb_fraction": 0.0083,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 22595
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.45980072021484375,
+        "opaque_coverage": 0.4497413635253906,
+        "bbox": [
+          17,
+          59,
+          499,
+          498
+        ],
+        "centroid": [
+          262.55907876615726,
+          297.3973899480645
+        ],
+        "rgb_mean": [
+          47.06,
+          44.64,
+          28.77
+        ],
+        "rgb_stddev": 58.117,
+        "transparent_rgb_fraction": 0.0084,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 22067
+      },
+      "completed_at": "2026-10-22T15:14:01+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:14:01+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

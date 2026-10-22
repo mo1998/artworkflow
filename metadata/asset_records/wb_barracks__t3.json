@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_barracks",
+  "run_key": "wb_barracks__t3",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_barracks__t3.png",
+      "bytes": 1179878,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier barracks, a long timber drill hall with a turf roof, a weapon rack of spears and axes, a row of round shields on the wall, a straw training dummy, a horn hung on a post, rebuilt as a large barracks: a long hall with a watchtower over the gate, an armoury, stacked shields and spears, more training dummies, tall war banners. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "993fec68-de05-46fd-97f5-b6b0d291e85e",
+      "seconds": 18.11,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:08:26+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_barracks__t3.png",
+      "bytes": 292777,
+      "source": "assets/incoming/wb_barracks__t3.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 976x900->488x450)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        34,
+        56,
+        1010,
+        956
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "e0573189ee95b87c966f0e61f9e091c7d958388365f1730571f9a4d34ec9b7a1",
+      "pixel_hash": "869056cafa021d1996cf3043af086a69a48727f99ecec58972a3a089f3e3833e",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.46405696868896484,
+        "opaque_coverage": 0.4547462463378906,
+        "bbox": [
+          34,
+          56,
+          1008,
+          944
+        ],
+        "centroid": [
+          535.1148419951542,
+          549.7459263171523
+        ],
+        "rgb_mean": [
+          51.82,
+          48.77,
+          35.45
+        ],
+        "rgb_stddev": 62.893,
+        "transparent_rgb_fraction": 0.0058,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 23817
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4648017883300781,
+        "opaque_coverage": 0.4548912048339844,
+        "bbox": [
+          12,
+          50,
+          499,
+          494
+        ],
+        "centroid": [
+          262.379457507489,
+          296.48933481062005
+        ],
+        "rgb_mean": [
+          50.94,
+          47.87,
+          34.75
+        ],
+        "rgb_stddev": 62.93,
+        "transparent_rgb_fraction": 0.0055,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 23743
+      },
+      "completed_at": "2026-10-22T15:15:21+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:15:21+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

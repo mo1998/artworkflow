@@ -1,0 +1,108 @@
+{
+  "asset_id": "wb_backdrop",
+  "run_key": "wb_backdrop",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_backdrop.png",
+      "bytes": 2425636,
+      "format": "png",
+      "width": 2048,
+      "height": 888,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a painted norse frontier valley seen from a raised three quarter angle, a wide clearing of worn earth and mossy grass in the middle, a ring of dark pine forest and boulders around it, distant misty hills, no buildings, no people, an empty landscape. strict top-down flat texture view, fills the entire frame edge to edge, seamless tileable repeating pattern, uniform density across the whole image, no object, no focal point, no vignette, no text, no watermark, no border. hand painted stylized game texture, muted natural palette, norse frontier ground, soft painterly detail, even lighting with no directional shadow, flat view.",
+      "negative_prompt": "text, watermark, signature, object, focal point, vignette, border, frame, drop shadow, perspective, photograph",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "e3283f0c-bb97-45f8-8724-4981760684fa",
+      "seconds": 32.08,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:13:35+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_backdrop.png",
+      "bytes": 2536543,
+      "source": "assets/incoming/wb_backdrop.png",
+      "steps": [],
+      "trim_box": null,
+      "anchor": "center",
+      "padding": 0,
+      "scale_mode": "fit",
+      "canvas": null,
+      "source_pixel_hash": "e47f53b811fc38d37d354a0790536fe7bc936df559cf80c146f7283bff7843a4",
+      "pixel_hash": "e47f53b811fc38d37d354a0790536fe7bc936df559cf80c146f7283bff7843a4",
+      "before": {
+        "width": 2048,
+        "height": 888,
+        "mode": "RGB",
+        "has_alpha": false,
+        "alpha_coverage": 1.0,
+        "opaque_coverage": 1.0,
+        "bbox": [
+          0,
+          0,
+          2047,
+          887
+        ],
+        "centroid": [
+          1023.5,
+          443.5
+        ],
+        "rgb_mean": [
+          108.41,
+          114.55,
+          98.97
+        ],
+        "rgb_stddev": 65.888,
+        "transparent_rgb_fraction": 0.001,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": true
+        },
+        "unique_colors": 31479
+      },
+      "after": {
+        "width": 2048,
+        "height": 888,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 1.0,
+        "opaque_coverage": 1.0,
+        "bbox": [
+          0,
+          0,
+          2047,
+          887
+        ],
+        "centroid": [
+          1023.5,
+          443.5
+        ],
+        "rgb_mean": [
+          108.41,
+          114.55,
+          98.97
+        ],
+        "rgb_stddev": 65.888,
+        "transparent_rgb_fraction": 0.001,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": true
+        },
+        "unique_colors": 31479
+      },
+      "completed_at": "2026-10-22T15:15:54+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:15:54+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

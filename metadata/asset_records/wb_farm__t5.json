@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_farm",
+  "run_key": "wb_farm__t5",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_farm__t5.png",
+      "bytes": 1232510,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier farmstead, a small timber longhouse with a turf sod roof and a low stone chimney, a wooden cart, a haystack, a scarecrow pole, a pitchfork by the door, rebuilt as the greatest farm of the north: a grand longhouse with carved gables, a whole cluster of barns, golden barley sheaves stacked high, a great watermill, a carved ridge beast. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "8781f3d5-80fa-4b52-9093-5707d24d87c9",
+      "seconds": 18.12,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:04:12+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_farm__t5.png",
+      "bytes": 295845,
+      "source": "assets/incoming/wb_farm__t5.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 967x898->488x453)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        48,
+        59,
+        1015,
+        957
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "c6c7004fe90ba0dcf1a4afd3aefecf937b16b34b13425c264957ffcc35a94ee7",
+      "pixel_hash": "39d904d05e7cdb1092434193fb6f8af7ee8f5d4450c7bb5de67751ef270ea9ec",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.465423583984375,
+        "opaque_coverage": 0.4555931091308594,
+        "bbox": [
+          49,
+          60,
+          1014,
+          955
+        ],
+        "centroid": [
+          544.9285907481477,
+          543.5864431020917
+        ],
+        "rgb_mean": [
+          49.57,
+          47.1,
+          30.22
+        ],
+        "rgb_stddev": 59.265,
+        "transparent_rgb_fraction": 0.0075,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 23684
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.474639892578125,
+        "opaque_coverage": 0.46390533447265625,
+        "bbox": [
+          12,
+          47,
+          499,
+          498
+        ],
+        "centroid": [
+          262.58083649456694,
+          291.03074165755805
+        ],
+        "rgb_mean": [
+          49.53,
+          47.01,
+          30.04
+        ],
+        "rgb_stddev": 59.542,
+        "transparent_rgb_fraction": 0.0069,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 23778
+      },
+      "completed_at": "2026-10-22T15:14:49+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:14:49+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

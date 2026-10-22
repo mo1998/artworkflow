@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_iron_mine",
+  "run_key": "wb_iron_mine__t4",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_iron_mine__t4.png",
+      "bytes": 1310134,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier iron mine, a timber headframe over a mine entrance cut into a rock face, a wooden ladder into the shaft, a pile of dark iron ore, a forge with a glowing fire, an anvil, rebuilt as a great iron mine: a huge headframe over a broad adit, a smelting hall with glowing vents, slag heaps, iron bars stacked on trestles, a roaring forge. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "25b5b07e-caf4-435f-8650-de7e34c31b92",
+      "seconds": 18.07,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:02:04+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_iron_mine__t4.png",
+      "bytes": 346531,
+      "source": "assets/incoming/wb_iron_mine__t4.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 945x936->488x483)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        52,
+        36,
+        997,
+        972
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "aacc30cd06f0b63443d689fe44804f3d7d59a0501efe7cbc10dae91009dd345a",
+      "pixel_hash": "324366020cdca97ba140fc5ed4b1281a15b2c5f3bb9de6d086e953246e95effc",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.5381956100463867,
+        "opaque_coverage": 0.5331344604492188,
+        "bbox": [
+          52,
+          36,
+          996,
+          970
+        ],
+        "centroid": [
+          529.8092724408556,
+          535.3018398515786
+        ],
+        "rgb_mean": [
+          47.81,
+          46.35,
+          39.05
+        ],
+        "rgb_stddev": 56.05,
+        "transparent_rgb_fraction": 0.0023,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 27779
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.5740737915039062,
+        "opaque_coverage": 0.5683021545410156,
+        "bbox": [
+          12,
+          17,
+          499,
+          499
+        ],
+        "centroid": [
+          258.5137484218221,
+          274.344441491129
+        ],
+        "rgb_mean": [
+          49.95,
+          48.34,
+          40.73
+        ],
+        "rgb_stddev": 56.543,
+        "transparent_rgb_fraction": 0.0034,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 29064
+      },
+      "completed_at": "2026-10-22T15:14:33+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:14:33+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

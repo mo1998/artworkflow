@@ -1,0 +1,108 @@
+{
+  "asset_id": "wb_terrain_cobble",
+  "run_key": "wb_terrain_cobble",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_terrain_cobble.png",
+      "bytes": 1849626,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a uniform field of old grey cobblestones seen from directly above, filling the whole frame, flat even colour, even repeating pattern, no dirt patches, no objects, no shadows, no vignette. strict top-down flat texture view, fills the entire frame edge to edge, seamless tileable repeating pattern, uniform density across the whole image, no object, no focal point, no vignette, no text, no watermark, no border. hand painted stylized game texture, muted natural palette, norse frontier ground, soft painterly detail, even lighting with no directional shadow, flat view.",
+      "negative_prompt": "text, watermark, signature, object, focal point, vignette, border, frame, drop shadow, perspective, photograph",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "8c572e39-d513-4594-9d26-32e47c365679",
+      "seconds": 16.07,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:41:25+03:00",
+      "attempts": 2
+    },
+    "processing": {
+      "file": "assets/processed/wb_terrain_cobble.png",
+      "bytes": 1926678,
+      "source": "assets/incoming/wb_terrain_cobble.png",
+      "steps": [],
+      "trim_box": null,
+      "anchor": "center",
+      "padding": 0,
+      "scale_mode": "fit",
+      "canvas": null,
+      "source_pixel_hash": "1c5809b7eb21c041d73068c488a7c37bf236ac409ab9ce807ea917684d5007cf",
+      "pixel_hash": "1c5809b7eb21c041d73068c488a7c37bf236ac409ab9ce807ea917684d5007cf",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGB",
+        "has_alpha": false,
+        "alpha_coverage": 1.0,
+        "opaque_coverage": 1.0,
+        "bbox": [
+          0,
+          0,
+          1023,
+          1023
+        ],
+        "centroid": [
+          511.5,
+          511.5
+        ],
+        "rgb_mean": [
+          113.63,
+          118.07,
+          112.71
+        ],
+        "rgb_stddev": 35.668,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": true
+        },
+        "unique_colors": 21945
+      },
+      "after": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 1.0,
+        "opaque_coverage": 1.0,
+        "bbox": [
+          0,
+          0,
+          1023,
+          1023
+        ],
+        "centroid": [
+          511.5,
+          511.5
+        ],
+        "rgb_mean": [
+          113.63,
+          118.07,
+          112.71
+        ],
+        "rgb_stddev": 35.668,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": true,
+          "right": true,
+          "top": true,
+          "bottom": true
+        },
+        "unique_colors": 21945
+      },
+      "completed_at": "2026-10-22T15:41:47+03:00",
+      "attempts": 2
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:41:47+03:00",
+  "updated_at": "2026-10-22T15:41:48+03:00"
+}

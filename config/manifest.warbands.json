@@ -1,0 +1,1066 @@
+{
+  "schema_version": 1,
+  "run": {
+    "notes": "Warbands village art set. One style block and one seed family for the whole village; every building's visual tier changes every 5 levels."
+  },
+  "assets": [
+    {
+      "asset_id": "wb_headquarters",
+      "asset_type": "building",
+      "description": "Warbands headquarters - level 6 look and up.",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier village headquarters, a great timber longhall with a turf sod roof, carved dragon-head gable beams, a raised stone footing, a wide plank door with iron bands, crimson banners on the gable, a bronze brazier beside the door",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "variants": [
+        {
+          "suffix": "t1",
+          "seed": 20251022,
+          "prompt_append": "rebuilt larger on the same footprint: a second storey, taller carved roof beams, fresh pale new timber, a bigger turf roof, a proud crimson banner on the gable, stone steps at the door"
+        },
+        {
+          "suffix": "t2",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as an imposing great hall: two full storeys, a tall steep turf roof, carved dragon-head beams and rune-marked posts, banner poles at both gable ends, a wide stone foundation, many small windows glowing warm"
+        },
+        {
+          "suffix": "t3",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a lofty great hall with a third storey and a corner watchtower: tall carved posts, a deep overhanging turf roof, crossed war banners, a broad stone plinth, more glowing windows"
+        },
+        {
+          "suffix": "t4",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a magnificent hall with three storeys and twin watchtowers: a very tall steep turf roof, richly carved dragon-head gables, long war banners, a grand stone stair, a gilded ridge crest"
+        },
+        {
+          "suffix": "t5",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as the greatest hall of the north: four storeys, a soaring spire of turf and carved timber, huge crimson war banners, sculpted ridge beasts, a vast stone foundation, a great bronze brazier"
+        }
+      ],
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "building",
+        "headquarters"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_timber_camp",
+      "asset_type": "building",
+      "description": "Warbands timber camp - level 6 look and up.",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier timber camp, an open timber shed on log stilts with a turf sod roof, huge stacks of cut pine logs piled beside it, a chopping block with an axe, a rope coil on a post",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "variants": [
+        {
+          "suffix": "t1",
+          "seed": 20251022,
+          "prompt_append": "rebuilt bigger: a second open shed bay, taller log stilts, taller stacks of cut pine logs, a bigger chopping block with two axes, a sawn log end and a fresh plank rack"
+        },
+        {
+          "suffix": "t2",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a large lumber yard: three open shed bays under one long turf roof, towering stacks of cut logs sorted by length, a frame saw on trestles, a cart loaded with planks"
+        },
+        {
+          "suffix": "t3",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a great timber yard: four open bays, a covered plank store, enormous log piles on both sides, a crane arm lifting a log, split firewood stacked under a lean-to roof"
+        },
+        {
+          "suffix": "t4",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a mighty lumber camp: five open bays under a long turf roof, huge sorted log mountains, a sawmill with a water wheel, a pile of split firewood, two loaded carts"
+        },
+        {
+          "suffix": "t5",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as the greatest lumber camp of the north: a long hall of open bays, mountains of cut timber, two sawmills, a huge crane, stacked plank towers, smoke from a forge"
+        }
+      ],
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "building",
+        "timber_camp"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_clay_pit",
+      "asset_type": "building",
+      "description": "Warbands clay pit - level 6 look and up.",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier clay works, a wooden bin heaped with wet grey clay, a clay cart with a plank barrel beside it, a small drying shed with a turf roof, a stack of grey clay bricks, a pickaxe leaning on a post",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "variants": [
+        {
+          "suffix": "t1",
+          "seed": 20251022,
+          "prompt_append": "rebuilt bigger: a second clay cart, a taller drying shed, more stacked clay bricks, a bigger bin of wet clay, a rope and bucket on a post"
+        },
+        {
+          "suffix": "t2",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a proper clay works: two wide bins of wet clay, a row of drying sheds, a clay-cutting frame with a wire, a big stack of grey bricks, barrows of clay"
+        },
+        {
+          "suffix": "t3",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a large clay works: three bins of wet clay, long brick-drying sheds, a tall wooden gantry with a hanging bucket, a clay mill, big stacks of grey bricks"
+        },
+        {
+          "suffix": "t4",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a great clay works: a huge bin of wet clay, several long drying sheds, twin bucket gantries, a clay mill house, mountains of grey bricks and tiles"
+        },
+        {
+          "suffix": "t5",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as the greatest clay works of the north: an enormous clay bin, long rows of drying sheds, three gantries, huge brick and tile stacks, an oak-clay pot kiln with smoke"
+        }
+      ],
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "building",
+        "clay_pit"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_iron_mine",
+      "asset_type": "building",
+      "description": "Warbands iron mine - level 6 look and up.",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier iron mine, a timber headframe over a mine entrance cut into a rock face, a wooden ladder into the shaft, a pile of dark iron ore, a forge with a glowing fire, an anvil",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "variants": [
+        {
+          "suffix": "t1",
+          "seed": 20251022,
+          "prompt_append": "rebuilt bigger: a taller headframe with a winding wheel, a deeper shaft with a winch, a second ore heap, a larger forge with a chimney, a big anvil on a stump"
+        },
+        {
+          "suffix": "t2",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a working iron mine: a tall gallows frame over the shaft, a winch house, ore heaps and a mine cart, a stone smelter chimney, a long forge with glowing coals"
+        },
+        {
+          "suffix": "t3",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a large iron mine: a double gallows frame, a winch house with a shingled roof, a stone smelter and a charcoal kiln, a wagon of ore, glowing furnace windows"
+        },
+        {
+          "suffix": "t4",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a great iron mine: a huge headframe over a broad adit, a smelting hall with glowing vents, slag heaps, iron bars stacked on trestles, a roaring forge"
+        },
+        {
+          "suffix": "t5",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as the greatest iron mine of the north: a colossal headframe, a mountain of ore, a great smelting hall with fire glowing from every window, a water-powered hammer, iron ingots stacked high"
+        }
+      ],
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "building",
+        "iron_mine"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_farm",
+      "asset_type": "building",
+      "description": "Warbands farm - level 6 look and up.",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier farmstead, a small timber longhouse with a turf sod roof and a low stone chimney, a wooden cart, a haystack, a scarecrow pole, a pitchfork by the door",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "variants": [
+        {
+          "suffix": "t1",
+          "seed": 20251022,
+          "prompt_append": "rebuilt bigger: a second bay on the longhouse, a bigger turf roof, a proper threshing barn, more haystacks, a sheave of barley leaning on the wall"
+        },
+        {
+          "suffix": "t2",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a proper farm: a long two-bay farmhouse with a stone chimney, a separate threshing barn, a big wooden cart, golden sheaves stacked high, a hayrick"
+        },
+        {
+          "suffix": "t3",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a large farm: a long three-bay farmhouse, two barns, a great waterwheel, a windmill, big stacks of grain sacks"
+        },
+        {
+          "suffix": "t4",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a great farm: a big stone-and-timber farmhouse, a long byre and a granary, a threshing floor, a windmill and a waterwheel, stacks of grain sacks"
+        },
+        {
+          "suffix": "t5",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as the greatest farm of the north: a grand longhouse with carved gables, a whole cluster of barns, golden barley sheaves stacked high, a great watermill, a carved ridge beast"
+        }
+      ],
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "building",
+        "farm"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_warehouse",
+      "asset_type": "building",
+      "description": "Warbands warehouse - level 6 look and up.",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier warehouse, a big open timber storehouse on stilts with a turf roof, stacked crates and sacks inside, a wide loading ramp, barrels and sacks outside, a hand cart",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "variants": [
+        {
+          "suffix": "t1",
+          "seed": 20251022,
+          "prompt_append": "rebuilt bigger: a taller storehouse with a bigger turf roof, a second loading ramp, more crates and sacks stacked high, a bigger hand cart, a hanging lantern"
+        },
+        {
+          "suffix": "t2",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a great storehouse: a long open timber warehouse on stone footings, a wide ramp, great stacks of grain sacks and crates, barrels on racks, a weighing scale"
+        },
+        {
+          "suffix": "t3",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a large warehouse: a long two-storey storehouse with an upper loading gallery, a big ramp, towers of grain sacks, crates on trestles, a covered cart shed"
+        },
+        {
+          "suffix": "t4",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a huge warehouse: a great long storehouse with a gabled turf roof, a stone ground floor, an upper gallery with cranes, mountains of grain sacks, carts waiting at the doors"
+        },
+        {
+          "suffix": "t5",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as the greatest warehouse of the north: an enormous storehouse with three gabled roofs, a raised gantry, vast grain towers, carts at the doors, braziers burning beside the ramp"
+        }
+      ],
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "building",
+        "warehouse"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_market",
+      "asset_type": "building",
+      "description": "Warbands market - level 6 look and up.",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier market, two open market stalls with striped crimson and cream canvas awnings on timber poles, crates of goods, hanging bundles of dried fish and herbs, a wooden counter with scales, a barrel of ale on a stand",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "variants": [
+        {
+          "suffix": "t1",
+          "seed": 20251022,
+          "prompt_append": "rebuilt bigger: three market stalls under striped awnings, more crates and barrels, a proper counter with a scale, hanging fish and herb bundles, a barrel of ale on a stand"
+        },
+        {
+          "suffix": "t2",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a proper market hall: four stalls with striped awnings, a timber counting house, goods on trestles, a wagon unloading barrels, hanging lanterns"
+        },
+        {
+          "suffix": "t3",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a great marketplace: a ring of six striped stalls, a two-storey timber trading house, great piles of goods, a banner over the stalls, braziers"
+        }
+      ],
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "building",
+        "market"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_barracks",
+      "asset_type": "building",
+      "description": "Warbands barracks - level 6 look and up.",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier barracks, a long timber drill hall with a turf roof, a weapon rack of spears and axes, a row of round shields on the wall, a straw training dummy, a horn hung on a post",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "variants": [
+        {
+          "suffix": "t1",
+          "seed": 20251022,
+          "prompt_append": "rebuilt bigger: a taller drill hall, a bigger weapon rack, more shields on the wall, a second straw training dummy, a second storey with an open gallery"
+        },
+        {
+          "suffix": "t2",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a real barracks: a long two-storey timber hall, racks of spears, a forge, a banner pole with a crimson war banner, a pile of shields"
+        },
+        {
+          "suffix": "t3",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a large barracks: a long hall with a watchtower over the gate, an armoury, stacked shields and spears, more training dummies, tall war banners"
+        },
+        {
+          "suffix": "t4",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a great war hall: an enormous timber barracks with carved gables, an armoury and forge, ranks of shields and spears, a score of straw training dummies, tall war banners"
+        }
+      ],
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "building",
+        "barracks"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_stable",
+      "asset_type": "building",
+      "description": "Warbands stable - level 6 look and up.",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier stable, an open timber stable with a turf roof, horse stalls with wooden dividers, a hay rack, a feed trough, a saddled horse tied to a post, a tack bench",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "variants": [
+        {
+          "suffix": "t1",
+          "seed": 20251022,
+          "prompt_append": "rebuilt bigger: a longer stable with more stalls, a bigger hay rack, two horses, a wider feed trough, a tack room, a curry brush on a bench"
+        },
+        {
+          "suffix": "t2",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a great stable: a long two-bay stable, a hitching rail with three horses, a stone-walled tack room, a cart shed, stacked hay bales"
+        },
+        {
+          "suffix": "t3",
+          "seed": 20251022,
+          "prompt_append": "rebuilt as a finest stable: a grand timber stable with carved gables, many horses at a hitching rail, a smithy, a hayloft, brass-trimmed tack"
+        }
+      ],
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "building",
+        "stable"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_academy",
+      "asset_type": "building",
+      "description": "Warbands academy - level 1 look and up.",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier academy, a tall round timber tower on a stone plinth, rune-carved bands around the walls, a small shrine roof of carved dragon heads, a lectern of bound rune tablets at the base, an open bronze brazier",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "variants": [],
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "building",
+        "academy"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_prop_well",
+      "asset_type": "prop",
+      "description": "Warbands prop well.",
+      "source": "comfyui",
+      "style": "norse-frontier-prop-v1",
+      "prompt": "a norse village stone well, a round wooden well head with a shingled roof on two posts, a rope and bucket hanging down, wet mossy stones, a wooden bucket beside it",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 26
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 16,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/props",
+        "godot": "res://assets/warbands/props"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "prop",
+        "prop_well"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_prop_cart",
+      "asset_type": "prop",
+      "description": "Warbands prop cart.",
+      "source": "comfyui",
+      "style": "norse-frontier-prop-v1",
+      "prompt": "a norse village supply cart, a small two-wheeled wooden cart with plank sides and a rope harness, a load of firewood and sacks",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 26
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 16,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/props",
+        "godot": "res://assets/warbands/props"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "prop",
+        "prop_cart"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_villager",
+      "asset_type": "prop",
+      "description": "Warbands unit villager.",
+      "source": "comfyui",
+      "style": "norse-frontier-prop-v1",
+      "prompt": "a norse village man standing, full figure, wool tunic over leather leggings, a belt, bare arms, boots, a simple cap, short beard, neutral standing pose seen from a raised three quarter angle",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 26
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 16,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/props",
+        "godot": "res://assets/warbands/props"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "prop",
+        "unit_villager"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_terrain_grass",
+      "asset_type": "texture",
+      "description": "Warbands grass ground texture.",
+      "source": "comfyui",
+      "style": "norse-frontier-terrain-v1",
+      "prompt": "a uniform field of short green meadow grass seen from directly above, filling the whole frame, flat even colour, fine blade texture only, no flowers, no stones, no objects, no shadows, no vignette",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 24
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/terrain",
+        "godot": "res://assets/warbands/terrain"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "terrain",
+        "grass"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_terrain_dirt",
+      "asset_type": "texture",
+      "description": "Warbands dirt ground texture.",
+      "source": "comfyui",
+      "style": "norse-frontier-terrain-v1",
+      "prompt": "a uniform field of packed brown earth seen from directly above, filling the whole frame, flat even colour, fine grain only, no stones, no objects, no ruts, no shadows, no vignette",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 24
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/terrain",
+        "godot": "res://assets/warbands/terrain"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "terrain",
+        "dirt"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_terrain_sand",
+      "asset_type": "texture",
+      "description": "Warbands sand ground texture.",
+      "source": "comfyui",
+      "style": "norse-frontier-terrain-v1",
+      "prompt": "a uniform field of pale dry sand seen from directly above, filling the whole frame, flat even colour, fine grain only, no pebbles, no tufts, no objects, no shadows, no vignette",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 24
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/terrain",
+        "godot": "res://assets/warbands/terrain"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "terrain",
+        "sand"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_terrain_rock",
+      "asset_type": "texture",
+      "description": "Warbands rock ground texture.",
+      "source": "comfyui",
+      "style": "norse-frontier-terrain-v1",
+      "prompt": "a uniform field of grey bedrock seen from directly above, filling the whole frame, flat even colour, fine hairline cracks only, no boulders, no objects, no shadows, no vignette",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 24
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/terrain",
+        "godot": "res://assets/warbands/terrain"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "terrain",
+        "rock"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_terrain_cobble",
+      "asset_type": "texture",
+      "description": "Warbands cobble ground texture.",
+      "source": "comfyui",
+      "style": "norse-frontier-terrain-v1",
+      "prompt": "a uniform field of old grey cobblestones seen from directly above, filling the whole frame, flat even colour, even repeating pattern, no dirt patches, no objects, no shadows, no vignette",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 24
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/terrain",
+        "godot": "res://assets/warbands/terrain"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "terrain",
+        "cobble"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_terrain_wood",
+      "asset_type": "texture",
+      "description": "Warbands wood ground texture.",
+      "source": "comfyui",
+      "style": "norse-frontier-terrain-v1",
+      "prompt": "a uniform field of weathered plank boards seen from directly above, filling the whole frame, flat even colour, even plank pattern, no nails, no objects, no shadows, no vignette",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 24
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/terrain",
+        "godot": "res://assets/warbands/terrain"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "terrain",
+        "wood"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_backdrop",
+      "asset_type": "background",
+      "description": "Warbands village backdrop - the land around the yard.",
+      "source": "comfyui",
+      "style": "norse-frontier-terrain-v1",
+      "prompt": "a painted norse frontier valley seen from a raised three quarter angle, a wide clearing of worn earth and mossy grass in the middle, a ring of dark pine forest and boulders around it, distant misty hills, no buildings, no people, an empty landscape",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 2048,
+        "height": 888,
+        "steps": 26
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warlands/background",
+        "godot": "res://assets/warbands/background"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "background"
+      ],
+      "status": "pending"
+    }
+  ]
+}

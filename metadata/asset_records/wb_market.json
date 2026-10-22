@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_market",
+  "run_key": "wb_market",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_market.png",
+      "bytes": 1169784,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier market, two open market stalls with striped crimson and cream canvas awnings on timber poles, crates of goods, hanging bundles of dried fish and herbs, a wooden counter with scales, a barrel of ale on a stand. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "3f3d8ad9-1684-484e-a320-84b2a1bc8e54",
+      "seconds": 18.05,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:06:19+03:00",
+      "attempts": 5
+    },
+    "processing": {
+      "file": "assets/processed/wb_market.png",
+      "bytes": 283060,
+      "source": "assets/incoming/wb_market.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 982x909->488x452)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        31,
+        35,
+        1013,
+        944
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "3f0d303de1d5a3024cf743a561c4bcceeaf7a77bc72321421742dfbbbf56619b",
+      "pixel_hash": "c4759efc4170b45458826be1b40172a4b88837834193b5e1894646094ff708c9",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4861783981323242,
+        "opaque_coverage": 0.4793071746826172,
+        "bbox": [
+          31,
+          35,
+          1011,
+          943
+        ],
+        "centroid": [
+          520.7277454663149,
+          532.5607155817535
+        ],
+        "rgb_mean": [
+          53.38,
+          46.67,
+          36.34
+        ],
+        "rgb_stddev": 63.205,
+        "transparent_rgb_fraction": 0.0034,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 23018
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4813804626464844,
+        "opaque_coverage": 0.4737663269042969,
+        "bbox": [
+          12,
+          48,
+          499,
+          499
+        ],
+        "centroid": [
+          255.11377990506455,
+          295.01557955797165
+        ],
+        "rgb_mean": [
+          51.81,
+          45.27,
+          35.25
+        ],
+        "rgb_stddev": 63.161,
+        "transparent_rgb_fraction": 0.005,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 22780
+      },
+      "completed_at": "2026-10-22T15:15:05+03:00",
+      "attempts": 5
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:15:05+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

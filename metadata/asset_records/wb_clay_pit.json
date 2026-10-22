@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_clay_pit",
+  "run_key": "wb_clay_pit",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_clay_pit.png",
+      "bytes": 1109068,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier clay works, a wooden bin heaped with wet grey clay, a clay cart with a plank barrel beside it, a small drying shed with a turf roof, a stack of grey clay bricks, a pickaxe leaning on a post. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "58294cdd-6bfa-44b1-9ff9-e90fe2c22078",
+      "seconds": 18.04,
+      "attempt": 0,
+      "completed_at": "2026-10-22T14:58:59+03:00",
+      "attempts": 3
+    },
+    "processing": {
+      "file": "assets/processed/wb_clay_pit.png",
+      "bytes": 279415,
+      "source": "assets/incoming/wb_clay_pit.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 973x875->488x439)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        34,
+        78,
+        1007,
+        953
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "2bcbac4d95e16ecfb77603233e4c4770ce5c02709fc31ea1802d31f12fb588a8",
+      "pixel_hash": "5422e8dba5b07c74f45a5d9bca7376598a3fa921dfa2b0a13b169cd218222d98",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.47008323669433594,
+        "opaque_coverage": 0.46668148040771484,
+        "bbox": [
+          34,
+          78,
+          1006,
+          952
+        ],
+        "centroid": [
+          533.4557269160388,
+          544.8170750510227
+        ],
+        "rgb_mean": [
+          45.98,
+          44.03,
+          33.27
+        ],
+        "rgb_stddev": 55.891,
+        "transparent_rgb_fraction": 0.0031,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 22705
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.474151611328125,
+        "opaque_coverage": 0.4696807861328125,
+        "bbox": [
+          12,
+          61,
+          499,
+          499
+        ],
+        "centroid": [
+          262.2600566389908,
+          294.8244110832207
+        ],
+        "rgb_mean": [
+          45.78,
+          43.77,
+          33.06
+        ],
+        "rgb_stddev": 55.998,
+        "transparent_rgb_fraction": 0.0029,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 22911
+      },
+      "completed_at": "2026-10-22T15:14:11+03:00",
+      "attempts": 3
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:14:11+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

@@ -1,0 +1,273 @@
+{
+  "run_id": "20261022-154004",
+  "manifest_path": "config/manifest.terrain.json",
+  "schema_version": 1,
+  "jobs": [
+    "wb_terrain_grass",
+    "wb_terrain_dirt",
+    "wb_terrain_sand",
+    "wb_terrain_rock",
+    "wb_terrain_cobble",
+    "wb_terrain_wood"
+  ],
+  "source": {
+    "schema_version": 1,
+    "run": {
+      "notes": "terrain repaint 2: flat uniform fills"
+    },
+    "assets": [
+      {
+        "asset_id": "wb_terrain_grass",
+        "asset_type": "texture",
+        "description": "Warbands grass ground texture.",
+        "source": "comfyui",
+        "style": "norse-frontier-terrain-v1",
+        "prompt": "a uniform field of short green meadow grass seen from directly above, filling the whole frame, flat even colour, fine blade texture only, no flowers, no stones, no objects, no shadows, no vignette",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 1024,
+          "steps": 24
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/terrain",
+          "godot": "res://assets/warbands/terrain"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "terrain",
+          "grass"
+        ],
+        "status": "pending"
+      },
+      {
+        "asset_id": "wb_terrain_dirt",
+        "asset_type": "texture",
+        "description": "Warbands dirt ground texture.",
+        "source": "comfyui",
+        "style": "norse-frontier-terrain-v1",
+        "prompt": "a uniform field of packed brown earth seen from directly above, filling the whole frame, flat even colour, fine grain only, no stones, no objects, no ruts, no shadows, no vignette",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 1024,
+          "steps": 24
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/terrain",
+          "godot": "res://assets/warbands/terrain"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "terrain",
+          "dirt"
+        ],
+        "status": "pending"
+      },
+      {
+        "asset_id": "wb_terrain_sand",
+        "asset_type": "texture",
+        "description": "Warbands sand ground texture.",
+        "source": "comfyui",
+        "style": "norse-frontier-terrain-v1",
+        "prompt": "a uniform field of pale dry sand seen from directly above, filling the whole frame, flat even colour, fine grain only, no pebbles, no tufts, no objects, no shadows, no vignette",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 1024,
+          "steps": 24
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/terrain",
+          "godot": "res://assets/warbands/terrain"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "terrain",
+          "sand"
+        ],
+        "status": "pending"
+      },
+      {
+        "asset_id": "wb_terrain_rock",
+        "asset_type": "texture",
+        "description": "Warbands rock ground texture.",
+        "source": "comfyui",
+        "style": "norse-frontier-terrain-v1",
+        "prompt": "a uniform field of grey bedrock seen from directly above, filling the whole frame, flat even colour, fine hairline cracks only, no boulders, no objects, no shadows, no vignette",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 1024,
+          "steps": 24
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/terrain",
+          "godot": "res://assets/warbands/terrain"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "terrain",
+          "rock"
+        ],
+        "status": "pending"
+      },
+      {
+        "asset_id": "wb_terrain_cobble",
+        "asset_type": "texture",
+        "description": "Warbands cobble ground texture.",
+        "source": "comfyui",
+        "style": "norse-frontier-terrain-v1",
+        "prompt": "a uniform field of old grey cobblestones seen from directly above, filling the whole frame, flat even colour, even repeating pattern, no dirt patches, no objects, no shadows, no vignette",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 1024,
+          "steps": 24
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/terrain",
+          "godot": "res://assets/warbands/terrain"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "terrain",
+          "cobble"
+        ],
+        "status": "pending"
+      },
+      {
+        "asset_id": "wb_terrain_wood",
+        "asset_type": "texture",
+        "description": "Warbands wood ground texture.",
+        "source": "comfyui",
+        "style": "norse-frontier-terrain-v1",
+        "prompt": "a uniform field of weathered plank boards seen from directly above, filling the whole frame, flat even colour, even plank pattern, no nails, no objects, no shadows, no vignette",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 1024,
+          "steps": 24
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/terrain",
+          "godot": "res://assets/warbands/terrain"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "terrain",
+          "wood"
+        ],
+        "status": "pending"
+      }
+    ]
+  }
+}

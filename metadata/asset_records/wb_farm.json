@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_farm",
+  "run_key": "wb_farm",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_farm.png",
+      "bytes": 1130747,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier farmstead, a small timber longhouse with a turf sod roof and a low stone chimney, a wooden cart, a haystack, a scarecrow pole, a pitchfork by the door. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "5dde4a0e-77c7-43a1-8c29-984cfe5ba26c",
+      "seconds": 18.06,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:02:42+03:00",
+      "attempts": 5
+    },
+    "processing": {
+      "file": "assets/processed/wb_farm.png",
+      "bytes": 275286,
+      "source": "assets/incoming/wb_farm.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 978x919->488x459)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        35,
+        38,
+        1013,
+        957
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "917590b0daddc6d7ee22168b248193fcaa24edbb175a2134d65ba5aea9116433",
+      "pixel_hash": "7047d39ac3db3517e626aceff5d94332872274a0ba50915daa79e174afc91792",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.45938873291015625,
+        "opaque_coverage": 0.4537353515625,
+        "bbox": [
+          35,
+          38,
+          1012,
+          956
+        ],
+        "centroid": [
+          525.2240857456031,
+          547.5322085762211
+        ],
+        "rgb_mean": [
+          53.28,
+          49.38,
+          32.3
+        ],
+        "rgb_stddev": 60.965,
+        "transparent_rgb_fraction": 0.0021,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 22598
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4589729309082031,
+        "opaque_coverage": 0.45233917236328125,
+        "bbox": [
+          12,
+          41,
+          499,
+          499
+        ],
+        "centroid": [
+          256.417023363282,
+          295.0711204567933
+        ],
+        "rgb_mean": [
+          52.06,
+          48.16,
+          31.43
+        ],
+        "rgb_stddev": 61.079,
+        "transparent_rgb_fraction": 0.0026,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 22371
+      },
+      "completed_at": "2026-10-22T15:14:38+03:00",
+      "attempts": 5
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:14:38+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_headquarters",
+  "run_key": "wb_headquarters__t4",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_headquarters__t4.png",
+      "bytes": 1395638,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier village headquarters, a great timber longhall with a turf sod roof, carved dragon-head gable beams, a raised stone footing, a wide plank door with iron bands, crimson banners on the gable, a bronze brazier beside the door, rebuilt as a magnificent hall with three storeys and twin watchtowers: a very tall steep turf roof, richly carved dragon-head gables, long war banners, a grand stone stair, a gilded ridge crest. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "5273abbb-1e8f-455a-bf13-62d05b06fc91",
+      "seconds": 20.08,
+      "attempt": 0,
+      "completed_at": "2026-10-22T14:56:32+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_headquarters__t4.png",
+      "bytes": 340838,
+      "source": "assets/incoming/wb_headquarters__t4.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 913x840->488x449)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        83,
+        63,
+        996,
+        903
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "050fa881d7c090b8350223a5073039de4fe3287128c941aec20f6e047bf9dad1",
+      "pixel_hash": "95617f6fcc2d8d514cba6a989182f3e1f980a828ed7e9bb59faa0ab6e8a45e48",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.45936012268066406,
+        "opaque_coverage": 0.42476654052734375,
+        "bbox": [
+          83,
+          63,
+          994,
+          897
+        ],
+        "centroid": [
+          539.4370840028733,
+          520.939998837388
+        ],
+        "rgb_mean": [
+          46.13,
+          43.81,
+          32.54
+        ],
+        "rgb_stddev": 57.103,
+        "transparent_rgb_fraction": 0.0045,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 23692
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.5254364013671875,
+        "opaque_coverage": 0.485382080078125,
+        "bbox": [
+          12,
+          51,
+          499,
+          497
+        ],
+        "centroid": [
+          255.717366051982,
+          295.4126833163932
+        ],
+        "rgb_mean": [
+          51.18,
+          48.53,
+          36.04
+        ],
+        "rgb_stddev": 58.926,
+        "transparent_rgb_fraction": 0.0055,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 26934
+      },
+      "completed_at": "2026-10-22T15:13:52+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:13:52+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

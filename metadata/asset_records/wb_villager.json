@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_villager",
+  "run_key": "wb_villager",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_villager.png",
+      "bytes": 659607,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse village man standing, full figure, wool tunic over leather leggings, a belt, bare arms, boots, a simple cap, short beard, neutral standing pose seen from a raised three quarter angle. isometric three quarter view of a single isolated object, orthographic projection, seen from a raised three quarter angle, the object sits on a small flat patch of its own ground, the whole object inside the frame with clear margin on every side, plain flat uniform light grey background, no other objects, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier prop, dark stained pine timber and weathered rope, cool blue-green moss accents, warm firelight rim, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple objects, crowded, cropped object, cut off edges, blurry, low detail, photograph, photorealistic, people, hands, landscape, horizon, sky, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "443145ea-9bd1-430c-aab0-283c1c67afc1",
+      "seconds": 18.06,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:11:26+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_villager.png",
+      "bytes": 154942,
+      "source": "assets/incoming/wb_villager.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 636x889->343x480)",
+        "canvas(512,anchor=bottom-center,pad=16,mode=fit)"
+      ],
+      "trim_box": [
+        236,
+        77,
+        872,
+        966
+      ],
+      "anchor": "bottom-center",
+      "padding": 16,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "07d7c2b895fcd9153585bd25edb01f34307fe6b6e76e357f926ddf0981f5a599",
+      "pixel_hash": "267acc0bf38d238a1f987f3167f01dd41a15f739e301fad3d8b0d0a83caf5edd",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.20875072479248047,
+        "opaque_coverage": 0.20374393463134766,
+        "bbox": [
+          236,
+          78,
+          870,
+          964
+        ],
+        "centroid": [
+          519.9885787903569,
+          589.4964251613817
+        ],
+        "rgb_mean": [
+          17.76,
+          14.39,
+          12.71
+        ],
+        "rgb_stddev": 33.375,
+        "transparent_rgb_fraction": 0.0026,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 12003
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.2441558837890625,
+        "opaque_coverage": 0.23736190795898438,
+        "bbox": [
+          84,
+          16,
+          425,
+          495
+        ],
+        "centroid": [
+          236.95345603399787,
+          292.6083057308918
+        ],
+        "rgb_mean": [
+          19.77,
+          15.98,
+          14.11
+        ],
+        "rgb_stddev": 35.559,
+        "transparent_rgb_fraction": 0.0021,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 13250
+      },
+      "completed_at": "2026-10-22T15:15:43+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:15:43+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}

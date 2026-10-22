@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_prop_cart",
+  "run_key": "wb_prop_cart",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_prop_cart.png",
+      "bytes": 846431,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse village supply cart, a small two-wheeled wooden cart with plank sides and a rope harness, a load of firewood and sacks. isometric three quarter view of a single isolated object, orthographic projection, seen from a raised three quarter angle, the object sits on a small flat patch of its own ground, the whole object inside the frame with clear margin on every side, plain flat uniform light grey background, no other objects, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier prop, dark stained pine timber and weathered rope, cool blue-green moss accents, warm firelight rim, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple objects, crowded, cropped object, cut off edges, blurry, low detail, photograph, photorealistic, people, hands, landscape, horizon, sky, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "d2cdafb6-3aa6-4e4d-b55e-6b48acbb8321",
+      "seconds": 18.08,
+      "attempt": 0,
+      "completed_at": "2026-10-22T15:10:50+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_prop_cart.png",
+      "bytes": 210750,
+      "source": "assets/incoming/wb_prop_cart.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 918x683->480x357)",
+        "canvas(512,anchor=bottom-center,pad=16,mode=fit)"
+      ],
+      "trim_box": [
+        43,
+        208,
+        961,
+        891
+      ],
+      "anchor": "bottom-center",
+      "padding": 16,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "b99a34e102241df5b232fdf159134bad9e59558f58ead612c0a1998d7d8da6d9",
+      "pixel_hash": "b5b2ffa38fb2015a7c7e10e42783e1a36243cfffe1ded8cac497e89e556afc63",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.3360910415649414,
+        "opaque_coverage": 0.33264923095703125,
+        "bbox": [
+          44,
+          208,
+          959,
+          887
+        ],
+        "centroid": [
+          523.1346416319303,
+          597.7496176404657
+        ],
+        "rgb_mean": [
+          39.93,
+          34.01,
+          26.84
+        ],
+        "rgb_stddev": 55.627,
+        "transparent_rgb_fraction": 0.0004,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 16013
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.3679847717285156,
+        "opaque_coverage": 0.3636054992675781,
+        "bbox": [
+          16,
+          139,
+          495,
+          494
+        ],
+        "centroid": [
+          266.8329860571192,
+          342.4070180894625
+        ],
+        "rgb_mean": [
+          42.59,
+          36.29,
+          28.68
+        ],
+        "rgb_stddev": 56.894,
+        "transparent_rgb_fraction": 0.0009,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 17170
+      },
+      "completed_at": "2026-10-22T15:15:39+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T15:15:39+03:00",
+  "updated_at": "2026-10-22T15:15:54+03:00"
+}
