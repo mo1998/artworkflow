@@ -146,6 +146,11 @@ Reproducibility, measured rather than assumed:
 - **Painted assets are byte-identical too** on the same seed, checkpoint, workflow and ComfyUI
   version — which is why every record stores the workflow path and a SHA-256 prefix of it.
 
+![Rigged character](docs/gallery/rigged-character.png)
+
+*One skinned humanoid, posed by three clips. The mesh is built once and only bone rotations change,
+so the character is identical in every frame by construction.*
+
 ![Upgrade tiers](docs/gallery/upgrade-tiers.png)
 
 See [`reports/final.md`](reports/final.md) for the full run report, including the per-asset

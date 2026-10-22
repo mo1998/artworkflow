@@ -101,6 +101,17 @@ def main() -> None:
         ]),
     ]), "demo-set.png")
 
+    # The rigged character: one frame per clip, plus two walk frames to show the stride. Frames come
+    # from the processed sequence, which is what the sheet is packed from.
+    _save(_tile([
+        ("idle f4", processed("vampire_thrall_idle", 4)),
+        ("walk f2", processed("vampire_thrall_walk", 2)),
+        ("walk f6", processed("vampire_thrall_walk", 6)),
+        ("walk f10", processed("vampire_thrall_walk", 10)),
+        ("attack f4", processed("vampire_thrall_attack", 4)),
+        ("attack f7", processed("vampire_thrall_attack", 7)),
+    ]), "rigged-character.png")
+
     # Tiers side by side with the shared ground line drawn in, because that is the claim.
     tiers = _tile([
         ("keep L1", approved("buildings", "vampire_keep.png")),
