@@ -1,0 +1,183 @@
+{
+  "asset_id": "vampire_thrall_walk",
+  "run_key": "vampire_thrall_walk",
+  "status": "exported",
+  "stages": {
+    "generation": {
+      "file": "assets/animations/vampire_thrall_walk",
+      "frames": 16,
+      "clip": "walk",
+      "frame_rate": 12,
+      "frame_count": 16,
+      "ortho_scale": 2.4515,
+      "frame_target_z": 0.9072,
+      "generator": "reusable_rigs/humanoid.py",
+      "seconds": 1.58,
+      "attempt": 0,
+      "params": {
+        "height": 1.8,
+        "build": 1.0,
+        "mantle": true,
+        "skin_material": "skin_pale",
+        "cloth_material": "cloth_crimson",
+        "seed": 16,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "res_x": 512,
+        "res_y": 512,
+        "samples": 48,
+        "view": "three_quarter",
+        "key_energy": 3.4,
+        "fill_energy": 1.3,
+        "azimuth": 35.0
+      },
+      "completed_at": "2026-10-22T11:42:42+03:00",
+      "attempts": 2
+    },
+    "processing": {
+      "dir": "assets/processed/vampire_thrall_walk",
+      "frames": 16,
+      "steps": [],
+      "frame_size": [
+        512,
+        512
+      ],
+      "measurements": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.0958251953125,
+        "opaque_coverage": 0.09243392944335938,
+        "bbox": [
+          201,
+          76,
+          304,
+          442
+        ],
+        "centroid": [
+          252.8592356687898,
+          248.97308917197452
+        ],
+        "rgb_mean": [
+          10.59,
+          8.57,
+          9.04
+        ],
+        "rgb_stddev": 31.292,
+        "transparent_rgb_fraction": 0.0,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 2881
+      },
+      "completed_at": "2026-10-22T11:45:00+03:00",
+      "attempts": 3
+    },
+    "spritesheet": {
+      "sheet": "assets/spritesheets/vampire_thrall_walk.png",
+      "metadata": "assets/spritesheets/vampire_thrall_walk.json",
+      "columns": 4,
+      "rows": 4,
+      "frame_size": [
+        512,
+        512
+      ],
+      "frames": 16,
+      "sheet_bytes": 712916,
+      "completed_at": "2026-10-22T11:45:08+03:00",
+      "attempts": 3
+    },
+    "validation": {
+      "status": "passed",
+      "checks": [
+        {
+          "check": "frames_present",
+          "ok": true,
+          "detail": "found 16 frames, expected 16",
+          "severity": "error"
+        },
+        {
+          "check": "frame_opens",
+          "ok": true,
+          "detail": "16 frames readable",
+          "severity": "error"
+        },
+        {
+          "check": "frames_uniform",
+          "ok": true,
+          "detail": "sizes [(512, 512)]",
+          "severity": "error"
+        },
+        {
+          "check": "frames_not_blank",
+          "ok": true,
+          "detail": "flat frames: []",
+          "severity": "error"
+        },
+        {
+          "check": "frames_have_subject",
+          "ok": true,
+          "detail": "frames without subject: []",
+          "severity": "error"
+        },
+        {
+          "check": "registration_stable",
+          "ok": true,
+          "detail": "centroid drift 17.2px (max 24.0)",
+          "severity": "error"
+        },
+        {
+          "check": "has_motion",
+          "ok": true,
+          "detail": "peak delta 235 (min 8), max changed fraction 0.095764 (min 0.0005); a still loop means the clip did nothing",
+          "severity": "error"
+        },
+        {
+          "check": "loop_continuous",
+          "ok": true,
+          "detail": "loop step 0.01189 vs average step 0.01070 (max 0.03209)",
+          "severity": "error"
+        }
+      ],
+      "failed": [],
+      "review": [],
+      "completed_at": "2026-10-22T11:45:13+03:00",
+      "attempts": 3
+    },
+    "export": {
+      "files": [
+        "assets/approved/animations/vampire_thrall_walk.png",
+        "assets/approved/animations/vampire_thrall_walk.json",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0000.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0001.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0002.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0003.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0004.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0005.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0006.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0007.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0008.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0009.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0010.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0011.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0012.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0013.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0014.png",
+        "assets/approved/animations/vampire_thrall_walk_frames/frame_0015.png"
+      ],
+      "target": "assets/approved/animations",
+      "mirror": "godot_project/assets/assets/animations",
+      "validation_status": "passed",
+      "completed_at": "2026-10-22T11:45:13+03:00",
+      "attempts": 3
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T11:45:13+03:00",
+  "updated_at": "2026-10-22T11:45:13+03:00",
+  "exported_status": "passed"
+}

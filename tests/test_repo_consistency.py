@@ -492,6 +492,81 @@ class TestPipelineWiring(unittest.TestCase):
 
 # --------------------------------------------------------------------------- docs
 
+class TestGenerators(unittest.TestCase):
+    """Every procedural generator has to look the same to the stage that drives it."""
+
+    def _generators(self) -> list[Path]:
+        return [p for p in sorted((ROOT / "blender").rglob("*.py"))
+                if p.name not in {"scene.py", "anim_clips.py", "fit_framing.py", "smoke_render.py",
+                                  "render_animation.py"}  # the sequencer, not a generator
+                and "__init__" not in p.name]
+
+    def test_generators_expose_defaults_and_build(self):
+        """`DEFAULTS` plus `build(params)` is the whole contract; the stage and the sequencer both
+        rely on it, and a generator missing either fails only at render time."""
+        for path in self._generators():
+            tree = ast.parse(path.read_text(), filename=str(path))
+            names = set()
+            for node in tree.body:
+                target = getattr(node, "target", None) or (
+                    node.targets[0] if getattr(node, "targets", None) else None)
+                if isinstance(target, ast.Name):
+                    names.add(target.id)
+                elif isinstance(node, ast.FunctionDef):
+                    names.add(node.name)
+            self.assertIn("DEFAULTS", names, f"{path.name} has no DEFAULTS")
+            self.assertIn("build", names, f"{path.name} has no build()")
+
+    def test_generators_accept_the_shared_render_keys(self):
+        """The pipeline passes render keys to every generator; one that does not declare them
+        silently ignores --samples or --measure-only instead of failing."""
+        required = {"measure_only", "out", "res_x", "res_y", "samples", "engine"}
+        for path in self._generators():
+            tree = ast.parse(path.read_text(), filename=str(path))
+            for node in tree.body:
+                target = getattr(node, "target", None) or (
+                    node.targets[0] if getattr(node, "targets", None) else None)
+                if isinstance(target, ast.Name) and target.id == "DEFAULTS":
+                    keys = {key.value for key in node.value.keys}
+                    missing = required - keys
+                    self.assertEqual(missing, set(),
+                                     f"{path.name} DEFAULTS is missing {sorted(missing)}")
+
+    def test_clip_registry_entries_are_complete(self):
+        """A clip without `fn` is a KeyError at render time; without a description it is a
+        registry entry nobody can choose from."""
+        tree = ast.parse((ROOT / "blender" / "lib" / "anim_clips.py").read_text())
+        for node in ast.walk(tree):
+            target = getattr(node, "target", None) or (
+                node.targets[0] if getattr(node, "targets", None) else None)
+            if getattr(target, "id", None) != "CLIPS":
+                continue
+            for key, value in zip(node.value.keys, node.value.values):
+                fields = {k.value for k in value.keys}
+                for field in ("fn", "frames_default", "requires", "description"):
+                    self.assertIn(field, fields, f"clip {key.value!r} is missing {field!r}")
+                return
+        self.fail("no CLIPS registry found")
+
+    def test_camera_moving_clips_are_real_clips(self):
+        """The validator skips its registration check for these names, so a typo here would skip
+        the check for a clip that does not exist."""
+        from lib.blender import camera_moving_clips
+
+        registry = self._clip_registry()
+        for name in camera_moving_clips():
+            self.assertIn(name, registry, f"CAMERA_MOVING_CLIPS names unknown clip {name!r}")
+
+    def _clip_registry(self) -> set[str]:
+        tree = ast.parse((ROOT / "blender" / "lib" / "anim_clips.py").read_text())
+        for node in ast.walk(tree):
+            target = getattr(node, "target", None) or (
+                node.targets[0] if getattr(node, "targets", None) else None)
+            if getattr(target, "id", None) == "CLIPS":
+                return {key.value for key in node.value.keys}
+        return set()
+
+
 class TestDocs(unittest.TestCase):
     """Docs that point at nothing are worse than no docs: they cost a contributor time."""
 

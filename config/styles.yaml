@@ -171,6 +171,27 @@ styles:
       trim: true
       padding: 12
 
+  blender-vampire-character-v1:
+    description: Procedural rigged vampire thrall, animated from clips rather than prompts.
+    style: >-
+      low-poly gothic vampire thrall, pale grey skin, black hair, dark crimson tunic and
+      shoulder mantle, iron clasp, leather belt and boots, crimson glowing eyes,
+      muted palette shared with the vampire building set
+    composition: >-
+      three-quarter view of a single figure, orthographic, transparent background, no ground
+      plane, the whole figure inside the frame with margin
+    negative: ""
+    generation:
+      view: three_quarter
+      key_energy: 3.4
+      fill_energy: 1.3
+      azimuth: 35.0
+    processing:
+      remove_background: false
+      trim: false
+      resize: null
+      anchor: bottom-center
+
   stylized-flat-prop-v1:
     description: Isolated props and inventory items on a plain backdrop.
     style: >-

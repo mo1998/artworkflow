@@ -52,7 +52,8 @@
 ```jsonc
 "source": "blender",
 "blender": {
-  "generator": "generate_building.py",   // or generate_prop.py; both expose DEFAULTS + build(params)
+  "generator": "generate_building.py",   // or generate_prop.py, or reusable_rigs/humanoid.py;
+                                         // all expose DEFAULTS + build(params)
   "params": {                            // passed to the generator as --key value
     "kind": "keep",                      // building: hut|house|tower|keep|gate ; prop: coffin|gravestone|altar|lamp|statue
     "width": 3.0, "depth": 2.8, "wall_height": 2.2,
@@ -94,6 +95,9 @@ individually would shift the registration and the loop would jitter.
 | `turntable` | full camera orbit | nothing; the frame is widened to the footprint radius for you |
 | `wheel_spin` | constant rotation of objects named `wheel*` | geometry named `wheel*` |
 | `bob` | sinusoidal vertical bob | objects named with `clip_params.prefix` |
+| `idle` | breathing plus a slow weight shift | an armature from `reusable_rigs/humanoid.py` |
+| `walk` | walk in place: alternating stride, counter-swinging arms, two hip bobs | ditto |
+| `attack` | one overhead strike per cycle: wind up, fast hit, slow recovery | ditto |
 
 `turntable` is declared camera-moving, so the registration check is skipped for it — a turntable
 is supposed to move the subject across the frame.

@@ -56,6 +56,13 @@ PALETTE: dict[str, dict[str, object]] = {
     "slate_dark": {"color": (0.105, 0.120, 0.160), "roughness": 0.75},
     "cold_moon": {"color": (0.05, 0.06, 0.10), "roughness": 0.4,
                   "emission": (0.55, 0.62, 0.95), "emission_strength": 1.0},
+    # Character palette. Skin and cloth need their own entries rather than borrowing the building
+    # materials: plaster reads as plaster on a wall and as a mannequin on a face.
+    "skin_pale": {"color": (0.62, 0.55, 0.52), "roughness": 0.70},
+    "hair_black": {"color": (0.035, 0.030, 0.035), "roughness": 0.55},
+    "cloth_crimson": {"color": (0.21, 0.045, 0.070), "roughness": 0.86},
+    "cloth_dark": {"color": (0.105, 0.095, 0.120), "roughness": 0.84},
+    "leather": {"color": (0.165, 0.110, 0.075), "roughness": 0.74},
 }
 
 

@@ -133,9 +133,8 @@ The reference documentation lives with the skill, so there is exactly one copy o
 ## Verified, on this repo's own output
 
 ```
-assets: 16  exported: 16  failed: 0  review_required: 0  retried: 0
-godot ok: 68 texture(s), 3 sheet(s), 52 frame rect(s)
-python3 -m unittest discover -s tests   ->  42 tests, OK
+assets: 19  exported: 19  failed: 0  review_required: 0  retried: 0
+godot ok: 115 texture(s), 6 sheet(s), 96 frame rect(s)
 ```
 
 Reproducibility, measured rather than assumed:
@@ -182,9 +181,10 @@ docs/gallery/      generated example images, via scripts/make_gallery.py
    them sit together; hand-authored materials or textures would close the rest of the gap. The
    pipeline does not pretend the two paths have equal fidelity.
 4. **A turntable always has angles where a thin feature is edge-on.** That is what rotation is for.
-5. **Animation comes from clips, not prompts.** The character-rig path
-   (`blender/reusable_rigs/`) is not implemented; a half-working rig generator would produce
-   assets that look animated until you check the feet.
+5. **Animation comes from clips, not prompts.** The rigged-character path is implemented
+   (`blender/reusable_rigs/humanoid.py`, clips `idle` / `walk` / `attack`), with rigid skinning: each
+   segment is weighted 1.0 to one bone, so a severe bend shows a hard edge rather than a smooth
+   crease. One humanoid rig ships; a quadruped or a weapon hand would be a second rig.
 6. **Technical checks are not art direction.** The validator finds a cropped roof and a broken
    loop. It cannot tell you a face looks wrong.
 7. **Licences are the user's problem.** FLUX.1-dev is non-commercial. The manifest records a

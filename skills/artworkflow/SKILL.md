@@ -14,6 +14,7 @@ processing, validation and export chain.
 | exact upgrade tiers, animation frames | `blender` (procedural) | one camera per family, frames that cannot drift |
 | background removed | either, then BiRefNet | `remove_background: true` |
 | 1 → 2 → 3 upgrade levels | `blender` + `variants` | shared camera, shared scale, shared ground line |
+| animated character | `blender` + `reusable_rigs/humanoid.py` | a skinned rig with clips that cannot drift between frames |
 
 ## Before anything else
 

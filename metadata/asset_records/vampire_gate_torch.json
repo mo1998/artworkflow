@@ -57,8 +57,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T15:41:20+03:00",
-      "attempts": 2
+      "completed_at": "2026-10-22T11:45:11+03:00",
+      "attempts": 3
     },
     "export": {
       "files": [
@@ -84,8 +84,8 @@
       "target": "assets/approved/animations",
       "mirror": "godot_project/assets/assets/animations",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T15:41:21+03:00",
-      "attempts": 2
+      "completed_at": "2026-10-22T11:45:13+03:00",
+      "attempts": 3
     },
     "generation": {
       "file": "assets/animations/vampire_gate_torch",
@@ -177,8 +177,8 @@
         },
         "unique_colors": 1404
       },
-      "completed_at": "2026-10-18T15:41:08+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-22T11:44:51+03:00",
+      "attempts": 2
     },
     "spritesheet": {
       "sheet": "assets/spritesheets/vampire_gate_torch.png",
@@ -191,13 +191,13 @@
       ],
       "frames": 16,
       "sheet_bytes": 1743691,
-      "completed_at": "2026-10-18T15:41:17+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-22T11:45:06+03:00",
+      "attempts": 2
     }
   },
   "errors": [],
   "retries": {},
-  "status_at": "2026-10-18T15:41:21+03:00",
-  "updated_at": "2026-10-18T15:41:21+03:00",
+  "status_at": "2026-10-22T11:45:13+03:00",
+  "updated_at": "2026-10-22T11:45:13+03:00",
   "exported_status": "passed"
 }

@@ -21,6 +21,7 @@ sys.path[:0] = [str(_p) for _p in (Path(__file__).resolve().parent,
                                    Path(__file__).resolve().parent / "lib")]
 
 import anim_clips  # noqa: E402
+import bpy  # noqa: E402
 import scene as S  # noqa: E402
 
 ANIM_DEFAULTS: dict[str, object] = {
@@ -83,10 +84,28 @@ def main() -> None:
         # Widening the box to the footprint radius is the conservative stand-in for the union of
         # all rotations, and it is what stops a wing or a banner leaving the frame mid-turn.
         fit_box = bounds
+        # A bone-driven clip moves the silhouette, so fit the animated extent rather than the rest
+        # pose: a walk swings limbs and an attack raises an arm past where the rest pose sits.
+        # Sampling costs a few scene evaluations and no rendering.
+        if clip not in anim_clips.CAMERA_MOVING_CLIPS:
+            boxes = [bounds]
+            samples = max(4, min(frame_count, 8))
+            for step in range(samples):
+                anim_clips.apply_clip(scene, clip, round(step * frame_count / samples),
+                                      frame_count, clip_params)
+                bpy.context.view_layer.update()
+                sampled = S.scene_bounds()
+                if sampled:
+                    boxes.append(sampled)
+            lo = [min(box[0][axis] for box in boxes) for axis in range(3)]
+            hi = [max(box[1][axis] for box in boxes) for axis in range(3)]
+            fit_box = (tuple(lo), tuple(hi))
+            anim_clips.apply_clip(scene, clip, 0, frame_count, clip_params)
+            bpy.context.view_layer.update()
         if clip == "turntable":
-            radius = max(abs(bounds[0][0]), abs(bounds[1][0]), abs(bounds[0][1]), abs(bounds[1][1]))
+            radius = max(abs(fit_box[0][0]), abs(fit_box[1][0]), abs(fit_box[0][1]), abs(fit_box[1][1]))
             radius = max(radius, 0.5)
-            fit_box = ((-radius, -radius, bounds[0][2]), (radius, radius, bounds[1][2]))
+            fit_box = ((-radius, -radius, fit_box[0][2]), (radius, radius, fit_box[1][2]))
         fitted_ortho, fitted_z = S.fit_framing(
             fit_box, view=str(params["view"]), azimuth=float(params["azimuth"]) or None,
             res_x=int(params["res_x"]), res_y=int(params["res_y"]), margin=1.10)

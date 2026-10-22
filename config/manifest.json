@@ -679,6 +679,199 @@
         "turntable"
       ],
       "status": "pending"
+    },
+    {
+      "asset_id": "vampire_thrall_idle",
+      "description": "Rigged vampire thrall standing idle: breathing and a slow weight shift.",
+      "blender": {
+        "generator": "reusable_rigs/humanoid.py",
+        "params": {
+          "height": 1.8,
+          "build": 1.0,
+          "mantle": true,
+          "skin_material": "skin_pale",
+          "cloth_material": "cloth_crimson",
+          "seed": 16
+        }
+      },
+      "animation": {
+        "enabled": true,
+        "clip": "idle",
+        "clip_params": {
+          "amplitude": 1.0
+        },
+        "frame_count": 16,
+        "frame_rate": 12,
+        "loop": true
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/animations",
+        "godot": "res://assets/animations",
+        "spritesheet": {
+          "columns": 4,
+          "padding": 2,
+          "name": "vampire_thrall_idle"
+        }
+      },
+      "tags": [
+        "vampire",
+        "character",
+        "rigged",
+        "animation",
+        "idle"
+      ],
+      "asset_type": "character",
+      "source": "blender",
+      "style": "blender-vampire-character-v1",
+      "generation": {
+        "width": 512,
+        "height": 512,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "samples": 48
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "resize": null,
+        "anchor": "bottom-center"
+      },
+      "provenance": {
+        "model": "procedural (Blender 4.5.9)",
+        "model_file": "blender/reusable_rigs/humanoid.py",
+        "license_url": "https://www.blender.org/about/license/",
+        "license_note": "Generated geometry - no third-party model licence applies."
+      },
+      "status": "pending"
+    },
+    {
+      "asset_id": "vampire_thrall_walk",
+      "description": "Rigged vampire thrall walking in place, 16-frame loop.",
+      "blender": {
+        "generator": "reusable_rigs/humanoid.py",
+        "params": {
+          "height": 1.8,
+          "build": 1.0,
+          "mantle": true,
+          "skin_material": "skin_pale",
+          "cloth_material": "cloth_crimson",
+          "seed": 16
+        }
+      },
+      "animation": {
+        "enabled": true,
+        "clip": "walk",
+        "clip_params": {
+          "stride": 26.0,
+          "lift": 1.0
+        },
+        "frame_count": 16,
+        "frame_rate": 12,
+        "loop": true
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/animations",
+        "godot": "res://assets/animations",
+        "spritesheet": {
+          "columns": 4,
+          "padding": 2,
+          "name": "vampire_thrall_walk"
+        }
+      },
+      "tags": [
+        "vampire",
+        "character",
+        "rigged",
+        "animation",
+        "walk"
+      ],
+      "asset_type": "character",
+      "source": "blender",
+      "style": "blender-vampire-character-v1",
+      "generation": {
+        "width": 512,
+        "height": 512,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "samples": 48
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "resize": null,
+        "anchor": "bottom-center"
+      },
+      "provenance": {
+        "model": "procedural (Blender 4.5.9)",
+        "model_file": "blender/reusable_rigs/humanoid.py",
+        "license_url": "https://www.blender.org/about/license/",
+        "license_note": "Generated geometry - no third-party model licence applies."
+      },
+      "status": "pending"
+    },
+    {
+      "asset_id": "vampire_thrall_attack",
+      "description": "Rigged vampire thrall overhead strike, 12-frame loop.",
+      "blender": {
+        "generator": "reusable_rigs/humanoid.py",
+        "params": {
+          "height": 1.8,
+          "build": 1.0,
+          "mantle": true,
+          "skin_material": "skin_pale",
+          "cloth_material": "cloth_crimson",
+          "seed": 12
+        }
+      },
+      "animation": {
+        "enabled": true,
+        "clip": "attack",
+        "clip_params": {
+          "power": 1.0
+        },
+        "frame_count": 12,
+        "frame_rate": 12,
+        "loop": true
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/animations",
+        "godot": "res://assets/animations",
+        "spritesheet": {
+          "columns": 4,
+          "padding": 2,
+          "name": "vampire_thrall_attack"
+        }
+      },
+      "tags": [
+        "vampire",
+        "character",
+        "rigged",
+        "animation",
+        "attack"
+      ],
+      "asset_type": "character",
+      "source": "blender",
+      "style": "blender-vampire-character-v1",
+      "generation": {
+        "width": 512,
+        "height": 512,
+        "engine": "BLENDER_EEVEE_NEXT",
+        "samples": 48
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "resize": null,
+        "anchor": "bottom-center"
+      },
+      "provenance": {
+        "model": "procedural (Blender 4.5.9)",
+        "model_file": "blender/reusable_rigs/humanoid.py",
+        "license_url": "https://www.blender.org/about/license/",
+        "license_note": "Generated geometry - no third-party model licence applies."
+      },
+      "status": "pending"
     }
   ]
 }

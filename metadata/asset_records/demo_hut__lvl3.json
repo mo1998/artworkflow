@@ -81,8 +81,8 @@
       ],
       "failed": [],
       "review": [],
-      "completed_at": "2026-10-18T15:41:19+03:00",
-      "attempts": 2
+      "completed_at": "2026-10-22T11:45:09+03:00",
+      "attempts": 3
     },
     "export": {
       "files": [
@@ -91,8 +91,8 @@
       "target": "assets/approved/buildings",
       "mirror": "godot_project/assets/assets/buildings",
       "validation_status": "passed",
-      "completed_at": "2026-10-18T15:41:21+03:00",
-      "attempts": 2
+      "completed_at": "2026-10-22T11:45:13+03:00",
+      "attempts": 3
     },
     "generation": {
       "file": "assets/incoming/demo_hut__lvl3.png",
@@ -220,13 +220,13 @@
         },
         "unique_colors": 2659
       },
-      "completed_at": "2026-10-18T15:40:52+03:00",
-      "attempts": 1
+      "completed_at": "2026-10-22T11:44:34+03:00",
+      "attempts": 2
     }
   },
   "errors": [],
   "retries": {},
-  "status_at": "2026-10-18T15:41:21+03:00",
-  "updated_at": "2026-10-18T15:41:21+03:00",
+  "status_at": "2026-10-22T11:45:13+03:00",
+  "updated_at": "2026-10-22T11:45:13+03:00",
   "exported_status": "passed"
 }

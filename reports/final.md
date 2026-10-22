@@ -1,18 +1,18 @@
-# Art pipeline report - release
+# Art pipeline report - final
 
-Generated 2026-10-18T15:41:41+03:00 from `config/manifest.json`.
+Generated 2026-10-22T11:45:17+03:00 from `config/manifest.json`.
 
 ## Totals
 
-- assets: **16**
-- exported: **16**
+- assets: **19**
+- exported: **19**
 - failed: **0**
 - review required: **0**
 - retried at least once: **0**
 
 | status | count |
 | --- | --- |
-| exported | 16 |
+| exported | 19 |
 
 ## Assets
 
@@ -34,6 +34,9 @@ Generated 2026-10-18T15:41:41+03:00 from `config/manifest.json`.
 | vampire_grave | blender | exported | - | - | `assets/approved/props/vampire_grave.png` | - |
 | vampire_gate_torch | blender | exported | - | torch_flicker | `assets/approved/animations/vampire_gate_torch.png` | - |
 | vampire_watcher | blender | exported | - | turntable | `assets/approved/animations/vampire_watcher.png` | - |
+| vampire_thrall_idle | blender | exported | - | idle | `assets/approved/animations/vampire_thrall_idle.png` | - |
+| vampire_thrall_walk | blender | exported | - | walk | `assets/approved/animations/vampire_thrall_walk.png` | - |
+| vampire_thrall_attack | blender | exported | - | attack | `assets/approved/animations/vampire_thrall_attack.png` | - |
 
 ## Provenance
 
@@ -55,41 +58,20 @@ Generated 2026-10-18T15:41:41+03:00 from `config/manifest.json`.
 | vampire_grave | procedural (Blender 4.5.9) | `generate_prop.py` | yes |
 | vampire_gate_torch | procedural (Blender 4.5.9) | `generate_building.py` | yes |
 | vampire_watcher | procedural (Blender 4.5.9) | `generate_prop.py` | yes |
+| vampire_thrall_idle | procedural (Blender 4.5.9) | `reusable_rigs/humanoid.py` | yes |
+| vampire_thrall_walk | procedural (Blender 4.5.9) | `reusable_rigs/humanoid.py` | yes |
+| vampire_thrall_attack | procedural (Blender 4.5.9) | `reusable_rigs/humanoid.py` | yes |
 
 ## Logs
 
-- `logs/release/demo_hut-blender.log.log`
-- `logs/release/demo_hut-measure.log.log`
-- `logs/release/demo_hut__lvl2-blender.log.log`
-- `logs/release/demo_hut__lvl2-measure.log.log`
-- `logs/release/demo_hut__lvl3-blender.log.log`
-- `logs/release/demo_hut__lvl3-measure.log.log`
-- `logs/release/demo_hut_flag-blender.log.log`
-- `logs/release/demo_hut_flag-measure.log.log`
-- `logs/release/events.jsonl`
-- `logs/release/export-summary.json`
-- `logs/release/framing.log`
-- `logs/release/generate-blender-summary.json`
-- `logs/release/generate-comfyui-summary.json`
-- `logs/release/godot-check-summary.json`
-- `logs/release/godot-check.log.log`
-- `logs/release/godot-import.log.log`
-- `logs/release/process-summary.json`
-- `logs/release/report-summary.json`
-- `logs/release/spritesheet-summary.json`
-- `logs/release/validate-summary.json`
-- `logs/release/vampire_gate_torch-blender.log.log`
-- `logs/release/vampire_gate_torch-measure.log.log`
-- `logs/release/vampire_grave-blender.log.log`
-- `logs/release/vampire_grave-measure.log.log`
-- `logs/release/vampire_keep-blender.log.log`
-- `logs/release/vampire_keep-measure.log.log`
-- `logs/release/vampire_keep__lvl2-blender.log.log`
-- `logs/release/vampire_keep__lvl2-measure.log.log`
-- `logs/release/vampire_keep__lvl3-blender.log.log`
-- `logs/release/vampire_keep__lvl3-measure.log.log`
-- `logs/release/vampire_watcher-blender.log.log`
-- `logs/release/vampire_watcher-measure.log.log`
+- `logs/final/events.jsonl`
+- `logs/final/export-summary.json`
+- `logs/final/godot-check-summary.json`
+- `logs/final/godot-check.log.log`
+- `logs/final/godot-import.log.log`
+- `logs/final/process-summary.json`
+- `logs/final/spritesheet-summary.json`
+- `logs/final/validate-summary.json`
 
 ## Notes
 

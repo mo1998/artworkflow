@@ -102,6 +102,16 @@ class BlenderGenerateStage(Stage):
                               stage=self.name, asset=asset_id)
         return framing
 
+    @staticmethod
+    def scene_module(job) -> str:
+        """The scene module name for a generator path.
+
+        "reusable_rigs/humanoid.py" -> "reusable_rigs.humanoid". Both the measure pass and the
+        render pass need this, and having it in one place is why the rig measured as
+        "No module named 'reusable_rigs/humanoid'" the first time.
+        """
+        return str(job.spec["blender"]["generator"]).removesuffix(".py").replace("/", ".")
+
     def measure_one(self, job) -> list[list[float]] | None:
         if self.dry_run:
             return None
@@ -111,7 +121,7 @@ class BlenderGenerateStage(Stage):
         params = self._base_params(job)
         args = {**params, "measure_only": True}
         if anim:
-            args["scene"] = str(generator).removesuffix(".py")
+            args["scene"] = self.scene_module(job)
         try:
             summary = run_blender_script(self.config, script, args, log=self.log, stage=self.name,
                                         log_path=self.log.stage_file(f"{job.run_key}-measure.log"),
@@ -178,7 +188,7 @@ class BlenderGenerateStage(Stage):
         if self.args.lock_framing:
             params.update(framing.get(job.asset_id) or {})
 
-        scene_module = str(generator).removesuffix(".py")
+        scene_module = self.scene_module(job)
         if anim:
             # An animated job drives the scene through the clip sequencer, which rebuilds
             # the same scene per frame via the named scene generator.
