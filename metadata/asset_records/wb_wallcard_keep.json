@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_wallcard_keep",
+  "run_key": "wb_wallcard_keep",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_wallcard_keep.png",
+      "bytes": 1125001,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier great fortress tower, massive cut granite blocks with a banded iron crown, a tall steep turf roof, twin crimson war banners, carved dragon-head corbels. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "015d09ed-0430-4599-af32-8c086f15455f",
+      "seconds": 18.06,
+      "attempt": 0,
+      "completed_at": "2026-10-22T18:51:00+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_wallcard_keep.png",
+      "bytes": 259291,
+      "source": "assets/incoming/wb_wallcard_keep.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 845x980->421x488)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        124,
+        0,
+        969,
+        980
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "b904a8423a0303610acaf3829fe77fbd03f0ef60b60f32850ff643af4e481f59",
+      "pixel_hash": "a7bb9eff32de8d02da767ce4b9a1452e8cb975b9c2f9cf757d7dac68450f92cd",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4054737091064453,
+        "opaque_coverage": 0.3994150161743164,
+        "bbox": [
+          125,
+          0,
+          968,
+          978
+        ],
+        "centroid": [
+          528.9752616600418,
+          550.3092033774725
+        ],
+        "rgb_mean": [
+          40.41,
+          40.71,
+          34.54
+        ],
+        "rgb_stddev": 60.82,
+        "transparent_rgb_fraction": 0.0016,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": true,
+          "bottom": false
+        },
+        "unique_colors": 21557
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4029083251953125,
+        "opaque_coverage": 0.39630889892578125,
+        "bbox": [
+          46,
+          12,
+          466,
+          498
+        ],
+        "centroid": [
+          247.47875402385912,
+          285.5944707441772
+        ],
+        "rgb_mean": [
+          38.87,
+          39.08,
+          33.2
+        ],
+        "rgb_stddev": 60.435,
+        "transparent_rgb_fraction": 0.0025,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 21050
+      },
+      "completed_at": "2026-10-22T18:51:09+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T18:51:09+03:00",
+  "updated_at": "2026-10-22T18:51:09+03:00"
+}

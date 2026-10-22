@@ -5,25 +5,25 @@
   "stages": {
     "generation": {
       "file": "assets/incoming/wb_wall_keep.png",
-      "bytes": 980658,
+      "bytes": 1009046,
       "format": "png",
       "width": 1024,
       "height": 472,
       "mode": "RGB",
       "seed": 20251022,
-      "prompt": "a flat close-up of a norse fortress wall surface filling the whole frame, massive cut granite blocks with bevelled edges, a band of dark iron reinforcement, weathered pale stone with lichen. a flat straight-on close-up of a norse curtain wall SURFACE, the wall seen exactly from the side with no perspective at all, the wall surface filling the entire frame edge to edge with no top edge and no bottom edge, no crenellations, no merlons, no walkway, no ground, no floor, no sky, no perspective, no vanishing point, no people, no text, no watermark, no border, no frame. hand painted stylized game texture, norse frontier fortification, dark stained pine timber and weathered grey granite, chisel marks and moss in the joints, cool blue-green shadow, flat even lighting with no directional shadow, painterly brush texture, crisp readable detail.",
+      "prompt": "a flat seamless texture of large weathered grey stone blocks laid in even courses with dark mortar joints, patches of lichen and moss, filling the entire frame edge to edge, uniform masonry surface, no sky, no gaps. a flat straight-on close-up of a norse curtain wall SURFACE, the wall seen exactly from the side with no perspective at all, the wall surface filling the entire frame edge to edge with no top edge and no bottom edge, no crenellations, no merlons, no walkway, no ground, no floor, no sky, no perspective, no vanishing point, no people, no text, no watermark, no border, no frame. hand painted stylized game texture, norse frontier fortification, dark stained pine timber and weathered grey granite, chisel marks and moss in the joints, cool blue-green shadow, flat even lighting with no directional shadow, painterly brush texture, crisp readable detail.",
       "negative_prompt": "perspective, three quarter view, vanishing point, ground, floor, sky, landscape, people, text, watermark, frame, border, vignette, blur",
       "workflow": "workflows/comfyui/flux_txt2img.json",
       "workflow_name": "flux_txt2img",
-      "prompt_id": "ba12416c-ec9e-4c12-a0a6-2fc70e7f6ee3",
-      "seconds": 10.15,
+      "prompt_id": "da250ef6-9402-446a-92c6-90d0349b6b5d",
+      "seconds": 10.05,
       "attempt": 0,
-      "completed_at": "2026-10-22T17:45:58+03:00",
-      "attempts": 4
+      "completed_at": "2026-10-22T19:14:52+03:00",
+      "attempts": 7
     },
     "processing": {
       "file": "assets/processed/wb_wall_keep.png",
-      "bytes": 1036310,
+      "bytes": 1067780,
       "source": "assets/incoming/wb_wall_keep.png",
       "steps": [],
       "trim_box": null,
@@ -31,8 +31,8 @@
       "padding": 0,
       "scale_mode": "fit",
       "canvas": null,
-      "source_pixel_hash": "cc8bf31926e3b7d354cb3a9cbd29f6c77fd198796fbc930e030461a7d435eed5",
-      "pixel_hash": "cc8bf31926e3b7d354cb3a9cbd29f6c77fd198796fbc930e030461a7d435eed5",
+      "source_pixel_hash": "812b63584959201ea28a444f42a45c702690e8a8e7d2ab08298933c773f17749",
+      "pixel_hash": "812b63584959201ea28a444f42a45c702690e8a8e7d2ab08298933c773f17749",
       "before": {
         "width": 1024,
         "height": 472,
@@ -51,19 +51,19 @@
           235.5
         ],
         "rgb_mean": [
-          127.34,
-          133.58,
-          125.51
+          86.31,
+          99.17,
+          100.58
         ],
-        "rgb_stddev": 51.956,
-        "transparent_rgb_fraction": 0.0002,
+        "rgb_stddev": 53.127,
+        "transparent_rgb_fraction": 0.0004,
         "touches_border": {
           "left": true,
           "right": true,
           "top": true,
           "bottom": true
         },
-        "unique_colors": 30379
+        "unique_colors": 29378
       },
       "after": {
         "width": 1024,
@@ -83,26 +83,26 @@
           235.5
         ],
         "rgb_mean": [
-          127.34,
-          133.58,
-          125.51
+          86.31,
+          99.17,
+          100.58
         ],
-        "rgb_stddev": 51.956,
-        "transparent_rgb_fraction": 0.0002,
+        "rgb_stddev": 53.127,
+        "transparent_rgb_fraction": 0.0004,
         "touches_border": {
           "left": true,
           "right": true,
           "top": true,
           "bottom": true
         },
-        "unique_colors": 30379
+        "unique_colors": 29378
       },
-      "completed_at": "2026-10-22T17:46:01+03:00",
-      "attempts": 4
+      "completed_at": "2026-10-22T19:14:52+03:00",
+      "attempts": 7
     }
   },
   "errors": [],
   "retries": {},
-  "status_at": "2026-10-22T17:46:01+03:00",
-  "updated_at": "2026-10-22T17:46:01+03:00"
+  "status_at": "2026-10-22T19:14:52+03:00",
+  "updated_at": "2026-10-22T19:14:52+03:00"
 }

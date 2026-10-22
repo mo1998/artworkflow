@@ -1069,7 +1069,7 @@
       "description": "Warbands timber wall elevation.",
       "source": "comfyui",
       "style": "norse-frontier-wall-v1",
-      "prompt": "a flat close-up of a norse timber curtain wall surface filling the whole frame, heavy squared pine beams stacked in courses with iron bands and oak pegs, weathered grey-brown wood",
+      "prompt": "a flat seamless texture of horizontal squared pine logs stacked tightly, dark weathered brown wood with grey grain and black iron bands, filling the entire frame edge to edge, no sky, no gaps, no crenellations, no battlements",
       "seed": 20251022,
       "generation": {
         "workflow": "workflows/comfyui/flux_txt2img.json",
@@ -1153,7 +1153,7 @@
       "description": "Warbands keep wall elevation.",
       "source": "comfyui",
       "style": "norse-frontier-wall-v1",
-      "prompt": "a flat close-up of a norse fortress wall surface filling the whole frame, massive cut granite blocks with bevelled edges, a band of dark iron reinforcement, weathered pale stone with lichen",
+      "prompt": "a flat seamless texture of large weathered grey stone blocks laid in even courses with dark mortar joints, patches of lichen and moss, filling the entire frame edge to edge, uniform masonry surface, no sky, no gaps",
       "seed": 20251022,
       "generation": {
         "workflow": "workflows/comfyui/flux_txt2img.json",
@@ -1185,6 +1185,178 @@
       "tags": [
         "warbands",
         "wall",
+        "keep"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_wallcard_palisade",
+      "asset_type": "building",
+      "description": "Warbands palisade wall tower (building-list card art).",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier palisade watchtower, a square tower of sharp pointed pine logs lashed together with ropes, a plank walkway at the top, a wolf skull hung on the front, a torch bracket",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "wall",
+        "card",
+        "palisade"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_wallcard_timber",
+      "asset_type": "building",
+      "description": "Warbands timber wall tower (building-list card art).",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier timber watchtower, squared pine beams with iron bands, a shingled cap roof, a crimson banner on a pole, a torch bracket, a ladder up the side",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "wall",
+        "card",
+        "timber"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_wallcard_stone",
+      "asset_type": "building",
+      "description": "Warbands stone wall tower (building-list card art).",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier stone wall tower, crenellated granite masonry with a timber hoarding gallery and a shingled cap, arrow slits, a crimson banner, a torch bracket",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "wall",
+        "card",
+        "stone"
+      ],
+      "status": "pending"
+    },
+    {
+      "asset_id": "wb_wallcard_keep",
+      "asset_type": "building",
+      "description": "Warbands keep wall tower (building-list card art).",
+      "source": "comfyui",
+      "style": "norse-frontier-iso-v1",
+      "prompt": "a norse frontier great fortress tower, massive cut granite blocks with a banded iron crown, a tall steep turf roof, twin crimson war banners, carved dragon-head corbels",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 1024,
+        "height": 1024,
+        "steps": 28
+      },
+      "processing": {
+        "remove_background": true,
+        "trim": true,
+        "padding": 12,
+        "resize": 512,
+        "anchor": "bottom-center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warbands/buildings",
+        "godot": "res://assets/warbands/buildings"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "wall",
+        "card",
         "keep"
       ],
       "status": "pending"

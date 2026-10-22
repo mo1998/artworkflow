@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_wallcard_palisade",
+  "run_key": "wb_wallcard_palisade",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_wallcard_palisade.png",
+      "bytes": 1106111,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier palisade watchtower, a square tower of sharp pointed pine logs lashed together with ropes, a plank walkway at the top, a wolf skull hung on the front, a torch bracket. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "5dab8655-ee1a-4017-8d28-5f385977fa5e",
+      "seconds": 18.06,
+      "attempt": 0,
+      "completed_at": "2026-10-22T18:50:06+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_wallcard_palisade.png",
+      "bytes": 306849,
+      "source": "assets/incoming/wb_wallcard_palisade.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 935x943->484x488)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        45,
+        28,
+        980,
+        971
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "eef154023ec9d64f48b1e4dca01d32688beed9caa4a6b5dcf58ddaf4129e3020",
+      "pixel_hash": "0fc7de4229018343860131acf33d9028f9e477195a952c47c9ef14e97a868bd4",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4725465774536133,
+        "opaque_coverage": 0.4540596008300781,
+        "bbox": [
+          46,
+          29,
+          978,
+          970
+        ],
+        "centroid": [
+          515.2829338386805,
+          538.2129682886614
+        ],
+        "rgb_mean": [
+          43.84,
+          40.71,
+          32.71
+        ],
+        "rgb_stddev": 53.277,
+        "transparent_rgb_fraction": 0.0017,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 23122
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.5070953369140625,
+        "opaque_coverage": 0.4865570068359375,
+        "bbox": [
+          14,
+          12,
+          497,
+          499
+        ],
+        "centroid": [
+          257.17510456473985,
+          275.58915084404055
+        ],
+        "rgb_mean": [
+          45.88,
+          42.55,
+          34.07
+        ],
+        "rgb_stddev": 54.196,
+        "transparent_rgb_fraction": 0.0014,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 24605
+      },
+      "completed_at": "2026-10-22T18:51:03+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T18:51:03+03:00",
+  "updated_at": "2026-10-22T18:51:09+03:00"
+}

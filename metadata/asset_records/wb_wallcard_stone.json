@@ -1,0 +1,118 @@
+{
+  "asset_id": "wb_wallcard_stone",
+  "run_key": "wb_wallcard_stone",
+  "status": "processed",
+  "stages": {
+    "generation": {
+      "file": "assets/incoming/wb_wallcard_stone.png",
+      "bytes": 1100604,
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "seed": 20251022,
+      "prompt": "a norse frontier stone wall tower, crenellated granite masonry with a timber hoarding gallery and a shingled cap, arrow slits, a crimson banner, a torch bracket. isometric three quarter view of a single isolated building, orthographic projection, seen from a raised three quarter angle with two visible wall faces, the building fills most of the frame and stands alone, the building alone on a plain empty studio backdrop, nothing around it and nothing on the floor, the floor is plain and empty, no ground beneath it, no grass, no dirt, no soil, no floor, no platform, no fence, no props lying around, only the building itself, the whole building inside the frame with clear margin on every side, flat even light from the upper left, plain flat uniform light grey background, no other structures, no people, no text, no watermark, no border, no frame. hand painted stylized 3D game art, norse viking frontier settlement, dark stained pine timber walls with visible log ends, turf sod roof with grass growing on it, carved dragon-head beams and rune-marked posts, deep crimson and weathered bronze banners, weathered plank doors with iron bands, cool blue-green mossy ground, warm orange firelight glowing from small windows, soft painterly brush texture, crisp readable silhouette, strong material detail, high detail, no people.",
+      "negative_prompt": "text, watermark, signature, logo, multiple buildings, cropped roof, cut off edges, blurry, low detail, photograph, photorealistic, people, faces, hands, landscape, horizon, sky, trees, foreground objects, scenery, ground, grass, meadow, field, lawn, dirt, soil, floor, ground plane, platform, fence, fence line, road, path, street, plaza, wall, ui elements, frame, border, vignette",
+      "workflow": "workflows/comfyui/flux_txt2img.json",
+      "workflow_name": "flux_txt2img",
+      "prompt_id": "88efa396-da9c-40cb-9025-0fef743fb61e",
+      "seconds": 18.06,
+      "attempt": 0,
+      "completed_at": "2026-10-22T18:50:42+03:00",
+      "attempts": 1
+    },
+    "processing": {
+      "file": "assets/processed/wb_wallcard_stone.png",
+      "bytes": 280172,
+      "source": "assets/incoming/wb_wallcard_stone.png",
+      "steps": [
+        "remove_background",
+        "trim",
+        "resize(fit 858x937->447x488)",
+        "canvas(512,anchor=bottom-center,pad=12,mode=fit)"
+      ],
+      "trim_box": [
+        107,
+        34,
+        965,
+        971
+      ],
+      "anchor": "bottom-center",
+      "padding": 12,
+      "scale_mode": "fit",
+      "canvas": 512,
+      "source_pixel_hash": "7ebaec047f8f1f3c8277359d028f0b03e5753f48fba638d50d8dfcb4f519cad6",
+      "pixel_hash": "3ab65b136c4d150a7418479c75af0b5fea0e958425fdddb2c9d3caad08ca3513",
+      "before": {
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.41127681732177734,
+        "opaque_coverage": 0.4059638977050781,
+        "bbox": [
+          108,
+          35,
+          963,
+          969
+        ],
+        "centroid": [
+          526.2437676084915,
+          549.1939409398152
+        ],
+        "rgb_mean": [
+          42.42,
+          40.92,
+          34.97
+        ],
+        "rgb_stddev": 61.856,
+        "transparent_rgb_fraction": 0.0016,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 21081
+      },
+      "after": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "has_alpha": true,
+        "alpha_coverage": 0.4469032287597656,
+        "opaque_coverage": 0.4405555725097656,
+        "bbox": [
+          32,
+          12,
+          478,
+          498
+        ],
+        "centroid": [
+          250.19872303739555,
+          279.90141951123746
+        ],
+        "rgb_mean": [
+          44.84,
+          43.24,
+          37.03
+        ],
+        "rgb_stddev": 63.073,
+        "transparent_rgb_fraction": 0.0028,
+        "touches_border": {
+          "left": false,
+          "right": false,
+          "top": false,
+          "bottom": false
+        },
+        "unique_colors": 22515
+      },
+      "completed_at": "2026-10-22T18:51:07+03:00",
+      "attempts": 1
+    }
+  },
+  "errors": [],
+  "retries": {},
+  "status_at": "2026-10-22T18:51:07+03:00",
+  "updated_at": "2026-10-22T18:51:09+03:00"
+}
