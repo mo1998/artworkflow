@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "run": {
+    "notes": "backdrop repaint: clear sky"
+  },
+  "assets": [
+    {
+      "asset_id": "wb_backdrop",
+      "asset_type": "background",
+      "description": "Warbands village backdrop - the land around the yard.",
+      "source": "comfyui",
+      "style": "norse-frontier-terrain-v1",
+      "prompt": "a painted norse frontier valley seen from a raised three quarter angle, a wide clearing of worn earth and mossy grass in the middle, a ring of dark pine forest and boulders around it, distant blue mountains on the horizon, a clear pale sky, no clouds, no mist, no haze, no fog, no buildings, no people, an empty landscape",
+      "seed": 20251022,
+      "generation": {
+        "workflow": "workflows/comfyui/flux_txt2img.json",
+        "width": 2048,
+        "height": 888,
+        "steps": 26
+      },
+      "processing": {
+        "remove_background": false,
+        "trim": false,
+        "padding": 0,
+        "resize": null,
+        "anchor": "center"
+      },
+      "animation": {
+        "enabled": false
+      },
+      "export": {
+        "format": "png",
+        "target_directory": "assets/approved/warlands/background",
+        "godot": "res://assets/warbands/background"
+      },
+      "provenance": {
+        "model": "FLUX.1-dev fp8",
+        "model_file": "flux1-dev-fp8.safetensors",
+        "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+      },
+      "tags": [
+        "warbands",
+        "background"
+      ],
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "asset_id": "wb_terrain_wood",
+  "class": "terrain",
+  "kind": "wood",
+  "tier": 0,
+  "status": "accepted",
+  "weak_materials": false,
+  "output": "/home/mrazek/ArtWorkflow/assets/approved/warbands_v2/terrain/wb_terrain_wood.png",
+  "chosen": {
+    "tag": "c0",
+    "seed": 20251022,
+    "knobs": {
+      "denoise": 0.6,
+      "depth": 0.3,
+      "lineart": 0.3,
+      "end": 0.5,
+      "guidance": 3.0,
+      "steps": 30,
+      "sampler": "dpmpp_2m",
+      "scheduler": "beta"
+    },
+    "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c0.png",
+    "pass": true,
+    "gates": {
+      "seam_x": {
+        "value": 1.295,
+        "max": 1.6,
+        "pass": true
+      },
+      "seam_y": {
+        "value": 0.283,
+        "max": 1.6,
+        "pass": true
+      },
+      "size": {
+        "value": [
+          512,
+          512
+        ],
+        "pass": true
+      }
+    },
+    "scores": {
+      "vignette_std": 1.91,
+      "seam_blend": true
+    },
+    "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c0_final.png",
+    "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c0_view.png",
+    "critic": {
+      "silhouette_drift": false,
+      "weak_materials": false,
+      "artifacts": false,
+      "camera_mismatch": false,
+      "defects": []
+    }
+  },
+  "accepted_round": 0,
+  "flags": [],
+  "rounds": [
+    {
+      "round": 0,
+      "knobs": {
+        "denoise": 0.6,
+        "depth": 0.3,
+        "lineart": 0.3,
+        "end": 0.5,
+        "guidance": 3.0,
+        "steps": 30,
+        "sampler": "dpmpp_2m",
+        "scheduler": "beta"
+      },
+      "critic_model": "qwen3-vl",
+      "critic_error": null,
+      "candidates": [
+        {
+          "tag": "c0",
+          "seed": 20251022,
+          "knobs": {
+            "denoise": 0.6,
+            "depth": 0.3,
+            "lineart": 0.3,
+            "end": 0.5,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c0.png",
+          "pass": true,
+          "gates": {
+            "seam_x": {
+              "value": 1.295,
+              "max": 1.6,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 0.283,
+              "max": 1.6,
+              "pass": true
+            },
+            "size": {
+              "value": [
+                512,
+                512
+              ],
+              "pass": true
+            }
+          },
+          "scores": {
+            "vignette_std": 1.91,
+            "seam_blend": true
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c0_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c0_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c1",
+          "seed": 20251039,
+          "knobs": {
+            "denoise": 0.6,
+            "depth": 0.3,
+            "lineart": 0.3,
+            "end": 0.5,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c1.png",
+          "pass": true,
+          "gates": {
+            "seam_x": {
+              "value": 0.506,
+              "max": 1.6,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 1.007,
+              "max": 1.6,
+              "pass": true
+            },
+            "size": {
+              "value": [
+                512,
+                512
+              ],
+              "pass": true
+            }
+          },
+          "scores": {
+            "vignette_std": 3.81
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c1_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c1_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c2",
+          "seed": 20251056,
+          "knobs": {
+            "denoise": 0.6,
+            "depth": 0.3,
+            "lineart": 0.3,
+            "end": 0.5,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c2.png",
+          "pass": true,
+          "gates": {
+            "seam_x": {
+              "value": 1.082,
+              "max": 1.6,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 0.494,
+              "max": 1.6,
+              "pass": true
+            },
+            "size": {
+              "value": [
+                512,
+                512
+              ],
+              "pass": true
+            }
+          },
+          "scores": {
+            "vignette_std": 2.93
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c2_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c2_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c3",
+          "seed": 20251073,
+          "knobs": {
+            "denoise": 0.6,
+            "depth": 0.3,
+            "lineart": 0.3,
+            "end": 0.5,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c3.png",
+          "pass": true,
+          "gates": {
+            "seam_x": {
+              "value": 0.695,
+              "max": 1.6,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 0.446,
+              "max": 1.6,
+              "pass": true
+            },
+            "size": {
+              "value": [
+                512,
+                512
+              ],
+              "pass": true
+            }
+          },
+          "scores": {
+            "vignette_std": 2.28,
+            "seam_blend": true
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c3_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/round0/c3_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        }
+      ],
+      "picked": "c0",
+      "decision": "accept"
+    }
+  ],
+  "seconds": 206.7,
+  "blender": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_wood/blender"
+}

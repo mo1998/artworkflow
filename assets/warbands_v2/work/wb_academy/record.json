@@ -1,0 +1,294 @@
+{
+  "asset_id": "wb_academy",
+  "class": "building",
+  "kind": "academy",
+  "tier": 0,
+  "status": "accepted",
+  "weak_materials": false,
+  "output": "/home/mrazek/ArtWorkflow/assets/approved/warbands_v2/buildings/wb_academy.png",
+  "chosen": {
+    "tag": "c0",
+    "seed": 20251022,
+    "knobs": {
+      "denoise": 0.62,
+      "depth": 0.55,
+      "lineart": 0.55,
+      "end": 0.75,
+      "guidance": 3.0,
+      "steps": 30,
+      "sampler": "dpmpp_2m",
+      "scheduler": "beta"
+    },
+    "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c0.png",
+    "pass": true,
+    "gates": {
+      "iou": {
+        "value": 0.9912,
+        "min": 0.9,
+        "pass": true
+      },
+      "margin_px": {
+        "value": 6,
+        "min": 2,
+        "pass": true
+      },
+      "alpha": {
+        "coverage": 0.1716,
+        "semi": 0.0343,
+        "pass": true
+      },
+      "bbox_drift_px": {
+        "value": 1,
+        "max": 4,
+        "pass": true
+      }
+    },
+    "scores": {
+      "detail": 5.639,
+      "color_drift": 1.25,
+      "weak_materials": false
+    },
+    "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c0_final.png",
+    "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c0_view.png",
+    "critic": {
+      "silhouette_drift": false,
+      "weak_materials": false,
+      "artifacts": false,
+      "camera_mismatch": false,
+      "defects": []
+    }
+  },
+  "accepted_round": 0,
+  "flags": [],
+  "rounds": [
+    {
+      "round": 0,
+      "knobs": {
+        "denoise": 0.62,
+        "depth": 0.55,
+        "lineart": 0.55,
+        "end": 0.75,
+        "guidance": 3.0,
+        "steps": 30,
+        "sampler": "dpmpp_2m",
+        "scheduler": "beta"
+      },
+      "critic_model": "qwen3-vl",
+      "critic_error": null,
+      "candidates": [
+        {
+          "tag": "c0",
+          "seed": 20251022,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c0.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9912,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 6,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.1716,
+              "semi": 0.0343,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 1,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 5.639,
+            "color_drift": 1.25,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c0_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c0_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c1",
+          "seed": 20251039,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c1.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9905,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 6,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.1715,
+              "semi": 0.0351,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 1,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 5.351,
+            "color_drift": 2.41,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c1_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c1_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c2",
+          "seed": 20251056,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c2.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.989,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 6,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.1726,
+              "semi": 0.0364,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 1,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 5.002,
+            "color_drift": 2.05,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c2_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c2_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c3",
+          "seed": 20251073,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c3.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9907,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 6,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.1715,
+              "semi": 0.0358,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 0,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 5.743,
+            "color_drift": 1.36,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c3_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/round0/c3_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        }
+      ],
+      "picked": "c0",
+      "decision": "accept"
+    }
+  ],
+  "seconds": 357.4,
+  "blender": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_academy/blender"
+}

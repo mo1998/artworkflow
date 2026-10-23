@@ -1,0 +1,289 @@
+{
+  "asset_id": "wb_wall_palisade",
+  "class": "wall_surface",
+  "kind": "palisade",
+  "tier": 0,
+  "status": "accepted",
+  "weak_materials": false,
+  "output": "/home/mrazek/ArtWorkflow/assets/approved/warbands_v2/wall/wb_wall_palisade.png",
+  "chosen": {
+    "tag": "c0",
+    "seed": 20251022,
+    "knobs": {
+      "denoise": 0.55,
+      "depth": 0.45,
+      "lineart": 0.45,
+      "end": 0.7,
+      "guidance": 3.0,
+      "steps": 30,
+      "sampler": "dpmpp_2m",
+      "scheduler": "beta"
+    },
+    "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c0.png",
+    "pass": true,
+    "gates": {
+      "aspect": {
+        "value": [
+          512,
+          256
+        ],
+        "pass": true
+      },
+      "seam_x": {
+        "value": 0.193,
+        "pass": true
+      },
+      "seam_y": {
+        "value": 0.21,
+        "pass": true
+      },
+      "sheared_seam_x": {
+        "value": 0.182,
+        "pass": true
+      },
+      "sheared_seam_y": {
+        "value": 0.999,
+        "pass": true
+      }
+    },
+    "scores": {},
+    "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c0_final.png",
+    "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c0_view.png",
+    "critic": {
+      "silhouette_drift": false,
+      "weak_materials": false,
+      "artifacts": false,
+      "camera_mismatch": false,
+      "defects": []
+    }
+  },
+  "accepted_round": 0,
+  "flags": [],
+  "rounds": [
+    {
+      "round": 0,
+      "knobs": {
+        "denoise": 0.55,
+        "depth": 0.45,
+        "lineart": 0.45,
+        "end": 0.7,
+        "guidance": 3.0,
+        "steps": 30,
+        "sampler": "dpmpp_2m",
+        "scheduler": "beta"
+      },
+      "critic_model": "qwen3-vl",
+      "critic_error": null,
+      "candidates": [
+        {
+          "tag": "c0",
+          "seed": 20251022,
+          "knobs": {
+            "denoise": 0.55,
+            "depth": 0.45,
+            "lineart": 0.45,
+            "end": 0.7,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c0.png",
+          "pass": true,
+          "gates": {
+            "aspect": {
+              "value": [
+                512,
+                256
+              ],
+              "pass": true
+            },
+            "seam_x": {
+              "value": 0.193,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 0.21,
+              "pass": true
+            },
+            "sheared_seam_x": {
+              "value": 0.182,
+              "pass": true
+            },
+            "sheared_seam_y": {
+              "value": 0.999,
+              "pass": true
+            }
+          },
+          "scores": {},
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c0_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c0_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c1",
+          "seed": 20251039,
+          "knobs": {
+            "denoise": 0.55,
+            "depth": 0.45,
+            "lineart": 0.45,
+            "end": 0.7,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c1.png",
+          "pass": true,
+          "gates": {
+            "aspect": {
+              "value": [
+                512,
+                256
+              ],
+              "pass": true
+            },
+            "seam_x": {
+              "value": 0.458,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 0.181,
+              "pass": true
+            },
+            "sheared_seam_x": {
+              "value": 0.443,
+              "pass": true
+            },
+            "sheared_seam_y": {
+              "value": 0.931,
+              "pass": true
+            }
+          },
+          "scores": {},
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c1_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c1_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c2",
+          "seed": 20251056,
+          "knobs": {
+            "denoise": 0.55,
+            "depth": 0.45,
+            "lineart": 0.45,
+            "end": 0.7,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c2.png",
+          "pass": true,
+          "gates": {
+            "aspect": {
+              "value": [
+                512,
+                256
+              ],
+              "pass": true
+            },
+            "seam_x": {
+              "value": 0.293,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 0.252,
+              "pass": true
+            },
+            "sheared_seam_x": {
+              "value": 0.286,
+              "pass": true
+            },
+            "sheared_seam_y": {
+              "value": 0.928,
+              "pass": true
+            }
+          },
+          "scores": {},
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c2_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c2_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c3",
+          "seed": 20251073,
+          "knobs": {
+            "denoise": 0.55,
+            "depth": 0.45,
+            "lineart": 0.45,
+            "end": 0.7,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c3.png",
+          "pass": true,
+          "gates": {
+            "aspect": {
+              "value": [
+                512,
+                256
+              ],
+              "pass": true
+            },
+            "seam_x": {
+              "value": 0.362,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 0.196,
+              "pass": true
+            },
+            "sheared_seam_x": {
+              "value": 0.348,
+              "pass": true
+            },
+            "sheared_seam_y": {
+              "value": 0.956,
+              "pass": true
+            }
+          },
+          "scores": {},
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c3_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/round0/c3_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        }
+      ],
+      "picked": "c0",
+      "decision": "accept"
+    }
+  ],
+  "seconds": 233.3,
+  "blender": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wall_palisade/blender"
+}

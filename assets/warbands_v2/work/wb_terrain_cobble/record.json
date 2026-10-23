@@ -1,0 +1,275 @@
+{
+  "asset_id": "wb_terrain_cobble",
+  "class": "terrain",
+  "kind": "cobble",
+  "tier": 0,
+  "status": "accepted",
+  "weak_materials": false,
+  "output": "/home/mrazek/ArtWorkflow/assets/approved/warbands_v2/terrain/wb_terrain_cobble.png",
+  "chosen": {
+    "tag": "c2",
+    "seed": 20251056,
+    "knobs": {
+      "denoise": 0.6,
+      "depth": 0.3,
+      "lineart": 0.3,
+      "end": 0.5,
+      "guidance": 3.0,
+      "steps": 30,
+      "sampler": "dpmpp_2m",
+      "scheduler": "beta"
+    },
+    "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c2.png",
+    "pass": true,
+    "gates": {
+      "seam_x": {
+        "value": 0.861,
+        "max": 1.6,
+        "pass": true
+      },
+      "seam_y": {
+        "value": 1.129,
+        "max": 1.6,
+        "pass": true
+      },
+      "size": {
+        "value": [
+          512,
+          512
+        ],
+        "pass": true
+      }
+    },
+    "scores": {
+      "vignette_std": 4.21
+    },
+    "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c2_final.png",
+    "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c2_view.png",
+    "critic": {
+      "silhouette_drift": false,
+      "weak_materials": false,
+      "artifacts": false,
+      "camera_mismatch": false,
+      "defects": []
+    }
+  },
+  "accepted_round": 0,
+  "flags": [],
+  "rounds": [
+    {
+      "round": 0,
+      "knobs": {
+        "denoise": 0.6,
+        "depth": 0.3,
+        "lineart": 0.3,
+        "end": 0.5,
+        "guidance": 3.0,
+        "steps": 30,
+        "sampler": "dpmpp_2m",
+        "scheduler": "beta"
+      },
+      "critic_model": "qwen3-vl",
+      "critic_error": null,
+      "candidates": [
+        {
+          "tag": "c0",
+          "seed": 20251022,
+          "knobs": {
+            "denoise": 0.6,
+            "depth": 0.3,
+            "lineart": 0.3,
+            "end": 0.5,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c0.png",
+          "pass": true,
+          "gates": {
+            "seam_x": {
+              "value": 1.077,
+              "max": 1.6,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 1.184,
+              "max": 1.6,
+              "pass": true
+            },
+            "size": {
+              "value": [
+                512,
+                512
+              ],
+              "pass": true
+            }
+          },
+          "scores": {
+            "vignette_std": 5.24
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c0_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c0_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": true,
+            "artifacts": true,
+            "camera_mismatch": false,
+            "defects": [
+              "X marks",
+              "plastic look"
+            ]
+          }
+        },
+        {
+          "tag": "c1",
+          "seed": 20251039,
+          "knobs": {
+            "denoise": 0.6,
+            "depth": 0.3,
+            "lineart": 0.3,
+            "end": 0.5,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c1.png",
+          "pass": false,
+          "gates": {
+            "seam_x": {
+              "value": 4.994,
+              "max": 1.6,
+              "pass": false
+            },
+            "seam_y": {
+              "value": 1.881,
+              "max": 1.6,
+              "pass": false
+            },
+            "size": {
+              "value": [
+                512,
+                512
+              ],
+              "pass": true
+            }
+          },
+          "scores": {
+            "vignette_std": 3.57,
+            "seam_blend": true
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c1_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c1_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c2",
+          "seed": 20251056,
+          "knobs": {
+            "denoise": 0.6,
+            "depth": 0.3,
+            "lineart": 0.3,
+            "end": 0.5,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c2.png",
+          "pass": true,
+          "gates": {
+            "seam_x": {
+              "value": 0.861,
+              "max": 1.6,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 1.129,
+              "max": 1.6,
+              "pass": true
+            },
+            "size": {
+              "value": [
+                512,
+                512
+              ],
+              "pass": true
+            }
+          },
+          "scores": {
+            "vignette_std": 4.21
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c2_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c2_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c3",
+          "seed": 20251073,
+          "knobs": {
+            "denoise": 0.6,
+            "depth": 0.3,
+            "lineart": 0.3,
+            "end": 0.5,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c3.png",
+          "pass": true,
+          "gates": {
+            "seam_x": {
+              "value": 1.097,
+              "max": 1.6,
+              "pass": true
+            },
+            "seam_y": {
+              "value": 0.725,
+              "max": 1.6,
+              "pass": true
+            },
+            "size": {
+              "value": [
+                512,
+                512
+              ],
+              "pass": true
+            }
+          },
+          "scores": {
+            "vignette_std": 4.69
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c3_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/round0/c3_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": true,
+            "camera_mismatch": false,
+            "defects": [
+              "floating bits"
+            ]
+          }
+        }
+      ],
+      "picked": "c2",
+      "decision": "accept"
+    }
+  ],
+  "seconds": 204.9,
+  "blender": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_terrain_cobble/blender"
+}

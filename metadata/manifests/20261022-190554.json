@@ -1,0 +1,101 @@
+{
+  "run_id": "20261022-190554",
+  "manifest_path": "config/manifest.wall2.json",
+  "schema_version": 1,
+  "jobs": [
+    "wb_wall_timber",
+    "wb_wall_keep"
+  ],
+  "source": {
+    "schema_version": 1,
+    "run": {
+      "notes": "wall repaint: warm timber, keep without sky"
+    },
+    "assets": [
+      {
+        "asset_id": "wb_wall_timber",
+        "asset_type": "texture",
+        "description": "Warbands timber wall elevation.",
+        "source": "comfyui",
+        "style": "norse-frontier-wall-v1",
+        "prompt": "a flat close-up of a norse timber curtain wall surface filling the whole frame, heavy squared pine logs stacked in courses, warm brown wood with dark grain and black iron bands, no grey, no stone, no masonry",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 311,
+          "steps": 28
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/wall",
+          "godot": "res://assets/warbands/wall"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "wall",
+          "timber"
+        ],
+        "status": "pending"
+      },
+      {
+        "asset_id": "wb_wall_keep",
+        "asset_type": "texture",
+        "description": "Warbands keep wall elevation.",
+        "source": "comfyui",
+        "style": "norse-frontier-wall-v1",
+        "prompt": "a flat close-up of a norse fortress wall surface filling the whole frame, massive cut granite blocks with bevelled edges, a band of dark iron reinforcement, weathered pale stone with lichen, no crenellations, no battlements, no sky, no gaps",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 475,
+          "steps": 28
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/wall",
+          "godot": "res://assets/warbands/wall"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "wall",
+          "keep"
+        ],
+        "status": "pending"
+      }
+    ]
+  }
+}

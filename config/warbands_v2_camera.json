@@ -1,0 +1,33 @@
+{
+  "note": "The fixed iso cameras of the Warbands v2 set (projected extents in camera space: r=right, u=up, d=depth). Pinned so a geometry edit never moves the camera for the rest of the set; the runner checks every subject still fits.",
+  "frames": {
+    "building": {
+      "r": [
+        -4.329282283782959,
+        4.823012590408325
+      ],
+      "u": [
+        -2.3891058266162872,
+        6.988202974200249
+      ],
+      "d": [
+        -4.8662697076797485,
+        4.0980609357357025
+      ]
+    },
+    "card": {
+      "r": [
+        -2.641047716140747,
+        2.6468305587768555
+      ],
+      "u": [
+        -1.5766046941280365,
+        4.849742412567139
+      ],
+      "d": [
+        -3.777900218963623,
+        2.423274889588356
+      ]
+    }
+  }
+}

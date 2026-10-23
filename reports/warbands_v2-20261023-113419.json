@@ -1,0 +1,853 @@
+{
+  "run": "20261023-113419",
+  "assets": {
+    "wb_headquarters": {
+      "asset_id": "wb_headquarters",
+      "class": "building",
+      "kind": "headquarters",
+      "tier": 0,
+      "status": "accepted",
+      "weak_materials": false,
+      "output": "/home/mrazek/ArtWorkflow/assets/approved/warbands_v2/buildings/wb_headquarters.png",
+      "chosen": {
+        "tag": "c1",
+        "seed": 20251039,
+        "knobs": {
+          "denoise": 0.62,
+          "depth": 0.55,
+          "lineart": 0.55,
+          "end": 0.75,
+          "guidance": 3.0,
+          "steps": 30,
+          "sampler": "dpmpp_2m",
+          "scheduler": "beta"
+        },
+        "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c1.png",
+        "pass": true,
+        "gates": {
+          "iou": {
+            "value": 0.9969,
+            "min": 0.9,
+            "pass": true
+          },
+          "margin_px": {
+            "value": 13,
+            "min": 2,
+            "pass": true
+          },
+          "alpha": {
+            "coverage": 0.3237,
+            "semi": 0.0156,
+            "pass": true
+          },
+          "bbox_drift_px": {
+            "value": 1,
+            "max": 4,
+            "pass": true
+          }
+        },
+        "scores": {
+          "detail": 4.586,
+          "color_drift": 8.68,
+          "weak_materials": false
+        },
+        "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c1_final.png",
+        "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c1_view.png",
+        "critic": {}
+      },
+      "accepted_round": 0,
+      "flags": [],
+      "rounds": [
+        {
+          "round": 0,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "critic_model": null,
+          "critic_error": "nemotron: Command '['/home/mrazek/.opencode/bin/opencode', 'run', '-m', 'opencode/nemotron-3.5-super-vl-free', '-f', '/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/critic_sheet.png', '--format', 'json', 'You are an art director reviewing game sprites for a norse village strategy game.\\nThe attached sheet has panels. Panel SRC is the 3D blockout (the required shape, camera and\\ncomposition). Panels A, B, C, D are painted candidates of the same a norse village headquarters.\\nFor each candidate judge: does it keep the SRC silhouette, camera and composition; are the\\npainted materials rich (wood grain, stone, moss, weathering) or still flat/plastic; are there\\nartifacts (smears, melted geometry, extra objects, text, broken edges, floating bits).\\nReply with ONLY one JSON object, no prose:\\n{\"ranking\": [\"best label\", \"...\", \"worst label\"],\\n  \"candidates\": {\"A\": {\"silhouette_drift\": false, \"weak_materials\": false, \"artifacts\": false,\\n                        \"camera_mismatch\": false, \"defects\": [\"short phrase\", \"...\"]}, \"...\": {}}}']' timed out after 200 seconds; nemotron: Command '['/home/mrazek/.opencode/bin/opencode', 'run', '-m', 'opencode/nemotron-3.5-super-vl-free', '-f', '/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/critic_sheet.png', '--format', 'json', 'You are an art director reviewing game sprites for a norse village strategy game.\\nThe attached sheet has panels. Panel SRC is the 3D blockout (the required shape, camera and\\ncomposition). Panels A, B, C, D are painted candidates of the same a norse village headquarters.\\nFor each candidate judge: does it keep the SRC silhouette, camera and composition; are the\\npainted materials rich (wood grain, stone, moss, weathering) or still flat/plastic; are there\\nartifacts (smears, melted geometry, extra objects, text, broken edges, floating bits).\\nReply with ONLY one JSON object, no prose:\\n{\"ranking\": [\"best label\", \"...\", \"worst label\"],\\n  \"candidates\": {\"A\": {\"silhouette_drift\": false, \"weak_materials\": false, \"artifacts\": false,\\n                        \"camera_mismatch\": false, \"defects\": [\"short phrase\", \"...\"]}, \"...\": {}}}']' timed out after 200 seconds; qwen3-vl: no JSON in reply",
+          "candidates": [
+            {
+              "tag": "c0",
+              "seed": 20251022,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c0.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9966,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 13,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.3237,
+                  "semi": 0.0162,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 0,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 4.181,
+                "color_drift": 7.71,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c0_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c0_view.png",
+              "critic": {}
+            },
+            {
+              "tag": "c1",
+              "seed": 20251039,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c1.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9969,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 13,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.3237,
+                  "semi": 0.0156,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 1,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 4.586,
+                "color_drift": 8.68,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c1_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c1_view.png",
+              "critic": {}
+            },
+            {
+              "tag": "c2",
+              "seed": 20251056,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c2.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9969,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 13,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.3233,
+                  "semi": 0.0158,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 0,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 4.233,
+                "color_drift": 7.89,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c2_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c2_view.png",
+              "critic": {}
+            },
+            {
+              "tag": "c3",
+              "seed": 20251073,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c3.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9954,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 14,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.3233,
+                  "semi": 0.0156,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 1,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 4.249,
+                "color_drift": 7.68,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c3_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/round0/c3_view.png",
+              "critic": {}
+            }
+          ],
+          "picked": "c1",
+          "decision": "accept"
+        }
+      ],
+      "seconds": 1439.5,
+      "blender": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters/blender"
+    },
+    "wb_headquarters__t1": {
+      "asset_id": "wb_headquarters__t1",
+      "class": "building",
+      "kind": "headquarters",
+      "tier": 1,
+      "status": "accepted",
+      "weak_materials": false,
+      "output": "/home/mrazek/ArtWorkflow/assets/approved/warbands_v2/buildings/wb_headquarters__t1.png",
+      "chosen": {
+        "tag": "c1",
+        "seed": 20251039,
+        "knobs": {
+          "denoise": 0.62,
+          "depth": 0.55,
+          "lineart": 0.55,
+          "end": 0.75,
+          "guidance": 3.0,
+          "steps": 30,
+          "sampler": "dpmpp_2m",
+          "scheduler": "beta"
+        },
+        "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c1.png",
+        "pass": true,
+        "gates": {
+          "iou": {
+            "value": 0.9968,
+            "min": 0.9,
+            "pass": true
+          },
+          "margin_px": {
+            "value": 13,
+            "min": 2,
+            "pass": true
+          },
+          "alpha": {
+            "coverage": 0.4352,
+            "semi": 0.0144,
+            "pass": true
+          },
+          "bbox_drift_px": {
+            "value": 1,
+            "max": 4,
+            "pass": true
+          }
+        },
+        "scores": {
+          "detail": 5.51,
+          "color_drift": 7.23,
+          "weak_materials": false
+        },
+        "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c1_final.png",
+        "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c1_view.png",
+        "critic": {}
+      },
+      "accepted_round": 0,
+      "flags": [],
+      "rounds": [
+        {
+          "round": 0,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "critic_model": null,
+          "critic_error": "nemotron: Command '['/home/mrazek/.opencode/bin/opencode', 'run', '-m', 'opencode/nemotron-3.5-super-vl-free', '-f', '/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/critic_sheet.png', '--format', 'json', 'You are an art director reviewing game sprites for a norse village strategy game.\\nThe attached sheet has panels. Panel SRC is the 3D blockout (the required shape, camera and\\ncomposition). Panels A, B, C, D are painted candidates of the same a two storey norse great hall with a steep turf roof and carved gable beams.\\nFor each candidate judge: does it keep the SRC silhouette, camera and composition; are the\\npainted materials rich (wood grain, stone, moss, weathering) or still flat/plastic; are there\\nartifacts (smears, melted geometry, extra objects, text, broken edges, floating bits).\\nReply with ONLY one JSON object, no prose:\\n{\"ranking\": [\"best label\", \"...\", \"worst label\"],\\n  \"candidates\": {\"A\": {\"silhouette_drift\": false, \"weak_materials\": false, \"artifacts\": false,\\n                        \"camera_mismatch\": false, \"defects\": [\"short phrase\", \"...\"]}, \"...\": {}}}']' timed out after 200 seconds; nemotron: Command '['/home/mrazek/.opencode/bin/opencode', 'run', '-m', 'opencode/nemotron-3.5-super-vl-free', '-f', '/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/critic_sheet.png', '--format', 'json', 'You are an art director reviewing game sprites for a norse village strategy game.\\nThe attached sheet has panels. Panel SRC is the 3D blockout (the required shape, camera and\\ncomposition). Panels A, B, C, D are painted candidates of the same a two storey norse great hall with a steep turf roof and carved gable beams.\\nFor each candidate judge: does it keep the SRC silhouette, camera and composition; are the\\npainted materials rich (wood grain, stone, moss, weathering) or still flat/plastic; are there\\nartifacts (smears, melted geometry, extra objects, text, broken edges, floating bits).\\nReply with ONLY one JSON object, no prose:\\n{\"ranking\": [\"best label\", \"...\", \"worst label\"],\\n  \"candidates\": {\"A\": {\"silhouette_drift\": false, \"weak_materials\": false, \"artifacts\": false,\\n                        \"camera_mismatch\": false, \"defects\": [\"short phrase\", \"...\"]}, \"...\": {}}}']' timed out after 200 seconds; qwen3-vl: no JSON in reply",
+          "candidates": [
+            {
+              "tag": "c0",
+              "seed": 20251022,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c0.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9959,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 13,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.4347,
+                  "semi": 0.0146,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 1,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 5.181,
+                "color_drift": 6.26,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c0_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c0_view.png",
+              "critic": {}
+            },
+            {
+              "tag": "c1",
+              "seed": 20251039,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c1.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9968,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 13,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.4352,
+                  "semi": 0.0144,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 1,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 5.51,
+                "color_drift": 7.23,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c1_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c1_view.png",
+              "critic": {}
+            },
+            {
+              "tag": "c2",
+              "seed": 20251056,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c2.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9966,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 13,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.4346,
+                  "semi": 0.015,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 1,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 4.964,
+                "color_drift": 6.5,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c2_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c2_view.png",
+              "critic": {}
+            },
+            {
+              "tag": "c3",
+              "seed": 20251073,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c3.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9965,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 14,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.4349,
+                  "semi": 0.0144,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 1,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 5.304,
+                "color_drift": 7.45,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c3_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/round0/c3_view.png",
+              "critic": {}
+            }
+          ],
+          "picked": "c1",
+          "decision": "accept"
+        }
+      ],
+      "seconds": 1455.9,
+      "blender": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t1/blender"
+    },
+    "wb_headquarters__t2": {
+      "asset_id": "wb_headquarters__t2",
+      "class": "building",
+      "kind": "headquarters",
+      "tier": 2,
+      "status": "accepted",
+      "weak_materials": false,
+      "output": "/home/mrazek/ArtWorkflow/assets/approved/warbands_v2/buildings/wb_headquarters__t2.png",
+      "chosen": {
+        "tag": "c1",
+        "seed": 20251039,
+        "knobs": {
+          "denoise": 0.62,
+          "depth": 0.55,
+          "lineart": 0.55,
+          "end": 0.75,
+          "guidance": 3.0,
+          "steps": 30,
+          "sampler": "dpmpp_2m",
+          "scheduler": "beta"
+        },
+        "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c1.png",
+        "pass": true,
+        "gates": {
+          "iou": {
+            "value": 0.9971,
+            "min": 0.9,
+            "pass": true
+          },
+          "margin_px": {
+            "value": 13,
+            "min": 2,
+            "pass": true
+          },
+          "alpha": {
+            "coverage": 0.4884,
+            "semi": 0.0125,
+            "pass": true
+          },
+          "bbox_drift_px": {
+            "value": 1,
+            "max": 4,
+            "pass": true
+          }
+        },
+        "scores": {
+          "detail": 6.634,
+          "color_drift": 6.89,
+          "weak_materials": false
+        },
+        "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c1_final.png",
+        "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c1_view.png",
+        "critic": {}
+      },
+      "accepted_round": 0,
+      "flags": [],
+      "rounds": [
+        {
+          "round": 0,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "critic_model": null,
+          "critic_error": "nemotron: Command '['/home/mrazek/.opencode/bin/opencode', 'run', '-m', 'opencode/nemotron-3.5-super-vl-free', '-f', '/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/critic_sheet.png', '--format', 'json', 'You are an art director reviewing game sprites for a norse village strategy game.\\nThe attached sheet has panels. Panel SRC is the 3D blockout (the required shape, camera and\\ncomposition). Panels A, B, C, D are painted candidates of the same a grand three storey norse chieftain\\'s hall with a gilded ridge.\\nFor each candidate judge: does it keep the SRC silhouette, camera and composition; are the\\npainted materials rich (wood grain, stone, moss, weathering) or still flat/plastic; are there\\nartifacts (smears, melted geometry, extra objects, text, broken edges, floating bits).\\nReply with ONLY one JSON object, no prose:\\n{\"ranking\": [\"best label\", \"...\", \"worst label\"],\\n  \"candidates\": {\"A\": {\"silhouette_drift\": false, \"weak_materials\": false, \"artifacts\": false,\\n                        \"camera_mismatch\": false, \"defects\": [\"short phrase\", \"...\"]}, \"...\": {}}}']' timed out after 200 seconds; nemotron: Command '['/home/mrazek/.opencode/bin/opencode', 'run', '-m', 'opencode/nemotron-3.5-super-vl-free', '-f', '/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/critic_sheet.png', '--format', 'json', 'You are an art director reviewing game sprites for a norse village strategy game.\\nThe attached sheet has panels. Panel SRC is the 3D blockout (the required shape, camera and\\ncomposition). Panels A, B, C, D are painted candidates of the same a grand three storey norse chieftain\\'s hall with a gilded ridge.\\nFor each candidate judge: does it keep the SRC silhouette, camera and composition; are the\\npainted materials rich (wood grain, stone, moss, weathering) or still flat/plastic; are there\\nartifacts (smears, melted geometry, extra objects, text, broken edges, floating bits).\\nReply with ONLY one JSON object, no prose:\\n{\"ranking\": [\"best label\", \"...\", \"worst label\"],\\n  \"candidates\": {\"A\": {\"silhouette_drift\": false, \"weak_materials\": false, \"artifacts\": false,\\n                        \"camera_mismatch\": false, \"defects\": [\"short phrase\", \"...\"]}, \"...\": {}}}']' timed out after 200 seconds; qwen3-vl: no JSON in reply",
+          "candidates": [
+            {
+              "tag": "c0",
+              "seed": 20251022,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c0.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9977,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 13,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.4882,
+                  "semi": 0.0123,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 0,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 5.933,
+                "color_drift": 5.7,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c0_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c0_view.png",
+              "critic": {}
+            },
+            {
+              "tag": "c1",
+              "seed": 20251039,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c1.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9971,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 13,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.4884,
+                  "semi": 0.0125,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 1,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 6.634,
+                "color_drift": 6.89,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c1_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c1_view.png",
+              "critic": {}
+            },
+            {
+              "tag": "c2",
+              "seed": 20251056,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c2.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.9961,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 14,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.4882,
+                  "semi": 0.0124,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 1,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 6.189,
+                "color_drift": 6.03,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c2_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c2_view.png",
+              "critic": {}
+            },
+            {
+              "tag": "c3",
+              "seed": 20251073,
+              "knobs": {
+                "denoise": 0.62,
+                "depth": 0.55,
+                "lineart": 0.55,
+                "end": 0.75,
+                "guidance": 3.0,
+                "steps": 30,
+                "sampler": "dpmpp_2m",
+                "scheduler": "beta"
+              },
+              "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c3.png",
+              "pass": true,
+              "gates": {
+                "iou": {
+                  "value": 0.997,
+                  "min": 0.9,
+                  "pass": true
+                },
+                "margin_px": {
+                  "value": 13,
+                  "min": 2,
+                  "pass": true
+                },
+                "alpha": {
+                  "coverage": 0.4883,
+                  "semi": 0.012,
+                  "pass": true
+                },
+                "bbox_drift_px": {
+                  "value": 1,
+                  "max": 4,
+                  "pass": true
+                }
+              },
+              "scores": {
+                "detail": 6.015,
+                "color_drift": 6.96,
+                "weak_materials": false
+              },
+              "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c3_final.png",
+              "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/round0/c3_view.png",
+              "critic": {}
+            }
+          ],
+          "picked": "c1",
+          "decision": "accept"
+        }
+      ],
+      "seconds": 1528.2,
+      "blender": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_headquarters__t2/blender"
+    }
+  },
+  "families": {
+    "headquarters": {
+      "tiers": 3,
+      "ground_line_px": 0,
+      "plate_x_px": 1,
+      "plate_palette_dE": 8.6,
+      "area_growth": [
+        1.345,
+        1.122
+      ],
+      "upgrade_clear": true,
+      "pass": true
+    },
+    "timber_camp": {
+      "pass": false,
+      "reason": "not every tier accepted"
+    },
+    "clay_pit": {
+      "pass": false,
+      "reason": "not every tier accepted"
+    },
+    "iron_mine": {
+      "pass": false,
+      "reason": "not every tier accepted"
+    },
+    "farm": {
+      "pass": false,
+      "reason": "not every tier accepted"
+    },
+    "warehouse": {
+      "pass": false,
+      "reason": "not every tier accepted"
+    },
+    "market": {
+      "pass": false,
+      "reason": "not every tier accepted"
+    },
+    "barracks": {
+      "pass": false,
+      "reason": "not every tier accepted"
+    },
+    "stable": {
+      "pass": false,
+      "reason": "not every tier accepted"
+    },
+    "academy": {
+      "pass": false,
+      "reason": "not every tier accepted"
+    }
+  },
+  "summary": {
+    "accepted": 3,
+    "failed": 0,
+    "families_pass": 1,
+    "families": 10
+  }
+}

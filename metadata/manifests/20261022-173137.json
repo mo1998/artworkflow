@@ -1,0 +1,187 @@
+{
+  "run_id": "20261022-173137",
+  "manifest_path": "config/manifest.wall.json",
+  "schema_version": 1,
+  "jobs": [
+    "wb_wall_palisade",
+    "wb_wall_timber",
+    "wb_wall_stone",
+    "wb_wall_keep"
+  ],
+  "source": {
+    "schema_version": 1,
+    "run": {
+      "notes": "wall elevations"
+    },
+    "assets": [
+      {
+        "asset_id": "wb_wall_palisade",
+        "asset_type": "texture",
+        "description": "Warbands palisade wall elevation.",
+        "source": "comfyui",
+        "style": "norse-frontier-wall-v1",
+        "prompt": "a norse frontier timber palisade, a row of sharp pointed pine logs driven side by side, horizontal withering rails lashed across them, weathered grey wood, moss at the base",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 384,
+          "steps": 28
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/wall",
+          "godot": "res://assets/warbands/wall"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "wall",
+          "palisade"
+        ],
+        "status": "pending"
+      },
+      {
+        "asset_id": "wb_wall_timber",
+        "asset_type": "texture",
+        "description": "Warbands timber wall elevation.",
+        "source": "comfyui",
+        "style": "norse-frontier-wall-v1",
+        "prompt": "a norse frontier timber curtain wall, heavy squared pine beams stacked in courses with iron bands and oak pegs, a horizontal timber walkway along the top, weathered grey-brown wood",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 384,
+          "steps": 28
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/wall",
+          "godot": "res://assets/warbands/wall"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "wall",
+          "timber"
+        ],
+        "status": "pending"
+      },
+      {
+        "asset_id": "wb_wall_stone",
+        "asset_type": "texture",
+        "description": "Warbands stone wall elevation.",
+        "source": "comfyui",
+        "style": "norse-frontier-wall-v1",
+        "prompt": "a norse frontier stone curtain wall, courses of rough hewn granite blocks with deep mortar joints, an iron sconce bracket, weathered grey stone with green moss in the joints",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 384,
+          "steps": 28
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/wall",
+          "godot": "res://assets/warbands/wall"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "wall",
+          "stone"
+        ],
+        "status": "pending"
+      },
+      {
+        "asset_id": "wb_wall_keep",
+        "asset_type": "texture",
+        "description": "Warbands keep wall elevation.",
+        "source": "comfyui",
+        "style": "norse-frontier-wall-v1",
+        "prompt": "a norse frontier fortress wall, massive cut granite blocks with bevelled edges, a band of dark iron reinforcement, a carved runestone band, weathered pale stone with lichen",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 384,
+          "steps": 28
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/wall",
+          "godot": "res://assets/warbands/wall"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "wall",
+          "keep"
+        ],
+        "status": "pending"
+      }
+    ]
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "asset_id": "wb_timber_camp",
+  "class": "building",
+  "kind": "timber_camp",
+  "tier": 0,
+  "status": "accepted",
+  "weak_materials": false,
+  "output": "/home/mrazek/ArtWorkflow/assets/approved/warbands_v2/buildings/wb_timber_camp.png",
+  "chosen": {
+    "tag": "c0",
+    "seed": 20251022,
+    "knobs": {
+      "denoise": 0.62,
+      "depth": 0.55,
+      "lineart": 0.55,
+      "end": 0.75,
+      "guidance": 3.0,
+      "steps": 30,
+      "sampler": "dpmpp_2m",
+      "scheduler": "beta"
+    },
+    "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c0.png",
+    "pass": true,
+    "gates": {
+      "iou": {
+        "value": 0.9748,
+        "min": 0.9,
+        "pass": true
+      },
+      "margin_px": {
+        "value": 19,
+        "min": 2,
+        "pass": true
+      },
+      "alpha": {
+        "coverage": 0.0815,
+        "semi": 0.0632,
+        "pass": true
+      },
+      "bbox_drift_px": {
+        "value": 1,
+        "max": 4,
+        "pass": true
+      }
+    },
+    "scores": {
+      "detail": 5.766,
+      "color_drift": 1.55,
+      "weak_materials": false
+    },
+    "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c0_final.png",
+    "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c0_view.png",
+    "critic": {
+      "silhouette_drift": false,
+      "weak_materials": false,
+      "artifacts": false,
+      "camera_mismatch": false,
+      "defects": []
+    }
+  },
+  "accepted_round": 0,
+  "flags": [],
+  "rounds": [
+    {
+      "round": 0,
+      "knobs": {
+        "denoise": 0.62,
+        "depth": 0.55,
+        "lineart": 0.55,
+        "end": 0.75,
+        "guidance": 3.0,
+        "steps": 30,
+        "sampler": "dpmpp_2m",
+        "scheduler": "beta"
+      },
+      "critic_model": "qwen3-vl",
+      "critic_error": null,
+      "candidates": [
+        {
+          "tag": "c0",
+          "seed": 20251022,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c0.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9748,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 19,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.0815,
+              "semi": 0.0632,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 1,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 5.766,
+            "color_drift": 1.55,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c0_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c0_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c1",
+          "seed": 20251039,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c1.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9809,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 19,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.0818,
+              "semi": 0.0625,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 1,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 5.987,
+            "color_drift": 2.26,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c1_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c1_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c2",
+          "seed": 20251056,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c2.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9742,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 19,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.0816,
+              "semi": 0.0621,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 1,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 5.01,
+            "color_drift": 2.83,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c2_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c2_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c3",
+          "seed": 20251073,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c3.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9819,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 19,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.0818,
+              "semi": 0.0618,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 1,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 6.151,
+            "color_drift": 2.78,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c3_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/round0/c3_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        }
+      ],
+      "picked": "c0",
+      "decision": "accept"
+    }
+  ],
+  "seconds": 8.9,
+  "blender": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_timber_camp/blender"
+}

@@ -1,0 +1,294 @@
+{
+  "asset_id": "wb_wallcard_stone",
+  "class": "card",
+  "kind": "wall_stone",
+  "tier": 2,
+  "status": "accepted",
+  "weak_materials": false,
+  "output": "/home/mrazek/ArtWorkflow/assets/approved/warbands_v2/buildings/wb_wallcard_stone.png",
+  "chosen": {
+    "tag": "c0",
+    "seed": 20251022,
+    "knobs": {
+      "denoise": 0.62,
+      "depth": 0.55,
+      "lineart": 0.55,
+      "end": 0.75,
+      "guidance": 3.0,
+      "steps": 30,
+      "sampler": "dpmpp_2m",
+      "scheduler": "beta"
+    },
+    "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c0.png",
+    "pass": true,
+    "gates": {
+      "iou": {
+        "value": 0.9966,
+        "min": 0.9,
+        "pass": true
+      },
+      "margin_px": {
+        "value": 12,
+        "min": 2,
+        "pass": true
+      },
+      "alpha": {
+        "coverage": 0.3331,
+        "semi": 0.0207,
+        "pass": true
+      },
+      "bbox_drift_px": {
+        "value": 1,
+        "max": 4,
+        "pass": true
+      }
+    },
+    "scores": {
+      "detail": 5.388,
+      "color_drift": 0.86,
+      "weak_materials": false
+    },
+    "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c0_final.png",
+    "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c0_view.png",
+    "critic": {
+      "silhouette_drift": false,
+      "weak_materials": false,
+      "artifacts": false,
+      "camera_mismatch": false,
+      "defects": []
+    }
+  },
+  "accepted_round": 0,
+  "flags": [],
+  "rounds": [
+    {
+      "round": 0,
+      "knobs": {
+        "denoise": 0.62,
+        "depth": 0.55,
+        "lineart": 0.55,
+        "end": 0.75,
+        "guidance": 3.0,
+        "steps": 30,
+        "sampler": "dpmpp_2m",
+        "scheduler": "beta"
+      },
+      "critic_model": "qwen3-vl",
+      "critic_error": null,
+      "candidates": [
+        {
+          "tag": "c0",
+          "seed": 20251022,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c0.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9966,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 12,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.3331,
+              "semi": 0.0207,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 1,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 5.388,
+            "color_drift": 0.86,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c0_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c0_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c1",
+          "seed": 20251039,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c1.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9969,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 11,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.3336,
+              "semi": 0.0208,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 0,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 5.465,
+            "color_drift": 1.89,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c1_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c1_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c2",
+          "seed": 20251056,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c2.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9976,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 12,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.3333,
+              "semi": 0.0196,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 1,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 4.917,
+            "color_drift": 0.48,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c2_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c2_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        },
+        {
+          "tag": "c3",
+          "seed": 20251073,
+          "knobs": {
+            "denoise": 0.62,
+            "depth": 0.55,
+            "lineart": 0.55,
+            "end": 0.75,
+            "guidance": 3.0,
+            "steps": 30,
+            "sampler": "dpmpp_2m",
+            "scheduler": "beta"
+          },
+          "raw": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c3.png",
+          "pass": true,
+          "gates": {
+            "iou": {
+              "value": 0.9973,
+              "min": 0.9,
+              "pass": true
+            },
+            "margin_px": {
+              "value": 12,
+              "min": 2,
+              "pass": true
+            },
+            "alpha": {
+              "coverage": 0.333,
+              "semi": 0.0205,
+              "pass": true
+            },
+            "bbox_drift_px": {
+              "value": 1,
+              "max": 4,
+              "pass": true
+            }
+          },
+          "scores": {
+            "detail": 4.547,
+            "color_drift": 1.76,
+            "weak_materials": false
+          },
+          "final": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c3_final.png",
+          "view": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/round0/c3_view.png",
+          "critic": {
+            "silhouette_drift": false,
+            "weak_materials": false,
+            "artifacts": false,
+            "camera_mismatch": false,
+            "defects": []
+          }
+        }
+      ],
+      "picked": "c0",
+      "decision": "accept"
+    }
+  ],
+  "seconds": 309.3,
+  "blender": "/home/mrazek/ArtWorkflow/assets/warbands_v2/work/wb_wallcard_stone/blender"
+}

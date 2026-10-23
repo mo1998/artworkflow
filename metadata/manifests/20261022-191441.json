@@ -1,0 +1,58 @@
+{
+  "run_id": "20261022-191441",
+  "manifest_path": "config/manifest.keep.json",
+  "schema_version": 1,
+  "jobs": [
+    "wb_wall_keep"
+  ],
+  "source": {
+    "schema_version": 1,
+    "run": {
+      "notes": "keep texture"
+    },
+    "assets": [
+      {
+        "asset_id": "wb_wall_keep",
+        "asset_type": "texture",
+        "description": "Warbands keep wall elevation.",
+        "source": "comfyui",
+        "style": "norse-frontier-wall-v1",
+        "prompt": "a flat seamless texture of large weathered grey stone blocks laid in even courses with dark mortar joints, patches of lichen and moss, filling the entire frame edge to edge, uniform masonry surface, no sky, no gaps",
+        "seed": 20251022,
+        "generation": {
+          "workflow": "workflows/comfyui/flux_txt2img.json",
+          "width": 1024,
+          "height": 475,
+          "steps": 28
+        },
+        "processing": {
+          "remove_background": false,
+          "trim": false,
+          "padding": 0,
+          "resize": null,
+          "anchor": "center"
+        },
+        "animation": {
+          "enabled": false
+        },
+        "export": {
+          "format": "png",
+          "target_directory": "assets/approved/warbands/wall",
+          "godot": "res://assets/warbands/wall"
+        },
+        "provenance": {
+          "model": "FLUX.1-dev fp8",
+          "model_file": "flux1-dev-fp8.safetensors",
+          "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+          "license_note": "FLUX.1-dev non-commercial licence. Verify before shipping."
+        },
+        "tags": [
+          "warbands",
+          "wall",
+          "keep"
+        ],
+        "status": "pending"
+      }
+    ]
+  }
+}

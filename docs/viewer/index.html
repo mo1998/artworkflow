@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ArtWorkflow — animation viewer</title>
+<style>
+  :root {
+    --bg: #121218; --panel: #1b1b24; --line: #2c2c3a; --text: #e6e6ee; --dim: #9a9aad;
+    --accent: #d8455f; --check: #232330;
+  }
+  body.light {
+    --bg: #eef0f4; --panel: #ffffff; --line: #d4d7e0; --text: #14141c; --dim: #5a5a6e;
+    --check: #e2e5ec;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  header {
+    position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 18px;
+    align-items: center; padding: 12px 20px; background: var(--panel);
+    border-bottom: 1px solid var(--line);
+  }
+  h1 { font-size: 15px; margin: 0; font-weight: 600; letter-spacing: .02em; }
+  h1 span { color: var(--accent); }
+  .controls { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-left: auto; }
+  label { color: var(--dim); font-size: 12px; display: flex; gap: 6px; align-items: center; }
+  input[type=range] { width: 110px; accent-color: var(--accent); }
+  button {
+    background: transparent; color: var(--text); border: 1px solid var(--line);
+    border-radius: 6px; padding: 5px 11px; font-size: 13px; cursor: pointer;
+  }
+  button:hover { border-color: var(--accent); color: var(--accent); }
+  main { display: grid; gap: 18px; padding: 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  body.solo main .card:not(.solo) { display: none; }
+  body.solo main { grid-template-columns: 1fr; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .card.solo .stage { min-height: 60vh; }
+  .card h2 { font-size: 13px; margin: 0; font-weight: 600; }
+  .card h2 small { color: var(--dim); font-weight: 400; margin-left: 6px; }
+  .stage {
+    display: grid; place-items: center; border-radius: 8px; padding: 10px;
+    background:
+      linear-gradient(45deg, var(--check) 25%, transparent 25%, transparent 75%, var(--check) 75%) 0 0/24px 24px,
+      linear-gradient(45deg, var(--check) 25%, transparent 25%, transparent 75%, var(--check) 75%) 12px 12px/24px 24px,
+      var(--bg);
+  }
+  body.solid .stage { background: var(--bg); }
+  canvas { display: block; image-rendering: pixelated; max-width: 100%; }
+  .meta { display: flex; justify-content: space-between; color: var(--dim); font-size: 11px; }
+  footer { color: var(--dim); font-size: 12px; padding: 0 20px 24px; }
+  kbd { border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; font-size: 11px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>ArtWorkflow <span>·</span> animation viewer</h1>
+  <div class="controls">
+    <button id="play">pause</button>
+    <label>speed <input id="fps" type="range" min="2" max="30" step="1" value="12"><span id="fpsval">12</span> fps</label>
+    <label>zoom <input id="zoom" type="range" min="0.25" max="1.5" step="0.05" value="0.75"></label>
+    <button id="theme">light</button>
+    <button id="bg">flat</button>
+  </div>
+</header>
+<main id="grid"></main>
+<footer>
+  Frames are drawn on a canvas from each spritesheet's own metadata, so this is exactly what the
+  engine receives. Click a clip to enlarge it. <kbd>space</kbd> play/pause, <kbd>←</kbd><kbd>→</kbd>
+  step a frame while paused.
+</footer>
+<script>
+const CLIPS = [{"id": "anime_girl_wave", "label": "wave", "file": "sheets/anime_girl_wave.png", "pad": 2, "columns": 4, "rows": 3, "count": 12, "fps": 12, "frame": {"w": 512, "h": 512}, "sheet_size": [2064, 1548], "frames": [{"x": 2, "y": 2, "w": 512, "h": 512}, {"x": 518, "y": 2, "w": 512, "h": 512}, {"x": 1034, "y": 2, "w": 512, "h": 512}, {"x": 1550, "y": 2, "w": 512, "h": 512}, {"x": 2, "y": 518, "w": 512, "h": 512}, {"x": 518, "y": 518, "w": 512, "h": 512}, {"x": 1034, "y": 518, "w": 512, "h": 512}, {"x": 1550, "y": 518, "w": 512, "h": 512}, {"x": 2, "y": 1034, "w": 512, "h": 512}, {"x": 518, "y": 1034, "w": 512, "h": 512}, {"x": 1034, "y": 1034, "w": 512, "h": 512}, {"x": 1550, "y": 1034, "w": 512, "h": 512}], "source": "assets/spritesheets/anime_girl_wave.png"}, {"id": "vampire_thrall_attack", "label": "attack", "file": "sheets/vampire_thrall_attack.png", "pad": 2, "columns": 4, "rows": 3, "count": 12, "fps": 12, "frame": {"w": 512, "h": 512}, "sheet_size": [2064, 1548], "frames": [{"x": 2, "y": 2, "w": 512, "h": 512}, {"x": 518, "y": 2, "w": 512, "h": 512}, {"x": 1034, "y": 2, "w": 512, "h": 512}, {"x": 1550, "y": 2, "w": 512, "h": 512}, {"x": 2, "y": 518, "w": 512, "h": 512}, {"x": 518, "y": 518, "w": 512, "h": 512}, {"x": 1034, "y": 518, "w": 512, "h": 512}, {"x": 1550, "y": 518, "w": 512, "h": 512}, {"x": 2, "y": 1034, "w": 512, "h": 512}, {"x": 518, "y": 1034, "w": 512, "h": 512}, {"x": 1034, "y": 1034, "w": 512, "h": 512}, {"x": 1550, "y": 1034, "w": 512, "h": 512}], "source": "assets/spritesheets/vampire_thrall_attack.png"}, {"id": "vampire_thrall_idle", "label": "idle", "file": "sheets/vampire_thrall_idle.png", "pad": 2, "columns": 4, "rows": 4, "count": 16, "fps": 12, "frame": {"w": 512, "h": 512}, "sheet_size": [2064, 2064], "frames": [{"x": 2, "y": 2, "w": 512, "h": 512}, {"x": 518, "y": 2, "w": 512, "h": 512}, {"x": 1034, "y": 2, "w": 512, "h": 512}, {"x": 1550, "y": 2, "w": 512, "h": 512}, {"x": 2, "y": 518, "w": 512, "h": 512}, {"x": 518, "y": 518, "w": 512, "h": 512}, {"x": 1034, "y": 518, "w": 512, "h": 512}, {"x": 1550, "y": 518, "w": 512, "h": 512}, {"x": 2, "y": 1034, "w": 512, "h": 512}, {"x": 518, "y": 1034, "w": 512, "h": 512}, {"x": 1034, "y": 1034, "w": 512, "h": 512}, {"x": 1550, "y": 1034, "w": 512, "h": 512}, {"x": 2, "y": 1550, "w": 512, "h": 512}, {"x": 518, "y": 1550, "w": 512, "h": 512}, {"x": 1034, "y": 1550, "w": 512, "h": 512}, {"x": 1550, "y": 1550, "w": 512, "h": 512}], "source": "assets/spritesheets/vampire_thrall_idle.png"}, {"id": "vampire_thrall_walk", "label": "walk", "file": "sheets/vampire_thrall_walk.png", "pad": 2, "columns": 4, "rows": 4, "count": 16, "fps": 12, "frame": {"w": 512, "h": 512}, "sheet_size": [2064, 2064], "frames": [{"x": 2, "y": 2, "w": 512, "h": 512}, {"x": 518, "y": 2, "w": 512, "h": 512}, {"x": 1034, "y": 2, "w": 512, "h": 512}, {"x": 1550, "y": 2, "w": 512, "h": 512}, {"x": 2, "y": 518, "w": 512, "h": 512}, {"x": 518, "y": 518, "w": 512, "h": 512}, {"x": 1034, "y": 518, "w": 512, "h": 512}, {"x": 1550, "y": 518, "w": 512, "h": 512}, {"x": 2, "y": 1034, "w": 512, "h": 512}, {"x": 518, "y": 1034, "w": 512, "h": 512}, {"x": 1034, "y": 1034, "w": 512, "h": 512}, {"x": 1550, "y": 1034, "w": 512, "h": 512}, {"x": 2, "y": 1550, "w": 512, "h": 512}, {"x": 518, "y": 1550, "w": 512, "h": 512}, {"x": 1034, "y": 1550, "w": 512, "h": 512}, {"x": 1550, "y": 1550, "w": 512, "h": 512}], "source": "assets/spritesheets/vampire_thrall_walk.png"}, {"id": "demo_hut_flag", "label": "banner wave", "file": "sheets/demo_hut_flag.png", "pad": 2, "columns": 4, "rows": 3, "count": 12, "fps": 12, "frame": {"w": 512, "h": 512}, "sheet_size": [2064, 1548], "frames": [{"x": 2, "y": 2, "w": 512, "h": 512}, {"x": 518, "y": 2, "w": 512, "h": 512}, {"x": 1034, "y": 2, "w": 512, "h": 512}, {"x": 1550, "y": 2, "w": 512, "h": 512}, {"x": 2, "y": 518, "w": 512, "h": 512}, {"x": 518, "y": 518, "w": 512, "h": 512}, {"x": 1034, "y": 518, "w": 512, "h": 512}, {"x": 1550, "y": 518, "w": 512, "h": 512}, {"x": 2, "y": 1034, "w": 512, "h": 512}, {"x": 518, "y": 1034, "w": 512, "h": 512}, {"x": 1034, "y": 1034, "w": 512, "h": 512}, {"x": 1550, "y": 1034, "w": 512, "h": 512}], "source": "assets/spritesheets/demo_hut_flag.png"}, {"id": "vampire_gate_torch", "label": "torch flicker", "file": "sheets/vampire_gate_torch.png", "pad": 2, "columns": 4, "rows": 4, "count": 16, "fps": 12, "frame": {"w": 512, "h": 512}, "sheet_size": [2064, 2064], "frames": [{"x": 2, "y": 2, "w": 512, "h": 512}, {"x": 518, "y": 2, "w": 512, "h": 512}, {"x": 1034, "y": 2, "w": 512, "h": 512}, {"x": 1550, "y": 2, "w": 512, "h": 512}, {"x": 2, "y": 518, "w": 512, "h": 512}, {"x": 518, "y": 518, "w": 512, "h": 512}, {"x": 1034, "y": 518, "w": 512, "h": 512}, {"x": 1550, "y": 518, "w": 512, "h": 512}, {"x": 2, "y": 1034, "w": 512, "h": 512}, {"x": 518, "y": 1034, "w": 512, "h": 512}, {"x": 1034, "y": 1034, "w": 512, "h": 512}, {"x": 1550, "y": 1034, "w": 512, "h": 512}, {"x": 2, "y": 1550, "w": 512, "h": 512}, {"x": 518, "y": 1550, "w": 512, "h": 512}, {"x": 1034, "y": 1550, "w": 512, "h": 512}, {"x": 1550, "y": 1550, "w": 512, "h": 512}], "source": "assets/spritesheets/vampire_gate_torch.png"}, {"id": "vampire_watcher", "label": "turntable", "file": "sheets/vampire_watcher.png", "pad": 2, "columns": 6, "rows": 4, "count": 24, "fps": 12, "frame": {"w": 512, "h": 512}, "sheet_size": [3096, 2064], "frames": [{"x": 2, "y": 2, "w": 512, "h": 512}, {"x": 518, "y": 2, "w": 512, "h": 512}, {"x": 1034, "y": 2, "w": 512, "h": 512}, {"x": 1550, "y": 2, "w": 512, "h": 512}, {"x": 2066, "y": 2, "w": 512, "h": 512}, {"x": 2582, "y": 2, "w": 512, "h": 512}, {"x": 2, "y": 518, "w": 512, "h": 512}, {"x": 518, "y": 518, "w": 512, "h": 512}, {"x": 1034, "y": 518, "w": 512, "h": 512}, {"x": 1550, "y": 518, "w": 512, "h": 512}, {"x": 2066, "y": 518, "w": 512, "h": 512}, {"x": 2582, "y": 518, "w": 512, "h": 512}, {"x": 2, "y": 1034, "w": 512, "h": 512}, {"x": 518, "y": 1034, "w": 512, "h": 512}, {"x": 1034, "y": 1034, "w": 512, "h": 512}, {"x": 1550, "y": 1034, "w": 512, "h": 512}, {"x": 2066, "y": 1034, "w": 512, "h": 512}, {"x": 2582, "y": 1034, "w": 512, "h": 512}, {"x": 2, "y": 1550, "w": 512, "h": 512}, {"x": 518, "y": 1550, "w": 512, "h": 512}, {"x": 1034, "y": 1550, "w": 512, "h": 512}, {"x": 1550, "y": 1550, "w": 512, "h": 512}, {"x": 2066, "y": 1550, "w": 512, "h": 512}, {"x": 2582, "y": 1550, "w": 512, "h": 512}], "source": "assets/spritesheets/vampire_watcher.png"}];
+
+const state = { playing: true, fps: 12, zoom: 0.75 };
+let last = 0;
+
+function makeCard(clip) {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <h2>${clip.label}<small>${clip.count} frames · ${clip.frame.w}×${clip.frame.h} · ${clip.fps} fps</small></h2>
+    <div class="stage"><canvas width="${clip.frame.w}" height="${clip.frame.h}"></canvas></div>
+    <div class="meta"><span>${clip.id}</span><span class="counter">frame 0</span></div>`;
+  card.addEventListener("click", () => {
+    const wasSolo = card.classList.contains("solo");
+    document.querySelectorAll(".card").forEach(c => c.classList.remove("solo"));
+    document.body.classList.toggle("solo", !wasSolo);
+    if (!wasSolo) card.classList.add("solo");
+    layout();
+  });
+  return card;
+}
+
+const views = [];
+
+function layout() {
+  for (const view of views) {
+    const solo = view.card.classList.contains("solo");
+    const scale = solo ? Math.min(2.2, state.zoom * 2) : state.zoom;
+    const canvas = view.canvas;
+    canvas.style.width = Math.round(view.clip.frame.w * scale) + "px";
+    canvas.style.height = Math.round(view.clip.frame.h * scale) + "px";
+    canvas.parentElement.style.minHeight = solo ? "60vh" : "";
+  }
+}
+
+function setup(clip) {
+  const card = makeCard(clip);
+  document.getElementById("grid").appendChild(card);
+  const canvas = card.querySelector("canvas");
+  const ctx = canvas.getContext("2d");
+  const view = { clip, card, canvas, ctx, frame: 0, img: new Image(), counter: card.querySelector(".counter"), last: 0 };
+  view.img.src = clip.file;
+  views.push(view);
+  return view;
+}
+
+function draw(view) {
+  const { ctx, img, clip, frame } = view;
+  if (!img.complete || !img.naturalWidth) return;
+  ctx.clearRect(0, 0, clip.frame.w, clip.frame.h);
+  const rect = clip.frames[frame % clip.frames.length];
+  ctx.drawImage(img, rect.x, rect.y, rect.w, rect.h, 0, 0, clip.frame.w, clip.frame.h);
+  view.counter.textContent = "frame " + (frame % clip.frames.length);
+}
+
+function tick(now) {
+  for (const view of views) {
+    if (state.playing) {
+      const interval = 1000 / state.fps;
+      if (!view.last) view.last = now;
+      while (now - view.last >= interval) {
+        view.frame = (view.frame + 1) % view.clip.frames.length;
+        view.last += interval;
+      }
+    } else {
+      view.last = now;
+    }
+    draw(view);
+  }
+  requestAnimationFrame(tick);
+}
+
+function boot() {
+  CLIPS.forEach(setup);
+  layout();
+  requestAnimationFrame(tick);
+
+  document.getElementById("play").addEventListener("click", (event) => {
+    state.playing = !state.playing;
+    event.target.textContent = state.playing ? "pause" : "play";
+  });
+  const fps = document.getElementById("fps");
+  fps.value = 12;
+  document.getElementById("fpsval").textContent = "12";
+  fps.addEventListener("input", () => {
+    state.fps = Number(fps.value);
+    document.getElementById("fpsval").textContent = String(state.fps);
+  });
+  document.getElementById("zoom").addEventListener("input", (event) => {
+    state.zoom = Number(event.target.value);
+    layout();
+  });
+  document.getElementById("theme").addEventListener("click", (event) => {
+    document.body.classList.toggle("light");
+    event.target.textContent = document.body.classList.contains("light") ? "dark" : "light";
+  });
+  document.getElementById("bg").addEventListener("click", (event) => {
+    document.body.classList.toggle("solid");
+    event.target.textContent = document.body.classList.contains("solid") ? "checker" : "flat";
+  });
+  window.addEventListener("keydown", (event) => {
+    if (event.code === "Space") {
+      event.preventDefault();
+      document.getElementById("play").click();
+    }
+    if (!state.playing && (event.code === "ArrowRight" || event.code === "ArrowLeft")) {
+      const step = event.code === "ArrowRight" ? 1 : -1;
+      for (const view of views) {
+        view.frame = (view.frame + step + view.clip.frames.length) % view.clip.frames.length;
+        draw(view);
+      }
+    }
+  });
+}
+
+boot();
+</script>
+</body>
+</html>
